@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--This file was saved with a tool from Vector Informatik GmbH-->
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>AUTOSAR_Platform</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>BaseTypes</SHORT-NAME>
+          <ELEMENTS>
+            <SW-BASE-TYPE UUID="5f9e4bdd-a8cf-4b41-9c88-78176ad93c3b">
+              <SHORT-NAME>uint8</SHORT-NAME>
+              <CATEGORY>FIXED_LENGTH</CATEGORY>
+              <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+              <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+            </SW-BASE-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>DataConstrs</SHORT-NAME>
+          <ELEMENTS>
+            <DATA-CONSTR UUID="468486e2-29dc-4533-997d-8b126b5ec4b8">
+              <SHORT-NAME>uint8_DataConstr</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">255</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
+          <ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE UUID="06aa86d4-545f-41e2-adc5-23549e3318ed">
+              <SHORT-NAME>uint8</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">uint8 represents integers with a minimum value of 0 and a maximum value of 255.
+The order-relation on uint8 is: x &lt; y if y - x is positive.
+uint8 has a lexical representation consisting of a finite-length sequence 
+of decimal digits (#x30-#x39).
+
+For example: 1, 0, 126, +10.</L-2>
+              </DESC>
+              <CATEGORY>VALUE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <BASE-TYPE-REF DEST="SW-BASE-TYPE">/AUTOSAR_Platform/BaseTypes/uint8</BASE-TYPE-REF>
+                    <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/AUTOSAR_Platform/DataConstrs/uint8_DataConstr</DATA-CONSTR-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
+            </IMPLEMENTATION-DATA-TYPE>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>ComponentTypes</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>CanBusOffSWC</SHORT-NAME>
+          <ELEMENTS>
+            <APPLICATION-SW-COMPONENT-TYPE UUID="E4D5A61F-C9C4-4229-B5B9-9B6C1E7C8546">
+              <SHORT-NAME>CanBusOff</SHORT-NAME>
+              <PORTS>
+                <P-PORT-PROTOTYPE UUID="469124AC-DB5F-43B8-8286-CC3220CB3B21">
+                  <SHORT-NAME>P_CanBusOff</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOff/Can_BusOffIndicated</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOff/CanBusOff_Begin</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                    <SERVER-COM-SPEC>
+                      <OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOff/CanBusOff_End</OPERATION-REF>
+                      <QUEUE-LENGTH>1</QUEUE-LENGTH>
+                    </SERVER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="CLIENT-SERVER-INTERFACE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOff</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+                <P-PORT-PROTOTYPE UUID="C0A55428-7CC3-4AC6-987D-0ED9561AF209">
+                  <SHORT-NAME>P_CanBusOffStatus</SHORT-NAME>
+                  <PROVIDED-COM-SPECS>
+                    <NONQUEUED-SENDER-COM-SPEC>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus/CanBusOffSatus</DATA-ELEMENT-REF>
+                      <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                      <INIT-VALUE>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </INIT-VALUE>
+                    </NONQUEUED-SENDER-COM-SPEC>
+                  </PROVIDED-COM-SPECS>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus</PROVIDED-INTERFACE-TREF>
+                </P-PORT-PROTOTYPE>
+              </PORTS>
+              <INTERNAL-BEHAVIORS>
+                <SWC-INTERNAL-BEHAVIOR UUID="D73DF713-D16E-445D-AB65-4A432AE55E99">
+                  <SHORT-NAME>CanBusOff_InternalBehavior</SHORT-NAME>
+                  <EVENTS>
+                    <TIMING-EVENT UUID="5D12FBFD-BC84-4842-9031-709113357B65">
+                      <SHORT-NAME>CanBusOffStatus_TE</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CanBusOffSWC/CanBusOff/CanBusOff_InternalBehavior/CanBusOffStatus</START-ON-EVENT-REF>
+                      <PERIOD>0.005</PERIOD>
+                    </TIMING-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="A693FCBC-EB14-41D3-86EE-BA9FBF269273">
+                      <SHORT-NAME>OIT_P_CanBusOff_Can_BusOffIndicated_P_CanBusOff_Can_BusOffIndicated</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CanBusOffSWC/CanBusOff/CanBusOff_InternalBehavior/P_CanBusOff_Can_BusOffIndicated</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/CanBusOffSWC/CanBusOff/P_CanBusOff</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOff/Can_BusOffIndicated</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="5F773107-CA88-49A4-AB51-25C4E37E6CDD">
+                      <SHORT-NAME>OIT_P_CanBusOff_CanBusOff_Begin_P_CanBusOff_CanBusOff_Begin</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CanBusOffSWC/CanBusOff/CanBusOff_InternalBehavior/P_CanBusOff_CanBusOff_Begin</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/CanBusOffSWC/CanBusOff/P_CanBusOff</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOff/CanBusOff_Begin</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                    <OPERATION-INVOKED-EVENT UUID="EB4493C2-BAD7-42C1-AD2E-B27683F893E5">
+                      <SHORT-NAME>OIT_P_CanBusOff_CanBusOff_End_P_CanBusOff_CanBusOff_End</SHORT-NAME>
+                      <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/CanBusOffSWC/CanBusOff/CanBusOff_InternalBehavior/P_CanBusOff_CanBusOff_End</START-ON-EVENT-REF>
+                      <OPERATION-IREF>
+                        <CONTEXT-P-PORT-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/CanBusOffSWC/CanBusOff/P_CanBusOff</CONTEXT-P-PORT-REF>
+                        <TARGET-PROVIDED-OPERATION-REF DEST="CLIENT-SERVER-OPERATION">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOff/CanBusOff_End</TARGET-PROVIDED-OPERATION-REF>
+                      </OPERATION-IREF>
+                    </OPERATION-INVOKED-EVENT>
+                  </EVENTS>
+                  <RUNNABLES>
+                    <RUNNABLE-ENTITY UUID="9365FA5A-CF99-4CE6-B9A6-EAB3E3A21B69">
+                      <SHORT-NAME>CanBusOffStatus</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>CanBusOffStatus</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="BE7ED75A-3CC5-4063-828C-3AE3CCD3E4DD">
+                      <SHORT-NAME>P_CanBusOff_Can_BusOffIndicated</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>P_CanBusOff_Can_BusOffIndicated</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="2D80D4B9-FF68-4C47-9B66-EDA553528D69">
+                      <SHORT-NAME>P_CanBusOff_CanBusOff_Begin</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>P_CanBusOff_CanBusOff_Begin</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                    <RUNNABLE-ENTITY UUID="D09504CF-F7BC-4E5E-A994-819F1B6248B9">
+                      <SHORT-NAME>P_CanBusOff_CanBusOff_End</SHORT-NAME>
+                      <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                      <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <SYMBOL>P_CanBusOff_CanBusOff_End</SYMBOL>
+                    </RUNNABLE-ENTITY>
+                  </RUNNABLES>
+                  <SUPPORTS-MULTIPLE-INSTANTIATION>false</SUPPORTS-MULTIPLE-INSTANTIATION>
+                </SWC-INTERNAL-BEHAVIOR>
+              </INTERNAL-BEHAVIORS>
+            </APPLICATION-SW-COMPONENT-TYPE>
+            <SWC-IMPLEMENTATION UUID="D6A3851D-4C43-4147-AA9E-AD6492E8D133">
+              <SHORT-NAME>CanBusOff_Implementation</SHORT-NAME>
+              <CODE-DESCRIPTORS>
+                <CODE>
+                  <SHORT-NAME>Default</SHORT-NAME>
+                  <ARTIFACT-DESCRIPTORS>
+                    <AUTOSAR-ENGINEERING-OBJECT>
+                      <SHORT-LABEL>Default</SHORT-LABEL>
+                      <CATEGORY>SWSRC</CATEGORY>
+                    </AUTOSAR-ENGINEERING-OBJECT>
+                  </ARTIFACT-DESCRIPTORS>
+                </CODE>
+              </CODE-DESCRIPTORS>
+              <BEHAVIOR-REF DEST="SWC-INTERNAL-BEHAVIOR">/ComponentTypes/CanBusOffSWC/CanBusOff/CanBusOff_InternalBehavior</BEHAVIOR-REF>
+            </SWC-IMPLEMENTATION>
+          </ELEMENTS>
+          <AR-PACKAGES>
+            <AR-PACKAGE>
+              <SHORT-NAME>PortInterfaces</SHORT-NAME>
+              <ELEMENTS>
+                <CLIENT-SERVER-INTERFACE UUID="6260650B-EF06-4F71-A3CE-C663BA66B11E">
+                  <SHORT-NAME>IF_CanBusOff</SHORT-NAME>
+                  <IS-SERVICE>true</IS-SERVICE>
+                  <OPERATIONS>
+                    <CLIENT-SERVER-OPERATION UUID="65710C9A-BC68-4EC2-A650-1E956FA6FFF9">
+                      <SHORT-NAME>Can_BusOffIndicated</SHORT-NAME>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="84D3EB61-74B2-40DA-84D6-B496E9D1DF71">
+                          <SHORT-NAME>networkHandle</SHORT-NAME>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>OUT</DIRECTION>
+                          <SERVER-ARGUMENT-IMPL-POLICY>USE-ARGUMENT-TYPE</SERVER-ARGUMENT-IMPL-POLICY>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                    </CLIENT-SERVER-OPERATION>
+                    <CLIENT-SERVER-OPERATION UUID="12B31041-F3DA-44B0-9C43-9FCA161CBBAD">
+                      <SHORT-NAME>CanBusOff_Begin</SHORT-NAME>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="34D9CE48-C8DF-4A93-84BB-954B74CD3AA5">
+                          <SHORT-NAME>networkHandle</SHORT-NAME>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>INOUT</DIRECTION>
+                          <SERVER-ARGUMENT-IMPL-POLICY>USE-ARGUMENT-TYPE</SERVER-ARGUMENT-IMPL-POLICY>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                    </CLIENT-SERVER-OPERATION>
+                    <CLIENT-SERVER-OPERATION UUID="B63157DA-F012-4897-A832-DECA960A22EE">
+                      <SHORT-NAME>CanBusOff_End</SHORT-NAME>
+                      <ARGUMENTS>
+                        <ARGUMENT-DATA-PROTOTYPE UUID="819CC46D-C2D7-4221-B688-4FA8F8BF5874">
+                          <SHORT-NAME>networkHandle</SHORT-NAME>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                          <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                          <DIRECTION>OUT</DIRECTION>
+                          <SERVER-ARGUMENT-IMPL-POLICY>USE-ARGUMENT-TYPE</SERVER-ARGUMENT-IMPL-POLICY>
+                        </ARGUMENT-DATA-PROTOTYPE>
+                      </ARGUMENTS>
+                    </CLIENT-SERVER-OPERATION>
+                  </OPERATIONS>
+                </CLIENT-SERVER-INTERFACE>
+                <SENDER-RECEIVER-INTERFACE UUID="352D44C3-44F7-49A8-A516-B9C5D2324415">
+                  <SHORT-NAME>IF_CanBusOffStatus</SHORT-NAME>
+                  <IS-SERVICE>false</IS-SERVICE>
+                  <DATA-ELEMENTS>
+                    <VARIABLE-DATA-PROTOTYPE UUID="D82B08A7-E44C-44DC-9225-6593B39E8A19">
+                      <SHORT-NAME>CanBusOffSatus</SHORT-NAME>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</TYPE-TREF>
+                    </VARIABLE-DATA-PROTOTYPE>
+                  </DATA-ELEMENTS>
+                  <INVALIDATION-POLICYS>
+                    <INVALIDATION-POLICY>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus/CanBusOffSatus</DATA-ELEMENT-REF>
+                      <HANDLE-INVALID>DONT-INVALIDATE</HANDLE-INVALID>
+                    </INVALIDATION-POLICY>
+                  </INVALIDATION-POLICYS>
+                </SENDER-RECEIVER-INTERFACE>
+              </ELEMENTS>
+            </AR-PACKAGE>
+          </AR-PACKAGES>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>
