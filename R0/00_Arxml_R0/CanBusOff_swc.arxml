@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--This file was saved with a tool from Vector Informatik GmbH-->
-<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00046.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-3-0.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <AR-PACKAGES>
     <AR-PACKAGE>
       <SHORT-NAME>AUTOSAR_Platform</SHORT-NAME>
@@ -8,7 +8,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="5f9e4bdd-a8cf-4b41-9c88-78176ad93c3b">
+            <SW-BASE-TYPE UUID="dc130bbd-2a51-44f2-9f70-6c1f414fc0cb">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
@@ -19,7 +19,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>DataConstrs</SHORT-NAME>
           <ELEMENTS>
-            <DATA-CONSTR UUID="468486e2-29dc-4533-997d-8b126b5ec4b8">
+            <DATA-CONSTR UUID="0a07d554-4139-495a-aa27-ab1fd5131813">
               <SHORT-NAME>uint8_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -35,7 +35,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="06aa86d4-545f-41e2-adc5-23549e3318ed">
+            <IMPLEMENTATION-DATA-TYPE UUID="8b6e9c33-8ec3-41c8-a6e4-236dbc0e8d0b">
               <SHORT-NAME>uint8</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">uint8 represents integers with a minimum value of 0 and a maximum value of 255.
@@ -92,7 +92,7 @@ For example: 1, 0, 126, +10.</L-2>
                   <SHORT-NAME>P_CanBusOffStatus</SHORT-NAME>
                   <PROVIDED-COM-SPECS>
                     <NONQUEUED-SENDER-COM-SPEC>
-                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus/CanBusOffSatus</DATA-ELEMENT-REF>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus/DE_CanBusOffSatus</DATA-ELEMENT-REF>
                       <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
                       <INIT-VALUE>
                         <NUMERICAL-VALUE-SPECIFICATION>
@@ -143,24 +143,68 @@ For example: 1, 0, 126, +10.</L-2>
                       <SHORT-NAME>CanBusOffStatus</SHORT-NAME>
                       <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
                       <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS>
+                          <SHORT-NAME>SEND_P_CanBusOffStatus_CanBusOffSatus</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/CanBusOffSWC/CanBusOff/P_CanBusOffStatus</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus/DE_CanBusOffSatus</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
                       <SYMBOL>CanBusOffStatus</SYMBOL>
                     </RUNNABLE-ENTITY>
                     <RUNNABLE-ENTITY UUID="BE7ED75A-3CC5-4063-828C-3AE3CCD3E4DD">
                       <SHORT-NAME>P_CanBusOff_Can_BusOffIndicated</SHORT-NAME>
                       <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
                       <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS>
+                          <SHORT-NAME>SEND_P_CanBusOffStatus_CanBusOffSatus</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/CanBusOffSWC/CanBusOff/P_CanBusOffStatus</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus/DE_CanBusOffSatus</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
                       <SYMBOL>P_CanBusOff_Can_BusOffIndicated</SYMBOL>
                     </RUNNABLE-ENTITY>
                     <RUNNABLE-ENTITY UUID="2D80D4B9-FF68-4C47-9B66-EDA553528D69">
                       <SHORT-NAME>P_CanBusOff_CanBusOff_Begin</SHORT-NAME>
                       <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
                       <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS>
+                          <SHORT-NAME>SEND_P_CanBusOffStatus_CanBusOffSatus</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/CanBusOffSWC/CanBusOff/P_CanBusOffStatus</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus/DE_CanBusOffSatus</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
                       <SYMBOL>P_CanBusOff_CanBusOff_Begin</SYMBOL>
                     </RUNNABLE-ENTITY>
                     <RUNNABLE-ENTITY UUID="D09504CF-F7BC-4E5E-A994-819F1B6248B9">
                       <SHORT-NAME>P_CanBusOff_CanBusOff_End</SHORT-NAME>
                       <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
                       <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                      <DATA-SEND-POINTS>
+                        <VARIABLE-ACCESS>
+                          <SHORT-NAME>SEND_P_CanBusOffStatus_CanBusOffSatus</SHORT-NAME>
+                          <ACCESSED-VARIABLE>
+                            <AUTOSAR-VARIABLE-IREF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/CanBusOffSWC/CanBusOff/P_CanBusOffStatus</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus/DE_CanBusOffSatus</TARGET-DATA-PROTOTYPE-REF>
+                            </AUTOSAR-VARIABLE-IREF>
+                          </ACCESSED-VARIABLE>
+                        </VARIABLE-ACCESS>
+                      </DATA-SEND-POINTS>
                       <SYMBOL>P_CanBusOff_CanBusOff_End</SYMBOL>
                     </RUNNABLE-ENTITY>
                   </RUNNABLES>
@@ -253,7 +297,7 @@ For example: 1, 0, 126, +10.</L-2>
                   <IS-SERVICE>false</IS-SERVICE>
                   <DATA-ELEMENTS>
                     <VARIABLE-DATA-PROTOTYPE UUID="D82B08A7-E44C-44DC-9225-6593B39E8A19">
-                      <SHORT-NAME>CanBusOffSatus</SHORT-NAME>
+                      <SHORT-NAME>DE_CanBusOffSatus</SHORT-NAME>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
                           <SW-DATA-DEF-PROPS-CONDITIONAL>
@@ -267,7 +311,7 @@ For example: 1, 0, 126, +10.</L-2>
                   </DATA-ELEMENTS>
                   <INVALIDATION-POLICYS>
                     <INVALIDATION-POLICY>
-                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus/CanBusOffSatus</DATA-ELEMENT-REF>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/CanBusOffSWC/PortInterfaces/IF_CanBusOffStatus/DE_CanBusOffSatus</DATA-ELEMENT-REF>
                       <HANDLE-INVALID>DONT-INVALIDATE</HANDLE-INVALID>
                     </INVALIDATION-POLICY>
                   </INVALIDATION-POLICYS>
