@@ -8,19 +8,19 @@
         <AR-PACKAGE>
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="e026df0a-ee1a-4fe5-bd1d-50899ca1bd50">
+            <SW-BASE-TYPE UUID="e58be08e-e9e7-4b04-b721-11ed3d1d2dff">
               <SHORT-NAME>uint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="7ce6d419-c884-4709-8f0b-d4b60416d4bd">
+            <SW-BASE-TYPE UUID="4844619d-b820-4022-90f2-db7b1710ab9c">
               <SHORT-NAME>uint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="9615e239-a280-4e59-b324-75197caf9257">
+            <SW-BASE-TYPE UUID="cc4a35a0-5b54-4b74-bd69-67f289800dc0">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
@@ -31,7 +31,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>DataConstrs</SHORT-NAME>
           <ELEMENTS>
-            <DATA-CONSTR UUID="2b5db56a-fcaf-46c4-938c-5aa993977915">
+            <DATA-CONSTR UUID="cee61a69-3da3-4b34-b2b4-12914d254790">
               <SHORT-NAME>uint16_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -42,7 +42,7 @@
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="b0fad7dc-2f76-4490-82da-58d42a1fe848">
+            <DATA-CONSTR UUID="2f66879b-6284-4595-be95-91bd623995c3">
               <SHORT-NAME>uint32_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -53,7 +53,7 @@
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="0220bdc7-10ae-4ebe-894d-536e575d71b0">
+            <DATA-CONSTR UUID="505cf89a-0f16-4d26-96e8-fa7cf064592c">
               <SHORT-NAME>uint8_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -69,7 +69,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="1ef963c2-c08c-4a47-aa98-fc68829ab069">
+            <IMPLEMENTATION-DATA-TYPE UUID="d7067b5c-cee0-444b-bf32-9321580c2dde">
               <SHORT-NAME>uint16</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">uint16 represents integers with a minimum value of 0 and a maximum value of 65535.
@@ -91,7 +91,7 @@ For example: 1, 0, 1267, +10000.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="ed763f6e-62d1-4388-8eaa-f4b932775c04">
+            <IMPLEMENTATION-DATA-TYPE UUID="75993f8e-96cf-4b91-8565-851b875460be">
               <SHORT-NAME>uint32</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">uint32 represents integers with a minimum value of 0 and a maximum value 
@@ -113,7 +113,7 @@ For example: 1, 0, 12234567, 104400.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="2d2cbfad-f2b0-40f2-b0aa-61bea3210a83">
+            <IMPLEMENTATION-DATA-TYPE UUID="3c2e8380-37d7-4dab-a115-34230ec70f6b">
               <SHORT-NAME>uint8</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">uint8 represents integers with a minimum value of 0 and a maximum value of 255.
@@ -148,20 +148,77 @@ For example: 1, 0, 126, +10.</L-2>
             <APPLICATION-SW-COMPONENT-TYPE UUID="F3B70222-1B4B-4AE2-B741-5F59BEA249BC">
               <SHORT-NAME>HkmcRadarAdap</SHORT-NAME>
               <PORTS>
-                <P-PORT-PROTOTYPE UUID="98FD8BFE-DE93-4E7D-AD78-C98698172840">
-                  <SHORT-NAME>P_L_FR_CMR_Status_10ms</SHORT-NAME>
+                <P-PORT-PROTOTYPE UUID="6D8A4CB2-5BD3-4DFF-A89A-7315CAE84320">
+                  <SHORT-NAME>SG_L_FR_CMR_Status_10ms</SHORT-NAME>
                   <PROVIDED-COM-SPECS>
                     <NONQUEUED-SENDER-COM-SPEC>
-                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/HkmcRadarAdapSWC/PortInterfaces/IF_L_FR_CMR_Status_10ms/DE_HkmcRadarAdapOutput</DATA-ELEMENT-REF>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_L_FR_CMR_Status_10ms_1/SG_L_FR_CMR_Status_10ms</DATA-ELEMENT-REF>
                       <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
                       <INIT-VALUE>
-                        <CONSTANT-REFERENCE>
-                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/ComponentTypes/HkmcRadarAdapSWC/Constants/CS_RadarAdap_L_FR_CMR_Status_10ms</CONSTANT-REF>
-                        </CONSTANT-REFERENCE>
+                        <RECORD-VALUE-SPECIFICATION>
+                          <FIELDS>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>CLU_OdoVal</SHORT-LABEL>
+                              <VALUE>0</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_ENG_EngSta</SHORT-LABEL>
+                              <VALUE>0</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_ENG_IgnOnSta</SHORT-LABEL>
+                              <VALUE>0</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_FR_CMR_Status_AlvCnt1Val</SHORT-LABEL>
+                              <VALUE>0</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_FR_CMR_Status_Crc1Val</SHORT-LABEL>
+                              <VALUE>65535</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_FR_CMR_Status_EstVehDirection</SHORT-LABEL>
+                              <VALUE>0</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_FR_CMR_Status_EstVehSpdFailure</SHORT-LABEL>
+                              <VALUE>0</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_FR_CMR_Status_EstVehSpdVal</SHORT-LABEL>
+                              <VALUE>0</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_FR_CMR_Status_LatAccelVal</SHORT-LABEL>
+                              <VALUE>32768</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_FR_CMR_Status_LongAccelVal</SHORT-LABEL>
+                              <VALUE>32768</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_FR_CMR_Status_SAS_AnglVal</SHORT-LABEL>
+                              <VALUE>0</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_FR_CMR_Status_YawRtCompensated</SHORT-LABEL>
+                              <VALUE>32768</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_HCU_HevRdySta</SHORT-LABEL>
+                              <VALUE>0</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                            <NUMERICAL-VALUE-SPECIFICATION>
+                              <SHORT-LABEL>L_VCU_EVRdySta</SHORT-LABEL>
+                              <VALUE>0</VALUE>
+                            </NUMERICAL-VALUE-SPECIFICATION>
+                          </FIELDS>
+                        </RECORD-VALUE-SPECIFICATION>
                       </INIT-VALUE>
                     </NONQUEUED-SENDER-COM-SPEC>
                   </PROVIDED-COM-SPECS>
-                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ComponentTypes/HkmcRadarAdapSWC/PortInterfaces/IF_L_FR_CMR_Status_10ms</PROVIDED-INTERFACE-TREF>
+                  <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/PortInterfaces/SG_L_FR_CMR_Status_10ms_1</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
                 <R-PORT-PROTOTYPE UUID="322984FF-7E95-4E76-9564-28DFE9B059B9">
                   <SHORT-NAME>P_Radar</SHORT-NAME>
@@ -224,11 +281,11 @@ For example: 1, 0, 126, +10.</L-2>
                       </DATA-RECEIVE-POINT-BY-ARGUMENTS>
                       <DATA-SEND-POINTS>
                         <VARIABLE-ACCESS>
-                          <SHORT-NAME>SEND_P_L_FR_CMR_Status_10ms_DE_HkmcRadarAdapOutput</SHORT-NAME>
+                          <SHORT-NAME>SEND_SG_L_FR_CMR_Status_10ms_SG_L_FR_CMR_Status_10ms</SHORT-NAME>
                           <ACCESSED-VARIABLE>
                             <AUTOSAR-VARIABLE-IREF>
-                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/HkmcRadarAdapSWC/HkmcRadarAdap/P_L_FR_CMR_Status_10ms</PORT-PROTOTYPE-REF>
-                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/HkmcRadarAdapSWC/PortInterfaces/IF_L_FR_CMR_Status_10ms/DE_HkmcRadarAdapOutput</TARGET-DATA-PROTOTYPE-REF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/HkmcRadarAdapSWC/HkmcRadarAdap/SG_L_FR_CMR_Status_10ms</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_L_FR_CMR_Status_10ms_1/SG_L_FR_CMR_Status_10ms</TARGET-DATA-PROTOTYPE-REF>
                             </AUTOSAR-VARIABLE-IREF>
                           </ACCESSED-VARIABLE>
                         </VARIABLE-ACCESS>
@@ -252,11 +309,11 @@ For example: 1, 0, 126, +10.</L-2>
                       </DATA-RECEIVE-POINT-BY-ARGUMENTS>
                       <DATA-SEND-POINTS>
                         <VARIABLE-ACCESS>
-                          <SHORT-NAME>SEND_P_L_FR_CMR_Status_10ms_DE_HkmcRadarAdapOutput</SHORT-NAME>
+                          <SHORT-NAME>SEND_SG_L_FR_CMR_Status_10ms_SG_L_FR_CMR_Status_10ms</SHORT-NAME>
                           <ACCESSED-VARIABLE>
                             <AUTOSAR-VARIABLE-IREF>
-                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/HkmcRadarAdapSWC/HkmcRadarAdap/P_L_FR_CMR_Status_10ms</PORT-PROTOTYPE-REF>
-                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/HkmcRadarAdapSWC/PortInterfaces/IF_L_FR_CMR_Status_10ms/DE_HkmcRadarAdapOutput</TARGET-DATA-PROTOTYPE-REF>
+                              <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/HkmcRadarAdapSWC/HkmcRadarAdap/SG_L_FR_CMR_Status_10ms</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_L_FR_CMR_Status_10ms_1/SG_L_FR_CMR_Status_10ms</TARGET-DATA-PROTOTYPE-REF>
                             </AUTOSAR-VARIABLE-IREF>
                           </ACCESSED-VARIABLE>
                         </VARIABLE-ACCESS>
@@ -288,63 +345,6 @@ For example: 1, 0, 126, +10.</L-2>
             <AR-PACKAGE>
               <SHORT-NAME>Constants</SHORT-NAME>
               <ELEMENTS>
-                <CONSTANT-SPECIFICATION UUID="35FFD145-3848-4FB5-8A4B-83AFCF4B0171">
-                  <SHORT-NAME>CS_RadarAdap_L_FR_CMR_Status_10ms</SHORT-NAME>
-                  <VALUE-SPEC>
-                    <RECORD-VALUE-SPECIFICATION>
-                      <FIELDS>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_FR_CMR_Status_SAS_AnglVal</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_FR_CMR_Status_YawRtCompensated</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_FR_CMR_Status_LatAccelVal</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_FR_CMR_Status_LongAccelVal</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_FR_CMR_Status_EstVehSpdVal</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_FR_CMR_Status_EstVehSpdFailure</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_FR_CMR_Status_EstVehDirection</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_ENG_EngSta</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_HCU_HevRdySta</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_VCU_EVRdySta</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>L_ENG_IgnOnSta</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                        <NUMERICAL-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>CLU_OdoVal</SHORT-LABEL>
-                          <VALUE>0</VALUE>
-                        </NUMERICAL-VALUE-SPECIFICATION>
-                      </FIELDS>
-                    </RECORD-VALUE-SPECIFICATION>
-                  </VALUE-SPEC>
-                </CONSTANT-SPECIFICATION>
                 <CONSTANT-SPECIFICATION UUID="B810605C-51AA-4171-81EA-F176C497F139">
                   <SHORT-NAME>CS_RadarAdap_Radar</SHORT-NAME>
                   <VALUE-SPEC>
@@ -419,150 +419,8 @@ For example: 1, 0, 126, +10.</L-2>
             <AR-PACKAGE>
               <SHORT-NAME>DataTypes</SHORT-NAME>
               <ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE UUID="98049A4F-28C2-4ED4-BB6C-69249DCD54AD">
-                  <SHORT-NAME>L_FR_CMR_Status_10ms</SHORT-NAME>
-                  <CATEGORY>STRUCTURE</CATEGORY>
-                  <SW-DATA-DEF-PROPS>
-                    <SW-DATA-DEF-PROPS-VARIANTS />
-                  </SW-DATA-DEF-PROPS>
-                  <SUB-ELEMENTS>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="38ABD08E-A7BA-4194-AFF6-3BFC46FB5339">
-                      <SHORT-NAME>L_FR_CMR_Status_SAS_AnglVal</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="F65F926B-A9D6-444E-B8D5-5C7E251DBB1D">
-                      <SHORT-NAME>L_FR_CMR_Status_YawRtCompensated</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="CD655286-E611-4FD1-B4E5-1027F9FB606B">
-                      <SHORT-NAME>L_FR_CMR_Status_LatAccelVal</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="88A9CECA-C2B8-45DC-89F8-CB5CE8D8CC06">
-                      <SHORT-NAME>L_FR_CMR_Status_LongAccelVal</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="E03A14C2-1AD7-417F-895F-AB11417B8B3C">
-                      <SHORT-NAME>L_FR_CMR_Status_EstVehSpdVal</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint16</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="14C98AF4-154F-44D3-A87D-40B18E3B0F74">
-                      <SHORT-NAME>L_FR_CMR_Status_EstVehSpdFailure</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="E7677FF4-70A2-44FD-B50B-E39ADBBC1BC8">
-                      <SHORT-NAME>L_FR_CMR_Status_EstVehDirection</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="1EA7E1BA-B8F6-4503-BE2D-8A303AEE2A00">
-                      <SHORT-NAME>L_ENG_EngSta</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="C4840D55-D8FA-4E1E-9D04-F625D828A825">
-                      <SHORT-NAME>L_HCU_HevRdySta</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="2D8AE494-B388-429B-9CFB-A9C25727083C">
-                      <SHORT-NAME>L_VCU_EVRdySta</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="581B6DF3-11A4-4E43-AC18-B8E1ECF9401A">
-                      <SHORT-NAME>L_ENG_IgnOnSta</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="285D2592-2BAE-40A2-A5E4-EB948EA00DBE">
-                      <SHORT-NAME>CLU_OdoVal</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                  </SUB-ELEMENTS>
-                  <TYPE-EMITTER>RTE</TYPE-EMITTER>
-                </IMPLEMENTATION-DATA-TYPE>
                 <IMPLEMENTATION-DATA-TYPE UUID="86446748-440E-49F7-8B4B-C0354A142249">
-                  <SHORT-NAME>Radar</SHORT-NAME>
+                  <SHORT-NAME>Radar_T</SHORT-NAME>
                   <CATEGORY>STRUCTURE</CATEGORY>
                   <SW-DATA-DEF-PROPS>
                     <SW-DATA-DEF-PROPS-VARIANTS>
@@ -745,30 +603,6 @@ For example: 1, 0, 126, +10.</L-2>
             <AR-PACKAGE>
               <SHORT-NAME>PortInterfaces</SHORT-NAME>
               <ELEMENTS>
-                <SENDER-RECEIVER-INTERFACE UUID="5FBB2AFC-3E5C-4681-B089-4EF38873ACCE">
-                  <SHORT-NAME>IF_L_FR_CMR_Status_10ms</SHORT-NAME>
-                  <IS-SERVICE>false</IS-SERVICE>
-                  <DATA-ELEMENTS>
-                    <VARIABLE-DATA-PROTOTYPE UUID="D4CB486D-7C98-46D4-9895-6B5D085163EA">
-                      <SHORT-NAME>DE_HkmcRadarAdapOutput</SHORT-NAME>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
-                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcRadarAdapSWC/DataTypes/L_FR_CMR_Status_10ms</TYPE-TREF>
-                    </VARIABLE-DATA-PROTOTYPE>
-                  </DATA-ELEMENTS>
-                  <INVALIDATION-POLICYS>
-                    <INVALIDATION-POLICY>
-                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/HkmcRadarAdapSWC/PortInterfaces/IF_L_FR_CMR_Status_10ms/DE_HkmcRadarAdapOutput</DATA-ELEMENT-REF>
-                      <HANDLE-INVALID>DONT-INVALIDATE</HANDLE-INVALID>
-                    </INVALIDATION-POLICY>
-                  </INVALIDATION-POLICYS>
-                </SENDER-RECEIVER-INTERFACE>
                 <SENDER-RECEIVER-INTERFACE UUID="D63D879D-3554-41CC-A39A-7846F3D436E6">
                   <SHORT-NAME>IF_Radar</SHORT-NAME>
                   <IS-SERVICE>false</IS-SERVICE>
@@ -783,7 +617,7 @@ For example: 1, 0, 126, +10.</L-2>
                           </SW-DATA-DEF-PROPS-CONDITIONAL>
                         </SW-DATA-DEF-PROPS-VARIANTS>
                       </SW-DATA-DEF-PROPS>
-                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcRadarAdapSWC/DataTypes/Radar</TYPE-TREF>
+                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcRadarAdapSWC/DataTypes/Radar_T</TYPE-TREF>
                     </VARIABLE-DATA-PROTOTYPE>
                   </DATA-ELEMENTS>
                   <INVALIDATION-POLICYS>
@@ -798,6 +632,885 @@ For example: 1, 0, 126, +10.</L-2>
           </AR-PACKAGES>
         </AR-PACKAGE>
       </AR-PACKAGES>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>DataType</SHORT-NAME>
+      <ELEMENTS>
+        <SW-BASE-TYPE UUID="55BF1917-9ED4-4B94-A619-B1EABEB82CFB">
+          <SHORT-NAME>sint16</SHORT-NAME>
+          <CATEGORY>FIXED_LENGTH</CATEGORY>
+          <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
+          <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
+          <NATIVE-DECLARATION>sint16</NATIVE-DECLARATION>
+        </SW-BASE-TYPE>
+        <SW-BASE-TYPE UUID="E8AEE548-E029-43C9-A9E7-602FFD2C2BED">
+          <SHORT-NAME>uint16</SHORT-NAME>
+          <CATEGORY>FIXED_LENGTH</CATEGORY>
+          <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
+          <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+          <NATIVE-DECLARATION>uint16</NATIVE-DECLARATION>
+        </SW-BASE-TYPE>
+        <SW-BASE-TYPE UUID="36192463-7EE9-4EAE-B943-BB1C7475BB6F">
+          <SHORT-NAME>uint32</SHORT-NAME>
+          <CATEGORY>FIXED_LENGTH</CATEGORY>
+          <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
+          <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+          <NATIVE-DECLARATION>uint32</NATIVE-DECLARATION>
+        </SW-BASE-TYPE>
+        <SW-BASE-TYPE UUID="382B128C-6368-42C5-9A85-62026EC0DD6F">
+          <SHORT-NAME>uint8</SHORT-NAME>
+          <CATEGORY>FIXED_LENGTH</CATEGORY>
+          <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+          <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+          <NATIVE-DECLARATION>uint8</NATIVE-DECLARATION>
+        </SW-BASE-TYPE>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>Constraint</SHORT-NAME>
+          <ELEMENTS>
+            <DATA-CONSTR UUID="62316FBD-08B3-4144-AE98-C4B301014102">
+              <SHORT-NAME>DC_L_FR_CMR_Status_AlvCnt1Val</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">255</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="366FE42D-D841-4E4D-B834-C1208DE6E0C9">
+              <SHORT-NAME>DC_L_FR_CMR_Status_Crc1Val</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">65535</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE>
+          <SHORT-NAME>Semantics</SHORT-NAME>
+          <ELEMENTS>
+            <COMPU-METHOD UUID="5B4B0072-2549-432A-9218-4187231F002D">
+              <SHORT-NAME>CM_L_ENG_EngSta</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Engine Stop
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx0_Engine_Stop_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Cranking
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx1_Cranking_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Stalled
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx2_Stalled_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Running
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx3_Running_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Reserved
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx4_Reserved_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Reserved
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx5_Reserved_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Reserved
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">6</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">6</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx6_Reserved_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Fault</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">7</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">7</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx7_Fault</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="1F210CA2-D09C-47AC-8C5D-A47ED8B46414">
+              <SHORT-NAME>CM_L_ENG_IgnOnSta</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> KEY OFF, control unit in self-holding phase
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx0_KEY_OFF_control_unit_in_self_holding_phase_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> KEY ON
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx1_KEY_ON_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Not used
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx2_Not_used_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Error indicator</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx3_Error_indicator</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="5A48F758-62F0-45E1-A7EA-CA9C9CCB5306">
+              <SHORT-NAME>CM_L_FR_CMR_Status_EstVehDirection</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Unknown (Wheel moving stop state)
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx0_Unknown_Wheel_moving_stop_state_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Forward direction
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx1_Forward_direction_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Backward direction
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx2_Backward_direction_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Error identifier
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx3_Error_identifier_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Not applied wheel sensor for direction</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx4_Not_applied_wheel_sensor_for_direction</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="B4EBC0BB-939D-469C-A840-1D3ECF032BC5">
+              <SHORT-NAME>CM_L_FR_CMR_Status_EstVehSpdFailure</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Normal
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx0_Normal_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Failure
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx1_Failure_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Reserved
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx2_Reserved_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Reserved
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx3_Reserved_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Reserved
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx4_Reserved_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Reserved
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx5_Reserved_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Reserved
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">6</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">6</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx6_Reserved_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Reserved</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">7</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">7</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx7_Reserved</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="1309EADC-73A6-4047-B43B-103373868AAE">
+              <SHORT-NAME>CM_L_HCU_HevRdySta</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> HEV not ready
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx0_HEV_not_ready_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> HEV Drivable
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx1_HEV_Drivable_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Not used
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx2_Not_used_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Error Indicator</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx3_Error_Indicator</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="955E471B-7757-490D-8C9E-6FD2624F3E6C">
+              <SHORT-NAME>CM_L_VCU_EVRdySta</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> None
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx0_None_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> EV Drivable
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx1_EV_Drivable_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Not used
+</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx2_Not_used_</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <DESC>
+                      <L-2 L="FOR-ALL"> Error Indicator</L-2>
+                    </DESC>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>Cx3_Error_Indicator</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>DataTypes</SHORT-NAME>
+      <ELEMENTS>
+        <IMPLEMENTATION-DATA-TYPE UUID="60A4B9BB-FDCA-47E5-81B1-4FA524D3C67E">
+          <SHORT-NAME>CLU_OdoVal</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint32</BASE-TYPE-REF>
+                <DATA-CONSTR-REF DEST="DATA-CONSTR">/DataTypes/DataConstrs/uint_24_DataConstr</DATA-CONSTR-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="DBA5BD10-A7DC-4D37-9AA8-6A541F62E3AF">
+          <SHORT-NAME>L_ENG_EngSta</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/DataType/Semantics/CM_L_ENG_EngSta</COMPU-METHOD-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="98CC0D5E-E193-47FC-BD86-CBD43C66D234">
+          <SHORT-NAME>L_ENG_IgnOnSta</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/DataType/Semantics/CM_L_ENG_IgnOnSta</COMPU-METHOD-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="48D9612A-9062-43AA-87B2-1749C973BA66">
+          <SHORT-NAME>L_FR_CMR_Status_AlvCnt1Val</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="8022B340-C3A3-46BF-AD69-8ACC3C788E3E">
+          <SHORT-NAME>L_FR_CMR_Status_Crc1Val</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint16</BASE-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="358FA070-744A-4564-873B-F50C5DDB894A">
+          <SHORT-NAME>L_FR_CMR_Status_EstVehDirection</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/DataType/Semantics/CM_L_FR_CMR_Status_EstVehDirection</COMPU-METHOD-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="2FDEFC85-6A09-4FF8-8E4B-D7028C16B8C6">
+          <SHORT-NAME>L_FR_CMR_Status_EstVehSpdFailure</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/DataType/Semantics/CM_L_FR_CMR_Status_EstVehSpdFailure</COMPU-METHOD-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="85A95DE8-70B5-42C2-B049-46A141FF40B9">
+          <SHORT-NAME>L_FR_CMR_Status_EstVehSpdVal</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint16</BASE-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="2D5FAAA3-8FCB-4557-89FE-7976450ABB5C">
+          <SHORT-NAME>L_FR_CMR_Status_LatAccelVal</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint16</BASE-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="9EB06227-5109-41B4-A7D4-8526D96D3F9E">
+          <SHORT-NAME>L_FR_CMR_Status_LongAccelVal</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint16</BASE-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="E0D7E87B-6770-4AC0-BE32-0DFB9105F849">
+          <SHORT-NAME>L_FR_CMR_Status_SAS_AnglVal</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/sint16</BASE-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="53644A5B-598D-46EF-A6E2-2C7D6B987076">
+          <SHORT-NAME>L_FR_CMR_Status_YawRtCompensated</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint16</BASE-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="DD02021C-0FB9-432F-B97C-47E8CA3BC1B7">
+          <SHORT-NAME>L_HCU_HevRdySta</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/DataType/Semantics/CM_L_HCU_HevRdySta</COMPU-METHOD-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="ACFD61AE-675B-470B-9D9F-FFEBD8D6571C">
+          <SHORT-NAME>L_VCU_EVRdySta</SHORT-NAME>
+          <CATEGORY>VALUE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/DataType/Semantics/CM_L_VCU_EVRdySta</COMPU-METHOD-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="E8EB482C-BBA9-46A8-BD24-D9EE3B6FF8DB">
+          <SHORT-NAME>SG_L_FR_CMR_Status_10ms</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS />
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="059ACE3B-5275-4CB0-9375-106C8CB5339F">
+              <SHORT-NAME>CLU_OdoVal</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/DataTypes/DataConstrs/uint_24_DataConstr</DATA-CONSTR-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/CLU_OdoVal</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="C260B16A-3E10-4A58-A51B-A677D34D4E4C">
+              <SHORT-NAME>L_ENG_EngSta</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/DataTypes/DataConstrs/uint_3_DataConstr</DATA-CONSTR-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_ENG_EngSta</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="6680C6C9-A9EB-42C2-A279-C849162AE030">
+              <SHORT-NAME>L_ENG_IgnOnSta</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/DataTypes/DataConstrs/uint_2_DataConstr</DATA-CONSTR-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_ENG_IgnOnSta</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="A9E9BCA7-B16C-4D5A-94C3-A96574608121">
+              <SHORT-NAME>L_FR_CMR_Status_AlvCnt1Val</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/DataType/Constraint/DC_L_FR_CMR_Status_AlvCnt1Val</DATA-CONSTR-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_FR_CMR_Status_AlvCnt1Val</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="5E72D7D5-1C1E-4FC5-A7B4-2307F60E14E5">
+              <SHORT-NAME>L_FR_CMR_Status_Crc1Val</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/DataType/Constraint/DC_L_FR_CMR_Status_Crc1Val</DATA-CONSTR-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_FR_CMR_Status_Crc1Val</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="5660ADB4-990A-4722-BE5F-152908CDA31C">
+              <SHORT-NAME>L_FR_CMR_Status_EstVehDirection</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/DataTypes/DataConstrs/uint_3_DataConstr</DATA-CONSTR-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_FR_CMR_Status_EstVehDirection</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="15892E2F-3C3A-4D62-8951-2BFF86D2F9C6">
+              <SHORT-NAME>L_FR_CMR_Status_EstVehSpdFailure</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/DataTypes/DataConstrs/uint_3_DataConstr</DATA-CONSTR-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_FR_CMR_Status_EstVehSpdFailure</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="9B6ECFBC-2C98-4DB5-9EBB-63C05FFC275D">
+              <SHORT-NAME>L_FR_CMR_Status_EstVehSpdVal</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_FR_CMR_Status_EstVehSpdVal</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="421E8F0D-2FBF-489C-ABF8-A9508DA15D76">
+              <SHORT-NAME>L_FR_CMR_Status_LatAccelVal</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_FR_CMR_Status_LatAccelVal</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="EA5361BE-3EEA-4693-A829-5E0ECDE786D3">
+              <SHORT-NAME>L_FR_CMR_Status_LongAccelVal</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_FR_CMR_Status_LongAccelVal</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="3E67FF6F-3E95-47D9-ADCF-62D661692385">
+              <SHORT-NAME>L_FR_CMR_Status_SAS_AnglVal</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_FR_CMR_Status_SAS_AnglVal</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="2727ACBD-AAB3-4875-B24E-A5995272D8DE">
+              <SHORT-NAME>L_FR_CMR_Status_YawRtCompensated</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_FR_CMR_Status_YawRtCompensated</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="59CC7052-14B0-4EBF-BAFB-E3C8B1F8EA6B">
+              <SHORT-NAME>L_HCU_HevRdySta</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/DataTypes/DataConstrs/uint_2_DataConstr</DATA-CONSTR-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_HCU_HevRdySta</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="31B73C0F-58D0-43A7-8072-53AB67E7EF5A">
+              <SHORT-NAME>L_VCU_EVRdySta</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <DATA-CONSTR-REF DEST="DATA-CONSTR">/DataTypes/DataConstrs/uint_2_DataConstr</DATA-CONSTR-REF>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/L_VCU_EVRdySta</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
+      </ELEMENTS>
+      <AR-PACKAGES>
+        <AR-PACKAGE>
+          <SHORT-NAME>DataConstrs</SHORT-NAME>
+          <ELEMENTS>
+            <DATA-CONSTR UUID="C35F0C59-19AB-4FB7-8B99-9978BAD09BB2">
+              <SHORT-NAME>uint_2_DataConstr</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="B72AA8A8-E3CF-4EB4-B08A-7193AFA47F73">
+              <SHORT-NAME>uint_24_DataConstr</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">16777215</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+            <DATA-CONSTR UUID="4DD632D2-3671-4B83-91E6-9AC34B01B72B">
+              <SHORT-NAME>uint_3_DataConstr</SHORT-NAME>
+              <DATA-CONSTR-RULES>
+                <DATA-CONSTR-RULE>
+                  <INTERNAL-CONSTRS>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">7</UPPER-LIMIT>
+                  </INTERNAL-CONSTRS>
+                </DATA-CONSTR-RULE>
+              </DATA-CONSTR-RULES>
+            </DATA-CONSTR>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>PortInterfaces</SHORT-NAME>
+      <ELEMENTS>
+        <SENDER-RECEIVER-INTERFACE UUID="C71A97CE-F811-4A47-BC71-685CE0FA4E38">
+          <SHORT-NAME>SG_L_FR_CMR_Status_10ms_1</SHORT-NAME>
+          <IS-SERVICE>false</IS-SERVICE>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="37DCCF4F-C62D-4B75-8A52-016362E8B732">
+              <SHORT-NAME>SG_L_FR_CMR_Status_10ms</SHORT-NAME>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+                    <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/DataTypes/SG_L_FR_CMR_Status_10ms</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+          <INVALIDATION-POLICYS>
+            <INVALIDATION-POLICY>
+              <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/PortInterfaces/SG_L_FR_CMR_Status_10ms_1/SG_L_FR_CMR_Status_10ms</DATA-ELEMENT-REF>
+              <HANDLE-INVALID>DONT-INVALIDATE</HANDLE-INVALID>
+            </INVALIDATION-POLICY>
+          </INVALIDATION-POLICYS>
+        </SENDER-RECEIVER-INTERFACE>
+      </ELEMENTS>
     </AR-PACKAGE>
   </AR-PACKAGES>
 </AUTOSAR>

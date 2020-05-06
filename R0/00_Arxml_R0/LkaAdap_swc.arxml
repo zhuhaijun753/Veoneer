@@ -3,8 +3,283 @@
 <AUTOSAR xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_4-3-0.xsd" xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <AR-PACKAGES>
     <AR-PACKAGE>
+      <SHORT-NAME>ASP_Constants</SHORT-NAME>
+      <ELEMENTS>
+        <CONSTANT-SPECIFICATION UUID="727AC3B1-B660-4925-B112-092F5F333C39">
+          <SHORT-NAME>LKA_Core_OutputConstant</SHORT-NAME>
+          <VALUE-SPEC>
+            <RECORD-VALUE-SPECIFICATION>
+              <FIELDS>
+                <RECORD-VALUE-SPECIFICATION>
+                  <SHORT-LABEL>lka</SHORT-LABEL>
+                  <FIELDS>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>status</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>available</SHORT-LABEL>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>left</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>right</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>suppressionReason</SHORT-LABEL>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>left</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>right</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </FIELDS>
+                </RECORD-VALUE-SPECIFICATION>
+                <RECORD-VALUE-SPECIFICATION>
+                  <SHORT-LABEL>ldw</SHORT-LABEL>
+                  <FIELDS>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>warningSide</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>status</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>available</SHORT-LABEL>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>left</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>right</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>suppressionReason</SHORT-LABEL>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>left</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>right</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </FIELDS>
+                </RECORD-VALUE-SPECIFICATION>
+                <RECORD-VALUE-SPECIFICATION>
+                  <SHORT-LABEL>roadEdge</SHORT-LABEL>
+                  <FIELDS>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>status</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>available</SHORT-LABEL>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>left</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>right</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                    <RECORD-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>suppressionReason</SHORT-LABEL>
+                      <FIELDS>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>left</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                        <NUMERICAL-VALUE-SPECIFICATION>
+                          <SHORT-LABEL>right</SHORT-LABEL>
+                          <VALUE>0</VALUE>
+                        </NUMERICAL-VALUE-SPECIFICATION>
+                      </FIELDS>
+                    </RECORD-VALUE-SPECIFICATION>
+                  </FIELDS>
+                </RECORD-VALUE-SPECIFICATION>
+                <RECORD-VALUE-SPECIFICATION>
+                  <SHORT-LABEL>lkaController</SHORT-LABEL>
+                  <FIELDS>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>mode</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>interventionSide</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>torqueDirectionLimit</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>abortReason</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </FIELDS>
+                </RECORD-VALUE-SPECIFICATION>
+                <RECORD-VALUE-SPECIFICATION>
+                  <SHORT-LABEL>lkaLatController</SHORT-LABEL>
+                  <FIELDS>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>frontWheelAngleRequest</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>lowerTorqueLimit</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                    <NUMERICAL-VALUE-SPECIFICATION>
+                      <SHORT-LABEL>upperTorqueLimit</SHORT-LABEL>
+                      <VALUE>0</VALUE>
+                    </NUMERICAL-VALUE-SPECIFICATION>
+                  </FIELDS>
+                </RECORD-VALUE-SPECIFICATION>
+              </FIELDS>
+            </RECORD-VALUE-SPECIFICATION>
+          </VALUE-SPEC>
+        </CONSTANT-SPECIFICATION>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
       <SHORT-NAME>ASP_DataTypes</SHORT-NAME>
       <ELEMENTS>
+        <IMPLEMENTATION-DATA-TYPE UUID="76F2FDFB-FDAD-4E8C-936B-A4B69EC4EBEB">
+          <SHORT-NAME>As_LDW_Output</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="E20CB2F2-DCAF-42A4-BB68-9A49F2D3B1AE">
+              <SHORT-NAME>warningSide</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Side</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="233CC346-684A-477D-9950-BEC5E5C76488">
+              <SHORT-NAME>status</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Status</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="11C4C9F5-8CC6-4626-9D52-258EEDB18C2C">
+              <SHORT-NAME>available</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_SideStatus</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="C5A688DF-4F21-4121-9D4C-F616DC5C6A51">
+              <SHORT-NAME>suppressionReason</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_SuppressionReason</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="C10F76EC-E822-4664-A281-3B36FB48CA26">
+          <SHORT-NAME>As_LKA_Controller_Output</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="96F2B39F-F6B2-4014-AA1C-0E3A394FF024">
+              <SHORT-NAME>mode</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Core_Mode</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="19771D0A-6F92-43D5-A507-7B13A54018CC">
+              <SHORT-NAME>interventionSide</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Side</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="76CA300C-F200-490B-BA58-5CE3359FB9C1">
+              <SHORT-NAME>torqueDirectionLimit</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Side</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="8E8468C9-4592-4D81-87CA-EAC972A233F1">
+              <SHORT-NAME>abortReason</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/uint32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
         <IMPLEMENTATION-DATA-TYPE UUID="1D1F59F3-3ABF-4E4D-83EF-A9329CE82636">
           <SHORT-NAME>As_LKA_Core_Mode</SHORT-NAME>
           <CATEGORY>TYPE_REFERENCE</CATEGORY>
@@ -17,6 +292,166 @@
             </SW-DATA-DEF-PROPS-VARIANTS>
           </SW-DATA-DEF-PROPS>
         </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="57CCF726-455D-4CAA-B3C0-8B1714A8499C">
+          <SHORT-NAME>As_LKA_Core_Output</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="4A36215F-DDF9-40BA-A4FD-EF6D6A1E2C7A">
+              <SHORT-NAME>lka</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Output</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="D10731DA-8477-4593-BAD5-3C4491CAAE87">
+              <SHORT-NAME>ldw</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LDW_Output</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="59F47907-7748-4D98-8D15-22DA93AAB78F">
+              <SHORT-NAME>roadEdge</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Output</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="21F0644D-3347-4CBF-9E24-653172688251">
+              <SHORT-NAME>lkaController</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Controller_Output</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="7B67CD78-0E3B-4EF1-BBD6-A425008FCE70">
+              <SHORT-NAME>lkaLatController</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_LatControl_Output</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="70B61989-1AE2-44EA-AA1D-458C48CB6936">
+          <SHORT-NAME>As_LKA_LatControl_Output</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="D4267203-E80C-4504-906B-AC5651DE7F86">
+              <SHORT-NAME>frontWheelAngleRequest</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/float32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="63631738-7ACD-40E9-B40E-EA210CA032CF">
+              <SHORT-NAME>lowerTorqueLimit</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/float32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="2F146FF3-EE30-43D2-A817-DD5AA207F7C2">
+              <SHORT-NAME>upperTorqueLimit</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/float32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="D8745174-E34E-4833-8243-0BF60FBF7DA4">
+          <SHORT-NAME>As_LKA_Output</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="8A2B50BA-B35D-4527-8BF2-560147F98730">
+              <SHORT-NAME>status</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Status</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="36E9B385-1537-4C65-B132-3C34D46F6342">
+              <SHORT-NAME>available</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_SideStatus</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="CEC9A98F-35BD-4C32-BCA6-46EDF40C2A57">
+              <SHORT-NAME>suppressionReason</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_SuppressionReason</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
         <IMPLEMENTATION-DATA-TYPE UUID="2EC5846F-582F-4544-BEE8-5EDB49ADECC4">
           <SHORT-NAME>As_LKA_Side</SHORT-NAME>
           <CATEGORY>TYPE_REFERENCE</CATEGORY>
@@ -28,6 +463,88 @@
               </SW-DATA-DEF-PROPS-CONDITIONAL>
             </SW-DATA-DEF-PROPS-VARIANTS>
           </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="CD134EF1-BB6F-462B-BD2F-5DC5E405981F">
+          <SHORT-NAME>As_LKA_SideStatus</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="F1F9A6DE-E641-4461-B558-EEFDC46A9D13">
+              <SHORT-NAME>left</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="C14D41AA-5E0E-4C6E-A16F-DB0E94DF65A3">
+              <SHORT-NAME>right</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="66AE8E2A-92B3-43AA-8B34-61FBED39F193">
+          <SHORT-NAME>As_LKA_Status</SHORT-NAME>
+          <CATEGORY>TYPE_REFERENCE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/ASP_DataTypes/CompuMethods/As_LKA_Status_CompuMethod</COMPU-METHOD-REF>
+                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/sint32</IMPLEMENTATION-DATA-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="0EE1D77E-F553-4F4D-B4ED-AA7EEB088D43">
+          <SHORT-NAME>As_SuppressionReason</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="56167BCB-6245-46B7-B6FA-9C9121B240CE">
+              <SHORT-NAME>left</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/uint32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="8A9438BA-8966-46DA-9666-A11A93357BDC">
+              <SHORT-NAME>right</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/uint32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
         </IMPLEMENTATION-DATA-TYPE>
         <IMPLEMENTATION-DATA-TYPE UUID="C8682AED-552F-44D1-AEF1-A3EC8F7967AC">
           <SHORT-NAME>boolean</SHORT-NAME>
@@ -216,6 +733,35 @@ For example: 1, 0, 12234567, 104400.</L-2>
                 </COMPU-SCALES>
               </COMPU-INTERNAL-TO-PHYS>
             </COMPU-METHOD>
+            <COMPU-METHOD UUID="4E759F16-436A-4A4A-93F5-90CEA568F86E">
+              <SHORT-NAME>As_LKA_Status_CompuMethod</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_LKA_Status_DISABLED</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_LKA_Status_UNAVAILABLE</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_LKA_Status_AVAILABLE</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
             <COMPU-METHOD UUID="1F89FDDF-79AA-495B-9F59-1CA1D4F0289A">
               <SHORT-NAME>boolean_CompuMethod</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
@@ -294,12 +840,41 @@ For example: 1, 0, 12234567, 104400.</L-2>
       </AR-PACKAGES>
     </AR-PACKAGE>
     <AR-PACKAGE>
+      <SHORT-NAME>ASP_PortInterfaces</SHORT-NAME>
+      <ELEMENTS>
+        <SENDER-RECEIVER-INTERFACE UUID="5C3264D3-EE04-41FA-AACB-D60B2ECDABAF">
+          <SHORT-NAME>LKA_OutputPort</SHORT-NAME>
+          <IS-SERVICE>false</IS-SERVICE>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="4DE67265-9A18-496B-AF90-BFE08B98EECD">
+              <SHORT-NAME>LKAoutput</SHORT-NAME>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+                    <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Core_Output</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+          <INVALIDATION-POLICYS>
+            <INVALIDATION-POLICY>
+              <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/LKA_OutputPort/LKAoutput</DATA-ELEMENT-REF>
+              <HANDLE-INVALID>DONT-INVALIDATE</HANDLE-INVALID>
+            </INVALIDATION-POLICY>
+          </INVALIDATION-POLICYS>
+        </SENDER-RECEIVER-INTERFACE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
       <SHORT-NAME>AUTOSAR_Platform</SHORT-NAME>
       <AR-PACKAGES>
         <AR-PACKAGE>
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="57224329-59a2-4b8b-81c4-76dd370cc9d3">
+            <SW-BASE-TYPE UUID="cc4a35a0-5b54-4b74-bd69-67f289800dc0">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
@@ -310,7 +885,7 @@ For example: 1, 0, 12234567, 104400.</L-2>
         <AR-PACKAGE>
           <SHORT-NAME>DataConstrs</SHORT-NAME>
           <ELEMENTS>
-            <DATA-CONSTR UUID="587cfd4a-c096-4cc6-a242-10c9b7e9d0e9">
+            <DATA-CONSTR UUID="505cf89a-0f16-4d26-96e8-fa7cf064592c">
               <SHORT-NAME>uint8_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -326,7 +901,7 @@ For example: 1, 0, 12234567, 104400.</L-2>
         <AR-PACKAGE>
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="27c7d555-ece0-4ed2-b4eb-007a26ccfcc8">
+            <IMPLEMENTATION-DATA-TYPE UUID="3c2e8380-37d7-4dab-a115-34230ec70f6b">
               <SHORT-NAME>uint8</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">uint8 represents integers with a minimum value of 0 and a maximum value of 255.
@@ -376,11 +951,11 @@ For example: 1, 0, 126, +10.</L-2>
                   </PROVIDED-COM-SPECS>
                   <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ComponentTypes/LkaAdapSWC/PortInterfaces/IF_LKA_OUTPUT</PROVIDED-INTERFACE-TREF>
                 </P-PORT-PROTOTYPE>
-                <R-PORT-PROTOTYPE UUID="9F7A7E65-14E1-4846-961A-561601DE91A5">
-                  <SHORT-NAME>P_AS_LKA_Core_Output</SHORT-NAME>
+                <R-PORT-PROTOTYPE UUID="06C2927B-4AF4-40C8-83EE-0744C5B823FD">
+                  <SHORT-NAME>LKA_OutputPort</SHORT-NAME>
                   <REQUIRED-COM-SPECS>
                     <NONQUEUED-RECEIVER-COM-SPEC>
-                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/LkaAdapSWC/PortInterfaces/IF_AS_LKA_Core_Output/DE_AS_LKA_Core_Output</DATA-ELEMENT-REF>
+                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/LKA_OutputPort/LKAoutput</DATA-ELEMENT-REF>
                       <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
                       <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
                       <ENABLE-UPDATE>false</ENABLE-UPDATE>
@@ -390,12 +965,12 @@ For example: 1, 0, 126, +10.</L-2>
                       <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
                       <INIT-VALUE>
                         <CONSTANT-REFERENCE>
-                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/ComponentTypes/LkaAdapSWC/Constants/LKA_Core_OutputConstant</CONSTANT-REF>
+                          <CONSTANT-REF DEST="CONSTANT-SPECIFICATION">/ASP_Constants/LKA_Core_OutputConstant</CONSTANT-REF>
                         </CONSTANT-REFERENCE>
                       </INIT-VALUE>
                     </NONQUEUED-RECEIVER-COM-SPEC>
                   </REQUIRED-COM-SPECS>
-                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ComponentTypes/LkaAdapSWC/PortInterfaces/IF_AS_LKA_Core_Output</REQUIRED-INTERFACE-TREF>
+                  <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ASP_PortInterfaces/LKA_OutputPort</REQUIRED-INTERFACE-TREF>
                 </R-PORT-PROTOTYPE>
               </PORTS>
               <INTERNAL-BEHAVIORS>
@@ -426,11 +1001,11 @@ For example: 1, 0, 126, +10.</L-2>
                       <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
                       <DATA-RECEIVE-POINT-BY-ARGUMENTS>
                         <VARIABLE-ACCESS>
-                          <SHORT-NAME>REC_P_AS_LKA_Core_Output_DE_AS_LKA_Core_Output</SHORT-NAME>
+                          <SHORT-NAME>REC_LKA_OutputPort_LKAoutput</SHORT-NAME>
                           <ACCESSED-VARIABLE>
                             <AUTOSAR-VARIABLE-IREF>
-                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/LkaAdapSWC/LkaAdap/P_AS_LKA_Core_Output</PORT-PROTOTYPE-REF>
-                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/LkaAdapSWC/PortInterfaces/IF_AS_LKA_Core_Output/DE_AS_LKA_Core_Output</TARGET-DATA-PROTOTYPE-REF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/LkaAdapSWC/LkaAdap/LKA_OutputPort</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/LKA_OutputPort/LKAoutput</TARGET-DATA-PROTOTYPE-REF>
                             </AUTOSAR-VARIABLE-IREF>
                           </ACCESSED-VARIABLE>
                         </VARIABLE-ACCESS>
@@ -454,11 +1029,11 @@ For example: 1, 0, 126, +10.</L-2>
                       <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
                       <DATA-RECEIVE-POINT-BY-ARGUMENTS>
                         <VARIABLE-ACCESS>
-                          <SHORT-NAME>REC_P_AS_LKA_Core_Output_DE_AS_LKA_Core_Output</SHORT-NAME>
+                          <SHORT-NAME>REC_LKA_OutputPort_LKAoutput</SHORT-NAME>
                           <ACCESSED-VARIABLE>
                             <AUTOSAR-VARIABLE-IREF>
-                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/LkaAdapSWC/LkaAdap/P_AS_LKA_Core_Output</PORT-PROTOTYPE-REF>
-                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/LkaAdapSWC/PortInterfaces/IF_AS_LKA_Core_Output/DE_AS_LKA_Core_Output</TARGET-DATA-PROTOTYPE-REF>
+                              <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/LkaAdapSWC/LkaAdap/LKA_OutputPort</PORT-PROTOTYPE-REF>
+                              <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/LKA_OutputPort/LKAoutput</TARGET-DATA-PROTOTYPE-REF>
                             </AUTOSAR-VARIABLE-IREF>
                           </ACCESSED-VARIABLE>
                         </VARIABLE-ACCESS>
@@ -499,69 +1074,6 @@ For example: 1, 0, 126, +10.</L-2>
           </ELEMENTS>
           <AR-PACKAGES>
             <AR-PACKAGE>
-              <SHORT-NAME>CompuMethods</SHORT-NAME>
-              <ELEMENTS>
-                <COMPU-METHOD UUID="D190B2FD-F6A3-46BF-8B6C-7A8E7C5E12DF">
-                  <SHORT-NAME>As_LKA_Side_CompuMethod</SHORT-NAME>
-                  <CATEGORY>TEXTTABLE</CATEGORY>
-                  <COMPU-INTERNAL-TO-PHYS>
-                    <COMPU-SCALES>
-                      <COMPU-SCALE>
-                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
-                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
-                        <COMPU-CONST>
-                          <VT>As_LKA_Side_NONE</VT>
-                        </COMPU-CONST>
-                      </COMPU-SCALE>
-                      <COMPU-SCALE>
-                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
-                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
-                        <COMPU-CONST>
-                          <VT>As_LKA_Side_LEFT</VT>
-                        </COMPU-CONST>
-                      </COMPU-SCALE>
-                      <COMPU-SCALE>
-                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
-                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
-                        <COMPU-CONST>
-                          <VT>As_LKA_Side_RIGHT</VT>
-                        </COMPU-CONST>
-                      </COMPU-SCALE>
-                    </COMPU-SCALES>
-                  </COMPU-INTERNAL-TO-PHYS>
-                </COMPU-METHOD>
-                <COMPU-METHOD UUID="61C53065-3B12-44BA-A49F-6E715EE403B9">
-                  <SHORT-NAME>As_LKA_Status_CompuMethod</SHORT-NAME>
-                  <CATEGORY>TEXTTABLE</CATEGORY>
-                  <COMPU-INTERNAL-TO-PHYS>
-                    <COMPU-SCALES>
-                      <COMPU-SCALE>
-                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
-                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
-                        <COMPU-CONST>
-                          <VT>As_LKA_Status_DISABLED</VT>
-                        </COMPU-CONST>
-                      </COMPU-SCALE>
-                      <COMPU-SCALE>
-                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
-                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
-                        <COMPU-CONST>
-                          <VT>As_LKA_Status_UNAVAILABLE</VT>
-                        </COMPU-CONST>
-                      </COMPU-SCALE>
-                      <COMPU-SCALE>
-                        <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
-                        <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
-                        <COMPU-CONST>
-                          <VT>As_LKA_Status_AVAILABLE</VT>
-                        </COMPU-CONST>
-                      </COMPU-SCALE>
-                    </COMPU-SCALES>
-                  </COMPU-INTERNAL-TO-PHYS>
-                </COMPU-METHOD>
-              </ELEMENTS>
-            </AR-PACKAGE>
-            <AR-PACKAGE>
               <SHORT-NAME>Constants</SHORT-NAME>
               <ELEMENTS>
                 <CONSTANT-SPECIFICATION UUID="8A6E5809-747E-4945-B522-36AF1D08EB38">
@@ -585,535 +1097,11 @@ For example: 1, 0, 126, +10.</L-2>
                     </RECORD-VALUE-SPECIFICATION>
                   </VALUE-SPEC>
                 </CONSTANT-SPECIFICATION>
-                <CONSTANT-SPECIFICATION UUID="6B8191F3-B140-4CA5-876B-47718E4BDFE0">
-                  <SHORT-NAME>LKA_Core_OutputConstant</SHORT-NAME>
-                  <VALUE-SPEC>
-                    <RECORD-VALUE-SPECIFICATION>
-                      <FIELDS>
-                        <RECORD-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>lka</SHORT-LABEL>
-                          <FIELDS>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>status</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                            <RECORD-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>available</SHORT-LABEL>
-                              <FIELDS>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>left</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>right</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                              </FIELDS>
-                            </RECORD-VALUE-SPECIFICATION>
-                            <RECORD-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>suppressionReason</SHORT-LABEL>
-                              <FIELDS>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>left</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>right</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                              </FIELDS>
-                            </RECORD-VALUE-SPECIFICATION>
-                          </FIELDS>
-                        </RECORD-VALUE-SPECIFICATION>
-                        <RECORD-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>ldw</SHORT-LABEL>
-                          <FIELDS>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>warningSide</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>status</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                            <RECORD-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>available</SHORT-LABEL>
-                              <FIELDS>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>left</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>right</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                              </FIELDS>
-                            </RECORD-VALUE-SPECIFICATION>
-                            <RECORD-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>suppressionReason</SHORT-LABEL>
-                              <FIELDS>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>left</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>right</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                              </FIELDS>
-                            </RECORD-VALUE-SPECIFICATION>
-                          </FIELDS>
-                        </RECORD-VALUE-SPECIFICATION>
-                        <RECORD-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>roadEdge</SHORT-LABEL>
-                          <FIELDS>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>status</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                            <RECORD-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>available</SHORT-LABEL>
-                              <FIELDS>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>left</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>right</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                              </FIELDS>
-                            </RECORD-VALUE-SPECIFICATION>
-                            <RECORD-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>suppressionReason</SHORT-LABEL>
-                              <FIELDS>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>left</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                                <NUMERICAL-VALUE-SPECIFICATION>
-                                  <SHORT-LABEL>right</SHORT-LABEL>
-                                  <VALUE>0</VALUE>
-                                </NUMERICAL-VALUE-SPECIFICATION>
-                              </FIELDS>
-                            </RECORD-VALUE-SPECIFICATION>
-                          </FIELDS>
-                        </RECORD-VALUE-SPECIFICATION>
-                        <RECORD-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>lkaController</SHORT-LABEL>
-                          <FIELDS>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>mode</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>interventionSide</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>torqueDirectionLimit</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>abortReason</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                          </FIELDS>
-                        </RECORD-VALUE-SPECIFICATION>
-                        <RECORD-VALUE-SPECIFICATION>
-                          <SHORT-LABEL>lkaLatController</SHORT-LABEL>
-                          <FIELDS>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>frontWheelAngleRequest</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>lowerTorqueLimit</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                            <NUMERICAL-VALUE-SPECIFICATION>
-                              <SHORT-LABEL>upperTorqueLimit</SHORT-LABEL>
-                              <VALUE>0</VALUE>
-                            </NUMERICAL-VALUE-SPECIFICATION>
-                          </FIELDS>
-                        </RECORD-VALUE-SPECIFICATION>
-                      </FIELDS>
-                    </RECORD-VALUE-SPECIFICATION>
-                  </VALUE-SPEC>
-                </CONSTANT-SPECIFICATION>
               </ELEMENTS>
             </AR-PACKAGE>
             <AR-PACKAGE>
               <SHORT-NAME>DataTypes</SHORT-NAME>
               <ELEMENTS>
-                <IMPLEMENTATION-DATA-TYPE UUID="E84B9A07-1D40-4BDA-932A-A1F2ED2A27C5">
-                  <SHORT-NAME>As_LDW_Output</SHORT-NAME>
-                  <CATEGORY>STRUCTURE</CATEGORY>
-                  <SW-DATA-DEF-PROPS>
-                    <SW-DATA-DEF-PROPS-VARIANTS>
-                      <SW-DATA-DEF-PROPS-CONDITIONAL>
-                        <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
-                      </SW-DATA-DEF-PROPS-CONDITIONAL>
-                    </SW-DATA-DEF-PROPS-VARIANTS>
-                  </SW-DATA-DEF-PROPS>
-                  <SUB-ELEMENTS>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="CCEB8AEB-C8C3-4EEF-B3AA-687047569344">
-                      <SHORT-NAME>warningSide</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LKA_Side</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="6AB9A5DC-5A84-4800-90F0-061E8CC05BEF">
-                      <SHORT-NAME>status</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LKA_Status</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="60796082-435A-4CB7-BB5C-BA2A526E6B6B">
-                      <SHORT-NAME>available</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LKA_SideStatus</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="B9508A24-B111-491F-9F25-04F51AF796E6">
-                      <SHORT-NAME>suppressionReason</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_SuppressionReason</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                  </SUB-ELEMENTS>
-                </IMPLEMENTATION-DATA-TYPE>
-                <IMPLEMENTATION-DATA-TYPE UUID="B217A97A-6C4E-4D30-BE9C-5F89189A6C9C">
-                  <SHORT-NAME>As_LKA_Controller_Output</SHORT-NAME>
-                  <CATEGORY>STRUCTURE</CATEGORY>
-                  <SW-DATA-DEF-PROPS>
-                    <SW-DATA-DEF-PROPS-VARIANTS>
-                      <SW-DATA-DEF-PROPS-CONDITIONAL>
-                        <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
-                      </SW-DATA-DEF-PROPS-CONDITIONAL>
-                    </SW-DATA-DEF-PROPS-VARIANTS>
-                  </SW-DATA-DEF-PROPS>
-                  <SUB-ELEMENTS>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="87E3C78B-982F-42BA-A544-C3DC7EF015A5">
-                      <SHORT-NAME>mode</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Core_Mode</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="C07EA273-B7B1-4350-977E-47FD9D9A0559">
-                      <SHORT-NAME>interventionSide</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Side</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="5142FE46-4B28-4897-BB02-625AD0F79D43">
-                      <SHORT-NAME>torqueDirectionLimit</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_LKA_Side</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="253CC797-089D-4A0B-9346-847F53997646">
-                      <SHORT-NAME>abortReason</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/uint32</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                  </SUB-ELEMENTS>
-                </IMPLEMENTATION-DATA-TYPE>
-                <IMPLEMENTATION-DATA-TYPE UUID="1DCB9949-35AC-462A-A53F-B9C170B6ABA5">
-                  <SHORT-NAME>As_LKA_Core_Output</SHORT-NAME>
-                  <CATEGORY>STRUCTURE</CATEGORY>
-                  <SW-DATA-DEF-PROPS>
-                    <SW-DATA-DEF-PROPS-VARIANTS>
-                      <SW-DATA-DEF-PROPS-CONDITIONAL>
-                        <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
-                      </SW-DATA-DEF-PROPS-CONDITIONAL>
-                    </SW-DATA-DEF-PROPS-VARIANTS>
-                  </SW-DATA-DEF-PROPS>
-                  <SUB-ELEMENTS>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="6248CEE3-59D8-4CF1-8F5E-34F7B8305733">
-                      <SHORT-NAME>lka</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LKA_Output</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="E0894BC2-7018-448E-AF3E-CFC6935244D8">
-                      <SHORT-NAME>ldw</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LDW_Output</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="C16E4A3B-6259-4372-84E6-26E17DB8672B">
-                      <SHORT-NAME>roadEdge</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LKA_Output</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="2EA78DE2-0D1F-4E4E-952D-81FBFBACABCC">
-                      <SHORT-NAME>lkaController</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LKA_Controller_Output</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="2B15EF95-CEFA-4582-846A-0B05F68B5AAA">
-                      <SHORT-NAME>lkaLatController</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LKA_LatControl_Output</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                  </SUB-ELEMENTS>
-                </IMPLEMENTATION-DATA-TYPE>
-                <IMPLEMENTATION-DATA-TYPE UUID="AE9DD9A1-B66E-479E-8278-7CD78BCEFDD0">
-                  <SHORT-NAME>As_LKA_LatControl_Output</SHORT-NAME>
-                  <CATEGORY>STRUCTURE</CATEGORY>
-                  <SW-DATA-DEF-PROPS>
-                    <SW-DATA-DEF-PROPS-VARIANTS>
-                      <SW-DATA-DEF-PROPS-CONDITIONAL>
-                        <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
-                      </SW-DATA-DEF-PROPS-CONDITIONAL>
-                    </SW-DATA-DEF-PROPS-VARIANTS>
-                  </SW-DATA-DEF-PROPS>
-                  <SUB-ELEMENTS>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="68B4886E-6C5C-429F-AD33-22D10599DA48">
-                      <SHORT-NAME>frontWheelAngleRequest</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/float32</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="01FF231F-1202-44C6-996F-AB7096123580">
-                      <SHORT-NAME>lowerTorqueLimit</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/float32</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="E1C5FE7D-8909-4C8F-BD04-459DAB3E0B4F">
-                      <SHORT-NAME>upperTorqueLimit</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/float32</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                  </SUB-ELEMENTS>
-                </IMPLEMENTATION-DATA-TYPE>
-                <IMPLEMENTATION-DATA-TYPE UUID="F49D31C5-FF57-45B2-80C2-C3D18EDC26E3">
-                  <SHORT-NAME>As_LKA_Output</SHORT-NAME>
-                  <CATEGORY>STRUCTURE</CATEGORY>
-                  <SW-DATA-DEF-PROPS>
-                    <SW-DATA-DEF-PROPS-VARIANTS>
-                      <SW-DATA-DEF-PROPS-CONDITIONAL>
-                        <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
-                      </SW-DATA-DEF-PROPS-CONDITIONAL>
-                    </SW-DATA-DEF-PROPS-VARIANTS>
-                  </SW-DATA-DEF-PROPS>
-                  <SUB-ELEMENTS>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="795FE391-B701-45E4-895C-755B80D32624">
-                      <SHORT-NAME>status</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LKA_Status</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="9DCD1F58-B940-4A21-88B8-B3B93E5FA6E1">
-                      <SHORT-NAME>available</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LKA_SideStatus</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="425EC8D2-5455-42E6-95FB-A53CFAD215DE">
-                      <SHORT-NAME>suppressionReason</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_SuppressionReason</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                  </SUB-ELEMENTS>
-                </IMPLEMENTATION-DATA-TYPE>
-                <IMPLEMENTATION-DATA-TYPE UUID="EE06BE01-2734-471D-88C8-668126453E32">
-                  <SHORT-NAME>As_LKA_Side</SHORT-NAME>
-                  <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                  <SW-DATA-DEF-PROPS>
-                    <SW-DATA-DEF-PROPS-VARIANTS>
-                      <SW-DATA-DEF-PROPS-CONDITIONAL>
-                        <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/LkaAdapSWC/CompuMethods/As_LKA_Side_CompuMethod</COMPU-METHOD-REF>
-                        <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/sint32</IMPLEMENTATION-DATA-TYPE-REF>
-                      </SW-DATA-DEF-PROPS-CONDITIONAL>
-                    </SW-DATA-DEF-PROPS-VARIANTS>
-                  </SW-DATA-DEF-PROPS>
-                </IMPLEMENTATION-DATA-TYPE>
-                <IMPLEMENTATION-DATA-TYPE UUID="E8D73C7D-1327-4E00-9602-7628FAAFBBBD">
-                  <SHORT-NAME>As_LKA_SideStatus</SHORT-NAME>
-                  <CATEGORY>STRUCTURE</CATEGORY>
-                  <SW-DATA-DEF-PROPS>
-                    <SW-DATA-DEF-PROPS-VARIANTS>
-                      <SW-DATA-DEF-PROPS-CONDITIONAL>
-                        <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
-                      </SW-DATA-DEF-PROPS-CONDITIONAL>
-                    </SW-DATA-DEF-PROPS-VARIANTS>
-                  </SW-DATA-DEF-PROPS>
-                  <SUB-ELEMENTS>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="31E73ACB-A352-43A3-AFF7-9BA06788DD5E">
-                      <SHORT-NAME>left</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/boolean</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="89F81101-E784-4C39-B8CD-FA35B80AF23E">
-                      <SHORT-NAME>right</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/boolean</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                  </SUB-ELEMENTS>
-                </IMPLEMENTATION-DATA-TYPE>
-                <IMPLEMENTATION-DATA-TYPE UUID="CF8E0033-A3B8-4143-B763-98BF2181D45D">
-                  <SHORT-NAME>As_LKA_Status</SHORT-NAME>
-                  <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                  <SW-DATA-DEF-PROPS>
-                    <SW-DATA-DEF-PROPS-VARIANTS>
-                      <SW-DATA-DEF-PROPS-CONDITIONAL>
-                        <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/LkaAdapSWC/CompuMethods/As_LKA_Status_CompuMethod</COMPU-METHOD-REF>
-                        <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/sint32</IMPLEMENTATION-DATA-TYPE-REF>
-                      </SW-DATA-DEF-PROPS-CONDITIONAL>
-                    </SW-DATA-DEF-PROPS-VARIANTS>
-                  </SW-DATA-DEF-PROPS>
-                </IMPLEMENTATION-DATA-TYPE>
-                <IMPLEMENTATION-DATA-TYPE UUID="95AE1DD6-8F48-4CD8-95C2-649181EB4F64">
-                  <SHORT-NAME>As_SuppressionReason</SHORT-NAME>
-                  <CATEGORY>STRUCTURE</CATEGORY>
-                  <SW-DATA-DEF-PROPS>
-                    <SW-DATA-DEF-PROPS-VARIANTS>
-                      <SW-DATA-DEF-PROPS-CONDITIONAL>
-                        <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
-                      </SW-DATA-DEF-PROPS-CONDITIONAL>
-                    </SW-DATA-DEF-PROPS-VARIANTS>
-                  </SW-DATA-DEF-PROPS>
-                  <SUB-ELEMENTS>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="36F3DBFD-6254-4CA6-86FC-715F54AC7F97">
-                      <SHORT-NAME>left</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/uint32</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                    <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="124C9FDE-0D86-41A3-8E05-886DF728899C">
-                      <SHORT-NAME>right</SHORT-NAME>
-                      <CATEGORY>TYPE_REFERENCE</CATEGORY>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/uint32</IMPLEMENTATION-DATA-TYPE-REF>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                    </IMPLEMENTATION-DATA-TYPE-ELEMENT>
-                  </SUB-ELEMENTS>
-                </IMPLEMENTATION-DATA-TYPE>
                 <IMPLEMENTATION-DATA-TYPE UUID="F687AEFD-3F27-4DCB-9809-3C0C3B738EC8">
                   <SHORT-NAME>LKA_OUTPUTS_T</SHORT-NAME>
                   <CATEGORY>STRUCTURE</CATEGORY>
@@ -1162,30 +1150,6 @@ For example: 1, 0, 126, +10.</L-2>
             <AR-PACKAGE>
               <SHORT-NAME>PortInterfaces</SHORT-NAME>
               <ELEMENTS>
-                <SENDER-RECEIVER-INTERFACE UUID="D2EA7FC1-7F1A-4CC9-8431-4E18D21F11F2">
-                  <SHORT-NAME>IF_AS_LKA_Core_Output</SHORT-NAME>
-                  <IS-SERVICE>false</IS-SERVICE>
-                  <DATA-ELEMENTS>
-                    <VARIABLE-DATA-PROTOTYPE UUID="2B08A5C6-5537-45CA-A657-CDC6D7957A51">
-                      <SHORT-NAME>DE_AS_LKA_Core_Output</SHORT-NAME>
-                      <SW-DATA-DEF-PROPS>
-                        <SW-DATA-DEF-PROPS-VARIANTS>
-                          <SW-DATA-DEF-PROPS-CONDITIONAL>
-                            <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
-                            <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
-                          </SW-DATA-DEF-PROPS-CONDITIONAL>
-                        </SW-DATA-DEF-PROPS-VARIANTS>
-                      </SW-DATA-DEF-PROPS>
-                      <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/LkaAdapSWC/DataTypes/As_LKA_Core_Output</TYPE-TREF>
-                    </VARIABLE-DATA-PROTOTYPE>
-                  </DATA-ELEMENTS>
-                  <INVALIDATION-POLICYS>
-                    <INVALIDATION-POLICY>
-                      <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/LkaAdapSWC/PortInterfaces/IF_AS_LKA_Core_Output/DE_AS_LKA_Core_Output</DATA-ELEMENT-REF>
-                      <HANDLE-INVALID>DONT-INVALIDATE</HANDLE-INVALID>
-                    </INVALIDATION-POLICY>
-                  </INVALIDATION-POLICYS>
-                </SENDER-RECEIVER-INTERFACE>
                 <SENDER-RECEIVER-INTERFACE UUID="C44EB764-2E00-4F13-9946-9C74C9E86316">
                   <SHORT-NAME>IF_LKA_OUTPUT</SHORT-NAME>
                   <IS-SERVICE>false</IS-SERVICE>

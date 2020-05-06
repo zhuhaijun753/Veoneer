@@ -8,7 +8,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="cc4a35a0-5b54-4b74-bd69-67f289800dc0">
+            <SW-BASE-TYPE UUID="dc130bbd-2a51-44f2-9f70-6c1f414fc0cb">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
@@ -19,7 +19,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>DataConstrs</SHORT-NAME>
           <ELEMENTS>
-            <DATA-CONSTR UUID="505cf89a-0f16-4d26-96e8-fa7cf064592c">
+            <DATA-CONSTR UUID="0a07d554-4139-495a-aa27-ab1fd5131813">
               <SHORT-NAME>uint8_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -35,7 +35,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="3c2e8380-37d7-4dab-a115-34230ec70f6b">
+            <IMPLEMENTATION-DATA-TYPE UUID="8b6e9c33-8ec3-41c8-a6e4-236dbc0e8d0b">
               <SHORT-NAME>uint8</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">uint8 represents integers with a minimum value of 0 and a maximum value of 255.

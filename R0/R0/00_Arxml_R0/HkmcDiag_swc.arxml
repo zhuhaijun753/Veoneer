@@ -8,13 +8,13 @@
         <AR-PACKAGE>
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="b93cefb7-0c70-4586-9655-ab0d79291eb3">
+            <SW-BASE-TYPE UUID="0ec5df9e-db8a-471c-a4a5-956be9c473d7">
               <SHORT-NAME>boolean</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="cc4a35a0-5b54-4b74-bd69-67f289800dc0">
+            <SW-BASE-TYPE UUID="dc130bbd-2a51-44f2-9f70-6c1f414fc0cb">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
@@ -25,7 +25,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>CompuMethods</SHORT-NAME>
           <ELEMENTS>
-            <COMPU-METHOD UUID="2dd0e3e3-3c1e-4e65-b87f-17549a447833">
+            <COMPU-METHOD UUID="b8b3fb9b-af38-4b95-baff-c9325bba4da4">
               <SHORT-NAME>boolean_CompuMethod</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <COMPU-INTERNAL-TO-PHYS>
@@ -54,7 +54,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>DataConstrs</SHORT-NAME>
           <ELEMENTS>
-            <DATA-CONSTR UUID="8028b401-9eb5-44d8-8aed-6fe0ccac9f2b">
+            <DATA-CONSTR UUID="05d24ba6-252b-4413-a4cd-f37b978d66bb">
               <SHORT-NAME>boolean_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -65,7 +65,7 @@
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="505cf89a-0f16-4d26-96e8-fa7cf064592c">
+            <DATA-CONSTR UUID="0a07d554-4139-495a-aa27-ab1fd5131813">
               <SHORT-NAME>uint8_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -81,7 +81,7 @@
         <AR-PACKAGE>
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="549fbe36-d37d-49e9-9dcb-fc2c062493bb">
+            <IMPLEMENTATION-DATA-TYPE UUID="0cd57494-6a7f-4977-a9e1-e478453dbf75">
               <SHORT-NAME>boolean</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">boolean has the value space required to support the mathematical concept of 
@@ -100,7 +100,7 @@ binary-valued logic: {true, false}.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="3c2e8380-37d7-4dab-a115-34230ec70f6b">
+            <IMPLEMENTATION-DATA-TYPE UUID="8b6e9c33-8ec3-41c8-a6e4-236dbc0e8d0b">
               <SHORT-NAME>uint8</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">uint8 represents integers with a minimum value of 0 and a maximum value of 255.
