@@ -1,0 +1,320 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: EMS FR_CMR TCU vBDM AFS ILCU_LH ILCU_RH VCU BMS CLU EPB ESC H_U_MM IBU IBU_HS LDC MCU MDPS OBC RR_C_RDR SVM DATC ADAS_DRV ADAS_PRK AWD RWS AMP APSU DAU DVRS Dummy FCS HUD IAU ICSC ICU MLM PFSU PTGM SBW ACU ADM ECS TPMS HCU OPU PSB eCall AHLS ODS VESS AHV DHV DLBCU DPSS DPSU PSM RLHV RRHV SHVU_FR SHVU_RR DIBOX SAS FPCM SCM AFCU_DRV ESC_C CGW SCU WPC MFSW SWRC ESU AFCU_AST AFCU_RL AFCU_RR APSM ARS BCM BCW CCM DSS ECW FCU FICU GST HFKS HSWS LPI OPI PSD PSU RDC RLPSM RRPSM RWPC SLB SMK YRS SML CTM FR_C_RDR_LH FR_C_RDR_RH RR_C_RDR_LH CLU_MM HUD_MM LSD MKBD MM_CGW SBW_FF eCall_MM H_U_ETH FR_RDR
+
+
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ FCA_Equip_MFC : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FCAref_FusSta : 0|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FCA_EquipSta : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ FCA_AvlblSta : 0|2@1+ (1,0) [0|3] "" Vector__XXX
+
+BO_ 352 ADAS_CMD_10_20ms: 16 FR_CMR
+ SG_ FCA_WrngSndSta : 61|3@1+ (1,0) [0|7] ""  CLU,CGW
+ SG_ ADAS_CMD_Crc10Val : 0|16@1+ (1,0) [0|65535] ""  ESC_C,CGW
+ SG_ ADAS_CMD_AlvCnt10Val : 16|8@1+ (1,0) [0|255] ""  ESC_C,CGW
+ SG_ FCA_OnOffEquipSta : 24|3@1+ (1,0) [0|7] ""  ACU,ESC_C,CGW
+ SG_ FCA_SysFlrSta : 27|3@1+ (1,0) [0|7] ""  ACU,ESC_C,CGW
+ SG_ FCA_WrngLvlSta : 30|2@1+ (1,0) [0|3] ""  ACU,ESC_C,CGW
+ SG_ FCA_VehStpReq : 32|2@1+ (1,0) [0|3] ""  ESC_C,CGW
+ SG_ FCA_StbltActvReq : 34|3@1+ (1,0) [0|7] ""  ESC_C,CGW
+ SG_ FCA_HydrlcBstAsstReq : 37|2@1+ (1,0) [0|3] ""  ESC_C,CGW
+ SG_ FCA_DclReqVal : 40|8@1+ (0.01,0) [0|2.55] "g"  ESC_C,CGW
+ SG_ FCA_PrefillActvReq : 48|2@1+ (1,0) [0|3] ""  ESC_C,CGW
+ SG_ FCA_PartialActvReq : 50|2@1+ (1,0) [0|3] ""  ESC_C,CGW
+ SG_ FCA_FullActvReq : 52|2@1+ (1,0) [0|3] ""  ESC_C,CGW
+ SG_ FCA_SnstvtyModRetVal : 56|3@1+ (1,0) [0|7] ""  ESC_C,CGW
+ SG_ FCA_RelVel : 64|9@1+ (0.1,0) [0|51.1] "m/s"  ACU,CGW
+ SG_ FCA_TimetoCllsn : 73|8@1+ (10,0) [0|2550] "ms"  ACU,CGW
+ SG_ FCA_Jnctn_OnOffEquipSta : 83|2@1+ (1,0) [0|3] ""  ACU,ESC_C,CGW
+ SG_ FCA_WrngTrgtDis : 88|5@1+ (1,0) [0|31] ""  CGW
+
+
+
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
+CM_ SG_ 3221225472 FCA_Equip_MFC "FCA_Equipment_MFC ##2G##LDW_LKA - LKA15 - CF_FCA_Equip_MFC";
+CM_ SG_ 3221225472 FCAref_FusSta "FCAref_FusionStatus ##2G##LDW_LKA - LKA11 - CF_LKA_FusionState";
+CM_ SG_ 3221225472 FCA_EquipSta "FCA_EquipmentStatus ##2G##ESC - TCS13 - FCA_EQUIP";
+CM_ SG_ 3221225472 FCA_AvlblSta "VSM_AvailableStatus ##2G##ESC - TCS13 - CF_VSM_Avail";
+CM_ BO_ 352 "[P] Periodic";
+CM_ SG_ 352 FCA_WrngSndSta "FCA warning sound status";
+CM_ SG_ 352 ADAS_CMD_Crc10Val "ADAS_CMD_CyclicRedundancyCheck10Value ##2G##FCA - FCA11 - CR_FCA_ChkSum";
+CM_ SG_ 352 ADAS_CMD_AlvCnt10Val "ADAS_CMD_AliveCounter10Value ##2G##FCA - FCA11 - CR_FCA_Alive";
+CM_ SG_ 352 FCA_OnOffEquipSta "FCA_OnOffEquipmentStatus ##2G##FCA - FCA12 - FCA_USM";
+CM_ SG_ 352 FCA_SysFlrSta "FCA_SystemFailureStatus ##2G##FCA - FCA11 - FCA_Failinfo";
+CM_ SG_ 352 FCA_WrngLvlSta "FCA_WarningLevelStatus ##2G##FCA - FCA11 - CF_VSM_Warn";
+CM_ SG_ 352 FCA_VehStpReq "FCA_VehicleStopRequest ##2G##FCA - FCA11 - FCA_StopReq";
+CM_ SG_ 352 FCA_StbltActvReq "FCA_SeatBeltActivateRequest ##2G##FCA - FCA11 - CF_VSM_BeltCmd";
+CM_ SG_ 352 FCA_HydrlcBstAsstReq "FCA_HydraulicBoostAssistRequest ##2G##FCA - FCA11 - CF_VSM_HBACmd";
+CM_ SG_ 352 FCA_DclReqVal "FCA_DecelerationRequestValue ##2G##FCA - FCA11 - CR_VSM_DecCmd";
+CM_ SG_ 352 FCA_PrefillActvReq "FCA_PrefillActivateRequest ##2G##FCA - FCA11 - CF_VSM_Prefill";
+CM_ SG_ 352 FCA_PartialActvReq "FCA_PartialActivateRequest";
+CM_ SG_ 352 FCA_FullActvReq "FCA_FullActivateRequest";
+CM_ SG_ 352 FCA_SnstvtyModRetVal "FCA_SensitivityModeReturnValue ##2G##FCA - FCA12 - FCA_DrvSetState";
+CM_ SG_ 352 FCA_RelVel "FCA_RelativeVelocity ##2G##FCA - FCA11_FS - FCA_RelativeVelocity";
+CM_ SG_ 352 FCA_TimetoCllsn "FCA_TimetoCollision ##2G##FCA - FCA11_FS - FCA_TimetoCollision";
+CM_ SG_ 352 FCA_Jnctn_OnOffEquipSta "FCA_Junction_OnOffEquipStatus";
+CM_ SG_ 352 FCA_WrngTrgtDis "FCA_WarningTargetDisplay";
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "NmMessage" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagState" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagResponse" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagRequest" ENUM  "No","Yes";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","StandardCAN_FD","ExtendedCAN_FD";
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","NoMsgSendType";
+BA_DEF_ SG_  "UserSigValidity" ENUM  "B+","ACC","IG","IG1","IG2","IG3","IG1 or IG2","IG1 or IG3","Undef";
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType","OnChangeAndIfActive","OnChangeAndIfActiveWithRepetition";
+BA_DEF_ SG_  "RoutingFactor" INT 1 1215752192;
+BA_DEF_ SG_  "NetworkRequestHoldingTime" INT 0 65535;
+BA_DEF_ SG_  "Description" STRING ;
+BA_DEF_ SG_  "Version" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 2000;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 2000;
+BA_DEF_ BU_  "NmNode" ENUM  "No","Yes";
+BA_DEF_ SG_  "UsrSigPurpose" ENUM  "Undef","FN","DIAG","DEV","NM";
+BA_DEF_ SG_  "GenSigStartValue" INT 0 0;
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "DiagState" "No";
+BA_DEF_DEF_  "DiagResponse" "No";
+BA_DEF_DEF_  "DiagRequest" "No";
+BA_DEF_DEF_  "BusType" "CAN FD";
+BA_DEF_DEF_  "VFrameFormat" "";
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "UserSigValidity" "IG";
+BA_DEF_DEF_  "GenSigSendType" "";
+BA_DEF_DEF_  "RoutingFactor" 1;
+BA_DEF_DEF_  "NetworkRequestHoldingTime" 0;
+BA_DEF_DEF_  "Description" "";
+BA_DEF_DEF_  "Version" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "NmNode" "Yes";
+BA_DEF_DEF_  "UsrSigPurpose" "FN";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_ "BusType" "CAN FD";
+BA_ "NmNode" BU_ ILCU_LH 0;
+BA_ "NmNode" BU_ ILCU_RH 0;
+BA_ "NmNode" BU_ IBU_HS 0;
+BA_ "NmNode" BU_ IAU 0;
+BA_ "NmNode" BU_ ICU 0;
+BA_ "NmNode" BU_ PTGM 0;
+BA_ "NmNode" BU_ SWRC 0;
+BA_ "NmNode" BU_ FICU 0;
+BA_ "GenMsgStartDelayTime" BO_ 352 0;
+BA_ "GenMsgCycleTime" BO_ 352 20;
+BA_ "GenMsgSendType" BO_ 352 0;
+BA_ "VFrameFormat" BO_ 352 14;
+BA_ "UserSigValidity" SG_ 3221225472 FCA_Equip_MFC 3;
+BA_ "GenSigStartValue" SG_ 3221225472 FCA_Equip_MFC 0;
+BA_ "RoutingFactor" SG_ 3221225472 FCA_Equip_MFC 5;
+BA_ "Description" SG_ 3221225472 FCA_Equip_MFC "FCA Sensor Type";
+BA_ "Version" SG_ 3221225472 FCA_Equip_MFC "18.02.03";
+BA_ "UsrSigPurpose" SG_ 3221225472 FCA_Equip_MFC 1;
+BA_ "UserSigValidity" SG_ 3221225472 FCAref_FusSta 3;
+BA_ "GenSigStartValue" SG_ 3221225472 FCAref_FusSta 0;
+BA_ "RoutingFactor" SG_ 3221225472 FCAref_FusSta 5;
+BA_ "Description" SG_ 3221225472 FCAref_FusSta "Fusion Function State";
+BA_ "Version" SG_ 3221225472 FCAref_FusSta "17.12.02";
+BA_ "UsrSigPurpose" SG_ 3221225472 FCAref_FusSta 1;
+BA_ "UserSigValidity" SG_ 3221225472 FCA_EquipSta 3;
+BA_ "GenSigStartValue" SG_ 3221225472 FCA_EquipSta 0;
+BA_ "RoutingFactor" SG_ 3221225472 FCA_EquipSta 5;
+BA_ "Description" SG_ 3221225472 FCA_EquipSta "FCA Equipment Status";
+BA_ "Version" SG_ 3221225472 FCA_EquipSta "17.12.00";
+BA_ "UsrSigPurpose" SG_ 3221225472 FCA_EquipSta 1;
+BA_ "UserSigValidity" SG_ 3221225472 FCA_AvlblSta 3;
+BA_ "GenSigStartValue" SG_ 3221225472 FCA_AvlblSta 0;
+BA_ "RoutingFactor" SG_ 3221225472 FCA_AvlblSta 5;
+BA_ "Description" SG_ 3221225472 FCA_AvlblSta "This signal indicates state signal from ESC to FCA which tells if ESC is 'Available', 'Temporarily not available', 'Permanently not available' or 'FCA Communication Error'.";
+BA_ "Version" SG_ 3221225472 FCA_AvlblSta "18.02.00";
+BA_ "UsrSigPurpose" SG_ 3221225472 FCA_AvlblSta 1;
+BA_ "UserSigValidity" SG_ 352 ADAS_CMD_Crc10Val 3;
+BA_ "GenSigStartValue" SG_ 352 ADAS_CMD_Crc10Val 65535;
+BA_ "RoutingFactor" SG_ 352 ADAS_CMD_Crc10Val 5;
+BA_ "Description" SG_ 352 ADAS_CMD_Crc10Val "The CRC checking process calculates the CRC over the entire data block, including the CRC result.
+- CRC Polynomial (0x1021) , Initial Value : 0xFFFF, XOR value : 0x0000
+- The mathematical expression to 16 bit CRC polynomial is given here. G(x) = x16 + ";
+BA_ "Version" SG_ 352 ADAS_CMD_Crc10Val "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 ADAS_CMD_Crc10Val 1;
+BA_ "UserSigValidity" SG_ 352 ADAS_CMD_AlvCnt10Val 3;
+BA_ "GenSigStartValue" SG_ 352 ADAS_CMD_AlvCnt10Val 0;
+BA_ "RoutingFactor" SG_ 352 ADAS_CMD_AlvCnt10Val 5;
+BA_ "Description" SG_ 352 ADAS_CMD_AlvCnt10Val "For the first transmission request for a data element the counter shall be initialized with 0 and shall be incremented by 1
+for every subsequent send request. When the counter reaches the maximum value(0xFF), then it shall restart with – for the next ";
+BA_ "Version" SG_ 352 ADAS_CMD_AlvCnt10Val "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 ADAS_CMD_AlvCnt10Val 1;
+BA_ "UserSigValidity" SG_ 352 FCA_OnOffEquipSta 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_OnOffEquipSta 0;
+BA_ "RoutingFactor" SG_ 352 FCA_OnOffEquipSta 5;
+BA_ "Description" SG_ 352 FCA_OnOffEquipSta "This signal describes the FCA Function.
+- 시스템 장착 여부 및 시스템 on/off 정보";
+BA_ "Version" SG_ 352 FCA_OnOffEquipSta "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_OnOffEquipSta 1;
+BA_ "UserSigValidity" SG_ 352 FCA_SysFlrSta 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_SysFlrSta 0;
+BA_ "RoutingFactor" SG_ 352 FCA_SysFlrSta 5;
+BA_ "Description" SG_ 352 FCA_SysFlrSta "This signal describes the failure information of FCA Function.
+
+- 시스템 정상 또는 카메라/레이더/시스템 고장상태 정보";
+BA_ "Version" SG_ 352 FCA_SysFlrSta "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_SysFlrSta 1;
+BA_ "UserSigValidity" SG_ 352 FCA_WrngLvlSta 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_WrngLvlSta 0;
+BA_ "RoutingFactor" SG_ 352 FCA_WrngLvlSta 5;
+BA_ "Description" SG_ 352 FCA_WrngLvlSta "Request CLU to activate the corresponding warning device(s) according to the FCA warning level.
+- FCA 1차/2차/3차 작동 상태 표시용 정보신호";
+BA_ "Version" SG_ 352 FCA_WrngLvlSta "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_WrngLvlSta 1;
+BA_ "UserSigValidity" SG_ 352 FCA_VehStpReq 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_VehStpReq 0;
+BA_ "RoutingFactor" SG_ 352 FCA_VehStpReq 5;
+BA_ "Description" SG_ 352 FCA_VehStpReq "A control request flag for vehicle stop. FCA expects vehicle to be controlled to a complete stop and hold its state by ESC.
+
+- FCA 제동상황 종료후 정차 상태 유지를 위한 신호";
+BA_ "Version" SG_ 352 FCA_VehStpReq "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_VehStpReq 1;
+BA_ "UserSigValidity" SG_ 352 FCA_StbltActvReq 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_StbltActvReq 0;
+BA_ "RoutingFactor" SG_ 352 FCA_StbltActvReq 5;
+BA_ "Description" SG_ 352 FCA_StbltActvReq "Depending on the driving situation, FCA tells PSB to release(no alert), retract or pull the seat belt for occupant protection or warning.
+- FCA 제동상황시 시트벨트 작동을 위한 정보 신호";
+BA_ "Version" SG_ 352 FCA_StbltActvReq "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_StbltActvReq 1;
+BA_ "UserSigValidity" SG_ 352 FCA_HydrlcBstAsstReq 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_HydrlcBstAsstReq 0;
+BA_ "RoutingFactor" SG_ 352 FCA_HydrlcBstAsstReq 5;
+BA_ "Description" SG_ 352 FCA_HydrlcBstAsstReq "Depending on the driving situation, FCA tells ESC to use lowered HBA (Hydraulic Boost Assist) threshold to sensitize the HBA entrance. 
+The boost assist function is more easily activated than under normal driving condition.
+- FCA 제동상황시 HBA �";
+BA_ "Version" SG_ 352 FCA_HydrlcBstAsstReq "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_HydrlcBstAsstReq 1;
+BA_ "UserSigValidity" SG_ 352 FCA_DclReqVal 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_DclReqVal 0;
+BA_ "RoutingFactor" SG_ 352 FCA_DclReqVal 5;
+BA_ "Description" SG_ 352 FCA_DclReqVal "Depending on the driving situation, FCA gives ESC the deceleration command. ESC maintains the deceleration.
+- FCA 제동을 위한 요구 감속도 값";
+BA_ "Version" SG_ 352 FCA_DclReqVal "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_DclReqVal 1;
+BA_ "UserSigValidity" SG_ 352 FCA_PrefillActvReq 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_PrefillActvReq 0;
+BA_ "RoutingFactor" SG_ 352 FCA_PrefillActvReq 5;
+BA_ "Description" SG_ 352 FCA_PrefillActvReq "A control requeset flag for FCA first warning. (Audible Warning)
+- FCA 1차 제동상황 요청신호";
+BA_ "Version" SG_ 352 FCA_PrefillActvReq "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_PrefillActvReq 1;
+BA_ "UserSigValidity" SG_ 352 FCA_PartialActvReq 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_PartialActvReq 0;
+BA_ "RoutingFactor" SG_ 352 FCA_PartialActvReq 5;
+BA_ "Description" SG_ 352 FCA_PartialActvReq "A control requeset flag for FCA second warning. (Partial braking)
+- FCA 2차 제동상황 요청신호";
+BA_ "Version" SG_ 352 FCA_PartialActvReq "17.11.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_PartialActvReq 1;
+BA_ "UserSigValidity" SG_ 352 FCA_FullActvReq 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_FullActvReq 0;
+BA_ "RoutingFactor" SG_ 352 FCA_FullActvReq 5;
+BA_ "Description" SG_ 352 FCA_FullActvReq "A control requeset flag for FCA third warning. (Full braking)
+- FCA 3차 제동상황 요청신호";
+BA_ "Version" SG_ 352 FCA_FullActvReq "17.11.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_FullActvReq 1;
+BA_ "UserSigValidity" SG_ 352 FCA_SnstvtyModRetVal 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_SnstvtyModRetVal 0;
+BA_ "RoutingFactor" SG_ 352 FCA_SnstvtyModRetVal 5;
+BA_ "Description" SG_ 352 FCA_SnstvtyModRetVal "This signal is FCA sensitive set mode switch(USM) info return value to cluster.
+- FCA 민감도 설정 관련 USM 설정 스위치 정보의 리턴 값";
+BA_ "Version" SG_ 352 FCA_SnstvtyModRetVal "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_SnstvtyModRetVal 1;
+BA_ "UserSigValidity" SG_ 352 FCA_RelVel 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_RelVel 0;
+BA_ "RoutingFactor" SG_ 352 FCA_RelVel 5;
+BA_ "Description" SG_ 352 FCA_RelVel "This signal indicates the relative velocity between the host vehicle and a forward vehicle.
+
+
+
+(PH) = ((HEX)-0FFH)*0.1 [m/s/digit]
+
+       = (HEX)*0.1 [m/s/digit] - 25.5 [m/s]
+
+CAN Message Physical range : Max. Relative velocity : 0x1FE(25.5m/s),";
+BA_ "Version" SG_ 352 FCA_RelVel "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_RelVel 1;
+BA_ "UserSigValidity" SG_ 352 FCA_TimetoCllsn 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_TimetoCllsn 0;
+BA_ "RoutingFactor" SG_ 352 FCA_TimetoCllsn 5;
+BA_ "Description" SG_ 352 FCA_TimetoCllsn "This signal indicates predictive time to Collision between the host vehicle and a forward vehicle.
+
+
+
+(PH) = 10*(HEX) [ms]
+
+CAN Message Physical range : 0 ~ 2540 [ms], Resolution : 10ms";
+BA_ "Version" SG_ 352 FCA_TimetoCllsn "17.12.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_TimetoCllsn 1;
+BA_ "UserSigValidity" SG_ 352 FCA_Jnctn_OnOffEquipSta 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_Jnctn_OnOffEquipSta 0;
+BA_ "RoutingFactor" SG_ 352 FCA_Jnctn_OnOffEquipSta 5;
+BA_ "Description" SG_ 352 FCA_Jnctn_OnOffEquipSta "This signal describes the FCA-JC Function.
+- 시스템 장착 여부 및 시스템 on/off 정보";
+BA_ "Version" SG_ 352 FCA_Jnctn_OnOffEquipSta "17.11.00";
+BA_ "UsrSigPurpose" SG_ 352 FCA_Jnctn_OnOffEquipSta 1;
+BA_ "UserSigValidity" SG_ 352 FCA_WrngTrgtDis 3;
+BA_ "GenSigStartValue" SG_ 352 FCA_WrngTrgtDis 0;
+BA_ "RoutingFactor" SG_ 352 FCA_WrngTrgtDis 5;
+BA_ "Description" SG_ 352 FCA_WrngTrgtDis "Request CLU to activate the corresponding warning device(s) according to the type of FCA warning target.
+- FCA 경고 대상 종류별 표시 정보신호";
+BA_ "Version" SG_ 352 FCA_WrngTrgtDis "17.12.03";
+BA_ "UsrSigPurpose" SG_ 352 FCA_WrngTrgtDis 1;
+VAL_ 3221225472 FCA_Equip_MFC 0 "No Coding" 1 "Sensor Fusion FCA" 2 "Camera only FCA" 3 "No FCA Option" 4 "ADAS_DRV Option" 5 "Reserved" 6 "Not used" 7 "Error indicator" ;
+VAL_ 3221225472 FCAref_FusSta 0 "Normal" 1 "Fusion Disabled" 2 "Front Radar Communication Error" 3 "Camera Blockage" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" ;
+VAL_ 3221225472 FCA_EquipSta 0 "FCA is not equipped" 1 "FCA is equipped" 2 "Not used" 3 "Error Indicator" ;
+VAL_ 3221225472 FCA_AvlblSta 0 "Available" 1 "Temporarily not available" 2 "Permanently not available" 3 "FCA Communication Error" ;
+VAL_ 352 FCA_WrngSndSta 7 "Error Indicator" 6 "Reserved" 5 "Reserved" 4 "Reserved" 3 "Warning 3" 2 "Warning 2" 1 "Warning 1" 0 "No warning" ;
+VAL_ 352 FCA_OnOffEquipSta 0 "Default" 1 "Off" 2 "Warning" 3 "Assist" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Invalid" ;
+VAL_ 352 FCA_SysFlrSta 0 "Normal" 1 "Temp. Unavailable by Camera" 2 "Temp. Unavailable by Radar" 3 "Service Required" 4 "Temp. Unavailable by Camera (Camera only)" 5 "Reserved" 6 "Reserved" 7 "Reserved" ;
+VAL_ 352 FCA_WrngLvlSta 0 "No warning" 1 "Warning level 1" 2 "Warning level 2" 3 "Warning level 3" ;
+VAL_ 352 FCA_VehStpReq 0 "No request" 1 "Stop control is required" 2 "Reserved" 3 "Error Indicator" ;
+VAL_ 352 FCA_StbltActvReq 0 "Release No alert" 1 "Pre-crash full retraction" 2 "Haptic warning" 3 "Reserved" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Reserved" ;
+VAL_ 352 FCA_HydrlcBstAsstReq 0 "Standard threshold" 1 "Lowered threshold 1" 2 "Lowered threshold 2" 3 "Lowered threshold 3" ;
+VAL_ 352 FCA_PrefillActvReq 0 "No pre-fill" 1 "Pre-fill act" 2 "Reserved" 3 "Error Indicator" ;
+VAL_ 352 FCA_PartialActvReq 0 "No Partial act" 1 "Partail act " 2 "Reserved" 3 "Error Indicator" ;
+VAL_ 352 FCA_FullActvReq 0 "No Full act" 1 "Full act" 2 "Reserved" 3 "Error Indicator" ;
+VAL_ 352 FCA_SnstvtyModRetVal 0 "Default" 1 "Late" 2 "Normal" 3 "Early" 4 "Reserved" 5 "Reserved" 6 "Reserved" 7 "Invalid" ;
+VAL_ 352 FCA_RelVel 511 "Signal Invalid" ;
+VAL_ 352 FCA_Jnctn_OnOffEquipSta 0 "Default" 1 "Off" 2 "On" 3 "Invalid" ;
+VAL_ 352 FCA_WrngTrgtDis 0 "No warning" 1 "FCA-Pedestrian" 2 "Reserved" 3 "FCA-Cyclist" 4 "Reserved" 5 "FCA-Car" 6 "Reserved" 7 "FCA-JC(L)" 8 "FCA-JC®" 9 "Reserved" 10 "Reserved" 11 "FCA-JT(L)" 12 "FCA-JT(R)" 13 "Reserved" 14 "Reserved" ;
+SIG_GROUP_ 352 ADAS_CMD_10_20ms 1 : FCA_WrngSndSta FCA_Jnctn_OnOffEquipSta FCA_TimetoCllsn FCA_SnstvtyModRetVal FCA_RelVel FCA_FullActvReq FCA_PartialActvReq FCA_PrefillActvReq FCA_DclReqVal FCA_HydrlcBstAsstReq FCA_StbltActvReq FCA_WrngLvlSta FCA_VehStpReq FCA_SysFlrSta FCA_OnOffEquipSta ADAS_CMD_AlvCnt10Val ADAS_CMD_Crc10Val FCA_WrngTrgtDis;
+
