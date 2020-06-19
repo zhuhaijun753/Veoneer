@@ -164,37 +164,37 @@ for float32.</L-2>
         <AR-PACKAGE>
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="9908C481-93E6-43E3-8A8E-AB3FA8ECB628">
+            <SW-BASE-TYPE UUID="64efdeae-7132-47aa-a552-267f40879a9a">
               <SHORT-NAME>boolean</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="A554BEDB-05DD-4DB2-BAF3-715841BDCFDA">
+            <SW-BASE-TYPE UUID="3475ddb0-0f25-4e95-a8a2-f68ae496b1f8">
               <SHORT-NAME>float32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="70EDE515-4D16-4DA5-9535-C795AC54F35A">
+            <SW-BASE-TYPE UUID="73c1ca26-cd7d-4772-ada2-aa92bc2ecef0">
               <SHORT-NAME>sint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="9A020D78-F814-4013-AFC8-5C2FA20F3329">
+            <SW-BASE-TYPE UUID="8a45fb39-c755-4a4b-893f-73cb15ceeb91">
               <SHORT-NAME>sint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="D473C6DC-5B99-407F-957A-3467321436D3">
+            <SW-BASE-TYPE UUID="c96b216f-1d89-46a1-a584-05519dbbc0db">
               <SHORT-NAME>uint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="332768AA-6AE1-4D1C-81B9-1BECFE79F2B7">
+            <SW-BASE-TYPE UUID="78f0a397-d1c6-4310-ae99-e43a4c37244f">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
@@ -205,7 +205,7 @@ for float32.</L-2>
         <AR-PACKAGE>
           <SHORT-NAME>CompuMethods</SHORT-NAME>
           <ELEMENTS>
-            <COMPU-METHOD UUID="F56F8E55-ABC8-4EFB-9CAC-A763EB674AD2">
+            <COMPU-METHOD UUID="5970b4d2-557e-40b8-a7ab-780427b9e42e">
               <SHORT-NAME>boolean_CompuMethod</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <COMPU-INTERNAL-TO-PHYS>
@@ -234,7 +234,7 @@ for float32.</L-2>
         <AR-PACKAGE>
           <SHORT-NAME>DataConstrs</SHORT-NAME>
           <ELEMENTS>
-            <DATA-CONSTR UUID="543C0ADA-E344-4530-B61A-CBB410402110">
+            <DATA-CONSTR UUID="02085e67-0fa1-4996-9df8-0851b79f6ab0">
               <SHORT-NAME>boolean_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -245,7 +245,7 @@ for float32.</L-2>
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="A6EA546A-6F5D-46DA-8689-A1F800C6A9EB">
+            <DATA-CONSTR UUID="f388c02a-93f3-466a-a6c0-d9e2150d11d2">
               <SHORT-NAME>float32_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -256,7 +256,7 @@ for float32.</L-2>
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="846E28C6-F3E7-4FA2-9B9A-9259F93AC78E">
+            <DATA-CONSTR UUID="1e8773d4-c2c2-41d9-b53f-17692082f572">
               <SHORT-NAME>sint16_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -267,7 +267,7 @@ for float32.</L-2>
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="54E71668-9645-4EA3-87CC-C4004DFAB625">
+            <DATA-CONSTR UUID="1c69c646-7192-41d9-9d8c-115fcc691d96">
               <SHORT-NAME>sint32_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -278,7 +278,7 @@ for float32.</L-2>
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="B9B9EC09-BC4A-4D1C-9E24-2D5894D1DB9A">
+            <DATA-CONSTR UUID="9ec57788-7ba4-4646-b189-66fe17413680">
               <SHORT-NAME>uint32_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -289,7 +289,7 @@ for float32.</L-2>
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="F13BA1F7-AD01-437A-8D79-8A7E099F5680">
+            <DATA-CONSTR UUID="c8a742f6-ab82-479e-8333-2b012a8c16e8">
               <SHORT-NAME>uint8_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -305,10 +305,10 @@ for float32.</L-2>
         <AR-PACKAGE>
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="FEF4D7C0-E8EA-455F-A3FA-ADA00023215B">
+            <IMPLEMENTATION-DATA-TYPE UUID="22fc361a-dd09-476d-898a-dddbae693105">
               <SHORT-NAME>boolean</SHORT-NAME>
               <DESC>
-                <L-2 L="FOR-ALL">boolean has the value space required to support the mathematical concept of
+                <L-2 L="FOR-ALL">boolean has the value space required to support the mathematical concept of 
 binary-valued logic: {true, false}.</L-2>
               </DESC>
               <CATEGORY>VALUE</CATEGORY>
@@ -324,29 +324,29 @@ binary-valued logic: {true, false}.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="7AFAB542-FE2A-44D4-B4D8-573073694047">
+            <IMPLEMENTATION-DATA-TYPE UUID="767aa55a-811d-49b0-be99-b09121e8d959">
               <SHORT-NAME>float32</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">float32 corresponds to the IEEE single-precision 32-bit floating point type
-[IEEE 754-1985]. The basic value space of float32 consists of the values
-m * 2^e, where m is an integer whose absolute value is less than 2^24,
+[IEEE 754-1985]. The basic value space of float32 consists of the values 
+m * 2^e, where m is an integer whose absolute value is less than 2^24, 
 and e is an integer between -149 and 104, inclusive. In addition to the basic
-value space described above, the value space of float32 also contains the
-following special values: positive and negative zero, positive and negative
-infinity and not-a-number. The order-relation on float32 is:
+value space described above, the value space of float32 also contains the 
+following special values: positive and negative zero, positive and negative 
+infinity and not-a-number. The order-relation on float32 is: 
 x &lt; y if y - x is positive. Positive zero is greater than negative zero.
-Not-a-number equals itself and is greater than all float values including positive infinity.
+Not-a-number equals itself and is greater than all float values including positive infinity. 
 
-float32 values have a lexical representation consisting of a mantissa followed,
+float32 values have a lexical representation consisting of a mantissa followed, 
 optionally, by the character "E" or "e", followed by an exponent. The exponent
 must be an integer. The mantissa must be a decimal number. The representations
 for exponent and mantissa must follow the lexical rules for integer and decimal.
-If the "E" or "e" and the following exponent are omitted, an exponent value
-of 0 is assumed.
+If the "E" or "e" and the following exponent are omitted, an exponent value 
+of 0 is assumed. 
 
 The special values positive and negative zero, positive and negative infinity
-and not-a-number have lexical representations 0, -0, INF, -INF and NaN,
-respectively.
+and not-a-number have lexical representations 0, -0, INF, -INF and NaN, 
+respectively. 
 
 For example, -1E4, 1267.43233E12, 12.78e-2, 12 and INF are all legal literals
 for float32.</L-2>
@@ -363,14 +363,14 @@ for float32.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="D87CD356-7C3D-4D32-A26A-E80D1E949E5C">
+            <IMPLEMENTATION-DATA-TYPE UUID="ce4fb6e7-ebf7-4fa5-9497-37b6ebe521e4">
               <SHORT-NAME>sint16</SHORT-NAME>
               <DESC>
-                <L-2 L="FOR-ALL">SInt16 represents integers with a minimum value of -32768 and a maximum value
+                <L-2 L="FOR-ALL">SInt16 represents integers with a minimum value of -32768 and a maximum value 
 of 32767. The order-relation on sint16 is: x &lt; y if y - x is positive.
 sint16 has a lexical representation consisting of an optional sign followed
 by a finite-length sequence of decimal digits (#x30-#x39). If the sign is
-omitted, "+" is assumed.
+omitted, "+" is assumed. 
 
 For example: -1, 0, -12678, +10000, 2500</L-2>
               </DESC>
@@ -386,14 +386,14 @@ For example: -1, 0, -12678, +10000, 2500</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="CDFF1EA1-D0BE-4D78-B5BA-C53C716CEC52">
+            <IMPLEMENTATION-DATA-TYPE UUID="85cc336c-5266-4bad-b89e-8f3f759d3076">
               <SHORT-NAME>sint32</SHORT-NAME>
               <DESC>
-                <L-2 L="FOR-ALL">sint32 represents integers with a minimum value of -2147483648 and a maximum
+                <L-2 L="FOR-ALL">sint32 represents integers with a minimum value of -2147483648 and a maximum 
 value of 2147483647. The order-relation on sint32 is: x &lt; y if y - x is
-positive. sint32 has a lexical representation consisting of an optional sign
-allowed by a finite-length sequence of decimal digits (#x30-#x39). If the
-sign is omitted, "+" is assumed.
+positive. sint32 has a lexical representation consisting of an optional sign 
+allowed by a finite-length sequence of decimal digits (#x30-#x39). If the 
+sign is omitted, "+" is assumed. 
 
 For example: -1, 0, -12688778, +10000, 250098675.</L-2>
               </DESC>
@@ -409,13 +409,13 @@ For example: -1, 0, -12688778, +10000, 250098675.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="48AA2773-5892-4B7E-8950-1968C79E58E6">
+            <IMPLEMENTATION-DATA-TYPE UUID="d64714ba-acb0-443e-b0ad-ab133475377c">
               <SHORT-NAME>uint32</SHORT-NAME>
               <DESC>
-                <L-2 L="FOR-ALL">uint32 represents integers with a minimum value of 0 and a maximum value
+                <L-2 L="FOR-ALL">uint32 represents integers with a minimum value of 0 and a maximum value 
 of 4294967295. The order-relation on uint32 is: x &lt; y if y - x is positive.
-uint32 has a lexical representation consisting of a finite-length sequence
-of decimal digits (#x30-#x39).
+uint32 has a lexical representation consisting of a finite-length sequence 
+of decimal digits (#x30-#x39). 
 
 For example: 1, 0, 12234567, 104400.</L-2>
               </DESC>
@@ -431,12 +431,12 @@ For example: 1, 0, 12234567, 104400.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="EC43DFC3-0DEF-417C-80BC-32DA9692F4B4">
+            <IMPLEMENTATION-DATA-TYPE UUID="372df4e7-5708-44fc-bea8-e7b316eda802">
               <SHORT-NAME>uint8</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">uint8 represents integers with a minimum value of 0 and a maximum value of 255.
 The order-relation on uint8 is: x &lt; y if y - x is positive.
-uint8 has a lexical representation consisting of a finite-length sequence
+uint8 has a lexical representation consisting of a finite-length sequence 
 of decimal digits (#x30-#x39).
 
 For example: 1, 0, 126, +10.</L-2>
