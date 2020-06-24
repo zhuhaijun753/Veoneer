@@ -1,0 +1,5 @@
+Source.Identifier: Name
+3.4096: SystemCore.CollisionAvoidance.CollisionAvoidanceSettings
+3.4097: SystemCore.CollisionAvoidance.VruCollisionAvoidanceParameters
+3.4098: SystemCore.CollisionAvoidance.TargetSelectionParameters
+3.4099: SystemCore.CollisionAvoidance.StaticDistanceWarningParameters

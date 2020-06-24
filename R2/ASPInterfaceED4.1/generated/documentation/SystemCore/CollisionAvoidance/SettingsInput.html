@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>SettingsInput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - SystemCore.CollisionAvoidance</b>
+<br>
+<h1>Messages</h1>
+<h2 id="SystemCore.CollisionAvoidance.LssFeatureInput">LssFeatureInput (SystemCore.CollisionAvoidance.LssFeatureInput)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Enable</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Determines if function is enabled</td></tr>
+<tr><td>Suppress</td><td><a href="#SystemCore.CollisionAvoidance.LssSideStatus">SystemCore.CollisionAvoidance.LssSideStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Suppress function on the specified side(s)</td></tr>
+<tr><td>Abort</td><td><a href="#SystemCore.CollisionAvoidance.LssSideStatus">SystemCore.CollisionAvoidance.LssSideStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Abort function on the specified side(s)</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>6</th><th>3</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.ThreatThresholdLookupTable">ThreatThresholdLookupTable (SystemCore.CollisionAvoidance.ThreatThresholdLookupTable)</h2>
+Lookup table for threat thresholds for the longitudinal avoid deceleration according to target longitudinal position.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Values</td><td>S16[10]</td><td>-20 m/s2</td><td>3276.7 m/s2</td><td>0.1</td><td>m/s2</td><td>40</td><td>1</td><td>Threat thresholds for longitudinal deceleration.</td></tr>
+<tr><td>Breakpoints</td><td>U16[10]</td><td>0 m</td><td>50 m</td><td>0.1</td><td>m</td><td>40 [30]</td><td>1</td><td>Target longitudinal position.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>80 [70]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.ThreatThresholdTableParameters">ThreatThresholdTableParameters (SystemCore.CollisionAvoidance.ThreatThresholdTableParameters)</h2>
+Paramters for threat thresholds in full-brake and pre-brake
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LowThreatThreshold</td><td><a href="#SystemCore.CollisionAvoidance.ThreatThresholdLookupTable">SystemCore.CollisionAvoidance.ThreatThresholdLookupTable</a></td><td></td><td></td><td></td><td></td><td>82 [72]</td><td>1</td><td>Low threat thresholds in full-brake and pre-brake.</td></tr>
+<tr><td>HighThreatThreshold</td><td><a href="#SystemCore.CollisionAvoidance.ThreatThresholdLookupTable">SystemCore.CollisionAvoidance.ThreatThresholdLookupTable</a></td><td></td><td></td><td></td><td></td><td>82 [72]</td><td>1</td><td>High threat thresholds in full-brake and pre-brake.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>164 [144]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.FullBrakeParameters">FullBrakeParameters (SystemCore.CollisionAvoidance.FullBrakeParameters)</h2>
+Collection of tunable parameters for full brake AEB
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>NegativeAccelerationMaximum</td><td>S8</td><td>-12 m/s²</td><td>0 m/s²</td><td>0.1</td><td>m/s²</td><td>3</td><td>1</td><td>Maximum negative acceleration that can be requested for full brake</td></tr>
+<tr><td>NominalAccelerationFactor</td><td>S8</td><td>-1</td><td>1</td><td>0.01</td><td></td><td>3</td><td>1</td><td>Weight factor for the current nominal acceleration</td></tr>
+<tr><td>PreviousAccelerationRequestFactor</td><td>S8</td><td>-1</td><td>1</td><td>0.01</td><td></td><td>3</td><td>1</td><td>Weight factor for the previous requested acceleration</td></tr>
+<tr><td>PreviousNominalRequestFactor</td><td>S8</td><td>-1</td><td>1</td><td>0.01</td><td></td><td>3</td><td>1</td><td>Weight factor for the previous nominal requested acceleration</td></tr>
+<tr><td>ThreatThreshold</td><td><a href="#SystemCore.CollisionAvoidance.ThreatThresholdTableParameters">SystemCore.CollisionAvoidance.ThreatThresholdTableParameters</a></td><td></td><td></td><td></td><td></td><td>167 [147]</td><td>1</td><td>Threat thresholds in full-brake.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>179 [159]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.PreBrakeParameters">PreBrakeParameters (SystemCore.CollisionAvoidance.PreBrakeParameters)</h2>
+Collection of tunable parameters for pre brake AEB
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>NegativeAccelerationMaximum</td><td>S8</td><td>-12 m/s²</td><td>0 m/s²</td><td>0.1</td><td>m/s²</td><td>3</td><td>1</td><td>Maximum negative acceleration that can be requested for pre brake</td></tr>
+<tr><td>NominalRequestFactor</td><td>U8</td><td>0</td><td>1</td><td>0.01</td><td></td><td>3 [2]</td><td>1</td><td>Scaling factor for AEB pre brake nominal deceleration request</td></tr>
+<tr><td>NegativeJerkMinimum</td><td>S16</td><td>-30 m/s³</td><td>0 m/s³</td><td>0.01</td><td>m/s³</td><td>4 [3]</td><td>1</td><td>Most negative jerk allowed when AEB is in pre brake</td></tr>
+<tr><td>ThreatThreshold</td><td><a href="#SystemCore.CollisionAvoidance.ThreatThresholdTableParameters">SystemCore.CollisionAvoidance.ThreatThresholdTableParameters</a></td><td></td><td></td><td></td><td></td><td>167 [147]</td><td>1</td><td>Threat thresholds in pre-brake.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>177 [155]</th><th>4</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.AebTimingParameters">AebTimingParameters (SystemCore.CollisionAvoidance.AebTimingParameters)</h2>
+Collection of tunable parameters for autonomous emergency braking timing
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>BeltActivationDelay</td><td>U8</td><td>0 s</td><td>2 s</td><td>0.01</td><td>s</td><td>3</td><td>1</td><td>Duration that AEB shall be active before electrical reversible retractor is requested</td></tr>
+<tr><td>PostEventMessageActivationDelay</td><td>U8</td><td>0 s</td><td>1 s</td><td>0.01</td><td>s</td><td>3 [2]</td><td>1</td><td>Duration that AEB is active before sending a HMI message</td></tr>
+<tr><td>StandstillRequestHoldTime</td><td>U8</td><td>0 s</td><td>2.5 s</td><td>0.01</td><td>s</td><td>3</td><td>1</td><td>The time to keep stand still request high after AEB request has ended</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>9 [8]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.AebDeactivationParameters">AebDeactivationParameters (SystemCore.CollisionAvoidance.AebDeactivationParameters)</h2>
+Collection of tunable parameters for autonomous emergency braking deactivation conditions
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>TimeWithHighTtc</td><td>U16</td><td>0 s</td><td>3 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>Time after which braking should be disabled when TTC has been large</td></tr>
+<tr><td>StandstillTime</td><td>U16</td><td>0 s</td><td>3 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>Time after which braking should be disabled when standstill is enabled</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8 [6]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.EmaParameters">EmaParameters (SystemCore.CollisionAvoidance.EmaParameters)</h2>
+Collection of tunable parameters for evasive maneuver assist
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LateralJerkActivationThreshold</td><td>U16</td><td>5 m/s³</td><td>30 m/s³</td><td>0.01</td><td>m/s³</td><td>4 [3]</td><td>1</td><td>The jerk threshold for triggering EMA when using required curvature rates as conditions</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4 [3]</th><th>1</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.CaLongActivationParameters">CaLongActivationParameters (SystemCore.CollisionAvoidance.CaLongActivationParameters)</h2>
+Collection of tunable parameters for longitudinal collision avoidance
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ActivateActuatingFunctions</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>When false, all actuating functions related to longitudinal collision avoidance are disabled. Examples of disabled functions are: AEB, Dynamic Brake Support and Evasive Maneuver Assist.</td></tr>
+<tr><td>ActivateSteeringThreat</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>When false, steering threat will be disabled for AEB, i.e. the driver's ability to avoid collision by applying steering is disregarded.</td></tr>
+<tr><td>ActivateVruObjects</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>When false, AEB and FCW functions will be disabled for VRU objects.VRU objects consist of pedestrians and bicyclists.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>6</th><th>3</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.LongitudinalTaTunableParameters">LongitudinalTaTunableParameters (SystemCore.CollisionAvoidance.LongitudinalTaTunableParameters)</h2>
+Collection of tunable parameters for longitudinal threat assessment
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>BrakeDelayEstimate</td><td>U8[10]</td><td>0 s</td><td>1.5 s</td><td>0.01</td><td>s</td><td>30</td><td>1</td><td>Delay values in lookup table for brake delay calculation</td></tr>
+<tr><td>LongitudinalMarginWhenAebActive</td><td>U8</td><td>0 m</td><td>2 m</td><td>0.01</td><td>m</td><td>3</td><td>1</td><td>Longitudinal safety margin when AEB is active</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>33</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection">TimeToCollisionOffsetAndCorrection (SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection)</h2>
+Pair of modification offset (X1) and correction factor (X2) used to calculate the applied values
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Offset</td><td>S16</td><td>-100 s</td><td>100 s</td><td>0.1</td><td>s</td><td>4 [3]</td><td>1</td><td>Offset applied to the baseline</td></tr>
+<tr><td>Correction</td><td>S16</td><td>-100 s</td><td>100 s</td><td>0.1</td><td>s</td><td>4 [3]</td><td>1</td><td>Down correction applied to the baseline as a factor of the velocity</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8 [6]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection">LateralMarginOffsetAndCorrection (SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection)</h2>
+Pair of modification offset (X1) and correction factor (X2) used to calculate the applied values
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Offset</td><td>S16</td><td>-10 m</td><td>10 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Offset applied to the baseline</td></tr>
+<tr><td>Correction</td><td>S16</td><td>-10 m</td><td>10 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Down correction applied to the baseline as a factor of the velocity</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8 [6]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.TimeToCollisionModifications">TimeToCollisionModifications (SystemCore.CollisionAvoidance.TimeToCollisionModifications)</h2>
+Offsets applied to TTC according to multiple modification conditions
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Light</td><td><a href="#SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection">SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to light</td></tr>
+<tr><td>SteeringWheelAngle</td><td><a href="#SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection">SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to steering wheel angle</td></tr>
+<tr><td>YawRate</td><td><a href="#SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection">SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to yaw rate</td></tr>
+<tr><td>BrakePedalPosition</td><td><a href="#SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection">SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to brake pedal position</td></tr>
+<tr><td>NumberOfPedestrians</td><td><a href="#SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection">SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to number of pedestrians</td></tr>
+<tr><td>WiperStatus</td><td><a href="#SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection">SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to wiper status</td></tr>
+<tr><td>PedestrianSize</td><td><a href="#SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection">SystemCore.CollisionAvoidance.TimeToCollisionOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to pedestrian size</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>210 [168]</th><th>7</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.LateralMarginModifications">LateralMarginModifications (SystemCore.CollisionAvoidance.LateralMarginModifications)</h2>
+Offsets applied to lateral margin according to multiple modification conditions
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Light</td><td><a href="#SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection">SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to light</td></tr>
+<tr><td>SteeringWheelAngle</td><td><a href="#SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection">SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to steering wheel angle</td></tr>
+<tr><td>YawRate</td><td><a href="#SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection">SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to yaw rate</td></tr>
+<tr><td>BrakePedalPosition</td><td><a href="#SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection">SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to brake pedal position</td></tr>
+<tr><td>NumberOfPedestrians</td><td><a href="#SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection">SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to number of pedestrians</td></tr>
+<tr><td>WiperStatus</td><td><a href="#SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection">SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to wiper status</td></tr>
+<tr><td>PedestrianSize</td><td><a href="#SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection">SystemCore.CollisionAvoidance.LateralMarginOffsetAndCorrection[3]</a></td><td></td><td></td><td></td><td></td><td>30 [24]</td><td>1</td><td>Modification offsets due to pedestrian size</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>210 [168]</th><th>7</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.TimeToCollisionCalibrationTable">TimeToCollisionCalibrationTable (SystemCore.CollisionAvoidance.TimeToCollisionCalibrationTable)</h2>
+Calibration tables for target selection according to TTC
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Min</td><td>S16</td><td>-100 s</td><td>100 s</td><td>0.1</td><td>s</td><td>4 [3]</td><td>1</td><td>Minimum value of the TTC for the activation of the function</td></tr>
+<tr><td>Max</td><td>S16</td><td>-100 s</td><td>100 s</td><td>0.1</td><td>s</td><td>4 [3]</td><td>1</td><td>Maximum value of the TCC for the activation of the function</td></tr>
+<tr><td>Baseline</td><td>S16[6]</td><td>-100 s</td><td>100 s</td><td>0.1</td><td>s</td><td>24 [18]</td><td>1</td><td>TTC baseline</td></tr>
+<tr><td>Modifications</td><td><a href="#SystemCore.CollisionAvoidance.TimeToCollisionModifications">SystemCore.CollisionAvoidance.TimeToCollisionModifications</a></td><td></td><td></td><td></td><td></td><td>213 [171]</td><td>1</td><td>Offsets and down corrections according to multiple modification conditions</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>245 [195]</th><th>4</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.LateralMarginCalibrationTable">LateralMarginCalibrationTable (SystemCore.CollisionAvoidance.LateralMarginCalibrationTable)</h2>
+Calibration tables for target selection according to lateral margin
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Min</td><td>S16</td><td>-10 m</td><td>10 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Minimum value of the lateral margin for the activation of the function</td></tr>
+<tr><td>Max</td><td>S16</td><td>-10 m</td><td>10 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Maximum value of the lateral margin for the activation of the function</td></tr>
+<tr><td>Baseline</td><td>S16[6]</td><td>-10 m</td><td>10 m</td><td>0.01</td><td>m</td><td>24 [18]</td><td>1</td><td>Lateral margin baseline</td></tr>
+<tr><td>Modifications</td><td><a href="#SystemCore.CollisionAvoidance.LateralMarginModifications">SystemCore.CollisionAvoidance.LateralMarginModifications</a></td><td></td><td></td><td></td><td></td><td>213 [171]</td><td>1</td><td>Offsets and down corrections according to multiple modification conditions</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>245 [195]</th><th>4</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.ZoneCalibration">ZoneCalibration (SystemCore.CollisionAvoidance.ZoneCalibration)</h2>
+Zone calibration for VRU TTC AEB
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>TimeToCollision</td><td><a href="#SystemCore.CollisionAvoidance.TimeToCollisionCalibrationTable">SystemCore.CollisionAvoidance.TimeToCollisionCalibrationTable</a></td><td></td><td></td><td></td><td></td><td>248 [198]</td><td>1</td><td>Zone calibration according to TTC, in seconds</td></tr>
+<tr><td>LateralMargin</td><td><a href="#SystemCore.CollisionAvoidance.LateralMarginCalibrationTable">SystemCore.CollisionAvoidance.LateralMarginCalibrationTable</a></td><td></td><td></td><td></td><td></td><td>248 [198]</td><td>1</td><td>Zone calibration according to lateral margin, in centimeters</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>496 [396]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.VruZoneCalibrationTableParameters">VruZoneCalibrationTableParameters (SystemCore.CollisionAvoidance.VruZoneCalibrationTableParameters)</h2>
+Tunable parameters for the zone calibration of VRU TTC AEB
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Cib</td><td><a href="#SystemCore.CollisionAvoidance.ZoneCalibration">SystemCore.CollisionAvoidance.ZoneCalibration</a></td><td></td><td></td><td></td><td></td><td>499 [399]</td><td>1</td><td>Zone calibration for CIB functionality</td></tr>
+<tr><td>Prefill</td><td><a href="#SystemCore.CollisionAvoidance.ZoneCalibration">SystemCore.CollisionAvoidance.ZoneCalibration</a></td><td></td><td></td><td></td><td></td><td>499 [399]</td><td>1</td><td>Zone calibration for prefill functionality</td></tr>
+<tr><td>Fca</td><td><a href="#SystemCore.CollisionAvoidance.ZoneCalibration">SystemCore.CollisionAvoidance.ZoneCalibration</a></td><td></td><td></td><td></td><td></td><td>499 [399]</td><td>1</td><td>Zone calibration for FCA functionality</td></tr>
+<tr><td>Notification</td><td><a href="#SystemCore.CollisionAvoidance.ZoneCalibration">SystemCore.CollisionAvoidance.ZoneCalibration</a></td><td></td><td></td><td></td><td></td><td>499 [399]</td><td>1</td><td>Zone calibration for notification functionality</td></tr>
+<tr><td>SpeedNodes</td><td>U16[6]</td><td>0 m/s</td><td>100 m/s</td><td>0.1</td><td>m/s</td><td>24 [18]</td><td>1</td><td>Values for the speed nodes of the TTC and lateral margin baselines</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>2020 [1614]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.VruDecelerationRequestParameters">VruDecelerationRequestParameters (SystemCore.CollisionAvoidance.VruDecelerationRequestParameters)</h2>
+Tunable parameters for deceleration request from VRU TTC AEB
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ClosedLoopEnable</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Closed loop braking enable</td></tr>
+<tr><td>AvoidanceDecelerationLag</td><td>U8</td><td>0 m/s</td><td>2 m/s</td><td>0.01</td><td>m/s</td><td>3</td><td>1</td><td>Velocity correction to compensate for lag</td></tr>
+<tr><td>AvoidanceDistance</td><td>U8</td><td>0.4 m</td><td>2 m</td><td>0.1</td><td>m</td><td>3 [2]</td><td>1</td><td>Target avoidance distance</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8 [7]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.AebScenarioActivationParameters">AebScenarioActivationParameters (SystemCore.CollisionAvoidance.AebScenarioActivationParameters)</h2>
+Collection of tunable parameters for enabling various AEB Scenarios like oncoming vehicles and crossing vehicles
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ActivateAebOncoming</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>When false, deactivates the vehicle oncoming scenarios for AEB.</td></tr>
+<tr><td>ActivateAebCrossing</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>When false, deactivates the vehicle crossing scenarios for AEB.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.LSSDevelopmentOverrideParameters">LSSDevelopmentOverrideParameters (SystemCore.CollisionAvoidance.LSSDevelopmentOverrideParameters)</h2>
+Development override parameters for LSS
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ElkaBlisInjectedTargetLeft</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Enable blis injected target left</td></tr>
+<tr><td>ElkaBlisInjectedTargetRight</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Enable blis injected target right</td></tr>
+<tr><td>ElkaFrontObjectsInjectedTargetLeft</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Enable injected oncoming vehicle threat left</td></tr>
+<tr><td>ElkaFrontObjectsInjectedTargetRight</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Enable injected oncoming vehicle threat right</td></tr>
+<tr><td>LkaEnableStraightTestPath</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Enable straight test path for LKA</td></tr>
+<tr><td>VirtualRoadEdge</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Enable virtual road edge on lane markers</td></tr>
+<tr><td>SaturateLateralPositionForCriticalObjects</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Enable saturation for the lateral position of critical objects</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>14</th><th>7</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.LSSTunableParameters">LSSTunableParameters (SystemCore.CollisionAvoidance.LSSTunableParameters)</h2>
+Tunable parameters for LSS
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LkaMaxTimeNeeded</td><td>U16</td><td>0 s</td><td>5 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>Time based trig level for LKA. Default 3.1.</td></tr>
+<tr><td>ElkaRoadEdgeMaxTimeNeeded</td><td>U16</td><td>0 s</td><td>5 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>Time based trig level for eLKA Road Edge. Default 2.</td></tr>
+<tr><td>LkaLaneWidthEnableMargin</td><td>U16</td><td>0 m</td><td>10 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Minimum lane width margin to enable LKA. Lane width needs to be at least car width plus margin. Default 0.6.</td></tr>
+<tr><td>LssEnableObjectTypeSuppression</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>[For features eLKA Road Edge and LKA] Bitfield for enabling LSS object suppression for different object types. All bits being zero disables object suppression. bit 0 = LSB.  bit 0 = enable for objects with any UNKNOWN type. bit 1 = CAR. bit 2 = MOTORCYCLE. bit 3 = TRUCK. bit 4 = PEDESTRIAN. bit 5 = OBJECTGENERAL. bit 6 = BICYCLE. Default 126.</td></tr>
+<tr><td>LssOncomingObjectSuppressionSensitivity</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>[For features eLKA Road Edge and LKA] Value for the propensity of LSS suppression based on oncoming objects to be activated. 0 = disabled suppression, and a higher value gives a more frequent object suppression. Default 128.</td></tr>
+<tr><td>LssOvertakeObjectSuppressionSensitivity</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>[For features eLKA Road Edge and LKA] Value for the propensity of LSS object suppression to be activated. 0 = disabled suppression, and a higher value gives a more frequent object suppression. Default 128.</td></tr>
+<tr><td>LssOncomingObjectSuppressionTime</td><td>U16</td><td>0 s</td><td>50 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>[For features eLKA Road Edge and LKA] Time the oncoming object suppression is held high after conditions are fulfilled. Default 2.</td></tr>
+<tr><td>LssOvertakeObjectSuppressionTime</td><td>U16</td><td>0 s</td><td>50 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>[For features eLKA Road Edge and LKA] Time the overtake object suppression is held high after conditions are fulfilled. Default 3.</td></tr>
+<tr><td>LssAccelerationExtrapolationTimeForObjectSuppression</td><td>U16</td><td>0 s</td><td>10 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>[For features eLKA Road Edge and LKA] When time-to-reach is calculated, the ego longitudinal acceleration is extrapolated with this time (estimated v-long = v-long + acc * dT, where dT is this value). Default 3.</td></tr>
+<tr><td>LssOncomingObjectSuppressionTimeToReachLimit</td><td>U16</td><td>0 s</td><td>10 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>[For features eLKA Road Edge and LKA] Maximum time-to-reach for oncoming object suppression. Default 3.5</td></tr>
+<tr><td>LssOvertakeObjectSuppressionTimeToReachLimit</td><td>U16</td><td>0 s</td><td>10 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>[For features eLKA Road Edge and LKA] Maximum time-to-reach for oncoming object suppression. Default 5.</td></tr>
+<tr><td>LssOvertakeObjectSuppressionLateralPositionLimit</td><td>U16</td><td>0 m</td><td>20 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>[For features eLKA Road Edge and LKA] Maximum lateral position of object -relative to ego vehicle- for overtake object suppression. Default 1.5.</td></tr>
+<tr><td>LssOncomingObjectSuppressionLateralGapLimit</td><td>U16</td><td>0 m</td><td>20 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>[For features eLKA Road Edge and LKA] Maximum lateral gap between ego vehicle and object for oncoming object suppression. Default 1.5.</td></tr>
+<tr><td>LssObjectSuppressionNarrowRoadLimit</td><td>U16</td><td>0 m</td><td>20 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>[For features eLKA Road Edge and LKA] Maximum road width for it to be considered narrow, for object suppression. Default 5.5.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>53 [42]</th><th>14</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityLookupTable">PredictedDecelerationSensitivityLookupTable (SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityLookupTable)</h2>
+Table for predicted driver deceleration according to ego velocity.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Values</td><td>S8[4]</td><td>-12 m/s2</td><td>12.7 m/s2</td><td>0.1</td><td>m/s2</td><td>12</td><td>1</td><td>Predicted driver deceleration.</td></tr>
+<tr><td>Breakpoints</td><td>U16[4]</td><td>0 m/s</td><td>40 m/s</td><td>0.1</td><td>m/s</td><td>16 [12]</td><td>1</td><td>Ego velocity.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>28 [24]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityTableParameters">PredictedDecelerationSensitivityTableParameters (SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityTableParameters)</h2>
+Table parameters for CW predicted driver deceleration.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LowSensitivity</td><td><a href="#SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityLookupTable">SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityLookupTable</a></td><td></td><td></td><td></td><td></td><td>30 [26]</td><td>1</td><td>Low sensitivity table parameter for CW predicted driver deceleration.</td></tr>
+<tr><td>NormalSensitivity</td><td><a href="#SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityLookupTable">SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityLookupTable</a></td><td></td><td></td><td></td><td></td><td>30 [26]</td><td>1</td><td>Normal sensitivity table parameter for CW predicted driver deceleration.</td></tr>
+<tr><td>HighSensitivity</td><td><a href="#SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityLookupTable">SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityLookupTable</a></td><td></td><td></td><td></td><td></td><td>30 [26]</td><td>1</td><td>High sensitivity table parameter for CW predicted driver deceleration.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>90 [78]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.ReactionTimeLookupTable">ReactionTimeLookupTable (SystemCore.CollisionAvoidance.ReactionTimeLookupTable)</h2>
+Lookup table for base driver reaction time according to ego velocity.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Values</td><td>U8[4]</td><td>2 s</td><td>2.55 s</td><td>0.01</td><td>s</td><td>12</td><td>1</td><td>Base reaction time.</td></tr>
+<tr><td>Breakpoints</td><td>U16[4]</td><td>0 m/s</td><td>40 m/s</td><td>0.1</td><td>m/s</td><td>16 [12]</td><td>1</td><td>Ego velocity.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>28 [24]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.ReactionTimeLookupTableParameters">ReactionTimeLookupTableParameters (SystemCore.CollisionAvoidance.ReactionTimeLookupTableParameters)</h2>
+Parameters for CW driver reaction time.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LowSensitivity</td><td><a href="#SystemCore.CollisionAvoidance.ReactionTimeLookupTable">SystemCore.CollisionAvoidance.ReactionTimeLookupTable</a></td><td></td><td></td><td></td><td></td><td>30 [26]</td><td>1</td><td>Table parameter for low sensitivity driver reaction time.</td></tr>
+<tr><td>NormalSensitivity</td><td><a href="#SystemCore.CollisionAvoidance.ReactionTimeLookupTable">SystemCore.CollisionAvoidance.ReactionTimeLookupTable</a></td><td></td><td></td><td></td><td></td><td>30 [26]</td><td>1</td><td>Table parameter for normal sensitivity driver reaction time.</td></tr>
+<tr><td>HighSensitivity</td><td><a href="#SystemCore.CollisionAvoidance.ReactionTimeLookupTable">SystemCore.CollisionAvoidance.ReactionTimeLookupTable</a></td><td></td><td></td><td></td><td></td><td>30 [26]</td><td>1</td><td>Table parameter for high sensitivity driver reaction time.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>90 [78]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.CollisionWarning">CollisionWarning (SystemCore.CollisionAvoidance.CollisionWarning)</h2>
+Tunable collision warning parameters.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>PredictedDeceleration</td><td><a href="#SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityTableParameters">SystemCore.CollisionAvoidance.PredictedDecelerationSensitivityTableParameters</a></td><td></td><td></td><td></td><td></td><td>92 [80]</td><td>1</td><td>CW predicted driver deceleration.</td></tr>
+<tr><td>ReactionTime</td><td><a href="#SystemCore.CollisionAvoidance.ReactionTimeLookupTableParameters">SystemCore.CollisionAvoidance.ReactionTimeLookupTableParameters</a></td><td></td><td></td><td></td><td></td><td>92 [80]</td><td>1</td><td>CW driver reaction time.</td></tr>
+<tr><td>DisableAdjustments</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Parameter for disabling reaction time component.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>186 [162]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.TunableParameters">TunableParameters (SystemCore.CollisionAvoidance.TunableParameters)</h2>
+Collection of all FCA tunable parameters
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>FullBrake</td><td><a href="#SystemCore.CollisionAvoidance.FullBrakeParameters">SystemCore.CollisionAvoidance.FullBrakeParameters</a></td><td></td><td></td><td></td><td></td><td>182 [162]</td><td>1</td><td>Collection of tunable parameters for full brake AEB</td></tr>
+<tr><td>PreBrake</td><td><a href="#SystemCore.CollisionAvoidance.PreBrakeParameters">SystemCore.CollisionAvoidance.PreBrakeParameters</a></td><td></td><td></td><td></td><td></td><td>180 [158]</td><td>1</td><td>Collection of tunable parameters for pre brake AEB</td></tr>
+<tr><td>AebTiming</td><td><a href="#SystemCore.CollisionAvoidance.AebTimingParameters">SystemCore.CollisionAvoidance.AebTimingParameters</a></td><td></td><td></td><td></td><td></td><td>11 [10]</td><td>1</td><td>Collection of tunable parameters for autonomous emergency braking timing</td></tr>
+<tr><td>AebDeactivation</td><td><a href="#SystemCore.CollisionAvoidance.AebDeactivationParameters">SystemCore.CollisionAvoidance.AebDeactivationParameters</a></td><td></td><td></td><td></td><td></td><td>10 [8]</td><td>1</td><td>Collection of tunable parameters for autonomous emergency braking deactivation conditions</td></tr>
+<tr><td>Ema</td><td><a href="#SystemCore.CollisionAvoidance.EmaParameters">SystemCore.CollisionAvoidance.EmaParameters</a></td><td></td><td></td><td></td><td></td><td>6 [5]</td><td>1</td><td>Collection of tunable parameters for evasive maneuver assist</td></tr>
+<tr><td>CaLongActivation</td><td><a href="#SystemCore.CollisionAvoidance.CaLongActivationParameters">SystemCore.CollisionAvoidance.CaLongActivationParameters</a></td><td></td><td></td><td></td><td></td><td>8</td><td>1</td><td>Collection of tunable parameters for longitudinal collision avoidance</td></tr>
+<tr><td>LongitudinalTaTunable</td><td><a href="#SystemCore.CollisionAvoidance.LongitudinalTaTunableParameters">SystemCore.CollisionAvoidance.LongitudinalTaTunableParameters</a></td><td></td><td></td><td></td><td></td><td>35</td><td>1</td><td>Collection of tunable parameters for longitudinal threat assessment</td></tr>
+<tr><td>AebScenarioActivation</td><td><a href="#SystemCore.CollisionAvoidance.AebScenarioActivationParameters">SystemCore.CollisionAvoidance.AebScenarioActivationParameters</a></td><td></td><td></td><td></td><td></td><td>6</td><td>1</td><td>Collection of tunable parameters for activating AEB scenarios</td></tr>
+<tr><td>LssDevelopmentOverrideParameters</td><td><a href="#SystemCore.CollisionAvoidance.LSSDevelopmentOverrideParameters">SystemCore.CollisionAvoidance.LSSDevelopmentOverrideParameters</a></td><td></td><td></td><td></td><td></td><td>16</td><td>1</td><td>Collection of development override parameters for LSS</td></tr>
+<tr><td>LssTunableParameters</td><td><a href="#SystemCore.CollisionAvoidance.LSSTunableParameters">SystemCore.CollisionAvoidance.LSSTunableParameters</a></td><td></td><td></td><td></td><td></td><td>55 [44]</td><td>1</td><td>Collection of tunable parameters for LSS</td></tr>
+<tr><td>CollisionWarning</td><td><a href="#SystemCore.CollisionAvoidance.CollisionWarning">SystemCore.CollisionAvoidance.CollisionWarning</a></td><td></td><td></td><td></td><td></td><td>189 [165]</td><td>1</td><td>Collection of tunable parameters for collision warning</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>698 [617]</th><th>11</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.CollisionAvoidanceSettings">CollisionAvoidanceSettings (SystemCore.CollisionAvoidance.CollisionAvoidanceSettings)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 4096 (1000)
+<br>
+Version: 2.3.0
+<br>
+Settings for online customization of collision avoidance features. For example by going into menu and switching mode, on/off, etc
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>AebSensitivity</td><td><a href="#SystemCore.CollisionAvoidance.SensitivitySettings">SystemCore.CollisionAvoidance.SensitivitySettings</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Sensitivity level for Autonomous Emergency Braking</td></tr>
+<tr><td>EnableAeb</td><td><a href="#SystemCore.CollisionAvoidance.Switch">SystemCore.CollisionAvoidance.Switch</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>On/off for Autonomous Emergency Braking</td></tr>
+<tr><td>EnableEma</td><td><a href="#SystemCore.CollisionAvoidance.Switch">SystemCore.CollisionAvoidance.Switch</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>On/off for Evasive Maneuver Assist</td></tr>
+<tr><td>EnableOsp</td><td><a href="#SystemCore.CollisionAvoidance.Switch">SystemCore.CollisionAvoidance.Switch</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>On/off for Occupant Safety Protection</td></tr>
+<tr><td>EnableCw</td><td><a href="#SystemCore.CollisionAvoidance.Switch">SystemCore.CollisionAvoidance.Switch</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>On/off for Collision Warning</td></tr>
+<tr><td>TunableParameters</td><td><a href="#SystemCore.CollisionAvoidance.TunableParameters">SystemCore.CollisionAvoidance.TunableParameters</a></td><td></td><td></td><td></td><td></td><td>701 [620]</td><td>1</td><td>Collection of all FCA tunable parameters</td></tr>
+<tr><td>EnableDbs</td><td><a href="#SystemCore.CollisionAvoidance.Switch">SystemCore.CollisionAvoidance.Switch</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>On/off for Dynamic Brake Support</td></tr>
+<tr><td>Lka</td><td><a href="#SystemCore.CollisionAvoidance.LssFeatureInput">SystemCore.CollisionAvoidance.LssFeatureInput</a></td><td></td><td></td><td></td><td></td><td>8</td><td>1</td><td>Feature input for LKA function</td></tr>
+<tr><td>Ldw</td><td><a href="#SystemCore.CollisionAvoidance.LssFeatureInput">SystemCore.CollisionAvoidance.LssFeatureInput</a></td><td></td><td></td><td></td><td></td><td>8</td><td>1</td><td>Feature input for LDW function</td></tr>
+<tr><td>ElkaRoadEdge</td><td><a href="#SystemCore.CollisionAvoidance.LssFeatureInput">SystemCore.CollisionAvoidance.LssFeatureInput</a></td><td></td><td></td><td></td><td></td><td>8</td><td>1</td><td>Feature input for eLKA road edge function</td></tr>
+<tr><td>ElkaFrontObjects</td><td><a href="#SystemCore.CollisionAvoidance.LssFeatureInput">SystemCore.CollisionAvoidance.LssFeatureInput</a></td><td></td><td></td><td></td><td></td><td>8</td><td>1</td><td>Feature input for eLKA front objects function (e.g. oncoming)</td></tr>
+<tr><td>ElkaRearObjects</td><td><a href="#SystemCore.CollisionAvoidance.LssFeatureInput">SystemCore.CollisionAvoidance.LssFeatureInput</a></td><td></td><td></td><td></td><td></td><td>8</td><td>1</td><td>Feature input for eLKA rear objects function (e.g. Blind Spot)</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>753 [672]</th><th>12</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.VruCollisionAvoidanceParameters">VruCollisionAvoidanceParameters (SystemCore.CollisionAvoidance.VruCollisionAvoidanceParameters)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 4097 (1001)
+<br>
+Version: 2.0.0
+<br>
+Settings for online customization of collision avoidance features for VRU objects
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ZoneCalibration</td><td><a href="#SystemCore.CollisionAvoidance.VruZoneCalibrationTableParameters">SystemCore.CollisionAvoidance.VruZoneCalibrationTableParameters</a></td><td></td><td></td><td></td><td></td><td>2023 [1617]</td><td>1</td><td>Tunable parameters for the zone calibration table</td></tr>
+<tr><td>DecelerationRequest</td><td><a href="#SystemCore.CollisionAvoidance.VruDecelerationRequestParameters">SystemCore.CollisionAvoidance.VruDecelerationRequestParameters</a></td><td></td><td></td><td></td><td></td><td>10 [9]</td><td>1</td><td>Tunable parameters for the deceleration request</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>2033 [1626]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.TargetSelectionParameters">TargetSelectionParameters (SystemCore.CollisionAvoidance.TargetSelectionParameters)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 4098 (1002)
+<br>
+Version: 1.0.0
+<br>
+Target selection parameters for Zenuity SW.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>FunnelBreakpoints</td><td>U16[10]</td><td>0 m</td><td>250 m</td><td>0.01</td><td>m</td><td>40</td><td>1</td><td>Breakpoints for target selection funnel.</td></tr>
+<tr><td>InnerFunnelWidths</td><td>U16[10]</td><td>0</td><td>25</td><td>0.01</td><td></td><td>40 [30]</td><td>1</td><td>Target selection inner funnel width Target has to be inside this to be selected. Vehicle width in number, 0.01 represents 100%.</td></tr>
+<tr><td>OuterFunnelWidths</td><td>U16[10]</td><td>0</td><td>25</td><td>0.01</td><td></td><td>40 [30]</td><td>1</td><td>Target selection outer funnel width. Target has to be outside this to be deselected. Vehicle width in number, 0.01 represents 100%.</td></tr>
+<tr><td>EnabledObjectTypes</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Enable the given object types to be  selected as a target. Bitmask value described by enum CalongObjectBitmask.</td></tr>
+<tr><td>CutInTimeThreshold</td><td>U8</td><td>0 s</td><td>7 s</td><td>0.05</td><td>s</td><td>3</td><td>1</td><td>Time threshold for object prediction within path.</td></tr>
+<tr><td>EnableCutIn</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request to activate object prediction within path.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>128 [108]</th><th>6</th><th></th></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.StaticDistanceWarningParameters">StaticDistanceWarningParameters (SystemCore.CollisionAvoidance.StaticDistanceWarningParameters)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 4099 (1003)
+<br>
+Version: 1.0.0
+<br>
+Static Distance Warning parameters for Zenuity SW.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>EnableSdw</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request to activate static distance warning against forward object.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>2</th><th>1</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="SystemCore.CollisionAvoidance.SensitivitySettings">SensitivitySettings (SystemCore.CollisionAvoidance.SensitivitySettings)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoChange</td><td>SystemCore.CollisionAvoidance.SensitivitySettings.NoChange</td><td>0</td></tr>
+<tr><td>Low</td><td>SystemCore.CollisionAvoidance.SensitivitySettings.Low</td><td>1</td></tr>
+<tr><td>Normal</td><td>SystemCore.CollisionAvoidance.SensitivitySettings.Normal</td><td>2</td></tr>
+<tr><td>High</td><td>SystemCore.CollisionAvoidance.SensitivitySettings.High</td><td>3</td></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.Switch">Switch (SystemCore.CollisionAvoidance.Switch)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoChange</td><td>SystemCore.CollisionAvoidance.Switch.NoChange</td><td>0</td></tr>
+<tr><td>On</td><td>SystemCore.CollisionAvoidance.Switch.On</td><td>1</td></tr>
+<tr><td>Off</td><td>SystemCore.CollisionAvoidance.Switch.Off</td><td>2</td></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.LssSideStatus">LssSideStatus (SystemCore.CollisionAvoidance.LssSideStatus)</h2>
+Max Encoded Size (bytes): 1Designed to be a bitmask field
+<br>
+<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>SystemCore.CollisionAvoidance.LssSideStatus.None</td><td>0</td></tr>
+<tr><td>Left</td><td>SystemCore.CollisionAvoidance.LssSideStatus.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>SystemCore.CollisionAvoidance.LssSideStatus.Right</td><td>2</td></tr>
+<tr><td>LeftAndRight</td><td>SystemCore.CollisionAvoidance.LssSideStatus.LeftAndRight</td><td>3</td></tr>
+</table>
+<h2 id="SystemCore.CollisionAvoidance.CaLongObjectBitmask">CaLongObjectBitmask (SystemCore.CollisionAvoidance.CaLongObjectBitmask)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.Unspecified</td><td>0</td></tr>
+<tr><td>GeneralObject</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.GeneralObject</td><td>1</td></tr>
+<tr><td>Car</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.Car</td><td>2</td></tr>
+<tr><td>Truck</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.Truck</td><td>3</td></tr>
+<tr><td>Motorcycle</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.Motorcycle</td><td>4</td></tr>
+<tr><td>Pedestrian</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.Pedestrian</td><td>5</td></tr>
+<tr><td>Bicycle</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.Bicycle</td><td>6</td></tr>
+<tr><td>Animal</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.Animal</td><td>7</td></tr>
+<tr><td>RoadConstructionMarker</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.RoadConstructionMarker</td><td>8</td></tr>
+<tr><td>ConstructionWorkTrailer</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.ConstructionWorkTrailer</td><td>9</td></tr>
+<tr><td>OtherVehicle</td><td>SystemCore.CollisionAvoidance.CaLongObjectBitmask.OtherVehicle</td><td>10</td></tr>
+</table>
+</body>
+</html>

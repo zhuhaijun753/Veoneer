@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>EgoMotion Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - VisionCore.Common</b>
+<br>
+<h1>Messages</h1>
+<h2 id="VisionCore.Common.EgoMotionOutput">EgoMotionOutput (VisionCore.Common.EgoMotionOutput)</h2>
+Source: DATA_SOURCE_VISION (2)
+<br>
+Identifier: 460 (1cc)
+<br>
+Version: 1.0.0
+<br>
+Motion estimation based on vehicle input signals
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LongitudinalVelocity</td><td>S16</td><td>-30 m/s</td><td>120 m/s</td><td>0.01</td><td>m/s</td><td>4</td><td>1</td><td>Longitudinal velocity i.e. speed along the X-axis in AFAC</td></tr>
+<tr><td>LongitudinalAcceleration</td><td>S16</td><td>-20 m/s²</td><td>20 m/s²</td><td>0.01</td><td>m/s²</td><td>4 [3]</td><td>1</td><td>Longitudinal acceleration i.e. velocity change along the X-axis in AFAC</td></tr>
+<tr><td>LateralVelocity</td><td>S16</td><td>-30 m/s</td><td>30 m/s</td><td>0.01</td><td>m/s</td><td>4 [3]</td><td>1</td><td>Lateral velocity i.e. speed along the Y-axis in AFAC</td></tr>
+<tr><td>LateralAcceleration</td><td>S16</td><td>-20 m/s²</td><td>20 m/s²</td><td>0.01</td><td>m/s²</td><td>4 [3]</td><td>1</td><td>Lateral acceleration i.e. velocity change along the Y-axis in AFAC</td></tr>
+<tr><td>YawRate</td><td>S16</td><td>-1.5 rad/s</td><td>1.5 rad/s</td><td>0.0001</td><td>rad/s</td><td>4</td><td>1</td><td>Rotational speed around the Z-axis in AFAC</td></tr>
+<tr><td>IsAvailable</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Is data contained in the message available or is it just dummy data</td></tr>
+<tr><td>Timestamp</td><td>U32</td><td>0 ?</td><td>4.29497e+09 ?</td><td>1</td><td>?</td><td>6</td><td>1</td><td>The time-stamp for the current frame</td></tr>
+<tr><td>LongitudinalVelocityStatus</td><td><a href="#VisionCore.Common.EgoMotionGateKeeperStatus">VisionCore.Common.EgoMotionGateKeeperStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indication for if the QM and ASIL B estimations differ too much in the gatekeeper function within EM for longitudinal speed</td></tr>
+<tr><td>AccelerationStatus</td><td><a href="#VisionCore.Common.EgoMotionGateKeeperStatus">VisionCore.Common.EgoMotionGateKeeperStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indication for if the QM and ASIL B estimations differ too much in the gatekeeper function within EM for acceleration</td></tr>
+<tr><td>YawRateStatus</td><td><a href="#VisionCore.Common.EgoMotionGateKeeperStatus">VisionCore.Common.EgoMotionGateKeeperStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indication for if the QM and ASIL B estimations differ too much in the gatekeeper function within EM for yaw rate</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>34 [31]</th><th>10</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="VisionCore.Common.EgoMotionGateKeeperStatus">EgoMotionGateKeeperStatus (VisionCore.Common.EgoMotionGateKeeperStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>VisionCore.Common.EgoMotionGateKeeperStatus.Unknown</td><td>0</td></tr>
+<tr><td>SuccessfulVerification</td><td>VisionCore.Common.EgoMotionGateKeeperStatus.SuccessfulVerification</td><td>1</td></tr>
+<tr><td>VerificationFailed</td><td>VisionCore.Common.EgoMotionGateKeeperStatus.VerificationFailed</td><td>2</td></tr>
+</table>
+</body>
+</html>

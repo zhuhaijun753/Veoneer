@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>ObjectsOutput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - VisionCore.TrafficParticipants</b>
+<br>
+<h1>Messages</h1>
+<h2 id="VisionCore.TrafficParticipants.ObjectAcceleration">ObjectAcceleration (VisionCore.TrafficParticipants.ObjectAcceleration)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>XAcceleration</td><td>S16</td><td>-15 m/s²</td><td>15 m/s²</td><td>0.1</td><td>m/s²</td><td>4 [3]</td><td>1</td><td>Object absolute acceleration, x coordinate</td></tr>
+<tr><td>XAccelerationStdDev</td><td>U8</td><td>0 m/s²</td><td>5 m/s²</td><td>0.1</td><td>m/s²</td><td>3 [2]</td><td>1</td><td>Standard deviation of X acceleration</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>7 [5]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectVelocity">ObjectVelocity (VisionCore.TrafficParticipants.ObjectVelocity)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>XVelocity</td><td>S16</td><td>-100 m/s</td><td>100 m/s</td><td>0.1</td><td>m/s</td><td>4 [3]</td><td>1</td><td>Object absolute velocity, x coordinate</td></tr>
+<tr><td>YVelocity</td><td>S16</td><td>-100 m/s</td><td>100 m/s</td><td>0.1</td><td>m/s</td><td>4 [3]</td><td>1</td><td>Object absolute velocity, y coordinate</td></tr>
+<tr><td>XVelocityStdDev</td><td>U8</td><td>0 m/s</td><td>20 m/s</td><td>0.1</td><td>m/s</td><td>3</td><td>1</td><td>Standard deviation of X velocity</td></tr>
+<tr><td>YVelocityStdDev</td><td>U8</td><td>0 m/s</td><td>20 m/s</td><td>0.1</td><td>m/s</td><td>3</td><td>1</td><td>Standard deviation of Y velocity</td></tr>
+<tr><td>YawRate</td><td>S16</td><td>-2.5 rad/s</td><td>2.5 rad/s</td><td>0.01</td><td>rad/s</td><td>4 [3]</td><td>1</td><td>Rotation velocity of the object</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>18 [15]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectPosition">ObjectPosition (VisionCore.TrafficParticipants.ObjectPosition)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>X</td><td>U16</td><td>0 m</td><td>250 m</td><td>0.01</td><td>m</td><td>4</td><td>1</td><td>x coordinate of the center point of the object</td></tr>
+<tr><td>XStdDev</td><td>U8</td><td>0 m</td><td>25 m</td><td>0.1</td><td>m</td><td>3</td><td>1</td><td>Standard deviation of X</td></tr>
+<tr><td>Y</td><td>S16</td><td>-100 m</td><td>100 m</td><td>0.01</td><td>m</td><td>4</td><td>1</td><td>y coordinate of the center point of the object</td></tr>
+<tr><td>YStdDev</td><td>U8</td><td>0 m</td><td>5 m</td><td>0.02</td><td>m</td><td>3</td><td>1</td><td>Standard deviation of Y</td></tr>
+<tr><td>XyCorrCoeff</td><td>S16</td><td>-1</td><td>1</td><td>0.01</td><td></td><td>4 [3]</td><td>1</td><td>The Pearson's correlation coefficient between X and Y</td></tr>
+<tr><td>Z</td><td>S16</td><td>-40 m</td><td>40 m</td><td>0.1</td><td>m</td><td>4 [3]</td><td>1</td><td>Z-coordinate of the bottom of the object</td></tr>
+<tr><td>ZStdDev</td><td>U8</td><td>0 m</td><td>5 m</td><td>0.1</td><td>m</td><td>3 [2]</td><td>1</td><td>Standard deviation of Z</td></tr>
+<tr><td>YawAngle</td><td>S16</td><td>-3.14 rad</td><td>3.14 rad</td><td>0.01</td><td>rad</td><td>4 [3]</td><td>1</td><td>Angle of the object</td></tr>
+<tr><td>YawAngleStdDev</td><td>U16</td><td>0 m</td><td>6.28 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Standard deviation of YawAngle</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>33 [28]</th><th>9</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectSize">ObjectSize (VisionCore.TrafficParticipants.ObjectSize)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Height</td><td>U8</td><td>0 m</td><td>5 m</td><td>0.1</td><td>m</td><td>3 [2]</td><td>1</td><td>Object height</td></tr>
+<tr><td>HeightStdDev</td><td>U8</td><td>0 m</td><td>5 m</td><td>0.1</td><td>m</td><td>3 [2]</td><td>1</td><td>Standard deviation of height</td></tr>
+<tr><td>Width</td><td>U8</td><td>0 m</td><td>10 m</td><td>0.1</td><td>m</td><td>3 [2]</td><td>1</td><td>Object width</td></tr>
+<tr><td>WidthStdDev</td><td>U8</td><td>0 m</td><td>5 m</td><td>0.02</td><td>m</td><td>3</td><td>1</td><td>Standard deviation of width</td></tr>
+<tr><td>Length</td><td>U16</td><td>0 m</td><td>50 m</td><td>0.1</td><td>m</td><td>4 [3]</td><td>1</td><td>Object length</td></tr>
+<tr><td>LengthStdDev</td><td>U8</td><td>0 m</td><td>10 m</td><td>0.2</td><td>m</td><td>3 [2]</td><td>1</td><td>Standard deviation of length</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>19 [14]</th><th>6</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.LaneProperties">LaneProperties (VisionCore.TrafficParticipants.LaneProperties)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LaneOffsetLeft</td><td>S16</td><td>-10 m</td><td>10 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Distance from center of object to closest left lane</td></tr>
+<tr><td>LaneOffsetLeftStdDev</td><td>U8</td><td>0 m</td><td>5 m</td><td>0.1</td><td>m</td><td>3 [2]</td><td>1</td><td>The standard deviation of LaneOffsetLeft</td></tr>
+<tr><td>LaneOffsetLeftRate</td><td>S16</td><td>-10 m/s</td><td>10 m/s</td><td>0.01</td><td>m/s</td><td>4 [3]</td><td>1</td><td>The change rate of the LaneOffsetLeft signal over time</td></tr>
+<tr><td>LaneOffsetRight</td><td>S16</td><td>-10 m</td><td>10 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Distance from center of object to closest right lane</td></tr>
+<tr><td>LaneOffsetRightStdDev</td><td>U8</td><td>0 m</td><td>5 m</td><td>0.1</td><td>m</td><td>3 [2]</td><td>1</td><td>The standard deviation of LaneOffsetRight</td></tr>
+<tr><td>LaneOffsetRightRate</td><td>S16</td><td>-10 m/s</td><td>10 m/s</td><td>0.01</td><td>m/s</td><td>4 [3]</td><td>1</td><td>The change rate of the LaneOffsetRight signal over time</td></tr>
+<tr><td>LaneAssignment</td><td><a href="#VisionCore.TrafficParticipants.ObjectLaneAssignment">VisionCore.TrafficParticipants.ObjectLaneAssignment</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Decribes the lane the object is in related to ego vehicle lane</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>24 [18]</th><th>7</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectQuality">ObjectQuality (VisionCore.TrafficParticipants.ObjectQuality)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ClassificationConfidence</td><td>U8</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>3 [2]</td><td>1</td><td>The estimated probability that the classification is correct</td></tr>
+<tr><td>DetectionConfidence</td><td>U8</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>3 [2]</td><td>1</td><td>A measure of the confidence that the detection is correct</td></tr>
+<tr><td>ClassificationHistory</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>History of classification, indicates if the object had the same objectClass the last 8 frames. (0 when not the same classification, 1 otherwise)</td></tr>
+<tr><td>DetectionHistory</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>History of detection, indicates if the object has been observed (independent of objectClass) the last 8 frames. (0 when no measurement, 1 otherwise)</td></tr>
+<tr><td>TrackingStatus</td><td><a href="#VisionCore.TrafficParticipants.ObjectTrackingStatus">VisionCore.TrafficParticipants.ObjectTrackingStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates the tracking status of the object</td></tr>
+<tr><td>TrackAge</td><td>U16</td><td>0</td><td>65535</td><td>1</td><td></td><td>4</td><td>1</td><td>The number of consecutive measurement cycles that the object has been transmitted (same id).</td></tr>
+<tr><td>TrackDelay</td><td>U16</td><td>0 ms</td><td>65535 ms</td><td>1</td><td>ms</td><td>4</td><td>1</td><td>The step response delay of sudden changes in speed or position of the object</td></tr>
+<tr><td>ObjectStatus</td><td><a href="#VisionCore.TrafficParticipants.ObjectQualityStatus">VisionCore.TrafficParticipants.ObjectQualityStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Status flags for the object, can be interpreted as a bit mask.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>24 [22]</th><th>8</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectVisibility">ObjectVisibility (VisionCore.TrafficParticipants.ObjectVisibility)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LeftEdgeVisibility</td><td><a href="#VisionCore.TrafficParticipants.ObjectEdgeVisibility">VisionCore.TrafficParticipants.ObjectEdgeVisibility</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the visibility of the left edge of the object</td></tr>
+<tr><td>RightEdgeVisibility</td><td><a href="#VisionCore.TrafficParticipants.ObjectEdgeVisibility">VisionCore.TrafficParticipants.ObjectEdgeVisibility</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the visibility of the right edge of the object</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4</th><th>2</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.Object">Object (VisionCore.TrafficParticipants.Object)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Id</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>A unique ID in the range of [0, 254], which is constant as long as the object is tracked. Note! A value of 0 indicates 'no object'</td></tr>
+<tr><td>ObjectClass</td><td><a href="#VisionCore.TrafficParticipants.ObjectClass">VisionCore.TrafficParticipants.ObjectClass</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the type of object</td></tr>
+<tr><td>MotionMode</td><td><a href="#VisionCore.TrafficParticipants.ObjectMotionMode">VisionCore.TrafficParticipants.ObjectMotionMode</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes how the object moves</td></tr>
+<tr><td>ObjectPose</td><td><a href="#VisionCore.TrafficParticipants.ObjectPose">VisionCore.TrafficParticipants.ObjectPose</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the pose of the object</td></tr>
+<tr><td>PositionAclc</td><td><a href="#VisionCore.TrafficParticipants.ObjectPosition">VisionCore.TrafficParticipants.ObjectPosition</a></td><td></td><td></td><td></td><td></td><td>35 [30]</td><td>1</td><td>Position data in ACLC</td></tr>
+<tr><td>VelocityAclc</td><td><a href="#VisionCore.TrafficParticipants.ObjectVelocity">VisionCore.TrafficParticipants.ObjectVelocity</a></td><td></td><td></td><td></td><td></td><td>20 [17]</td><td>1</td><td>Velocity data in ACLC</td></tr>
+<tr><td>AccelerationAclc</td><td><a href="#VisionCore.TrafficParticipants.ObjectAcceleration">VisionCore.TrafficParticipants.ObjectAcceleration</a></td><td></td><td></td><td></td><td></td><td>9 [7]</td><td>1</td><td>Acceleration data in ACLC</td></tr>
+<tr><td>Size</td><td><a href="#VisionCore.TrafficParticipants.ObjectSize">VisionCore.TrafficParticipants.ObjectSize</a></td><td></td><td></td><td></td><td></td><td>21 [16]</td><td>1</td><td>Size data</td></tr>
+<tr><td>LaneProperties</td><td><a href="#VisionCore.TrafficParticipants.LaneProperties">VisionCore.TrafficParticipants.LaneProperties</a></td><td></td><td></td><td></td><td></td><td>26 [20]</td><td>1</td><td>Object state relative to lane</td></tr>
+<tr><td>Quality</td><td><a href="#VisionCore.TrafficParticipants.ObjectQuality">VisionCore.TrafficParticipants.ObjectQuality</a></td><td></td><td></td><td></td><td></td><td>26 [24]</td><td>1</td><td>Signal quality estimates</td></tr>
+<tr><td>Visibility</td><td><a href="#VisionCore.TrafficParticipants.ObjectVisibility">VisionCore.TrafficParticipants.ObjectVisibility</a></td><td></td><td></td><td></td><td></td><td>6</td><td>1</td><td>Signals about object visibility</td></tr>
+<tr><td>ExistsStereoMeasurement</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates if the object has stereo measurements</td></tr>
+<tr><td>ExistsClusterMeasurement</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates if the object has cluster measurements</td></tr>
+<tr><td>BlockageRegionIds</td><td>U16</td><td>0</td><td>65535</td><td>1</td><td></td><td>4</td><td>1</td><td>Signal representing blockage regions that the object is located in</td></tr>
+<tr><td>TurnIndicatorStatus</td><td><a href="#VisionCore.TrafficParticipants.ObjectTurnIndicatorStatus">VisionCore.TrafficParticipants.ObjectTurnIndicatorStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the turn indicator status in case of vehicles</td></tr>
+<tr><td>VerificationStatus</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>7</td><td>2</td><td>Verification signals bitmask, described by ObjectVerificationStatusBitMask enum</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>169 [146]</th><th>17</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectsOutput">ObjectsOutput (VisionCore.TrafficParticipants.ObjectsOutput)</h2>
+Source: DATA_SOURCE_VISION (2)
+<br>
+Identifier: 450 (1c2)
+<br>
+Version: 2.0.0
+<br>
+Output describing the detected traffic participants (vehicles, pedestrians, etc)
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Objects</td><td><a href="#VisionCore.TrafficParticipants.Object">VisionCore.TrafficParticipants.Object[25]</a></td><td></td><td></td><td></td><td></td><td>4300 [3725]</td><td>1</td><td>List of detected objects</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4300 [3725]</th><th>1</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="VisionCore.TrafficParticipants.ObjectClass">ObjectClass (VisionCore.TrafficParticipants.ObjectClass)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>VisionCore.TrafficParticipants.ObjectClass.Unspecified</td><td>0</td></tr>
+<tr><td>GeneralObject</td><td>VisionCore.TrafficParticipants.ObjectClass.GeneralObject</td><td>1</td></tr>
+<tr><td>Car</td><td>VisionCore.TrafficParticipants.ObjectClass.Car</td><td>2</td></tr>
+<tr><td>Truck</td><td>VisionCore.TrafficParticipants.ObjectClass.Truck</td><td>3</td></tr>
+<tr><td>Motorcycle</td><td>VisionCore.TrafficParticipants.ObjectClass.Motorcycle</td><td>4</td></tr>
+<tr><td>Pedestrian</td><td>VisionCore.TrafficParticipants.ObjectClass.Pedestrian</td><td>5</td></tr>
+<tr><td>Bicycle</td><td>VisionCore.TrafficParticipants.ObjectClass.Bicycle</td><td>6</td></tr>
+<tr><td>Animal</td><td>VisionCore.TrafficParticipants.ObjectClass.Animal</td><td>7</td></tr>
+<tr><td>RoadConstructionMarker</td><td>VisionCore.TrafficParticipants.ObjectClass.RoadConstructionMarker</td><td>8</td></tr>
+<tr><td>ConstructionWorkTrailer</td><td>VisionCore.TrafficParticipants.ObjectClass.ConstructionWorkTrailer</td><td>9</td></tr>
+<tr><td>OtherVehicle</td><td>VisionCore.TrafficParticipants.ObjectClass.OtherVehicle</td><td>10</td></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectMotionMode">ObjectMotionMode (VisionCore.TrafficParticipants.ObjectMotionMode)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>VisionCore.TrafficParticipants.ObjectMotionMode.Unspecified</td><td>0</td></tr>
+<tr><td>Stationary</td><td>VisionCore.TrafficParticipants.ObjectMotionMode.Stationary</td><td>1</td></tr>
+<tr><td>Moving</td><td>VisionCore.TrafficParticipants.ObjectMotionMode.Moving</td><td>2</td></tr>
+<tr><td>Stopped</td><td>VisionCore.TrafficParticipants.ObjectMotionMode.Stopped</td><td>3</td></tr>
+<tr><td>Accident</td><td>VisionCore.TrafficParticipants.ObjectMotionMode.Accident</td><td>4</td></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectPose">ObjectPose (VisionCore.TrafficParticipants.ObjectPose)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>VisionCore.TrafficParticipants.ObjectPose.Unknown</td><td>0</td></tr>
+<tr><td>Preceding</td><td>VisionCore.TrafficParticipants.ObjectPose.Preceding</td><td>1</td></tr>
+<tr><td>Oncoming</td><td>VisionCore.TrafficParticipants.ObjectPose.Oncoming</td><td>2</td></tr>
+<tr><td>Lateral</td><td>VisionCore.TrafficParticipants.ObjectPose.Lateral</td><td>3</td></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectLaneAssignment">ObjectLaneAssignment (VisionCore.TrafficParticipants.ObjectLaneAssignment)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>VisionCore.TrafficParticipants.ObjectLaneAssignment.Unknown</td><td>0</td></tr>
+<tr><td>EgoLane</td><td>VisionCore.TrafficParticipants.ObjectLaneAssignment.EgoLane</td><td>1</td></tr>
+<tr><td>LeftLane</td><td>VisionCore.TrafficParticipants.ObjectLaneAssignment.LeftLane</td><td>2</td></tr>
+<tr><td>RightLane</td><td>VisionCore.TrafficParticipants.ObjectLaneAssignment.RightLane</td><td>3</td></tr>
+<tr><td>MultipleLeft</td><td>VisionCore.TrafficParticipants.ObjectLaneAssignment.MultipleLeft</td><td>4</td></tr>
+<tr><td>MultipleRight</td><td>VisionCore.TrafficParticipants.ObjectLaneAssignment.MultipleRight</td><td>5</td></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectQualityStatus">ObjectQualityStatus (VisionCore.TrafficParticipants.ObjectQualityStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>VisionCore.TrafficParticipants.ObjectQualityStatus.Unknown</td><td>0</td></tr>
+<tr><td>VelocityReliable</td><td>VisionCore.TrafficParticipants.ObjectQualityStatus.VelocityReliable</td><td>1</td></tr>
+<tr><td>ExistenceValidated</td><td>VisionCore.TrafficParticipants.ObjectQualityStatus.ExistenceValidated</td><td>2</td></tr>
+<tr><td>VelocityReliableAndExistenceValidated</td><td>VisionCore.TrafficParticipants.ObjectQualityStatus.VelocityReliableAndExistenceValidated</td><td>3</td></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectTrackingStatus">ObjectTrackingStatus (VisionCore.TrafficParticipants.ObjectTrackingStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NotTracked</td><td>VisionCore.TrafficParticipants.ObjectTrackingStatus.NotTracked</td><td>0</td></tr>
+<tr><td>Initialized</td><td>VisionCore.TrafficParticipants.ObjectTrackingStatus.Initialized</td><td>1</td></tr>
+<tr><td>Tracked</td><td>VisionCore.TrafficParticipants.ObjectTrackingStatus.Tracked</td><td>2</td></tr>
+<tr><td>Predicted</td><td>VisionCore.TrafficParticipants.ObjectTrackingStatus.Predicted</td><td>3</td></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectTurnIndicatorStatus">ObjectTurnIndicatorStatus (VisionCore.TrafficParticipants.ObjectTurnIndicatorStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Off</td><td>VisionCore.TrafficParticipants.ObjectTurnIndicatorStatus.Off</td><td>0</td></tr>
+<tr><td>Left</td><td>VisionCore.TrafficParticipants.ObjectTurnIndicatorStatus.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>VisionCore.TrafficParticipants.ObjectTurnIndicatorStatus.Right</td><td>2</td></tr>
+<tr><td>Both</td><td>VisionCore.TrafficParticipants.ObjectTurnIndicatorStatus.Both</td><td>3</td></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectEdgeVisibility">ObjectEdgeVisibility (VisionCore.TrafficParticipants.ObjectEdgeVisibility)</h2>
+Max Encoded Size (bytes): 1Can be interpreted as a BitMask. IsVisible: True if the edge is fully visible in the current measurement cycle. WasVisible: True if the edge was fully visible at any time during the existence of the track.
+<br>
+<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NotVisible</td><td>VisionCore.TrafficParticipants.ObjectEdgeVisibility.NotVisible</td><td>0</td></tr>
+<tr><td>WasVisible</td><td>VisionCore.TrafficParticipants.ObjectEdgeVisibility.WasVisible</td><td>1</td></tr>
+<tr><td>IsVisible</td><td>VisionCore.TrafficParticipants.ObjectEdgeVisibility.IsVisible</td><td>2</td></tr>
+<tr><td>WasAndIsVisible</td><td>VisionCore.TrafficParticipants.ObjectEdgeVisibility.WasAndIsVisible</td><td>3</td></tr>
+</table>
+<h2 id="VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask">ObjectVerificationStatusBitMask (VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask)</h2>
+Max Encoded Size (bytes): 1BitMask used to encode/decode which parts of the object is verified. Enum value is bit index.
+<br>
+<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>IdVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.IdVerified</td><td>0</td></tr>
+<tr><td>XVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.XVerified</td><td>1</td></tr>
+<tr><td>XVelocityVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.XVelocityVerified</td><td>2</td></tr>
+<tr><td>YVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.YVerified</td><td>3</td></tr>
+<tr><td>YVelocityVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.YVelocityVerified</td><td>4</td></tr>
+<tr><td>WidthVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.WidthVerified</td><td>5</td></tr>
+<tr><td>LengthVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.LengthVerified</td><td>6</td></tr>
+<tr><td>YawAngleVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.YawAngleVerified</td><td>7</td></tr>
+<tr><td>YawRateVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.YawRateVerified</td><td>8</td></tr>
+<tr><td>XStddevVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.XStddevVerified</td><td>9</td></tr>
+<tr><td>YStddevVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.YStddevVerified</td><td>10</td></tr>
+<tr><td>XVelocityStddevVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.XVelocityStddevVerified</td><td>11</td></tr>
+<tr><td>YVelocityStddevVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.YVelocityStddevVerified</td><td>12</td></tr>
+<tr><td>MotionModeVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.MotionModeVerified</td><td>13</td></tr>
+<tr><td>ObjectClassVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.ObjectClassVerified</td><td>14</td></tr>
+<tr><td>AvailableVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.AvailableVerified</td><td>15</td></tr>
+<tr><td>QualityFeatureApproxErrorVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.QualityFeatureApproxErrorVerified</td><td>16</td></tr>
+<tr><td>QualityTrackingStatusVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.QualityTrackingStatusVerified</td><td>17</td></tr>
+<tr><td>QualityClassificationHistoryVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.QualityClassificationHistoryVerified</td><td>18</td></tr>
+<tr><td>QualityDetectionHistoryVerified</td><td>VisionCore.TrafficParticipants.ObjectVerificationStatusBitMask.QualityDetectionHistoryVerified</td><td>19</td></tr>
+</table>
+</body>
+</html>

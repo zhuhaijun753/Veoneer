@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Readme for System Product Interfaces</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <style type="text/css">a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+body {
+margin: auto;
+padding-right: 1em;
+padding-left: 1em;
+padding-top: 1em;
+color: black;
+font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+font-size: 100%;
+line-height: 140%;
+}
+pre {
+border: 1px dotted gray;
+padding: 0.5em;
+}
+code {
+font-family: "Courier New", monospace;
+color: #a33;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a {
+text-decoration: none;
+color: #001e46;
+}
+h1, h2, h3, h4, h5 {
+font-family: 'Barlow', sans-serif;
+font-weight: bold;
+color: #001e46;
+}
+h1 {
+border-bottom: 1px solid #0e2b8d;
+font-size: 130%;
+line-height: 140%;
+page-break-before: always;
+padding-top: 2em;
+}
+h2 {
+font-size: 110%;
+padding-top: 2em;
+}
+h3 {
+font-size: 95%;
+padding-top: 2em;
+}
+h4 {
+font-size: 90%;
+padding-top: 2em;
+}
+h5 {
+font-size: 90%;
+padding-top: 2em;
+}
+h1.title {
+font-size: 200%;
+font-weight: bold;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+text-align: center;
+border: none;
+page-break-before: auto;
+}
+dt code {
+font-weight: bold;
+}
+dd p {
+margin-top: 0;
+}
+#nav, #confidential, #footer, figure {
+font-family: 'Barlow', sans-serif;
+}
+#confidential {
+font-size: 85%;
+}
+header#documentheader {
+position: relative;
+margin: 0;
+padding: 0;
+margin-left: -1em;
+width: 100%;
+top: 1em;
+background: #ffffff;
+}
+div#alvheaderwrapper {
+padding: 0;
+margin: 0 1em;
+overflow: hidden;
+position: relative;
+}
+footer {
+font-size: 75%;
+border-top: 1px solid #0e2b8d;
+margin-top: 1em;
+}
+footer#pdffooter {
+display:none;
+}
+table {
+border-collapse: collapse;
+font-family: 'Barlow', sans-serif;
+}
+td, th {
+border: 1px solid black;
+margin: 0;
+padding: 4px;
+text-align: left;
+vertical-align: top;
+}
+th {
+color: black;
+font-family: 'Barlow', sans-serif;
+background-color: #c4e2df;
+}
+td.alvlogo {
+border: none;
+margin: 0;
+padding: 0px;
+}
+table.alvheader {
+margin: 0;
+padding: 0;
+width: 100%;
+border-collapse: collapse;
+}
+td.alvheader {
+border: 1px solid black;
+margin: 0;
+padding-left: 4px;
+padding-right: 4px;
+padding-top: 0px;
+padding-bottom: 2px;
+vertical-align: top;
+line-height: 120%;
+}
+.alvmeta {
+font-size: 75%;
+font-style: italic;
+}
+td.alvheadershade {
+border: 1px solid black;
+margin: 0;
+padding: 2px;
+background-color: #c4e2df;
+color: black;
+line-height: 120%;
+}
+pre.instruction {
+border: none;
+color: #00c;
+background-color: white;
+}
+.warning {
+border: 4px solid red;
+font-family: Verdana, sans-serif;
+padding-left: 1em;
+padding-right: 1em;
+margin-bottom: 1em;
+}
+.hidden {
+display: none;
+}
+th.left, td.left {
+text-align: left;
+}
+th.right, td.right {
+text-align: right;
+}
+
+table.memname td {
+border: none;
+}
+.memname {
+font-weight: bold;
+border: none;
+margin-bottom: -10px;
+margin-left: 0px;
+padding-left: 0px;
+padding-bottom: 0px;
+}
+.memdoc {
+margin-left: 40px;
+margin-bottom: 1em;
+}
+table.memname td.paramname, td.paramtype {
+padding-left: 0px;
+padding-right: 0px;
+}
+td.mdescRight {
+font-weight: normal;
+padding-top: 0px;
+margin-top: 0px;
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Readme for System Product Interfaces</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#purpose"><span class="toc-section-number">1</span> Purpose</a></li>
+<li><a href="#interface-forum"><span class="toc-section-number">2</span> Interface forum</a></li>
+<li><a href="#repository-structure"><span class="toc-section-number">3</span> Repository structure</a></li>
+<li><a href="#documentation"><span class="toc-section-number">4</span> Documentation</a></li>
+<li><a href="#interface-generation"><span class="toc-section-number">5</span> Interface generation</a></li>
+<li><a href="#markdown-to-html-generation"><span class="toc-section-number">6</span> Markdown to HTML generation</a>
+<ul>
+<li><a href="#using-inline-plantuml-images"><span class="toc-section-number">6.1</span> Using inline plantuml images</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>This document aims to describe how this repository is build up and where to find the information you are looking for. It is generated for revision 2f574d06759cc99a40d0cca5d0f73466e4f8ad57.</p>
+<h1 data-number="1" id="purpose"><span class="header-section-number">1</span> Purpose</h1>
+<p>This repository is used to synchronize and exchange interfaces between the different components that make up System Products.</p>
+<h1 data-number="2" id="interface-forum"><span class="header-section-number">2</span> Interface forum</h1>
+<p>The interface forum is a teams channel used to communicate around interfaces. The teams channel can be found <a href="https://teams.microsoft.com/l/team/19%3a8acb8427927c4e1a8b5df2ac318dc583%40thread.skype/conversations?groupId=385593d2-0572-457f-b20d-d111a9198cda&amp;tenantId=81122329-96bb-41cc-9053-65e30c689cd5">here</a>.</p>
+<p>On the wiki page the Participants are described to make it easy to understand who to interact with for what.</p>
+<h1 data-number="3" id="repository-structure"><span class="header-section-number">3</span> Repository structure</h1>
+<p>Each organization provide their interfaces within their subfolder under Interfaces. Each organization can create their own directory structure in their folder. It is however important that all interfaces are compatible so enums, structures, etc should have unique names</p>
+<ul>
+<li>ActuatorSupport - Contains support functionality for interfacing with different actuators. E.g. converting steering request to steering torque request.</li>
+<li>Integration - Documentation needed to integrate in the System Core environment and APIs for interacting with services (debug logging, etc) on Aurix</li>
+<li>RadarCore - Contains RadarCore interfaces</li>
+<li>SystemCore - Contains System Products bus interfaces as well as wrapper for debug data and internal data</li>
+<li>Tools - Contains Protobuf implementation and C code generator for target</li>
+<li>VisionCore - Contains Vision Core interfaces</li>
+<li>Zenuity - Contains Zenuity interfaces</li>
+</ul>
+<h1 data-number="4" id="documentation"><span class="header-section-number">4</span> Documentation</h1>
+<ul>
+<li>Integration/data_interfaces.md - Describes how to package data for internal distribution or debug</li>
+<li>Integration/transport_protocols_and_physical_interfaces.md - Describes the different debug data distribution options</li>
+<li>Integration/zenuity_interface_design_description.md - Describes how to integrate in System Products environment</li>
+</ul>
+<h1 data-number="5" id="interface-generation"><span class="header-section-number">5</span> Interface generation</h1>
+<p>generate_all_interfaces.sh can be used to generate all documentation and code for the System Product Protocol interfaces. Results will be placed in the <em>generated</em> folder.</p>
+<p>Installation guide can be found in Integration/data_interfaces.md.</p>
+<h1 data-number="6" id="markdown-to-html-generation"><span class="header-section-number">6</span> Markdown to HTML generation</h1>
+<p>Pandoc can be used to generate html from markdown. Install latest pandoc from <a href="https://pandoc.org/installing.html">Pandoc install page</a>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">pandoc</span> -o zenuity_interface_design_description.html zenuity_interface_design_description.md</span></code></pre></div>
+<h2 data-number="6.1" id="using-inline-plantuml-images"><span class="header-section-number">6.1</span> Using inline plantuml images</h2>
+<p>To be able to generate plantuml images the pandoc-plantuml-filter is used. It can be installed using pip:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">pip</span> install pandoc-plantuml-filter</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">pip</span> install pandoc-fignos</span></code></pre></div>
+<p>And now the filter can be activated using the this command instead:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="ex">pandoc</span> -F pandoc-plantuml -F pandoc-fignos -o zenuity_interface_design_description.html zenuity_interface_design_description.md</span></code></pre></div>
+<p>To generate html for all md files use the script:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="ex">./generate_markdown.sh</span></span></code></pre></div>
+<p>Note #1: On windows the PLANTUML_BIN env variable needs to be set to “java -jar &lt;plantuml.jar&gt;”, the jar file can be downloaded from <a href="http://plantuml.com/download">PlantUML download page</a>.</p>
+<p>Note #2: If the error “fd:4: hPutBuf: resource vanished (Broken pipe)” occurs there is a problem with the filter and pandoc versions. It might be solved by installing the latest binary from pandoc website instead of using default package management (for example apt)</p>
+</body>
+</html>

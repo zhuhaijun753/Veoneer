@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Cruising Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - Zenuity.Crusing</b>
+<br>
+<h1>Messages</h1>
+<h2 id="Zenuity.Crusing.CancelReasonAcc">CancelReasonAcc (Zenuity.Crusing.CancelReasonAcc)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 30 (1e)
+<br>
+Version: 1.0.0
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>NoLeadVehicle</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>EndBrakeOnly</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4</th><th>2</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Crusing.AccelerationRequest">AccelerationRequest (Zenuity.Crusing.AccelerationRequest)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 31 (1f)
+<br>
+Version: 1.0.0
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>RequestActive</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>NominalAcceleration</td><td>S16</td><td>-5 m/s²</td><td>5 m/s²</td><td>0.01</td><td>m/s²</td><td>4 [3]</td><td>1</td><td>Current acceleration request</td></tr>
+<tr><td>MinJerk</td><td>S16</td><td>-5 m/s³</td><td>5 m/s³</td><td>0.01</td><td>m/s³</td><td>4 [3]</td><td>1</td><td>Request from controller to use no less than this jerk to reach requested acceleration.</td></tr>
+<tr><td>MaxJerk</td><td>S16</td><td>-5 m/s³</td><td>5 m/s³</td><td>0.01</td><td>m/s³</td><td>4 [3]</td><td>1</td><td>Request from controller to use no more than this jerk to reach requested acceleration.</td></tr>
+<tr><td>StandstillRequest</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request by ACC to stop vehicle and hold it still with brakes</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>16 [13]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Crusing.SelectedTarget">SelectedTarget (Zenuity.Crusing.SelectedTarget)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>IsSelected</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>IsControlledTowards</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>LatPosition</td><td>S16</td><td>-20 m</td><td>20 m</td><td>0.1</td><td>m</td><td>4 [3]</td><td>1</td><td>Lateral distance to selected target, ego vehicle coordinate system.</td></tr>
+<tr><td>LonPosition</td><td>S16</td><td>-3276.8 m</td><td>200 m</td><td>0.1</td><td>m</td><td>4</td><td>1</td><td>Longitudinal distance to selected target, ego vehicle coordinate system.</td></tr>
+<tr><td>Speed</td><td>S16</td><td>-3276.8 m/s</td><td>60 m/s</td><td>0.1</td><td>m/s</td><td>4</td><td>1</td><td>Speed of selected target.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>16 [15]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Crusing.TargetsSelectedByAcc">TargetsSelectedByAcc (Zenuity.Crusing.TargetsSelectedByAcc)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 32 (20)
+<br>
+Version: 1.0.0
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ClosestInLane</td><td><a href="#Zenuity.Crusing.SelectedTarget">Zenuity.Crusing.SelectedTarget</a></td><td></td><td></td><td></td><td></td><td>18 [17]</td><td>1</td><td></td></tr>
+<tr><td>SecondClosestInLane</td><td><a href="#Zenuity.Crusing.SelectedTarget">Zenuity.Crusing.SelectedTarget</a></td><td></td><td></td><td></td><td></td><td>18 [17]</td><td>1</td><td></td></tr>
+<tr><td>CutIn</td><td><a href="#Zenuity.Crusing.SelectedTarget">Zenuity.Crusing.SelectedTarget</a></td><td></td><td></td><td></td><td></td><td>18 [17]</td><td>1</td><td></td></tr>
+<tr><td>ClosestInLeftLane</td><td><a href="#Zenuity.Crusing.SelectedTarget">Zenuity.Crusing.SelectedTarget</a></td><td></td><td></td><td></td><td></td><td>18 [17]</td><td>1</td><td></td></tr>
+<tr><td>ClosestInRightLane</td><td><a href="#Zenuity.Crusing.SelectedTarget">Zenuity.Crusing.SelectedTarget</a></td><td></td><td></td><td></td><td></td><td>18 [17]</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>90 [85]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Crusing.TrafficAssistOutput">TrafficAssistOutput (Zenuity.Crusing.TrafficAssistOutput)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 666 (29a)
+<br>
+Version: 1.0.0
+<br>
+Collection of output signals for Traffic Assist function
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>TurnIndicatorRequest</td><td><a href="#Zenuity.Crusing.TurnIndicatorRequest">Zenuity.Crusing.TurnIndicatorRequest</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>2</th><th>1</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Crusing.InformationToDriverFromTrafficAssist">InformationToDriverFromTrafficAssist (Zenuity.Crusing.InformationToDriverFromTrafficAssist)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 667 (29b)
+<br>
+Version: 1.0.0
+<br>
+Collection of HMI signals for Traffic Assist function
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>HandsOffWarning</td><td><a href="#Zenuity.Crusing.HandsOffWarning">Zenuity.Crusing.HandsOffWarning</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>LaneChangeType</td><td><a href="#Zenuity.Crusing.LaneChangeType">Zenuity.Crusing.LaneChangeType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>LaneChangeReason</td><td><a href="#Zenuity.Crusing.LaneChangeReason">Zenuity.Crusing.LaneChangeReason</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>LaneChangePossibleDirection</td><td><a href="#Zenuity.Crusing.LaneChangePossibleDirection">Zenuity.Crusing.LaneChangePossibleDirection</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>LaneChangeStatus</td><td><a href="#Zenuity.Crusing.LaneChangeStatus">Zenuity.Crusing.LaneChangeStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>10</th><th>5</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="Zenuity.Crusing.TurnIndicatorRequest">TurnIndicatorRequest (Zenuity.Crusing.TurnIndicatorRequest)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>Zenuity.Crusing.TurnIndicatorRequest.None</td><td>0</td></tr>
+<tr><td>Left</td><td>Zenuity.Crusing.TurnIndicatorRequest.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>Zenuity.Crusing.TurnIndicatorRequest.Right</td><td>2</td></tr>
+<tr><td>HazardLight</td><td>Zenuity.Crusing.TurnIndicatorRequest.HazardLight</td><td>3</td></tr>
+</table>
+<h2 id="Zenuity.Crusing.LaneChangeType">LaneChangeType (Zenuity.Crusing.LaneChangeType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoIntent</td><td>Zenuity.Crusing.LaneChangeType.NoIntent</td><td>0</td></tr>
+<tr><td>Left</td><td>Zenuity.Crusing.LaneChangeType.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>Zenuity.Crusing.LaneChangeType.Right</td><td>2</td></tr>
+</table>
+<h2 id="Zenuity.Crusing.LaneChangeReason">LaneChangeReason (Zenuity.Crusing.LaneChangeReason)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoReason</td><td>Zenuity.Crusing.LaneChangeReason.NoReason</td><td>0</td></tr>
+<tr><td>DeniedByDriver</td><td>Zenuity.Crusing.LaneChangeReason.DeniedByDriver</td><td>1</td></tr>
+<tr><td>LaneOccupied</td><td>Zenuity.Crusing.LaneChangeReason.LaneOccupied</td><td>2</td></tr>
+<tr><td>NoTargetLane</td><td>Zenuity.Crusing.LaneChangeReason.NoTargetLane</td><td>3</td></tr>
+<tr><td>TargetLaneNotAccessible</td><td>Zenuity.Crusing.LaneChangeReason.TargetLaneNotAccessible</td><td>4</td></tr>
+<tr><td>SpeedRange</td><td>Zenuity.Crusing.LaneChangeReason.SpeedRange</td><td>5</td></tr>
+<tr><td>SensorBlocked</td><td>Zenuity.Crusing.LaneChangeReason.SensorBlocked</td><td>6</td></tr>
+<tr><td>SystemFailure</td><td>Zenuity.Crusing.LaneChangeReason.SystemFailure</td><td>7</td></tr>
+<tr><td>SteeringNotActive</td><td>Zenuity.Crusing.LaneChangeReason.SteeringNotActive</td><td>8</td></tr>
+<tr><td>DriverNotAttentive</td><td>Zenuity.Crusing.LaneChangeReason.DriverNotAttentive</td><td>9</td></tr>
+<tr><td>DriverOverride</td><td>Zenuity.Crusing.LaneChangeReason.DriverOverride</td><td>10</td></tr>
+<tr><td>RoadType</td><td>Zenuity.Crusing.LaneChangeReason.RoadType</td><td>11</td></tr>
+<tr><td>RoadTypeNotDetermined</td><td>Zenuity.Crusing.LaneChangeReason.RoadTypeNotDetermined</td><td>12</td></tr>
+<tr><td>Unknown</td><td>Zenuity.Crusing.LaneChangeReason.Unknown</td><td>13</td></tr>
+</table>
+<h2 id="Zenuity.Crusing.LaneChangePossibleDirection">LaneChangePossibleDirection (Zenuity.Crusing.LaneChangePossibleDirection)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>Zenuity.Crusing.LaneChangePossibleDirection.None</td><td>0</td></tr>
+<tr><td>Left</td><td>Zenuity.Crusing.LaneChangePossibleDirection.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>Zenuity.Crusing.LaneChangePossibleDirection.Right</td><td>2</td></tr>
+<tr><td>Both</td><td>Zenuity.Crusing.LaneChangePossibleDirection.Both</td><td>3</td></tr>
+</table>
+<h2 id="Zenuity.Crusing.LaneChangeStatus">LaneChangeStatus (Zenuity.Crusing.LaneChangeStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Off</td><td>Zenuity.Crusing.LaneChangeStatus.Off</td><td>0</td></tr>
+<tr><td>Standby</td><td>Zenuity.Crusing.LaneChangeStatus.Standby</td><td>1</td></tr>
+<tr><td>Requested</td><td>Zenuity.Crusing.LaneChangeStatus.Requested</td><td>2</td></tr>
+<tr><td>LateralManeuverStarted</td><td>Zenuity.Crusing.LaneChangeStatus.LateralManeuverStarted</td><td>3</td></tr>
+<tr><td>InLateralManeuver</td><td>Zenuity.Crusing.LaneChangeStatus.InLateralManeuver</td><td>4</td></tr>
+<tr><td>Finished</td><td>Zenuity.Crusing.LaneChangeStatus.Finished</td><td>5</td></tr>
+<tr><td>Rejected</td><td>Zenuity.Crusing.LaneChangeStatus.Rejected</td><td>6</td></tr>
+<tr><td>Aborting</td><td>Zenuity.Crusing.LaneChangeStatus.Aborting</td><td>7</td></tr>
+<tr><td>HandOver</td><td>Zenuity.Crusing.LaneChangeStatus.HandOver</td><td>8</td></tr>
+</table>
+<h2 id="Zenuity.Crusing.HandsOffWarning">HandsOffWarning (Zenuity.Crusing.HandsOffWarning)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoWarning</td><td>Zenuity.Crusing.HandsOffWarning.NoWarning</td><td>0</td></tr>
+<tr><td>WarningLevel1</td><td>Zenuity.Crusing.HandsOffWarning.WarningLevel1</td><td>1</td></tr>
+<tr><td>WarningLevel2</td><td>Zenuity.Crusing.HandsOffWarning.WarningLevel2</td><td>2</td></tr>
+</table>
+</body>
+</html>

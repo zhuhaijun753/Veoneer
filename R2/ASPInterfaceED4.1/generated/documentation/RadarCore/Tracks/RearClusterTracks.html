@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>RearClusterTracks Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - RadarCore.Tracks</b>
+<br>
+<h1>Messages</h1>
+<h2 id="RadarCore.Tracks.RearClusterTrack">RearClusterTrack (RadarCore.Tracks.RearClusterTrack)</h2>
+Tracked rear side object based on radar measurements
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Id</td><td>U16</td><td>0</td><td>65535</td><td>1</td><td></td><td>4</td><td>1</td><td>A global ID, which is constant as long as the object is tracked. Note! A value of 0 indicates 'no object'</td></tr>
+<tr><td>ClosestPoint</td><td><a href="#RadarCore.Tracks.ClusterTrackPosition">RadarCore.Tracks.ClusterTrackPosition</a></td><td></td><td></td><td></td><td></td><td>22 [16]</td><td>1</td><td>Kalman filtered closest point</td></tr>
+<tr><td>BoxModel</td><td><a href="#RadarCore.Tracks.ClusterTrackModelBox">RadarCore.Tracks.ClusterTrackModelBox</a></td><td></td><td></td><td></td><td></td><td>26 [20]</td><td>1</td><td>Box model describing the object</td></tr>
+<tr><td>Movement</td><td><a href="#RadarCore.Tracks.ClusterTrackMovement">RadarCore.Tracks.ClusterTrackMovement</a></td><td></td><td></td><td></td><td></td><td>38 [20]</td><td>1</td><td>Movement estimation of object</td></tr>
+<tr><td>ObjectSizeType</td><td><a href="#RadarCore.Tracks.ObjectSize">RadarCore.Tracks.ObjectSize</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Type of the size of the object</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>92 [62]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="RadarCore.Tracks.RearClusterTrackList">RearClusterTrackList (RadarCore.Tracks.RearClusterTrackList)</h2>
+Source: DATA_SOURCE_RADAR (4)
+<br>
+Identifier: 12 (c)
+<br>
+Version: 1.0.0
+<br>
+Output describing the rear side radar tracks
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Tracks</td><td><a href="#RadarCore.Tracks.RearClusterTrack">RadarCore.Tracks.RearClusterTrack[10]</a></td><td></td><td></td><td></td><td></td><td>940 [640]</td><td>1</td><td>List of rear side tracks from both sides</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>940 [640]</th><th>1</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="RadarCore.Tracks.ObjectSize">ObjectSize (RadarCore.Tracks.ObjectSize)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>RadarCore.Tracks.ObjectSize.Unknown</td><td>0</td></tr>
+<tr><td>Small</td><td>RadarCore.Tracks.ObjectSize.Small</td><td>1</td></tr>
+<tr><td>Medium</td><td>RadarCore.Tracks.ObjectSize.Medium</td><td>2</td></tr>
+<tr><td>Large</td><td>RadarCore.Tracks.ObjectSize.Large</td><td>3</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>CountryCodes Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - Common</b>
+<br>
+<h1>Messages</h1>
+<h1>Enums</h1>
+<h2 id="Common.CountryCode">CountryCode (Common.CountryCode)</h2>
+Max Encoded Size (bytes): 2Country Codes according to ISO 3166-1 numeric
+<br>
+<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>Common.CountryCode.None</td><td>0</td></tr>
+<tr><td>Afghanistan</td><td>Common.CountryCode.Afghanistan</td><td>4</td></tr>
+<tr><td>Albania</td><td>Common.CountryCode.Albania</td><td>8</td></tr>
+<tr><td>Antarctica</td><td>Common.CountryCode.Antarctica</td><td>10</td></tr>
+<tr><td>Algeria</td><td>Common.CountryCode.Algeria</td><td>12</td></tr>
+<tr><td>AmericanSamoa</td><td>Common.CountryCode.AmericanSamoa</td><td>16</td></tr>
+<tr><td>Andorra</td><td>Common.CountryCode.Andorra</td><td>20</td></tr>
+<tr><td>Angola</td><td>Common.CountryCode.Angola</td><td>24</td></tr>
+<tr><td>AntiguaAndBarbuda</td><td>Common.CountryCode.AntiguaAndBarbuda</td><td>28</td></tr>
+<tr><td>Azerbaijan</td><td>Common.CountryCode.Azerbaijan</td><td>31</td></tr>
+<tr><td>Argentina</td><td>Common.CountryCode.Argentina</td><td>32</td></tr>
+<tr><td>Australia</td><td>Common.CountryCode.Australia</td><td>36</td></tr>
+<tr><td>Austria</td><td>Common.CountryCode.Austria</td><td>40</td></tr>
+<tr><td>Bahamas</td><td>Common.CountryCode.Bahamas</td><td>44</td></tr>
+<tr><td>Bahrain</td><td>Common.CountryCode.Bahrain</td><td>48</td></tr>
+<tr><td>Bangladesh</td><td>Common.CountryCode.Bangladesh</td><td>50</td></tr>
+<tr><td>Armenia</td><td>Common.CountryCode.Armenia</td><td>51</td></tr>
+<tr><td>Barbados</td><td>Common.CountryCode.Barbados</td><td>52</td></tr>
+<tr><td>Belgium</td><td>Common.CountryCode.Belgium</td><td>56</td></tr>
+<tr><td>Bermuda</td><td>Common.CountryCode.Bermuda</td><td>60</td></tr>
+<tr><td>Bhutan</td><td>Common.CountryCode.Bhutan</td><td>64</td></tr>
+<tr><td>Bolivia</td><td>Common.CountryCode.Bolivia</td><td>68</td></tr>
+<tr><td>BosniaAndHerzegovina</td><td>Common.CountryCode.BosniaAndHerzegovina</td><td>70</td></tr>
+<tr><td>Botswana</td><td>Common.CountryCode.Botswana</td><td>72</td></tr>
+<tr><td>BouvetIsland</td><td>Common.CountryCode.BouvetIsland</td><td>74</td></tr>
+<tr><td>Brazil</td><td>Common.CountryCode.Brazil</td><td>76</td></tr>
+<tr><td>Belize</td><td>Common.CountryCode.Belize</td><td>84</td></tr>
+<tr><td>BritishIndianOceanTerritory</td><td>Common.CountryCode.BritishIndianOceanTerritory</td><td>86</td></tr>
+<tr><td>SolomonIslands</td><td>Common.CountryCode.SolomonIslands</td><td>90</td></tr>
+<tr><td>VirginIslands</td><td>Common.CountryCode.VirginIslands</td><td>92</td></tr>
+<tr><td>BruneiDarussalam</td><td>Common.CountryCode.BruneiDarussalam</td><td>96</td></tr>
+<tr><td>Bulgaria</td><td>Common.CountryCode.Bulgaria</td><td>100</td></tr>
+<tr><td>Myanmar</td><td>Common.CountryCode.Myanmar</td><td>104</td></tr>
+<tr><td>Burundi</td><td>Common.CountryCode.Burundi</td><td>108</td></tr>
+<tr><td>Belarus</td><td>Common.CountryCode.Belarus</td><td>112</td></tr>
+<tr><td>Cambodia</td><td>Common.CountryCode.Cambodia</td><td>116</td></tr>
+<tr><td>Cameroon</td><td>Common.CountryCode.Cameroon</td><td>120</td></tr>
+<tr><td>Canada</td><td>Common.CountryCode.Canada</td><td>124</td></tr>
+<tr><td>CaboVerde</td><td>Common.CountryCode.CaboVerde</td><td>132</td></tr>
+<tr><td>CaymanIslands</td><td>Common.CountryCode.CaymanIslands</td><td>136</td></tr>
+<tr><td>CentralAfricanRepublic</td><td>Common.CountryCode.CentralAfricanRepublic</td><td>140</td></tr>
+<tr><td>SriLanka</td><td>Common.CountryCode.SriLanka</td><td>144</td></tr>
+<tr><td>Chad</td><td>Common.CountryCode.Chad</td><td>148</td></tr>
+<tr><td>Chile</td><td>Common.CountryCode.Chile</td><td>152</td></tr>
+<tr><td>China</td><td>Common.CountryCode.China</td><td>156</td></tr>
+<tr><td>Taiwan</td><td>Common.CountryCode.Taiwan</td><td>158</td></tr>
+<tr><td>ChristmasIsland</td><td>Common.CountryCode.ChristmasIsland</td><td>162</td></tr>
+<tr><td>CocosIslands</td><td>Common.CountryCode.CocosIslands</td><td>166</td></tr>
+<tr><td>Colombia</td><td>Common.CountryCode.Colombia</td><td>170</td></tr>
+<tr><td>Comoros</td><td>Common.CountryCode.Comoros</td><td>174</td></tr>
+<tr><td>Mayotte</td><td>Common.CountryCode.Mayotte</td><td>175</td></tr>
+<tr><td>Congo</td><td>Common.CountryCode.Congo</td><td>178</td></tr>
+<tr><td>DemocraticRepublicOfTheCongo</td><td>Common.CountryCode.DemocraticRepublicOfTheCongo</td><td>180</td></tr>
+<tr><td>CookIslands</td><td>Common.CountryCode.CookIslands</td><td>184</td></tr>
+<tr><td>CostaRica</td><td>Common.CountryCode.CostaRica</td><td>188</td></tr>
+<tr><td>Croatia</td><td>Common.CountryCode.Croatia</td><td>191</td></tr>
+<tr><td>Cuba</td><td>Common.CountryCode.Cuba</td><td>192</td></tr>
+<tr><td>Cyprus</td><td>Common.CountryCode.Cyprus</td><td>196</td></tr>
+<tr><td>Czechia</td><td>Common.CountryCode.Czechia</td><td>203</td></tr>
+<tr><td>Benin</td><td>Common.CountryCode.Benin</td><td>204</td></tr>
+<tr><td>Denmark</td><td>Common.CountryCode.Denmark</td><td>208</td></tr>
+<tr><td>Dominica</td><td>Common.CountryCode.Dominica</td><td>212</td></tr>
+<tr><td>DominicanRepublic</td><td>Common.CountryCode.DominicanRepublic</td><td>214</td></tr>
+<tr><td>Ecuador</td><td>Common.CountryCode.Ecuador</td><td>218</td></tr>
+<tr><td>ElSalvador</td><td>Common.CountryCode.ElSalvador</td><td>222</td></tr>
+<tr><td>EquatorialGuinea</td><td>Common.CountryCode.EquatorialGuinea</td><td>226</td></tr>
+<tr><td>Ethiopia</td><td>Common.CountryCode.Ethiopia</td><td>231</td></tr>
+<tr><td>Eritrea</td><td>Common.CountryCode.Eritrea</td><td>232</td></tr>
+<tr><td>Estonia</td><td>Common.CountryCode.Estonia</td><td>233</td></tr>
+<tr><td>FaroeIslands</td><td>Common.CountryCode.FaroeIslands</td><td>234</td></tr>
+<tr><td>FalklandIslands</td><td>Common.CountryCode.FalklandIslands</td><td>238</td></tr>
+<tr><td>SouthGeorgiaAndTheSouthSandwichIslands</td><td>Common.CountryCode.SouthGeorgiaAndTheSouthSandwichIslands</td><td>239</td></tr>
+<tr><td>Fiji</td><td>Common.CountryCode.Fiji</td><td>242</td></tr>
+<tr><td>Finland</td><td>Common.CountryCode.Finland</td><td>246</td></tr>
+<tr><td>AlandIslands</td><td>Common.CountryCode.AlandIslands</td><td>248</td></tr>
+<tr><td>France</td><td>Common.CountryCode.France</td><td>250</td></tr>
+<tr><td>FrenchGuiana</td><td>Common.CountryCode.FrenchGuiana</td><td>254</td></tr>
+<tr><td>FrenchPolynesia</td><td>Common.CountryCode.FrenchPolynesia</td><td>258</td></tr>
+<tr><td>FrenchSouthernTerritories</td><td>Common.CountryCode.FrenchSouthernTerritories</td><td>260</td></tr>
+<tr><td>Djibouti</td><td>Common.CountryCode.Djibouti</td><td>262</td></tr>
+<tr><td>Gabon</td><td>Common.CountryCode.Gabon</td><td>266</td></tr>
+<tr><td>Georgia</td><td>Common.CountryCode.Georgia</td><td>268</td></tr>
+<tr><td>Gambia</td><td>Common.CountryCode.Gambia</td><td>270</td></tr>
+<tr><td>Palestine</td><td>Common.CountryCode.Palestine</td><td>275</td></tr>
+<tr><td>Germany</td><td>Common.CountryCode.Germany</td><td>276</td></tr>
+<tr><td>Ghana</td><td>Common.CountryCode.Ghana</td><td>288</td></tr>
+<tr><td>Gibraltar</td><td>Common.CountryCode.Gibraltar</td><td>292</td></tr>
+<tr><td>Kiribati</td><td>Common.CountryCode.Kiribati</td><td>296</td></tr>
+<tr><td>Greece</td><td>Common.CountryCode.Greece</td><td>300</td></tr>
+<tr><td>Greenland</td><td>Common.CountryCode.Greenland</td><td>304</td></tr>
+<tr><td>Grenada</td><td>Common.CountryCode.Grenada</td><td>308</td></tr>
+<tr><td>Guadeloupe</td><td>Common.CountryCode.Guadeloupe</td><td>312</td></tr>
+<tr><td>Guam</td><td>Common.CountryCode.Guam</td><td>316</td></tr>
+<tr><td>Guatemala</td><td>Common.CountryCode.Guatemala</td><td>320</td></tr>
+<tr><td>Guinea</td><td>Common.CountryCode.Guinea</td><td>324</td></tr>
+<tr><td>Guyana</td><td>Common.CountryCode.Guyana</td><td>328</td></tr>
+<tr><td>Haiti</td><td>Common.CountryCode.Haiti</td><td>332</td></tr>
+<tr><td>HeardIslandAndMcdonaldIslands</td><td>Common.CountryCode.HeardIslandAndMcdonaldIslands</td><td>334</td></tr>
+<tr><td>HolySee</td><td>Common.CountryCode.HolySee</td><td>336</td></tr>
+<tr><td>Honduras</td><td>Common.CountryCode.Honduras</td><td>340</td></tr>
+<tr><td>HongKong</td><td>Common.CountryCode.HongKong</td><td>344</td></tr>
+<tr><td>Hungary</td><td>Common.CountryCode.Hungary</td><td>348</td></tr>
+<tr><td>Iceland</td><td>Common.CountryCode.Iceland</td><td>352</td></tr>
+<tr><td>India</td><td>Common.CountryCode.India</td><td>356</td></tr>
+<tr><td>Indonesia</td><td>Common.CountryCode.Indonesia</td><td>360</td></tr>
+<tr><td>Iran</td><td>Common.CountryCode.Iran</td><td>364</td></tr>
+<tr><td>Iraq</td><td>Common.CountryCode.Iraq</td><td>368</td></tr>
+<tr><td>Ireland</td><td>Common.CountryCode.Ireland</td><td>372</td></tr>
+<tr><td>Israel</td><td>Common.CountryCode.Israel</td><td>376</td></tr>
+<tr><td>Italy</td><td>Common.CountryCode.Italy</td><td>380</td></tr>
+<tr><td>CoteDIvoire</td><td>Common.CountryCode.CoteDIvoire</td><td>384</td></tr>
+<tr><td>Jamaica</td><td>Common.CountryCode.Jamaica</td><td>388</td></tr>
+<tr><td>Japan</td><td>Common.CountryCode.Japan</td><td>392</td></tr>
+<tr><td>Kazakhstan</td><td>Common.CountryCode.Kazakhstan</td><td>398</td></tr>
+<tr><td>Jordan</td><td>Common.CountryCode.Jordan</td><td>400</td></tr>
+<tr><td>Kenya</td><td>Common.CountryCode.Kenya</td><td>404</td></tr>
+<tr><td>DemocraticPeoplesRepublicOfKorea</td><td>Common.CountryCode.DemocraticPeoplesRepublicOfKorea</td><td>408</td></tr>
+<tr><td>RepublicOfKorea</td><td>Common.CountryCode.RepublicOfKorea</td><td>410</td></tr>
+<tr><td>Kuwait</td><td>Common.CountryCode.Kuwait</td><td>414</td></tr>
+<tr><td>Kyrgyzstan</td><td>Common.CountryCode.Kyrgyzstan</td><td>417</td></tr>
+<tr><td>LaoPeoplesDemocraticRepublic</td><td>Common.CountryCode.LaoPeoplesDemocraticRepublic</td><td>418</td></tr>
+<tr><td>Lebanon</td><td>Common.CountryCode.Lebanon</td><td>422</td></tr>
+<tr><td>Lesotho</td><td>Common.CountryCode.Lesotho</td><td>426</td></tr>
+<tr><td>Latvia</td><td>Common.CountryCode.Latvia</td><td>428</td></tr>
+<tr><td>Liberia</td><td>Common.CountryCode.Liberia</td><td>430</td></tr>
+<tr><td>Libya</td><td>Common.CountryCode.Libya</td><td>434</td></tr>
+<tr><td>Liechtenstein</td><td>Common.CountryCode.Liechtenstein</td><td>438</td></tr>
+<tr><td>Lithuania</td><td>Common.CountryCode.Lithuania</td><td>440</td></tr>
+<tr><td>Luxembourg</td><td>Common.CountryCode.Luxembourg</td><td>442</td></tr>
+<tr><td>Macao</td><td>Common.CountryCode.Macao</td><td>446</td></tr>
+<tr><td>Madagascar</td><td>Common.CountryCode.Madagascar</td><td>450</td></tr>
+<tr><td>Malawi</td><td>Common.CountryCode.Malawi</td><td>454</td></tr>
+<tr><td>Malaysia</td><td>Common.CountryCode.Malaysia</td><td>458</td></tr>
+<tr><td>Maldives</td><td>Common.CountryCode.Maldives</td><td>462</td></tr>
+<tr><td>Mali</td><td>Common.CountryCode.Mali</td><td>466</td></tr>
+<tr><td>Malta</td><td>Common.CountryCode.Malta</td><td>470</td></tr>
+<tr><td>Martinique</td><td>Common.CountryCode.Martinique</td><td>474</td></tr>
+<tr><td>Mauritania</td><td>Common.CountryCode.Mauritania</td><td>478</td></tr>
+<tr><td>Mauritius</td><td>Common.CountryCode.Mauritius</td><td>480</td></tr>
+<tr><td>Mexico</td><td>Common.CountryCode.Mexico</td><td>484</td></tr>
+<tr><td>Monaco</td><td>Common.CountryCode.Monaco</td><td>492</td></tr>
+<tr><td>Mongolia</td><td>Common.CountryCode.Mongolia</td><td>496</td></tr>
+<tr><td>Moldova</td><td>Common.CountryCode.Moldova</td><td>498</td></tr>
+<tr><td>Montenegro</td><td>Common.CountryCode.Montenegro</td><td>499</td></tr>
+<tr><td>Montserrat</td><td>Common.CountryCode.Montserrat</td><td>500</td></tr>
+<tr><td>Morocco</td><td>Common.CountryCode.Morocco</td><td>504</td></tr>
+<tr><td>Mozambique</td><td>Common.CountryCode.Mozambique</td><td>508</td></tr>
+<tr><td>Oman</td><td>Common.CountryCode.Oman</td><td>512</td></tr>
+<tr><td>Namibia</td><td>Common.CountryCode.Namibia</td><td>516</td></tr>
+<tr><td>Nauru</td><td>Common.CountryCode.Nauru</td><td>520</td></tr>
+<tr><td>Nepal</td><td>Common.CountryCode.Nepal</td><td>524</td></tr>
+<tr><td>Netherlands</td><td>Common.CountryCode.Netherlands</td><td>528</td></tr>
+<tr><td>Curacao</td><td>Common.CountryCode.Curacao</td><td>531</td></tr>
+<tr><td>Aruba</td><td>Common.CountryCode.Aruba</td><td>533</td></tr>
+<tr><td>SintMaarten</td><td>Common.CountryCode.SintMaarten</td><td>534</td></tr>
+<tr><td>BonaireSintEustatiusAndSaba</td><td>Common.CountryCode.BonaireSintEustatiusAndSaba</td><td>535</td></tr>
+<tr><td>NewCaledonia</td><td>Common.CountryCode.NewCaledonia</td><td>540</td></tr>
+<tr><td>Vanuatu</td><td>Common.CountryCode.Vanuatu</td><td>548</td></tr>
+<tr><td>NewZealand</td><td>Common.CountryCode.NewZealand</td><td>554</td></tr>
+<tr><td>Nicaragua</td><td>Common.CountryCode.Nicaragua</td><td>558</td></tr>
+<tr><td>Niger</td><td>Common.CountryCode.Niger</td><td>562</td></tr>
+<tr><td>Nigeria</td><td>Common.CountryCode.Nigeria</td><td>566</td></tr>
+<tr><td>Niue</td><td>Common.CountryCode.Niue</td><td>570</td></tr>
+<tr><td>NorfolkIsland</td><td>Common.CountryCode.NorfolkIsland</td><td>574</td></tr>
+<tr><td>Norway</td><td>Common.CountryCode.Norway</td><td>578</td></tr>
+<tr><td>NorthernMarianaIslands</td><td>Common.CountryCode.NorthernMarianaIslands</td><td>580</td></tr>
+<tr><td>UnitedStatesMinorOutlyingIslands</td><td>Common.CountryCode.UnitedStatesMinorOutlyingIslands</td><td>581</td></tr>
+<tr><td>Micronesia</td><td>Common.CountryCode.Micronesia</td><td>583</td></tr>
+<tr><td>MarshallIslands</td><td>Common.CountryCode.MarshallIslands</td><td>584</td></tr>
+<tr><td>Palau</td><td>Common.CountryCode.Palau</td><td>585</td></tr>
+<tr><td>Pakistan</td><td>Common.CountryCode.Pakistan</td><td>586</td></tr>
+<tr><td>Panama</td><td>Common.CountryCode.Panama</td><td>591</td></tr>
+<tr><td>PapuaNewGuinea</td><td>Common.CountryCode.PapuaNewGuinea</td><td>598</td></tr>
+<tr><td>Paraguay</td><td>Common.CountryCode.Paraguay</td><td>600</td></tr>
+<tr><td>Peru</td><td>Common.CountryCode.Peru</td><td>604</td></tr>
+<tr><td>Philippines</td><td>Common.CountryCode.Philippines</td><td>608</td></tr>
+<tr><td>Pitcairn</td><td>Common.CountryCode.Pitcairn</td><td>612</td></tr>
+<tr><td>Poland</td><td>Common.CountryCode.Poland</td><td>616</td></tr>
+<tr><td>Portugal</td><td>Common.CountryCode.Portugal</td><td>620</td></tr>
+<tr><td>GuineaBissau</td><td>Common.CountryCode.GuineaBissau</td><td>624</td></tr>
+<tr><td>TimorLeste</td><td>Common.CountryCode.TimorLeste</td><td>626</td></tr>
+<tr><td>PuertoRico</td><td>Common.CountryCode.PuertoRico</td><td>630</td></tr>
+<tr><td>Qatar</td><td>Common.CountryCode.Qatar</td><td>634</td></tr>
+<tr><td>Reunion</td><td>Common.CountryCode.Reunion</td><td>638</td></tr>
+<tr><td>Romania</td><td>Common.CountryCode.Romania</td><td>642</td></tr>
+<tr><td>RussianFederation</td><td>Common.CountryCode.RussianFederation</td><td>643</td></tr>
+<tr><td>Rwanda</td><td>Common.CountryCode.Rwanda</td><td>646</td></tr>
+<tr><td>SaintBarthelemy</td><td>Common.CountryCode.SaintBarthelemy</td><td>652</td></tr>
+<tr><td>SaintHelena</td><td>Common.CountryCode.SaintHelena</td><td>654</td></tr>
+<tr><td>SaintKittsAndNevis</td><td>Common.CountryCode.SaintKittsAndNevis</td><td>659</td></tr>
+<tr><td>Anguilla</td><td>Common.CountryCode.Anguilla</td><td>660</td></tr>
+<tr><td>SaintLucia</td><td>Common.CountryCode.SaintLucia</td><td>662</td></tr>
+<tr><td>SaintMartin</td><td>Common.CountryCode.SaintMartin</td><td>663</td></tr>
+<tr><td>SaintPierreAndMiquelon</td><td>Common.CountryCode.SaintPierreAndMiquelon</td><td>666</td></tr>
+<tr><td>SaintVincentAndTheGrenadines</td><td>Common.CountryCode.SaintVincentAndTheGrenadines</td><td>670</td></tr>
+<tr><td>SanMarino</td><td>Common.CountryCode.SanMarino</td><td>674</td></tr>
+<tr><td>SaoTomeAndPrincipe</td><td>Common.CountryCode.SaoTomeAndPrincipe</td><td>678</td></tr>
+<tr><td>SaudiArabia</td><td>Common.CountryCode.SaudiArabia</td><td>682</td></tr>
+<tr><td>Senegal</td><td>Common.CountryCode.Senegal</td><td>686</td></tr>
+<tr><td>Serbia</td><td>Common.CountryCode.Serbia</td><td>688</td></tr>
+<tr><td>Seychelles</td><td>Common.CountryCode.Seychelles</td><td>690</td></tr>
+<tr><td>SierraLeone</td><td>Common.CountryCode.SierraLeone</td><td>694</td></tr>
+<tr><td>Singapore</td><td>Common.CountryCode.Singapore</td><td>702</td></tr>
+<tr><td>Slovakia</td><td>Common.CountryCode.Slovakia</td><td>703</td></tr>
+<tr><td>VietNam</td><td>Common.CountryCode.VietNam</td><td>704</td></tr>
+<tr><td>Slovenia</td><td>Common.CountryCode.Slovenia</td><td>705</td></tr>
+<tr><td>Somalia</td><td>Common.CountryCode.Somalia</td><td>706</td></tr>
+<tr><td>SouthAfrica</td><td>Common.CountryCode.SouthAfrica</td><td>710</td></tr>
+<tr><td>Zimbabwe</td><td>Common.CountryCode.Zimbabwe</td><td>716</td></tr>
+<tr><td>Spain</td><td>Common.CountryCode.Spain</td><td>724</td></tr>
+<tr><td>SouthSudan</td><td>Common.CountryCode.SouthSudan</td><td>728</td></tr>
+<tr><td>Sudan</td><td>Common.CountryCode.Sudan</td><td>729</td></tr>
+<tr><td>WesternSahara</td><td>Common.CountryCode.WesternSahara</td><td>732</td></tr>
+<tr><td>Suriname</td><td>Common.CountryCode.Suriname</td><td>740</td></tr>
+<tr><td>SvalbardAndJanMayen</td><td>Common.CountryCode.SvalbardAndJanMayen</td><td>744</td></tr>
+<tr><td>Eswatini</td><td>Common.CountryCode.Eswatini</td><td>748</td></tr>
+<tr><td>Sweden</td><td>Common.CountryCode.Sweden</td><td>752</td></tr>
+<tr><td>Switzerland</td><td>Common.CountryCode.Switzerland</td><td>756</td></tr>
+<tr><td>SyrianArabRepublic</td><td>Common.CountryCode.SyrianArabRepublic</td><td>760</td></tr>
+<tr><td>Tajikistan</td><td>Common.CountryCode.Tajikistan</td><td>762</td></tr>
+<tr><td>Thailand</td><td>Common.CountryCode.Thailand</td><td>764</td></tr>
+<tr><td>Togo</td><td>Common.CountryCode.Togo</td><td>768</td></tr>
+<tr><td>Tokelau</td><td>Common.CountryCode.Tokelau</td><td>772</td></tr>
+<tr><td>Tonga</td><td>Common.CountryCode.Tonga</td><td>776</td></tr>
+<tr><td>TrinidadAndTobago</td><td>Common.CountryCode.TrinidadAndTobago</td><td>780</td></tr>
+<tr><td>UnitedArabEmirates</td><td>Common.CountryCode.UnitedArabEmirates</td><td>784</td></tr>
+<tr><td>Tunisia</td><td>Common.CountryCode.Tunisia</td><td>788</td></tr>
+<tr><td>Turkey</td><td>Common.CountryCode.Turkey</td><td>792</td></tr>
+<tr><td>Turkmenistan</td><td>Common.CountryCode.Turkmenistan</td><td>795</td></tr>
+<tr><td>TurksAndCaicosIslands</td><td>Common.CountryCode.TurksAndCaicosIslands</td><td>796</td></tr>
+<tr><td>Tuvalu</td><td>Common.CountryCode.Tuvalu</td><td>798</td></tr>
+<tr><td>Uganda</td><td>Common.CountryCode.Uganda</td><td>800</td></tr>
+<tr><td>Ukraine</td><td>Common.CountryCode.Ukraine</td><td>804</td></tr>
+<tr><td>NorthMacedonia</td><td>Common.CountryCode.NorthMacedonia</td><td>807</td></tr>
+<tr><td>Egypt</td><td>Common.CountryCode.Egypt</td><td>818</td></tr>
+<tr><td>UnitedKingdomOfGreatBritainAndNorthernIreland</td><td>Common.CountryCode.UnitedKingdomOfGreatBritainAndNorthernIreland</td><td>826</td></tr>
+<tr><td>Guernsey</td><td>Common.CountryCode.Guernsey</td><td>831</td></tr>
+<tr><td>Jersey</td><td>Common.CountryCode.Jersey</td><td>832</td></tr>
+<tr><td>IsleOfMan</td><td>Common.CountryCode.IsleOfMan</td><td>833</td></tr>
+<tr><td>Tanzania</td><td>Common.CountryCode.Tanzania</td><td>834</td></tr>
+<tr><td>UnitedStatesOfAmerica</td><td>Common.CountryCode.UnitedStatesOfAmerica</td><td>840</td></tr>
+<tr><td>VirginIslandsUs</td><td>Common.CountryCode.VirginIslandsUs</td><td>850</td></tr>
+<tr><td>BurkinaFaso</td><td>Common.CountryCode.BurkinaFaso</td><td>854</td></tr>
+<tr><td>Uruguay</td><td>Common.CountryCode.Uruguay</td><td>858</td></tr>
+<tr><td>Uzbekistan</td><td>Common.CountryCode.Uzbekistan</td><td>860</td></tr>
+<tr><td>Venezuela</td><td>Common.CountryCode.Venezuela</td><td>862</td></tr>
+<tr><td>WallisAndFutuna</td><td>Common.CountryCode.WallisAndFutuna</td><td>876</td></tr>
+<tr><td>Samoa</td><td>Common.CountryCode.Samoa</td><td>882</td></tr>
+<tr><td>Yemen</td><td>Common.CountryCode.Yemen</td><td>887</td></tr>
+<tr><td>Zambia</td><td>Common.CountryCode.Zambia</td><td>894</td></tr>
+</table>
+</body>
+</html>

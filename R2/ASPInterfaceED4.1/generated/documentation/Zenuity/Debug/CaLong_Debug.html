@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>CaLong_Debug Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - Zenuity.Debug</b>
+<br>
+<h1>Messages</h1>
+<h2 id="Zenuity.Debug.BrakingDiagnostic">BrakingDiagnostic (Zenuity.Debug.BrakingDiagnostic)</h2>
+Collection of diagnostics signals for pre- and full braking parts of the AEB function
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>AccelerationThreat</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Acceleration threat exists</td></tr>
+<tr><td>BrakingThreat</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Braking threat exists</td></tr>
+<tr><td>MultiTargetSteeringThreat</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Multiple target steering threat exists</td></tr>
+<tr><td>BrakingConfidence</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Braking confidence</td></tr>
+<tr><td>SingleTargetSteeringThreat</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Single target steering threat exists</td></tr>
+<tr><td>SteeringThreat</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Steering threat exists</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>12</th><th>6</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.AllBrakeDiagnostics">AllBrakeDiagnostics (Zenuity.Debug.AllBrakeDiagnostics)</h2>
+Collection of diagnostics signals for all braking parts of the AEB function
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>FullBrake</td><td><a href="#Zenuity.Debug.BrakingDiagnostic">Zenuity.Debug.BrakingDiagnostic</a></td><td></td><td></td><td></td><td></td><td>14</td><td>1</td><td>Fullbrake diagnostic bus</td></tr>
+<tr><td>PreBrake</td><td><a href="#Zenuity.Debug.BrakingDiagnostic">Zenuity.Debug.BrakingDiagnostic</a></td><td></td><td></td><td></td><td></td><td>14</td><td>1</td><td>Prebrake diagnostic bus</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>28</th><th>2</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.AebInhibitionDiagnostic">AebInhibitionDiagnostic (Zenuity.Debug.AebInhibitionDiagnostic)</h2>
+Collection of diagnostics signals that explain reason for inhibition of the AEB function
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>AbortIfNotConfirmed</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Abort AEB if a target is not confirmed</td></tr>
+<tr><td>HostAvoidInhibit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>InhibitActivation</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>ObjectDirectionInhibit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>OncomingInhibit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Do not brake for oncoming objects</td></tr>
+<tr><td>NotOncomingScenarioInScope</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>PointOfImpactInhibit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>RadarOnlyInhibit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>SpeedInhibit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Inhibition because of speed threshold</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>18</th><th>9</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.AebPrimaryTarget">AebPrimaryTarget (Zenuity.Debug.AebPrimaryTarget)</h2>
+Primary target choosen for AEB and its diagnostic data.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ObjectIdForBraking</td><td>U16</td><td>0</td><td>65535</td><td>1</td><td></td><td>4</td><td>1</td><td>Object which triggered the braking, to be matched with vision_id in ThreatAssessmentDiagnosticObject</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4</th><th>1</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.AebGeneralStatusDiagnostic">AebGeneralStatusDiagnostic (Zenuity.Debug.AebGeneralStatusDiagnostic)</h2>
+Describes what is requested or why braking is being denied. What scenario triggered AEB and and what scenario deactivated AEB the last time.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>DeactivationCause</td><td><a href="#Zenuity.Debug.AebDeactivationCause">Zenuity.Debug.AebDeactivationCause</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes what cause deactivated the AEB intervention</td></tr>
+<tr><td>PostStatus</td><td><a href="#Zenuity.Debug.PostAebStatus">Zenuity.Debug.PostAebStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Status of AEB after an intervention is issued or denied. Describes what is requested or why braking is being denied.</td></tr>
+<tr><td>TriggeringCause</td><td><a href="#Zenuity.Debug.AebTriggeringScenario">Zenuity.Debug.AebTriggeringScenario</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates which scenario triggered AEB for the current intervention</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>6</th><th>3</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.BrakingGainInhibitConditionStatus">BrakingGainInhibitConditionStatus (Zenuity.Debug.BrakingGainInhibitConditionStatus)</h2>
+Indicates why brake gain was inhibited
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>BrakeGainActive</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Brake gain is active</td></tr>
+<tr><td>BrakeThreatNumberAboveLimit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Brake threat number is above the limit</td></tr>
+<tr><td>DriverPressedBrakePedal</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Driver pressed the brake pedal</td></tr>
+<tr><td>DriverDecelerationRequestAboveLimit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Driver requested a deceleration above the limit</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8</th><th>4</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.CollisionWarningInhibitConditionStatus">CollisionWarningInhibitConditionStatus (Zenuity.Debug.CollisionWarningInhibitConditionStatus)</h2>
+Indicates why collision warning is inhibited
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>CwInhibit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Collision warning is inhibited</td></tr>
+<tr><td>BelowLowSpeedLimit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Vehicle speed is below the low speed limit</td></tr>
+<tr><td>AboveHighSpeedLimit</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Vehicle speed is above the high speed limit</td></tr>
+<tr><td>DisabledByFaultManager</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Collision warning is disabled by fault manager</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8</th><th>4</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.CollisionWarningStartConditionStatus">CollisionWarningStartConditionStatus (Zenuity.Debug.CollisionWarningStartConditionStatus)</h2>
+Indicates why collision warning is issued
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>StartConditionsMet</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>The start conditions are met</td></tr>
+<tr><td>BtnBasedWarningDriver</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>BTN Based Warning - Driver</td></tr>
+<tr><td>BtnBaseWarningAcc</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>BTN Based Warning - ACC</td></tr>
+<tr><td>ComfortDistanceWarning</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Comfort Distance Warning</td></tr>
+<tr><td>AbnormalAccelerationWarning</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Abnormal Acceleration Warning</td></tr>
+<tr><td>VisionOnlyWarning</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Vision Only Warning</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>12</th><th>6</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.ThreatAssessmentDiagnosticObject">ThreatAssessmentDiagnosticObject (Zenuity.Debug.ThreatAssessmentDiagnosticObject)</h2>
+Threat Assessment diagnostic information for an object
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ElectronicHorizonUsage</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Electronic horizon is used</td></tr>
+<tr><td>LateralSafetyOffsetToObject</td><td>float</td><td>-3.40282e+38 m</td><td>3.40282e+38 m</td><td>1</td><td>m</td><td>5</td><td>1</td><td>Lateral safety offset</td></tr>
+<tr><td>LateralInPathOffsetToPredictedObject</td><td>float</td><td>-3.40282e+38 m</td><td>3.40282e+38 m</td><td>1</td><td>m</td><td>5</td><td>1</td><td>Lateral in-path offset to predicted object</td></tr>
+<tr><td>LateralInPathOffsetToObject</td><td>float</td><td>-3.40282e+38 m</td><td>3.40282e+38 m</td><td>1</td><td>m</td><td>5</td><td>1</td><td>Lateral in-path offset to object</td></tr>
+<tr><td>LongitudinalSafetyOffsetToObject</td><td>float</td><td>-3.40282e+38 m</td><td>3.40282e+38 m</td><td>1</td><td>m</td><td>5</td><td>1</td><td>Longitudinal safety offset</td></tr>
+<tr><td>LoopIndexTa</td><td>U8</td><td>0</td><td>32</td><td>1</td><td></td><td>3 [2]</td><td>1</td><td>Loop index for ThreatAssessment</td></tr>
+<tr><td>ObjectBusSource</td><td><a href="#Zenuity.Debug.ObjectBusType">Zenuity.Debug.ObjectBusType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Source of object</td></tr>
+<tr><td>ObjectCenterTimeVectorIndex</td><td>U16</td><td>1</td><td>150</td><td>1</td><td></td><td>4 [3]</td><td>1</td><td>Time vector index</td></tr>
+<tr><td>ObjectCosineHeading</td><td>float</td><td>-3.40282e+38</td><td>3.40282e+38</td><td>1</td><td></td><td>5</td><td>1</td><td>Cosine of heading</td></tr>
+<tr><td>ObjectDirection</td><td><a href="#Zenuity.Debug.MotionPattern">Zenuity.Debug.MotionPattern</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Direction of object</td></tr>
+<tr><td>ObjectInPath</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Object is in path</td></tr>
+<tr><td>ObjectLateralPositionCenter</td><td>float</td><td>-3.40282e+38 m</td><td>3.40282e+38 m</td><td>1</td><td>m</td><td>5</td><td>1</td><td>Lateral position from center</td></tr>
+<tr><td>ObjectLength</td><td>float</td><td>-3.40282e+38 m</td><td>3.40282e+38 m</td><td>1</td><td>m</td><td>5</td><td>1</td><td>Length of object</td></tr>
+<tr><td>ObjectLongitudinalPositionCenter</td><td>float</td><td>-3.40282e+38 m</td><td>3.40282e+38 m</td><td>1</td><td>m</td><td>5</td><td>1</td><td>Longitudinal position from center</td></tr>
+<tr><td>ObjectSineHeading</td><td>float</td><td>-3.40282e+38</td><td>3.40282e+38</td><td>1</td><td></td><td>5</td><td>1</td><td>Sine of heading</td></tr>
+<tr><td>ObjectTrajectoryLastInPath</td><td><a href="#Zenuity.Debug.ObjectTrajectoryInPath">Zenuity.Debug.ObjectTrajectoryInPath</a></td><td></td><td></td><td></td><td></td><td>3</td><td>2</td><td>Object trajectory</td></tr>
+<tr><td>ObjectWidth</td><td>float</td><td>-3.40282e+38 m</td><td>3.40282e+38 m</td><td>1</td><td>m</td><td>6</td><td>2</td><td>Width of object</td></tr>
+<tr><td>TimeToReachObject</td><td>float</td><td>-3.40282e+38 s</td><td>3.40282e+38 s</td><td>1</td><td>s</td><td>6</td><td>2</td><td>Time to reach object</td></tr>
+<tr><td>VisionId</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>4</td><td>2</td><td>Unique vision object id</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>79 [77]</th><th>23</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.ObjectManeuverOverlapsHostManeuver">ObjectManeuverOverlapsHostManeuver (Zenuity.Debug.ObjectManeuverOverlapsHostManeuver)</h2>
+Indicates if the trajectories of object and host intersect when object and host perform maneuvers
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ObjectLeftHostLeftOverlap</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Object turning left, host turning left</td></tr>
+<tr><td>ObjectLeftHostRightOverlap</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Object turning left, host turning right</td></tr>
+<tr><td>ObjectRightHostLeftOverlap</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Object turning right, host turning left</td></tr>
+<tr><td>ObjectRightHostRightOverlap</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Object turning right, host turning right</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8</th><th>4</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.HighestThreatInfo">HighestThreatInfo (Zenuity.Debug.HighestThreatInfo)</h2>
+Information about the highest threat
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ObjectId</td><td>U16</td><td>0</td><td>65535</td><td>1</td><td></td><td>4</td><td>1</td><td>Object ID of the highest threat</td></tr>
+<tr><td>TimeToCollision</td><td>U16</td><td>0 s</td><td>100 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>TTC to highest threat</td></tr>
+<tr><td>LateralMargin</td><td>S16</td><td>-1000 m</td><td>1000 m</td><td>0.1</td><td>m</td><td>4</td><td>1</td><td>Lateral margin to highest threat</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>12 [11]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.AebDiagnostics">AebDiagnostics (Zenuity.Debug.AebDiagnostics)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 9001 (2329)
+<br>
+Version: 1.1.0
+<br>
+Collection of diagnostics signals for Automatic Emergency Brake function
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>AllBraking</td><td><a href="#Zenuity.Debug.AllBrakeDiagnostics">Zenuity.Debug.AllBrakeDiagnostics</a></td><td></td><td></td><td></td><td></td><td>30</td><td>1</td><td>AEB all braking diagnostics</td></tr>
+<tr><td>Inhibition</td><td><a href="#Zenuity.Debug.AebInhibitionDiagnostic">Zenuity.Debug.AebInhibitionDiagnostic</a></td><td></td><td></td><td></td><td></td><td>20</td><td>1</td><td>AEB inhibition diagnostics</td></tr>
+<tr><td>Status</td><td><a href="#Zenuity.Debug.AebGeneralStatusDiagnostic">Zenuity.Debug.AebGeneralStatusDiagnostic</a></td><td></td><td></td><td></td><td></td><td>8</td><td>1</td><td>AEB General diagnostics</td></tr>
+<tr><td>PrimaryTarget</td><td><a href="#Zenuity.Debug.AebPrimaryTarget">Zenuity.Debug.AebPrimaryTarget</a></td><td></td><td></td><td></td><td></td><td>6</td><td>1</td><td>AEB Primary target</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>64</th><th>4</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.CollisionWarningDiagnostics">CollisionWarningDiagnostics (Zenuity.Debug.CollisionWarningDiagnostics)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 9002 (232a)
+<br>
+Version: 1.2.0
+<br>
+Collection of diagnostics signals for Collision Warning
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>BrakeGainInhibitConditionStatus</td><td><a href="#Zenuity.Debug.BrakingGainInhibitConditionStatus">Zenuity.Debug.BrakingGainInhibitConditionStatus</a></td><td></td><td></td><td></td><td></td><td>10</td><td>1</td><td>Indicates why brake gain was inhibited</td></tr>
+<tr><td>BrakeGainState</td><td><a href="#Zenuity.Debug.BrakeGainState">Zenuity.Debug.BrakeGainState</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>State of brake gain</td></tr>
+<tr><td>BrakePulseState</td><td><a href="#Zenuity.Debug.BrakePulseState">Zenuity.Debug.BrakePulseState</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>State of brake pulse</td></tr>
+<tr><td>InhibitionConditionStatus</td><td><a href="#Zenuity.Debug.CollisionWarningInhibitConditionStatus">Zenuity.Debug.CollisionWarningInhibitConditionStatus</a></td><td></td><td></td><td></td><td></td><td>10</td><td>1</td><td>Indicates why collision warning is inhibited</td></tr>
+<tr><td>ObjectIdForWarning</td><td>U16</td><td>0</td><td>65535</td><td>1</td><td></td><td>4</td><td>1</td><td>Object that triggered the warning, to be matched with vision_id in ThreatAssessmentDiagnosticObject</td></tr>
+<tr><td>StartConditionStatus</td><td><a href="#Zenuity.Debug.CollisionWarningStartConditionStatus">Zenuity.Debug.CollisionWarningStartConditionStatus</a></td><td></td><td></td><td></td><td></td><td>14</td><td>1</td><td>Indicates why collision warning is issued</td></tr>
+<tr><td>WarningState</td><td><a href="#Zenuity.Debug.AudioVisualWarningState">Zenuity.Debug.AudioVisualWarningState</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>State of collision warning</td></tr>
+<tr><td>WarningType</td><td><a href="#Zenuity.Debug.WarningType">Zenuity.Debug.WarningType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>The type of Collision Warning requested</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>46</th><th>8</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.EvasiveManoeuvreAssistDiagnostics">EvasiveManoeuvreAssistDiagnostics (Zenuity.Debug.EvasiveManoeuvreAssistDiagnostics)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 9003 (232b)
+<br>
+Version: 1.0.0
+<br>
+Diagnostics for evasive manoeuvre assist functionality
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ActivatingLateralJerk</td><td>float</td><td>-3.40282e+38 m/s³</td><td>3.40282e+38 m/s³</td><td>1</td><td>m/s³</td><td>5</td><td>1</td><td>Lateral jerk that activated the evasive manoeuvering function</td></tr>
+<tr><td>EventIsJustified</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Evasive manoeuvering is valid</td></tr>
+<tr><td>Scenario</td><td><a href="#Zenuity.Debug.MotionPattern">Zenuity.Debug.MotionPattern</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Motion pattern of the target that activated evasive manoeuvering function</td></tr>
+<tr><td>State</td><td><a href="#Zenuity.Debug.EmaState">Zenuity.Debug.EmaState</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>State of the evasive manoeuvering function</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>11</th><th>4</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.ThreatAssessmentDiagnostics">ThreatAssessmentDiagnostics (Zenuity.Debug.ThreatAssessmentDiagnostics)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 9004 (232c)
+<br>
+Version: 2.0.0
+<br>
+Collection of information regarding  the objects in Threat Assessment for AEB feature
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>SortedObjects</td><td><a href="#Zenuity.Debug.ThreatAssessmentDiagnosticObject">Zenuity.Debug.ThreatAssessmentDiagnosticObject[5]</a></td><td></td><td></td><td></td><td></td><td>405 [395]</td><td>1</td><td>Diagnostic information for sorted objects in Threat Assessment</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>405 [395]</th><th>1</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.ASILThreatAssesmentDiagnostics">ASILThreatAssesmentDiagnostics (Zenuity.Debug.ASILThreatAssesmentDiagnostics)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 9005 (232d)
+<br>
+Version: 1.0.0
+<br>
+Diagnostics for ASIL TA
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ValidSensorData</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Is set to true if the sensor measurements are validated</td></tr>
+<tr><td>SufficientSensorData</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Is set to true if there are sufficient measurements</td></tr>
+<tr><td>ThreatExists</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Is set to true if a threat has been valid for a sufficient time</td></tr>
+<tr><td>ObjectManeuverOverlapsHostManeuver</td><td><a href="#Zenuity.Debug.ObjectManeuverOverlapsHostManeuver">Zenuity.Debug.ObjectManeuverOverlapsHostManeuver</a></td><td></td><td></td><td></td><td></td><td>10</td><td>1</td><td>Indicates if the trajectories of object and host intersect when object and host perform maneuvers</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>16</th><th>4</th><th></th></tr>
+</table>
+<h2 id="Zenuity.Debug.VruCollisionAvoidanceDiagnostics">VruCollisionAvoidanceDiagnostics (Zenuity.Debug.VruCollisionAvoidanceDiagnostics)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 9006 (232e)
+<br>
+Version: 2.0.0
+<br>
+Diagnostics information regarding AEB feature specific for VRUs
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>HighestThreatInfo</td><td><a href="#Zenuity.Debug.HighestThreatInfo">Zenuity.Debug.HighestThreatInfo</a></td><td></td><td></td><td></td><td></td><td>14 [13]</td><td>1</td><td>Information regarding the selected highest threat object</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>14 [13]</th><th>1</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="Zenuity.Debug.AudioVisualWarningState">AudioVisualWarningState (Zenuity.Debug.AudioVisualWarningState)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>Zenuity.Debug.AudioVisualWarningState.Unspecified</td><td>0</td></tr>
+<tr><td>Standby</td><td>Zenuity.Debug.AudioVisualWarningState.Standby</td><td>1</td></tr>
+<tr><td>Warning</td><td>Zenuity.Debug.AudioVisualWarningState.Warning</td><td>2</td></tr>
+<tr><td>PostWarning</td><td>Zenuity.Debug.AudioVisualWarningState.PostWarning</td><td>3</td></tr>
+<tr><td>Inhibition</td><td>Zenuity.Debug.AudioVisualWarningState.Inhibition</td><td>4</td></tr>
+</table>
+<h2 id="Zenuity.Debug.BrakeGainState">BrakeGainState (Zenuity.Debug.BrakeGainState)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>Zenuity.Debug.BrakeGainState.Unspecified</td><td>0</td></tr>
+<tr><td>Inhibition</td><td>Zenuity.Debug.BrakeGainState.Inhibition</td><td>1</td></tr>
+<tr><td>Standby</td><td>Zenuity.Debug.BrakeGainState.Standby</td><td>2</td></tr>
+<tr><td>Requested</td><td>Zenuity.Debug.BrakeGainState.Requested</td><td>3</td></tr>
+</table>
+<h2 id="Zenuity.Debug.BrakePulseState">BrakePulseState (Zenuity.Debug.BrakePulseState)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>Zenuity.Debug.BrakePulseState.Unspecified</td><td>0</td></tr>
+<tr><td>Inhibition</td><td>Zenuity.Debug.BrakePulseState.Inhibition</td><td>1</td></tr>
+<tr><td>Standby</td><td>Zenuity.Debug.BrakePulseState.Standby</td><td>2</td></tr>
+<tr><td>Delayed</td><td>Zenuity.Debug.BrakePulseState.Delayed</td><td>3</td></tr>
+<tr><td>PulseRequested</td><td>Zenuity.Debug.BrakePulseState.PulseRequested</td><td>4</td></tr>
+<tr><td>PostPulseRequest</td><td>Zenuity.Debug.BrakePulseState.PostPulseRequest</td><td>5</td></tr>
+</table>
+<h2 id="Zenuity.Debug.ObjectTrajectoryInPath">ObjectTrajectoryInPath (Zenuity.Debug.ObjectTrajectoryInPath)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>Zenuity.Debug.ObjectTrajectoryInPath.Unspecified</td><td>0</td></tr>
+<tr><td>ActualMotion</td><td>Zenuity.Debug.ObjectTrajectoryInPath.ActualMotion</td><td>1</td></tr>
+<tr><td>BrakingForIntervention</td><td>Zenuity.Debug.ObjectTrajectoryInPath.BrakingForIntervention</td><td>2</td></tr>
+<tr><td>TurningLeft</td><td>Zenuity.Debug.ObjectTrajectoryInPath.TurningLeft</td><td>3</td></tr>
+<tr><td>TurningRight</td><td>Zenuity.Debug.ObjectTrajectoryInPath.TurningRight</td><td>4</td></tr>
+</table>
+<h2 id="Zenuity.Debug.PostAebStatus">PostAebStatus (Zenuity.Debug.PostAebStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>Zenuity.Debug.PostAebStatus.Unspecified</td><td>0</td></tr>
+<tr><td>NotActive</td><td>Zenuity.Debug.PostAebStatus.NotActive</td><td>1</td></tr>
+<tr><td>PreBraking</td><td>Zenuity.Debug.PostAebStatus.PreBraking</td><td>2</td></tr>
+<tr><td>FullBraking</td><td>Zenuity.Debug.PostAebStatus.FullBraking</td><td>3</td></tr>
+<tr><td>VisionOnlyVruBraking</td><td>Zenuity.Debug.PostAebStatus.VisionOnlyVruBraking</td><td>4</td></tr>
+<tr><td>DeniedBeltStatus</td><td>Zenuity.Debug.PostAebStatus.DeniedBeltStatus</td><td>5</td></tr>
+<tr><td>DeniedFaultManager</td><td>Zenuity.Debug.PostAebStatus.DeniedFaultManager</td><td>6</td></tr>
+<tr><td>DeniedSpeedThreshold</td><td>Zenuity.Debug.PostAebStatus.DeniedSpeedThreshold</td><td>7</td></tr>
+<tr><td>OverrideByDriver</td><td>Zenuity.Debug.PostAebStatus.OverrideByDriver</td><td>8</td></tr>
+<tr><td>FullBrakingRearObject</td><td>Zenuity.Debug.PostAebStatus.FullBrakingRearObject</td><td>9</td></tr>
+</table>
+<h2 id="Zenuity.Debug.AebTriggeringScenario">AebTriggeringScenario (Zenuity.Debug.AebTriggeringScenario)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>Zenuity.Debug.AebTriggeringScenario.Unspecified</td><td>0</td></tr>
+<tr><td>Unknown</td><td>Zenuity.Debug.AebTriggeringScenario.Unknown</td><td>1</td></tr>
+<tr><td>SingleTarget</td><td>Zenuity.Debug.AebTriggeringScenario.SingleTarget</td><td>2</td></tr>
+<tr><td>MultipleTargets</td><td>Zenuity.Debug.AebTriggeringScenario.MultipleTargets</td><td>3</td></tr>
+<tr><td>EgoTurnAcrossPath</td><td>Zenuity.Debug.AebTriggeringScenario.EgoTurnAcrossPath</td><td>4</td></tr>
+<tr><td>OncomingObjectInEgoLane</td><td>Zenuity.Debug.AebTriggeringScenario.OncomingObjectInEgoLane</td><td>5</td></tr>
+<tr><td>RearObject</td><td>Zenuity.Debug.AebTriggeringScenario.RearObject</td><td>6</td></tr>
+</table>
+<h2 id="Zenuity.Debug.AebDeactivationCause">AebDeactivationCause (Zenuity.Debug.AebDeactivationCause)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>Zenuity.Debug.AebDeactivationCause.Unspecified</td><td>0</td></tr>
+<tr><td>Unknown</td><td>Zenuity.Debug.AebDeactivationCause.Unknown</td><td>1</td></tr>
+<tr><td>PrimaryTargetNotAvailable</td><td>Zenuity.Debug.AebDeactivationCause.PrimaryTargetNotAvailable</td><td>2</td></tr>
+<tr><td>PrimaryTargetChanged</td><td>Zenuity.Debug.AebDeactivationCause.PrimaryTargetChanged</td><td>3</td></tr>
+<tr><td>LowPrimaryTargetQuality</td><td>Zenuity.Debug.AebDeactivationCause.LowPrimaryTargetQuality</td><td>4</td></tr>
+<tr><td>StandingStill</td><td>Zenuity.Debug.AebDeactivationCause.StandingStill</td><td>5</td></tr>
+<tr><td>NoBrakingRequired</td><td>Zenuity.Debug.AebDeactivationCause.NoBrakingRequired</td><td>6</td></tr>
+<tr><td>HighTtc</td><td>Zenuity.Debug.AebDeactivationCause.HighTtc</td><td>7</td></tr>
+</table>
+<h2 id="Zenuity.Debug.MotionPattern">MotionPattern (Zenuity.Debug.MotionPattern)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>Zenuity.Debug.MotionPattern.Unspecified</td><td>0</td></tr>
+<tr><td>Unknown</td><td>Zenuity.Debug.MotionPattern.Unknown</td><td>1</td></tr>
+<tr><td>Stationary</td><td>Zenuity.Debug.MotionPattern.Stationary</td><td>2</td></tr>
+<tr><td>Receding</td><td>Zenuity.Debug.MotionPattern.Receding</td><td>3</td></tr>
+<tr><td>Oncoming</td><td>Zenuity.Debug.MotionPattern.Oncoming</td><td>4</td></tr>
+<tr><td>Crossing</td><td>Zenuity.Debug.MotionPattern.Crossing</td><td>5</td></tr>
+</table>
+<h2 id="Zenuity.Debug.EmaState">EmaState (Zenuity.Debug.EmaState)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>Zenuity.Debug.EmaState.Unspecified</td><td>0</td></tr>
+<tr><td>NotActive</td><td>Zenuity.Debug.EmaState.NotActive</td><td>1</td></tr>
+<tr><td>AvoidanceActive</td><td>Zenuity.Debug.EmaState.AvoidanceActive</td><td>2</td></tr>
+<tr><td>Waiting</td><td>Zenuity.Debug.EmaState.Waiting</td><td>3</td></tr>
+<tr><td>ReturnActive</td><td>Zenuity.Debug.EmaState.ReturnActive</td><td>4</td></tr>
+<tr><td>ReactivationDelay</td><td>Zenuity.Debug.EmaState.ReactivationDelay</td><td>5</td></tr>
+</table>
+<h2 id="Zenuity.Debug.ObjectBusType">ObjectBusType (Zenuity.Debug.ObjectBusType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>Zenuity.Debug.ObjectBusType.Unspecified</td><td>0</td></tr>
+<tr><td>Front</td><td>Zenuity.Debug.ObjectBusType.Front</td><td>1</td></tr>
+<tr><td>Side</td><td>Zenuity.Debug.ObjectBusType.Side</td><td>2</td></tr>
+<tr><td>Rear</td><td>Zenuity.Debug.ObjectBusType.Rear</td><td>3</td></tr>
+</table>
+<h2 id="Zenuity.Debug.WarningType">WarningType (Zenuity.Debug.WarningType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Off</td><td>Zenuity.Debug.WarningType.Off</td><td>0</td></tr>
+<tr><td>BrakeThreatNumber</td><td>Zenuity.Debug.WarningType.BrakeThreatNumber</td><td>1</td></tr>
+<tr><td>Aeb</td><td>Zenuity.Debug.WarningType.Aeb</td><td>2</td></tr>
+<tr><td>Acc</td><td>Zenuity.Debug.WarningType.Acc</td><td>3</td></tr>
+<tr><td>ComfortDistance</td><td>Zenuity.Debug.WarningType.ComfortDistance</td><td>4</td></tr>
+<tr><td>AbnormalAcc</td><td>Zenuity.Debug.WarningType.AbnormalAcc</td><td>5</td></tr>
+</table>
+</body>
+</html>

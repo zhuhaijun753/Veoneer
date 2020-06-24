@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>TrafficSignRecognition Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - VisionCore.TrafficInformation</b>
+<br>
+<h1>Messages</h1>
+<h2 id="VisionCore.TrafficInformation.StateInfo">StateInfo (VisionCore.TrafficInformation.StateInfo)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Availability</td><td><a href="#VisionCore.TrafficInformation.TsrAvailability">VisionCore.TrafficInformation.TsrAvailability</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Availability of TSR</td></tr>
+<tr><td>InputError</td><td><a href="#VisionCore.TrafficInformation.TsrInputError">VisionCore.TrafficInformation.TsrInputError</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Input error of TSR</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4</th><th>2</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.Sign">Sign (VisionCore.TrafficInformation.Sign)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Category</td><td><a href="#VisionCore.TrafficInformation.SignCategory">VisionCore.TrafficInformation.SignCategory</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes category of the sign and which corresponding fields that shall be used</td></tr>
+<tr><td>SpeedLimit</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Describes the detected speed limit, valid if category is SPEED. 255 = Unlimited.</td></tr>
+<tr><td>SpeedLimitUnit</td><td><a href="#VisionCore.TrafficInformation.SpeedLimitUnit">VisionCore.TrafficInformation.SpeedLimitUnit</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the unit of the detected speed limit, valid if category is SPEED.</td></tr>
+<tr><td>BindingOfSpeed</td><td><a href="#VisionCore.TrafficInformation.BindingOfSpeed">VisionCore.TrafficInformation.BindingOfSpeed</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes how the speed sign should be interpreted, valid if category is SPEED.</td></tr>
+<tr><td>Clearing</td><td><a href="#VisionCore.TrafficInformation.SignClearing">VisionCore.TrafficInformation.SignClearing</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the clearing type, valid if category is CLEARING.</td></tr>
+<tr><td>Warning</td><td><a href="#VisionCore.TrafficInformation.SignWarning">VisionCore.TrafficInformation.SignWarning</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the warning, valid if category is WARNING.</td></tr>
+<tr><td>NoEntry</td><td><a href="#VisionCore.TrafficInformation.SignNoEntry">VisionCore.TrafficInformation.SignNoEntry</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the type of no entry restriction, valid if category is NO_ENTRY.</td></tr>
+<tr><td>Arrow</td><td><a href="#VisionCore.TrafficInformation.SignArrow">VisionCore.TrafficInformation.SignArrow</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the arrow type, valid if category is ARROW.</td></tr>
+<tr><td>RoadType</td><td><a href="#VisionCore.TrafficInformation.SignRoadType">VisionCore.TrafficInformation.SignRoadType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes start or end of a road type, valid if category is ROAD_TYPE.</td></tr>
+<tr><td>Chicane</td><td><a href="#VisionCore.TrafficInformation.SignChicane">VisionCore.TrafficInformation.SignChicane</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the detected chicane type, valid if category is CHICANE.</td></tr>
+<tr><td>LaneClosure</td><td><a href="#VisionCore.TrafficInformation.SignLaneClosure">VisionCore.TrafficInformation.SignLaneClosure</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the detected lane closure, valid if category is LANE_CLOSURE.</td></tr>
+<tr><td>Attention</td><td><a href="#VisionCore.TrafficInformation.SignAttention">VisionCore.TrafficInformation.SignAttention</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the detected attention sign, valid if category is ATTENTION.</td></tr>
+<tr><td>Confidence</td><td>U8</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>3 [2]</td><td>1</td><td>Confidence value</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>28 [27]</th><th>13</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.AddOnSign">AddOnSign (VisionCore.TrafficInformation.AddOnSign)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Type</td><td><a href="#VisionCore.TrafficInformation.RestrictionSign">VisionCore.TrafficInformation.RestrictionSign</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the type of add on sign</td></tr>
+<tr><td>Confidence</td><td>U8</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>3 [2]</td><td>1</td><td>Confidence value</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>5 [4]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.ValidatedSign">ValidatedSign (VisionCore.TrafficInformation.ValidatedSign)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Id</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td>Unique sign id (should be unique until restart). 0 = Invalid.</td></tr>
+<tr><td>MainSign</td><td><a href="#VisionCore.TrafficInformation.Sign">VisionCore.TrafficInformation.Sign</a></td><td></td><td></td><td></td><td></td><td>30 [29]</td><td>1</td><td>Type of main sign</td></tr>
+<tr><td>Addons</td><td><a href="#VisionCore.TrafficInformation.AddOnSign">VisionCore.TrafficInformation.AddOnSign[2]</a></td><td></td><td></td><td></td><td></td><td>14 [12]</td><td>1</td><td>Add on signs to describe additions to the main sign</td></tr>
+<tr><td>ConstructionType</td><td><a href="#VisionCore.TrafficInformation.PhysicalSignType">VisionCore.TrafficInformation.PhysicalSignType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>The physical type of main sign</td></tr>
+<tr><td>Position</td><td><a href="#VisionCore.Common.Coord3_m_0_01">VisionCore.Common.Coord3_m_0_01</a></td><td></td><td></td><td></td><td></td><td>14</td><td>1</td><td>3D position of main sign (center)</td></tr>
+<tr><td>Size</td><td><a href="#VisionCore.Common.Size2_m_0_01">VisionCore.Common.Size2_m_0_01</a></td><td></td><td></td><td></td><td></td><td>10</td><td>1</td><td>2D size of main sign</td></tr>
+<tr><td>Valid</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Sign was validated as valid (overall result)</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>78 [75]</th><th>7</th><th></th></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.ValidatedSignList">ValidatedSignList (VisionCore.TrafficInformation.ValidatedSignList)</h2>
+Source: DATA_SOURCE_VISION (2)
+<br>
+Identifier: 32 (20)
+<br>
+Version: 1.0.0
+<br>
+List of detected signs. Coordinate system AFAC.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Status</td><td><a href="#VisionCore.TrafficInformation.StateInfo">VisionCore.TrafficInformation.StateInfo</a></td><td></td><td></td><td></td><td></td><td>6</td><td>1</td><td>Describes the current Traffic Sign Recognition status</td></tr>
+<tr><td>Signs</td><td><a href="#VisionCore.TrafficInformation.ValidatedSign">VisionCore.TrafficInformation.ValidatedSign[16]</a></td><td></td><td></td><td></td><td></td><td>1280 [1232]</td><td>1</td><td>All detected signs</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>1286 [1238]</th><th>2</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="VisionCore.TrafficInformation.SignCategory">SignCategory (VisionCore.TrafficInformation.SignCategory)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.SignCategory.None</td><td>0</td></tr>
+<tr><td>Speed</td><td>VisionCore.TrafficInformation.SignCategory.Speed</td><td>1</td></tr>
+<tr><td>Clearing</td><td>VisionCore.TrafficInformation.SignCategory.Clearing</td><td>2</td></tr>
+<tr><td>Warning</td><td>VisionCore.TrafficInformation.SignCategory.Warning</td><td>3</td></tr>
+<tr><td>NoEntry</td><td>VisionCore.TrafficInformation.SignCategory.NoEntry</td><td>4</td></tr>
+<tr><td>Arrow</td><td>VisionCore.TrafficInformation.SignCategory.Arrow</td><td>5</td></tr>
+<tr><td>RoadType</td><td>VisionCore.TrafficInformation.SignCategory.RoadType</td><td>6</td></tr>
+<tr><td>Chicane</td><td>VisionCore.TrafficInformation.SignCategory.Chicane</td><td>7</td></tr>
+<tr><td>LaneClosure</td><td>VisionCore.TrafficInformation.SignCategory.LaneClosure</td><td>8</td></tr>
+<tr><td>Attention</td><td>VisionCore.TrafficInformation.SignCategory.Attention</td><td>9</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.SpeedLimitUnit">SpeedLimitUnit (VisionCore.TrafficInformation.SpeedLimitUnit)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.SpeedLimitUnit.None</td><td>0</td></tr>
+<tr><td>Kph</td><td>VisionCore.TrafficInformation.SpeedLimitUnit.Kph</td><td>1</td></tr>
+<tr><td>Mph</td><td>VisionCore.TrafficInformation.SpeedLimitUnit.Mph</td><td>2</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.SignClearing">SignClearing (VisionCore.TrafficInformation.SignClearing)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.SignClearing.None</td><td>0</td></tr>
+<tr><td>All</td><td>VisionCore.TrafficInformation.SignClearing.All</td><td>1</td></tr>
+<tr><td>Speed</td><td>VisionCore.TrafficInformation.SignClearing.Speed</td><td>2</td></tr>
+<tr><td>NoOvertakingForAll</td><td>VisionCore.TrafficInformation.SignClearing.NoOvertakingForAll</td><td>3</td></tr>
+<tr><td>NoOvertakingForTrucks</td><td>VisionCore.TrafficInformation.SignClearing.NoOvertakingForTrucks</td><td>4</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.SignWarning">SignWarning (VisionCore.TrafficInformation.SignWarning)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.SignWarning.None</td><td>0</td></tr>
+<tr><td>SlipperyRoad</td><td>VisionCore.TrafficInformation.SignWarning.SlipperyRoad</td><td>1</td></tr>
+<tr><td>BendRight</td><td>VisionCore.TrafficInformation.SignWarning.BendRight</td><td>2</td></tr>
+<tr><td>BendLeft</td><td>VisionCore.TrafficInformation.SignWarning.BendLeft</td><td>3</td></tr>
+<tr><td>DoubleBendFirstRight</td><td>VisionCore.TrafficInformation.SignWarning.DoubleBendFirstRight</td><td>4</td></tr>
+<tr><td>DoubleBendFirstLeft</td><td>VisionCore.TrafficInformation.SignWarning.DoubleBendFirstLeft</td><td>5</td></tr>
+<tr><td>Ice</td><td>VisionCore.TrafficInformation.SignWarning.Ice</td><td>6</td></tr>
+<tr><td>DirtyRoad</td><td>VisionCore.TrafficInformation.SignWarning.DirtyRoad</td><td>7</td></tr>
+<tr><td>RoadNarrows</td><td>VisionCore.TrafficInformation.SignWarning.RoadNarrows</td><td>8</td></tr>
+<tr><td>RoadNarrowsRight</td><td>VisionCore.TrafficInformation.SignWarning.RoadNarrowsRight</td><td>9</td></tr>
+<tr><td>RoadNarrowsLeft</td><td>VisionCore.TrafficInformation.SignWarning.RoadNarrowsLeft</td><td>10</td></tr>
+<tr><td>ConstructionSite</td><td>VisionCore.TrafficInformation.SignWarning.ConstructionSite</td><td>11</td></tr>
+<tr><td>ZebraCrossing</td><td>VisionCore.TrafficInformation.SignWarning.ZebraCrossing</td><td>12</td></tr>
+<tr><td>School</td><td>VisionCore.TrafficInformation.SignWarning.School</td><td>13</td></tr>
+<tr><td>Train</td><td>VisionCore.TrafficInformation.SignWarning.Train</td><td>14</td></tr>
+<tr><td>Roundabout</td><td>VisionCore.TrafficInformation.SignWarning.Roundabout</td><td>15</td></tr>
+<tr><td>GatedLevelCrossing</td><td>VisionCore.TrafficInformation.SignWarning.GatedLevelCrossing</td><td>16</td></tr>
+<tr><td>Bump</td><td>VisionCore.TrafficInformation.SignWarning.Bump</td><td>17</td></tr>
+<tr><td>TrafficLights</td><td>VisionCore.TrafficInformation.SignWarning.TrafficLights</td><td>18</td></tr>
+<tr><td>ConstructionText</td><td>VisionCore.TrafficInformation.SignWarning.ConstructionText</td><td>19</td></tr>
+<tr><td>Pedestrian</td><td>VisionCore.TrafficInformation.SignWarning.Pedestrian</td><td>20</td></tr>
+<tr><td>Bicycles</td><td>VisionCore.TrafficInformation.SignWarning.Bicycles</td><td>21</td></tr>
+<tr><td>Tram</td><td>VisionCore.TrafficInformation.SignWarning.Tram</td><td>22</td></tr>
+<tr><td>Congestion</td><td>VisionCore.TrafficInformation.SignWarning.Congestion</td><td>23</td></tr>
+<tr><td>Wind</td><td>VisionCore.TrafficInformation.SignWarning.Wind</td><td>24</td></tr>
+<tr><td>Tunnel</td><td>VisionCore.TrafficInformation.SignWarning.Tunnel</td><td>25</td></tr>
+<tr><td>WildAnimals</td><td>VisionCore.TrafficInformation.SignWarning.WildAnimals</td><td>26</td></tr>
+<tr><td>DomesticAnimals</td><td>VisionCore.TrafficInformation.SignWarning.DomesticAnimals</td><td>27</td></tr>
+<tr><td>SteepHillDown</td><td>VisionCore.TrafficInformation.SignWarning.SteepHillDown</td><td>28</td></tr>
+<tr><td>SteepHillUp</td><td>VisionCore.TrafficInformation.SignWarning.SteepHillUp</td><td>29</td></tr>
+<tr><td>TwowayTrafficOncoming</td><td>VisionCore.TrafficInformation.SignWarning.TwowayTrafficOncoming</td><td>30</td></tr>
+<tr><td>TwowayTrafficCrossing</td><td>VisionCore.TrafficInformation.SignWarning.TwowayTrafficCrossing</td><td>31</td></tr>
+<tr><td>MergingLeft</td><td>VisionCore.TrafficInformation.SignWarning.MergingLeft</td><td>32</td></tr>
+<tr><td>MergingRight</td><td>VisionCore.TrafficInformation.SignWarning.MergingRight</td><td>33</td></tr>
+<tr><td>RightHasRightofway</td><td>VisionCore.TrafficInformation.SignWarning.RightHasRightofway</td><td>34</td></tr>
+<tr><td>PriorityCrossroad</td><td>VisionCore.TrafficInformation.SignWarning.PriorityCrossroad</td><td>35</td></tr>
+<tr><td>PriorityMinorLeft</td><td>VisionCore.TrafficInformation.SignWarning.PriorityMinorLeft</td><td>36</td></tr>
+<tr><td>PriorityMinorRight</td><td>VisionCore.TrafficInformation.SignWarning.PriorityMinorRight</td><td>37</td></tr>
+<tr><td>Junction</td><td>VisionCore.TrafficInformation.SignWarning.Junction</td><td>38</td></tr>
+<tr><td>TJunctionLeft</td><td>VisionCore.TrafficInformation.SignWarning.TJunctionLeft</td><td>39</td></tr>
+<tr><td>TJunctionRight</td><td>VisionCore.TrafficInformation.SignWarning.TJunctionRight</td><td>40</td></tr>
+<tr><td>General</td><td>VisionCore.TrafficInformation.SignWarning.General</td><td>41</td></tr>
+<tr><td>Rocks</td><td>VisionCore.TrafficInformation.SignWarning.Rocks</td><td>42</td></tr>
+<tr><td>AirTraffic</td><td>VisionCore.TrafficInformation.SignWarning.AirTraffic</td><td>43</td></tr>
+<tr><td>Other</td><td>VisionCore.TrafficInformation.SignWarning.Other</td><td>44</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.SignNoEntry">SignNoEntry (VisionCore.TrafficInformation.SignNoEntry)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.SignNoEntry.None</td><td>0</td></tr>
+<tr><td>All</td><td>VisionCore.TrafficInformation.SignNoEntry.All</td><td>1</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.SignArrow">SignArrow (VisionCore.TrafficInformation.SignArrow)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.SignArrow.None</td><td>0</td></tr>
+<tr><td>KeepLeft</td><td>VisionCore.TrafficInformation.SignArrow.KeepLeft</td><td>1</td></tr>
+<tr><td>KeepRight</td><td>VisionCore.TrafficInformation.SignArrow.KeepRight</td><td>2</td></tr>
+<tr><td>Roundabout</td><td>VisionCore.TrafficInformation.SignArrow.Roundabout</td><td>3</td></tr>
+<tr><td>OnlyStraight</td><td>VisionCore.TrafficInformation.SignArrow.OnlyStraight</td><td>4</td></tr>
+<tr><td>OnlyLeft</td><td>VisionCore.TrafficInformation.SignArrow.OnlyLeft</td><td>5</td></tr>
+<tr><td>OnlyRight</td><td>VisionCore.TrafficInformation.SignArrow.OnlyRight</td><td>6</td></tr>
+<tr><td>OnlyStraightLeft</td><td>VisionCore.TrafficInformation.SignArrow.OnlyStraightLeft</td><td>7</td></tr>
+<tr><td>OnlyStraightRight</td><td>VisionCore.TrafficInformation.SignArrow.OnlyStraightRight</td><td>8</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.SignRoadType">SignRoadType (VisionCore.TrafficInformation.SignRoadType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.SignRoadType.None</td><td>0</td></tr>
+<tr><td>LivingStreetBegin</td><td>VisionCore.TrafficInformation.SignRoadType.LivingStreetBegin</td><td>1</td></tr>
+<tr><td>LivingStreetEnd</td><td>VisionCore.TrafficInformation.SignRoadType.LivingStreetEnd</td><td>2</td></tr>
+<tr><td>MotorwayBegin</td><td>VisionCore.TrafficInformation.SignRoadType.MotorwayBegin</td><td>3</td></tr>
+<tr><td>MotorwayEnd</td><td>VisionCore.TrafficInformation.SignRoadType.MotorwayEnd</td><td>4</td></tr>
+<tr><td>LimitedAccessRoadBegin</td><td>VisionCore.TrafficInformation.SignRoadType.LimitedAccessRoadBegin</td><td>5</td></tr>
+<tr><td>LimitedAccessRoadEnd</td><td>VisionCore.TrafficInformation.SignRoadType.LimitedAccessRoadEnd</td><td>6</td></tr>
+<tr><td>CitylimitBegin</td><td>VisionCore.TrafficInformation.SignRoadType.CitylimitBegin</td><td>7</td></tr>
+<tr><td>CitylimitEnd</td><td>VisionCore.TrafficInformation.SignRoadType.CitylimitEnd</td><td>8</td></tr>
+<tr><td>TollBegin</td><td>VisionCore.TrafficInformation.SignRoadType.TollBegin</td><td>9</td></tr>
+<tr><td>TollEnd</td><td>VisionCore.TrafficInformation.SignRoadType.TollEnd</td><td>10</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.SignChicane">SignChicane (VisionCore.TrafficInformation.SignChicane)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.SignChicane.None</td><td>0</td></tr>
+<tr><td>Left</td><td>VisionCore.TrafficInformation.SignChicane.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>VisionCore.TrafficInformation.SignChicane.Right</td><td>2</td></tr>
+<tr><td>Misc</td><td>VisionCore.TrafficInformation.SignChicane.Misc</td><td>3</td></tr>
+<tr><td>ClosureLeft</td><td>VisionCore.TrafficInformation.SignChicane.ClosureLeft</td><td>4</td></tr>
+<tr><td>ClosureRight</td><td>VisionCore.TrafficInformation.SignChicane.ClosureRight</td><td>5</td></tr>
+<tr><td>ShoulderOpened</td><td>VisionCore.TrafficInformation.SignChicane.ShoulderOpened</td><td>6</td></tr>
+<tr><td>ShoulderClosed</td><td>VisionCore.TrafficInformation.SignChicane.ShoulderClosed</td><td>7</td></tr>
+<tr><td>AnnouncementOncomingTraffic</td><td>VisionCore.TrafficInformation.SignChicane.AnnouncementOncomingTraffic</td><td>8</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.SignLaneClosure">SignLaneClosure (VisionCore.TrafficInformation.SignLaneClosure)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.SignLaneClosure.None</td><td>0</td></tr>
+<tr><td>Closed</td><td>VisionCore.TrafficInformation.SignLaneClosure.Closed</td><td>1</td></tr>
+<tr><td>Opened</td><td>VisionCore.TrafficInformation.SignLaneClosure.Opened</td><td>2</td></tr>
+<tr><td>ChangeLeft</td><td>VisionCore.TrafficInformation.SignLaneClosure.ChangeLeft</td><td>3</td></tr>
+<tr><td>ChangeRight</td><td>VisionCore.TrafficInformation.SignLaneClosure.ChangeRight</td><td>4</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.SignAttention">SignAttention (VisionCore.TrafficInformation.SignAttention)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.SignAttention.None</td><td>0</td></tr>
+<tr><td>NoOvertakingForAll</td><td>VisionCore.TrafficInformation.SignAttention.NoOvertakingForAll</td><td>1</td></tr>
+<tr><td>NoOvertakingForTrucks</td><td>VisionCore.TrafficInformation.SignAttention.NoOvertakingForTrucks</td><td>2</td></tr>
+<tr><td>Crosswalk</td><td>VisionCore.TrafficInformation.SignAttention.Crosswalk</td><td>3</td></tr>
+<tr><td>Stop</td><td>VisionCore.TrafficInformation.SignAttention.Stop</td><td>4</td></tr>
+<tr><td>Yield</td><td>VisionCore.TrafficInformation.SignAttention.Yield</td><td>5</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.RestrictionSign">RestrictionSign (VisionCore.TrafficInformation.RestrictionSign)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.RestrictionSign.None</td><td>0</td></tr>
+<tr><td>Unknown</td><td>VisionCore.TrafficInformation.RestrictionSign.Unknown</td><td>1</td></tr>
+<tr><td>Left</td><td>VisionCore.TrafficInformation.RestrictionSign.Left</td><td>2</td></tr>
+<tr><td>Right</td><td>VisionCore.TrafficInformation.RestrictionSign.Right</td><td>3</td></tr>
+<tr><td>WetConditions</td><td>VisionCore.TrafficInformation.RestrictionSign.WetConditions</td><td>4</td></tr>
+<tr><td>BlackIce</td><td>VisionCore.TrafficInformation.RestrictionSign.BlackIce</td><td>5</td></tr>
+<tr><td>Fog</td><td>VisionCore.TrafficInformation.RestrictionSign.Fog</td><td>6</td></tr>
+<tr><td>Time</td><td>VisionCore.TrafficInformation.RestrictionSign.Time</td><td>7</td></tr>
+<tr><td>StartDistance</td><td>VisionCore.TrafficInformation.RestrictionSign.StartDistance</td><td>8</td></tr>
+<tr><td>EndDistance</td><td>VisionCore.TrafficInformation.RestrictionSign.EndDistance</td><td>9</td></tr>
+<tr><td>Weight</td><td>VisionCore.TrafficInformation.RestrictionSign.Weight</td><td>10</td></tr>
+<tr><td>Weight35t</td><td>VisionCore.TrafficInformation.RestrictionSign.Weight35t</td><td>11</td></tr>
+<tr><td>Weight75t</td><td>VisionCore.TrafficInformation.RestrictionSign.Weight75t</td><td>12</td></tr>
+<tr><td>End</td><td>VisionCore.TrafficInformation.RestrictionSign.End</td><td>13</td></tr>
+<tr><td>Bicycle</td><td>VisionCore.TrafficInformation.RestrictionSign.Bicycle</td><td>14</td></tr>
+<tr><td>Motorcycle</td><td>VisionCore.TrafficInformation.RestrictionSign.Motorcycle</td><td>15</td></tr>
+<tr><td>Car</td><td>VisionCore.TrafficInformation.RestrictionSign.Car</td><td>16</td></tr>
+<tr><td>Truck</td><td>VisionCore.TrafficInformation.RestrictionSign.Truck</td><td>17</td></tr>
+<tr><td>Trailer</td><td>VisionCore.TrafficInformation.RestrictionSign.Trailer</td><td>19</td></tr>
+<tr><td>Bus</td><td>VisionCore.TrafficInformation.RestrictionSign.Bus</td><td>20</td></tr>
+<tr><td>Tractor</td><td>VisionCore.TrafficInformation.RestrictionSign.Tractor</td><td>21</td></tr>
+<tr><td>HazardousMaterial</td><td>VisionCore.TrafficInformation.RestrictionSign.HazardousMaterial</td><td>22</td></tr>
+<tr><td>TruckTrailer</td><td>VisionCore.TrafficInformation.RestrictionSign.TruckTrailer</td><td>23</td></tr>
+<tr><td>TruckBus</td><td>VisionCore.TrafficInformation.RestrictionSign.TruckBus</td><td>24</td></tr>
+<tr><td>TruckBusTrailer</td><td>VisionCore.TrafficInformation.RestrictionSign.TruckBusTrailer</td><td>25</td></tr>
+<tr><td>RampExit</td><td>VisionCore.TrafficInformation.RestrictionSign.RampExit</td><td>26</td></tr>
+<tr><td>Ahead</td><td>VisionCore.TrafficInformation.RestrictionSign.Ahead</td><td>27</td></tr>
+<tr><td>WhenFlashing</td><td>VisionCore.TrafficInformation.RestrictionSign.WhenFlashing</td><td>28</td></tr>
+<tr><td>ChildrenPresent</td><td>VisionCore.TrafficInformation.RestrictionSign.ChildrenPresent</td><td>29</td></tr>
+<tr><td>Night</td><td>VisionCore.TrafficInformation.RestrictionSign.Night</td><td>30</td></tr>
+<tr><td>IcyOrWet</td><td>VisionCore.TrafficInformation.RestrictionSign.IcyOrWet</td><td>31</td></tr>
+<tr><td>Begin</td><td>VisionCore.TrafficInformation.RestrictionSign.Begin</td><td>32</td></tr>
+<tr><td>School</td><td>VisionCore.TrafficInformation.RestrictionSign.School</td><td>33</td></tr>
+<tr><td>Zone</td><td>VisionCore.TrafficInformation.RestrictionSign.Zone</td><td>34</td></tr>
+<tr><td>TruckNight</td><td>VisionCore.TrafficInformation.RestrictionSign.TruckNight</td><td>35</td></tr>
+<tr><td>AllWay</td><td>VisionCore.TrafficInformation.RestrictionSign.AllWay</td><td>36</td></tr>
+<tr><td>WorkZone</td><td>VisionCore.TrafficInformation.RestrictionSign.WorkZone</td><td>37</td></tr>
+<tr><td>ShoulderUseAsLane</td><td>VisionCore.TrafficInformation.RestrictionSign.ShoulderUseAsLane</td><td>38</td></tr>
+<tr><td>ShoulderDontUseAsLane</td><td>VisionCore.TrafficInformation.RestrictionSign.ShoulderDontUseAsLane</td><td>39</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.PhysicalSignType">PhysicalSignType (VisionCore.TrafficInformation.PhysicalSignType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Standard</td><td>VisionCore.TrafficInformation.PhysicalSignType.Standard</td><td>0</td></tr>
+<tr><td>Led</td><td>VisionCore.TrafficInformation.PhysicalSignType.Led</td><td>1</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.BindingOfSpeed">BindingOfSpeed (VisionCore.TrafficInformation.BindingOfSpeed)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.TrafficInformation.BindingOfSpeed.None</td><td>0</td></tr>
+<tr><td>MaximumSpeed</td><td>VisionCore.TrafficInformation.BindingOfSpeed.MaximumSpeed</td><td>1</td></tr>
+<tr><td>RecommendedSpeed</td><td>VisionCore.TrafficInformation.BindingOfSpeed.RecommendedSpeed</td><td>2</td></tr>
+<tr><td>MinimumSpeed</td><td>VisionCore.TrafficInformation.BindingOfSpeed.MinimumSpeed</td><td>3</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.TsrAvailability">TsrAvailability (VisionCore.TrafficInformation.TsrAvailability)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NotAvailable</td><td>VisionCore.TrafficInformation.TsrAvailability.NotAvailable</td><td>0</td></tr>
+<tr><td>Available</td><td>VisionCore.TrafficInformation.TsrAvailability.Available</td><td>1</td></tr>
+</table>
+<h2 id="VisionCore.TrafficInformation.TsrInputError">TsrInputError (VisionCore.TrafficInformation.TsrInputError)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoError</td><td>VisionCore.TrafficInformation.TsrInputError.NoError</td><td>0</td></tr>
+<tr><td>Blockage</td><td>VisionCore.TrafficInformation.TsrInputError.Blockage</td><td>1</td></tr>
+<tr><td>UnsupportedCountry</td><td>VisionCore.TrafficInformation.TsrInputError.UnsupportedCountry</td><td>2</td></tr>
+<tr><td>BlockageAndUnsupportedCountry</td><td>VisionCore.TrafficInformation.TsrInputError.BlockageAndUnsupportedCountry</td><td>3</td></tr>
+<tr><td>EgoMotionNotAvailable</td><td>VisionCore.TrafficInformation.TsrInputError.EgoMotionNotAvailable</td><td>4</td></tr>
+<tr><td>BlockageAndEgoMotionNotAvailable</td><td>VisionCore.TrafficInformation.TsrInputError.BlockageAndEgoMotionNotAvailable</td><td>5</td></tr>
+<tr><td>UnsupportedCountryAndEgoMotionNotAvailable</td><td>VisionCore.TrafficInformation.TsrInputError.UnsupportedCountryAndEgoMotionNotAvailable</td><td>6</td></tr>
+<tr><td>BlockageAndUnsupportedCountryAndEgoMotionNotAvailable</td><td>VisionCore.TrafficInformation.TsrInputError.BlockageAndUnsupportedCountryAndEgoMotionNotAvailable</td><td>7</td></tr>
+</table>
+</body>
+</html>

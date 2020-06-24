@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>SettingsInput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - SystemCore.RoadSignInformation</b>
+<br>
+<h1>Messages</h1>
+<h2 id="SystemCore.RoadSignInformation.RoadSignInformationSettings">RoadSignInformationSettings (SystemCore.RoadSignInformation.RoadSignInformationSettings)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 40 (28)
+<br>
+Version: 1.0.0
+<br>
+Typically driver accessible settings for in-vehicle customization of road sign information feature. For example by going into menu and switching mode, on/off, etc
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>RsiActivatedByDriver</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>On/Off for Road Sign Information</td></tr>
+<tr><td>OverspeedWarningActivatedByDriver</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>On/Off for Overspeed Warning</td></tr>
+<tr><td>OverspeedWarningOffset</td><td>S8</td><td>-20</td><td>30</td><td>1</td><td></td><td>3 [2]</td><td>1</td><td>Offset to speed limit when the driver shall get an overspeed warning. Unit km/h or mph depending on the setting in the car.</td></tr>
+<tr><td>SpeedUnit</td><td><a href="#Zenuity.RSI.SpeedUnit">Zenuity.RSI.SpeedUnit</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Unit of the reported speed limit</td></tr>
+<tr><td>SpeedCameraWarningActivatedByDriver</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>On/Off for Speed Camera Warning</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>11 [10]</th><th>5</th><th></th></tr>
+</table>
+</body>
+</html>

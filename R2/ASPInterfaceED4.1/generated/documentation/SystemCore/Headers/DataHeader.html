@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>DataHeader Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - SystemCore.Headers</b>
+<br>
+<h1>Messages</h1>
+<h2 id="SystemCore.Headers.DataHeader">DataHeader (SystemCore.Headers.DataHeader)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Source</td><td><a href="#DataSource">DataSource</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes who provided the data. Used together with identifier to understand what data is encoded in the InterfaceHeaders data byte array.</td></tr>
+<tr><td>Identifier</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td>Identifier is used together with source to determine what data is packed in the InterfaceHeaders data byte array. It is defined for messages to be encoded in the veoneer_message_options.identifier parameter.</td></tr>
+<tr><td>MajorVersion</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Major version is incremented for breaking interface changes and need to match decoding version. It is defined for messages to be encoded in the veoneer_message_options.major_version parameter.</td></tr>
+<tr><td>MinorVersion</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Minor version is incremented for every change in the interface specification that is not a major version. It is defined for messages to be encoded in the veoneer_message_options.minor_version parameter.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>14</th><th>4</th><th></th></tr>
+</table>
+</body>
+</html>

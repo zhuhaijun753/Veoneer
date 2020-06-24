@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>TestAll_32bit Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - InterfacesTest</b>
+<br>
+<h1>Messages</h1>
+<h2 id="InterfacesTest.TestAllTypes32Bit">TestAllTypes32Bit (InterfacesTest.TestAllTypes32Bit)</h2>
+Source: DATA_SOURCE_VISION (2)
+<br>
+Identifier: 1234 (4d2)
+<br>
+Version: 5.2.0
+<br>
+Structure to test basic types
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Sint32Value</td><td>S32</td><td>5</td><td>10.5</td><td>0.1</td><td></td><td>6 [3]</td><td>1</td><td></td></tr>
+<tr><td>Sint32Value16</td><td>S16</td><td>-32768</td><td>32767</td><td>1</td><td></td><td>4</td><td>1</td><td></td></tr>
+<tr><td>Sint32Value8</td><td>S8</td><td>-25.6</td><td>25.4</td><td>0.2</td><td></td><td>3</td><td>1</td><td></td></tr>
+<tr><td>Int32Value</td><td>I32</td><td>-2.14748e+09</td><td>2.14748e+09</td><td>1</td><td></td><td>11</td><td>1</td><td></td></tr>
+<tr><td>Int32Value16</td><td>I16</td><td>-327680</td><td>327670</td><td>10.0</td><td></td><td>11</td><td>1</td><td></td></tr>
+<tr><td>Int32Value8</td><td>I8</td><td>-128</td><td>127</td><td>1</td><td></td><td>11</td><td>1</td><td></td></tr>
+<tr><td>Uint32Value</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td></td></tr>
+<tr><td>Uint32Value16</td><td>U16</td><td>0</td><td>32767.5</td><td>0.5</td><td></td><td>4</td><td>1</td><td></td></tr>
+<tr><td>Uint32Value8</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td></td></tr>
+<tr><td>BoolValue</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>FloatValue</td><td>float</td><td>-3.40282e+38</td><td>3.40282e+38</td><td>1</td><td></td><td>5</td><td>1</td><td></td></tr>
+<tr><td>StringValue</td><td>String[10]</td><td></td><td></td><td></td><td></td><td>13</td><td>2</td><td></td></tr>
+<tr><td>BytesValue</td><td>Bytes[10]</td><td></td><td></td><td></td><td></td><td>13</td><td>2</td><td></td></tr>
+<tr><td>Fixed32Value</td><td>fixed32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>2</td><td></td></tr>
+<tr><td>Sfixed32Value</td><td>sfixed32</td><td>-2.14748e+09</td><td>2.14748e+09</td><td>1</td><td></td><td>6</td><td>2</td><td></td></tr>
+<tr><td>EnumValue</td><td><a href="#InterfacesTest.TestEnum32Bit">InterfacesTest.TestEnum32Bit</a></td><td></td><td></td><td></td><td></td><td>3</td><td>2</td><td></td></tr>
+<tr><td>NegEnumValue</td><td><a href="#InterfacesTest.TestNegEnum32Bit">InterfacesTest.TestNegEnum32Bit</a></td><td></td><td></td><td></td><td></td><td>12</td><td>2</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>119 [116]</th><th>23</th><th></th></tr>
+</table>
+<h2 id="InterfacesTest.TestAllTypesPointers32Bit">TestAllTypesPointers32Bit (InterfacesTest.TestAllTypesPointers32Bit)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>StringPointerValue</td><td>*String</td><td></td><td></td><td></td><td></td><td></td><td>1</td><td></td></tr>
+<tr><td>BytesPointerValue</td><td>*Bytes</td><td></td><td></td><td></td><td></td><td></td><td>1</td><td></td></tr>
+<tr><td>StringPointerValueArray</td><td>*String[5]</td><td></td><td></td><td></td><td></td><td></td><td>1</td><td></td></tr>
+<tr><td>BytesPointerValueArray</td><td>*Bytes[5]</td><td></td><td></td><td></td><td></td><td></td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>0</th><th>4</th><th></th></tr>
+</table>
+<h2 id="InterfacesTest.TestAllTypesArray32Bit">TestAllTypesArray32Bit (InterfacesTest.TestAllTypesArray32Bit)</h2>
+Source: DATA_SOURCE_VISION (2)
+<br>
+Identifier: 12345 (3039)
+<br>
+Version: 5.2.0
+<br>
+Structure to test array types
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Sint32Value</td><td>S32[5]</td><td>-2.14748e+09</td><td>2.14748e+09</td><td>1</td><td></td><td>30</td><td>1</td><td></td></tr>
+<tr><td>Sint32Value16</td><td>S16[5]</td><td>-32768</td><td>32767</td><td>1</td><td></td><td>20</td><td>1</td><td></td></tr>
+<tr><td>Sint32Value8</td><td>S8[5]</td><td>-128</td><td>127</td><td>1</td><td></td><td>15</td><td>1</td><td></td></tr>
+<tr><td>Int32Value</td><td>I32[5]</td><td>-1.93274e+09</td><td>1.93274e+09</td><td>0.9</td><td></td><td>55</td><td>1</td><td></td></tr>
+<tr><td>Int32Value16</td><td>I16[5]</td><td>-32768</td><td>32767</td><td>1</td><td></td><td>55</td><td>1</td><td></td></tr>
+<tr><td>Int32Value8</td><td>I8[5]</td><td>-128</td><td>127</td><td>1</td><td></td><td>55</td><td>1</td><td></td></tr>
+<tr><td>Uint32Value</td><td>U32[5]</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>30</td><td>1</td><td></td></tr>
+<tr><td>Uint32Value16</td><td>U16[5]</td><td>0</td><td>65535</td><td>1</td><td></td><td>20</td><td>1</td><td></td></tr>
+<tr><td>Uint32Value8</td><td>U8[5]</td><td>0</td><td>255</td><td>1</td><td></td><td>15</td><td>1</td><td></td></tr>
+<tr><td>BoolValue</td><td>boolean[5]</td><td></td><td></td><td></td><td></td><td>10</td><td>1</td><td></td></tr>
+<tr><td>FloatValue</td><td>float[5]</td><td>-3.40282e+38</td><td>3.40282e+38</td><td>1</td><td></td><td>25</td><td>1</td><td></td></tr>
+<tr><td>StringValue</td><td>String[10][5]</td><td></td><td></td><td></td><td></td><td>65</td><td>2</td><td></td></tr>
+<tr><td>BytesValue</td><td>Bytes[10][5]</td><td></td><td></td><td></td><td></td><td>65</td><td>2</td><td></td></tr>
+<tr><td>Fixed32Value</td><td>fixed32[5]</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>30</td><td>2</td><td></td></tr>
+<tr><td>Sfixed32Value</td><td>sfixed32[5]</td><td>-2.14748e+09</td><td>2.14748e+09</td><td>1</td><td></td><td>30</td><td>2</td><td></td></tr>
+<tr><td>EnumValue</td><td><a href="#InterfacesTest.TestEnum32Bit">InterfacesTest.TestEnum32Bit[3]</a></td><td></td><td></td><td></td><td></td><td>9</td><td>2</td><td></td></tr>
+<tr><td>NegEnumValue</td><td><a href="#InterfacesTest.TestNegEnum32Bit">InterfacesTest.TestNegEnum32Bit[3]</a></td><td></td><td></td><td></td><td></td><td>36</td><td>2</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>565</th><th>23</th><th></th></tr>
+</table>
+<h2 id="InterfacesTest.SubSubMessage32Bit">SubSubMessage32Bit (InterfacesTest.SubSubMessage32Bit)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>SubSubUint32</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>6</th><th>1</th><th></th></tr>
+</table>
+<h2 id="InterfacesTest.SubMessage32Bit">SubMessage32Bit (InterfacesTest.SubMessage32Bit)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>SubString</td><td>String[20]</td><td></td><td></td><td></td><td></td><td>22</td><td>1</td><td></td></tr>
+<tr><td>SubSubMessage</td><td><a href="#InterfacesTest.SubSubMessage32Bit">InterfacesTest.SubSubMessage32Bit</a></td><td></td><td></td><td></td><td></td><td>8</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>30</th><th>2</th><th></th></tr>
+</table>
+<h2 id="InterfacesTest.DeepSubMessage32Bit">DeepSubMessage32Bit (InterfacesTest.DeepSubMessage32Bit)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>SubSint32Value</td><td>S32</td><td>-2.14748e+09</td><td>2.14748e+09</td><td>1</td><td></td><td>6</td><td>1</td><td></td></tr>
+<tr><td>SubBoolValue</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>SubMessage</td><td><a href="#InterfacesTest.SubMessage32Bit">InterfacesTest.SubMessage32Bit[8]</a></td><td></td><td></td><td></td><td></td><td>256</td><td>1</td><td></td></tr>
+<tr><td>InternalSubMessage</td><td><a href="#InterfacesTest.DeepSubMessage32Bit.MessageInSubMessage32Bit">InterfacesTest.DeepSubMessage32Bit.MessageInSubMessage32Bit</a></td><td></td><td></td><td></td><td></td><td>12</td><td>1</td><td></td></tr>
+<tr><td>EnumInMessageValue</td><td><a href="#InterfacesTest.DeepSubMessage32Bit.EnumInMessage32Bit">InterfacesTest.DeepSubMessage32Bit.EnumInMessage32Bit</a></td><td></td><td></td><td></td><td></td><td>3</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>279</th><th>5</th><th></th></tr>
+</table>
+<h2 id="InterfacesTest.DeepSubMessage32Bit.MessageInSubMessage32Bit">DeepSubMessage32Bit.MessageInSubMessage32Bit (InterfacesTest.DeepSubMessage32Bit.MessageInSubMessage32Bit)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>MessageInMessageSint32</td><td>S32</td><td>-2.14748e+09</td><td>2.14748e+09</td><td>1</td><td></td><td>6</td><td>1</td><td></td></tr>
+<tr><td>SubMessageInMessageInMessage</td><td><a href="#InterfacesTest.DeepSubMessage32Bit.MessageInSubMessage32Bit.SubMessageInSubMessage32Bit">InterfacesTest.DeepSubMessage32Bit.MessageInSubMessage32Bit.SubMessageInSubMessage32Bit</a></td><td></td><td></td><td></td><td></td><td>4</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>10</th><th>2</th><th></th></tr>
+</table>
+<h2 id="InterfacesTest.DeepSubMessage32Bit.MessageInSubMessage32Bit.SubMessageInSubMessage32Bit">DeepSubMessage32Bit.MessageInSubMessage32Bit.SubMessageInSubMessage32Bit (InterfacesTest.DeepSubMessage32Bit.MessageInSubMessage32Bit.SubMessageInSubMessage32Bit)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>SubMessageInSubMessageBool</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>2</th><th>1</th><th></th></tr>
+</table>
+<h2 id="InterfacesTest.MainMessage32Bit">MainMessage32Bit (InterfacesTest.MainMessage32Bit)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>SubMessage</td><td><a href="#InterfacesTest.SubMessage32Bit">InterfacesTest.SubMessage32Bit</a></td><td></td><td></td><td></td><td></td><td>32</td><td>1</td><td>Sub message of message</td></tr>
+<tr><td>DeepSubMessage</td><td><a href="#InterfacesTest.DeepSubMessage32Bit">InterfacesTest.DeepSubMessage32Bit</a></td><td></td><td></td><td></td><td></td><td>282</td><td>1</td><td>Sub message of message with MessageInMessage</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>314</th><th>2</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="InterfacesTest.TestEnum32Bit">TestEnum32Bit (InterfacesTest.TestEnum32Bit)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Value0</td><td>InterfacesTest.TestEnum32Bit.Value0</td><td>0</td></tr>
+<tr><td>Value1</td><td>InterfacesTest.TestEnum32Bit.Value1</td><td>1</td></tr>
+</table>
+<h2 id="InterfacesTest.TestNegEnum32Bit">TestNegEnum32Bit (InterfacesTest.TestNegEnum32Bit)</h2>
+Max Encoded Size (bytes): 10<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Valueneg1</td><td>InterfacesTest.TestNegEnum32Bit.Valueneg1</td><td>-1</td></tr>
+<tr><td>Value0</td><td>InterfacesTest.TestNegEnum32Bit.Value0</td><td>0</td></tr>
+<tr><td>Value1</td><td>InterfacesTest.TestNegEnum32Bit.Value1</td><td>1</td></tr>
+</table>
+<h2 id="InterfacesTest.DeepSubMessage32Bit.EnumInMessage32Bit">DeepSubMessage32Bit.EnumInMessage32Bit (InterfacesTest.DeepSubMessage32Bit.EnumInMessage32Bit)</h2>
+Max Encoded Size (bytes): 2<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Value0</td><td>InterfacesTest.DeepSubMessage32Bit.EnumInMessage32Bit.Value0</td><td>0</td></tr>
+<tr><td>Value5</td><td>InterfacesTest.DeepSubMessage32Bit.EnumInMessage32Bit.Value5</td><td>5</td></tr>
+<tr><td>Value9</td><td>InterfacesTest.DeepSubMessage32Bit.EnumInMessage32Bit.Value9</td><td>9</td></tr>
+<tr><td>Value128</td><td>InterfacesTest.DeepSubMessage32Bit.EnumInMessage32Bit.Value128</td><td>128</td></tr>
+</table>
+</body>
+</html>

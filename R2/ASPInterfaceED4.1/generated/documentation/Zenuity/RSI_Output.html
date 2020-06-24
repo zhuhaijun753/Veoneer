@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>RSI_Output Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - Zenuity.RSI</b>
+<br>
+<h1>Messages</h1>
+<h2 id="Zenuity.RSI.SpeedLimit">SpeedLimit (Zenuity.RSI.SpeedLimit)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>SpeedUnit</td><td><a href="#Zenuity.RSI.SpeedUnit">Zenuity.RSI.SpeedUnit</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Unit of the reported speed limit</td></tr>
+<tr><td>CurrentSpeedLimit</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Current valid speed limit. The field is unitless as the unit is provided by speed_unit.</td></tr>
+<tr><td>UpcomingSpeedLimit</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Upcoming speed limit. The field is unitless as the unit is provided by speed_unit.</td></tr>
+<tr><td>DistanceToUpcomingSpeedLimit</td><td>U32</td><td>0 m</td><td>4.29497e+09 m</td><td>1</td><td>m</td><td>6</td><td>1</td><td>Distance at which the upcoming speed limit becomes valid.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>14</th><th>4</th><th></th></tr>
+</table>
+<h2 id="Zenuity.RSI.RoadSignWarnings">RoadSignWarnings (Zenuity.RSI.RoadSignWarnings)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>OverspeedWarning</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Warn the driver about driving over the speed limit adjusted by a warning offset</td></tr>
+<tr><td>SpeedCameraWarning</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Warn the driver about an upcoming speed camera.</td></tr>
+<tr><td>DistanceToSpeedCamera</td><td>U8</td><td>0 m</td><td>2550 m</td><td>10.0</td><td>m</td><td>3</td><td>1</td><td>Distance to upcoming speed camera.</td></tr>
+<tr><td>NoEntryWarning</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Warn driver about driving in the wrong direction.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>9</th><th>4</th><th></th></tr>
+</table>
+<h2 id="Zenuity.RSI.RsiDebug">RsiDebug (Zenuity.RSI.RsiDebug)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>VisionSpeedLimitAvailable</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>A speed limit derived from vision input is currently available.</td></tr>
+<tr><td>ElectronicHorizonSpeedLimitAvailable</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>A speed limit derived from Electronic Horizon input is currently available.</td></tr>
+<tr><td>ElectronicHorizonAndVisionAvailableAndEqual</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>The speed limit derived from both sources, Electronic Horizon and vision, are both the same.</td></tr>
+<tr><td>SpeedLimitSourceIsOnlyElectronicHorizon</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>The current speed limit is only based on Electronic Horizon as source.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8</th><th>4</th><th></th></tr>
+</table>
+<h2 id="Zenuity.RSI.RsiOutput">RsiOutput (Zenuity.RSI.RsiOutput)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 40 (28)
+<br>
+Version: 1.0.0
+<br>
+Road Sign Information (RSI) output signals from Zenuity SW.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Availability</td><td><a href="#Zenuity.RSI.RoadSignInformationAvailability">Zenuity.RSI.RoadSignInformationAvailability</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Availability status of the Road Sign Information SWC.</td></tr>
+<tr><td>Status</td><td><a href="#Zenuity.RSI.FunctionStatus">Zenuity.RSI.FunctionStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Function status telling if the feature is on or off.</td></tr>
+<tr><td>SpeedLimit</td><td><a href="#Zenuity.RSI.SpeedLimit">Zenuity.RSI.SpeedLimit</a></td><td></td><td></td><td></td><td></td><td>16</td><td>1</td><td>Current and upcoming valid speed limit.</td></tr>
+<tr><td>Warnings</td><td><a href="#Zenuity.RSI.RoadSignWarnings">Zenuity.RSI.RoadSignWarnings</a></td><td></td><td></td><td></td><td></td><td>11</td><td>1</td><td>Road sign related warnings to the driver.</td></tr>
+<tr><td>ArbitratedCountry</td><td>U16</td><td>0</td><td>65535</td><td>1</td><td></td><td>4</td><td>1</td><td>The alpha-3 country codes with numeric code as specified by ISO 3166-1.</td></tr>
+<tr><td>Debug</td><td><a href="#Zenuity.RSI.RsiDebug">Zenuity.RSI.RsiDebug</a></td><td></td><td></td><td></td><td></td><td>10</td><td>1</td><td>Signals only used for debugging purpose of the Road Sign Information feature SWC.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>45</th><th>6</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="Zenuity.RSI.RoadSignInformationAvailability">RoadSignInformationAvailability (Zenuity.RSI.RoadSignInformationAvailability)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NotAvailable</td><td>Zenuity.RSI.RoadSignInformationAvailability.NotAvailable</td><td>0</td></tr>
+<tr><td>Vision</td><td>Zenuity.RSI.RoadSignInformationAvailability.Vision</td><td>1</td></tr>
+<tr><td>ElectronicHorizon</td><td>Zenuity.RSI.RoadSignInformationAvailability.ElectronicHorizon</td><td>2</td></tr>
+<tr><td>VisionAndElectronicHorizon</td><td>Zenuity.RSI.RoadSignInformationAvailability.VisionAndElectronicHorizon</td><td>3</td></tr>
+</table>
+<h2 id="Zenuity.RSI.FunctionStatus">FunctionStatus (Zenuity.RSI.FunctionStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>Zenuity.RSI.FunctionStatus.Unknown</td><td>0</td></tr>
+<tr><td>Off</td><td>Zenuity.RSI.FunctionStatus.Off</td><td>1</td></tr>
+<tr><td>Disabled</td><td>Zenuity.RSI.FunctionStatus.Disabled</td><td>2</td></tr>
+<tr><td>On</td><td>Zenuity.RSI.FunctionStatus.On</td><td>3</td></tr>
+</table>
+<h2 id="Zenuity.RSI.SpeedUnit">SpeedUnit (Zenuity.RSI.SpeedUnit)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>Zenuity.RSI.SpeedUnit.Unknown</td><td>0</td></tr>
+<tr><td>KilometersPerHour</td><td>Zenuity.RSI.SpeedUnit.KilometersPerHour</td><td>1</td></tr>
+<tr><td>MilesPerHour</td><td>Zenuity.RSI.SpeedUnit.MilesPerHour</td><td>2</td></tr>
+</table>
+</body>
+</html>

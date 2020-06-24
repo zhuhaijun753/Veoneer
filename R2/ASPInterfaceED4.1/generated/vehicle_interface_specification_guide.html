@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Vehicle Interface Specification Guide</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <style type="text/css">a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+body {
+margin: auto;
+padding-right: 1em;
+padding-left: 1em;
+padding-top: 1em;
+color: black;
+font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+font-size: 100%;
+line-height: 140%;
+}
+pre {
+border: 1px dotted gray;
+padding: 0.5em;
+}
+code {
+font-family: "Courier New", monospace;
+color: #a33;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a {
+text-decoration: none;
+color: #001e46;
+}
+h1, h2, h3, h4, h5 {
+font-family: 'Barlow', sans-serif;
+font-weight: bold;
+color: #001e46;
+}
+h1 {
+border-bottom: 1px solid #0e2b8d;
+font-size: 130%;
+line-height: 140%;
+page-break-before: always;
+padding-top: 2em;
+}
+h2 {
+font-size: 110%;
+padding-top: 2em;
+}
+h3 {
+font-size: 95%;
+padding-top: 2em;
+}
+h4 {
+font-size: 90%;
+padding-top: 2em;
+}
+h5 {
+font-size: 90%;
+padding-top: 2em;
+}
+h1.title {
+font-size: 200%;
+font-weight: bold;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+text-align: center;
+border: none;
+page-break-before: auto;
+}
+dt code {
+font-weight: bold;
+}
+dd p {
+margin-top: 0;
+}
+#nav, #confidential, #footer, figure {
+font-family: 'Barlow', sans-serif;
+}
+#confidential {
+font-size: 85%;
+}
+header#documentheader {
+position: relative;
+margin: 0;
+padding: 0;
+margin-left: -1em;
+width: 100%;
+top: 1em;
+background: #ffffff;
+}
+div#alvheaderwrapper {
+padding: 0;
+margin: 0 1em;
+overflow: hidden;
+position: relative;
+}
+footer {
+font-size: 75%;
+border-top: 1px solid #0e2b8d;
+margin-top: 1em;
+}
+footer#pdffooter {
+display:none;
+}
+table {
+border-collapse: collapse;
+font-family: 'Barlow', sans-serif;
+}
+td, th {
+border: 1px solid black;
+margin: 0;
+padding: 4px;
+text-align: left;
+vertical-align: top;
+}
+th {
+color: black;
+font-family: 'Barlow', sans-serif;
+background-color: #c4e2df;
+}
+td.alvlogo {
+border: none;
+margin: 0;
+padding: 0px;
+}
+table.alvheader {
+margin: 0;
+padding: 0;
+width: 100%;
+border-collapse: collapse;
+}
+td.alvheader {
+border: 1px solid black;
+margin: 0;
+padding-left: 4px;
+padding-right: 4px;
+padding-top: 0px;
+padding-bottom: 2px;
+vertical-align: top;
+line-height: 120%;
+}
+.alvmeta {
+font-size: 75%;
+font-style: italic;
+}
+td.alvheadershade {
+border: 1px solid black;
+margin: 0;
+padding: 2px;
+background-color: #c4e2df;
+color: black;
+line-height: 120%;
+}
+pre.instruction {
+border: none;
+color: #00c;
+background-color: white;
+}
+.warning {
+border: 4px solid red;
+font-family: Verdana, sans-serif;
+padding-left: 1em;
+padding-right: 1em;
+margin-bottom: 1em;
+}
+.hidden {
+display: none;
+}
+th.left, td.left {
+text-align: left;
+}
+th.right, td.right {
+text-align: right;
+}
+
+table.memname td {
+border: none;
+}
+.memname {
+font-weight: bold;
+border: none;
+margin-bottom: -10px;
+margin-left: 0px;
+padding-left: 0px;
+padding-bottom: 0px;
+}
+.memdoc {
+margin-left: 40px;
+margin-bottom: 1em;
+}
+table.memname td.paramname, td.paramtype {
+padding-left: 0px;
+padding-right: 0px;
+}
+td.mdescRight {
+font-weight: normal;
+padding-top: 0px;
+margin-top: 0px;
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Vehicle Interface Specification Guide</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#dbc-format"><span class="toc-section-number">1</span> DBC format</a></li>
+<li><a href="#version-handling"><span class="toc-section-number">2</span> Version handling</a></li>
+<li><a href="#messages"><span class="toc-section-number">3</span> Messages</a>
+<ul>
+<li><a href="#attributes"><span class="toc-section-number">3.1</span> Attributes</a></li>
+<li><a href="#naming-convention"><span class="toc-section-number">3.2</span> Naming convention</a></li>
+<li><a href="#content"><span class="toc-section-number">3.3</span> Content</a></li>
+<li><a href="#documentation"><span class="toc-section-number">3.4</span> Documentation</a></li>
+<li><a href="#priority"><span class="toc-section-number">3.5</span> Priority</a>
+<ul>
+<li><a href="#time-critical"><span class="toc-section-number">3.5.1</span> Time critical</a></li>
+<li><a href="#important"><span class="toc-section-number">3.5.2</span> Important</a></li>
+<li><a href="#information"><span class="toc-section-number">3.5.3</span> Information</a></li>
+<li><a href="#diagnostics"><span class="toc-section-number">3.5.4</span> Diagnostics</a></li>
+</ul></li>
+<li><a href="#can"><span class="toc-section-number">3.6</span> CAN</a></li>
+</ul></li>
+<li><a href="#signals"><span class="toc-section-number">4</span> Signals</a>
+<ul>
+<li><a href="#naming-convention-1"><span class="toc-section-number">4.1</span> Naming convention</a></li>
+<li><a href="#endianess"><span class="toc-section-number">4.2</span> Endianess</a></li>
+<li><a href="#encoding"><span class="toc-section-number">4.3</span> Encoding</a>
+<ul>
+<li><a href="#decimal-values"><span class="toc-section-number">4.3.1</span> Decimal values</a></li>
+<li><a href="#intervals"><span class="toc-section-number">4.3.2</span> Intervals</a></li>
+<li><a href="#enumerations-bitmasks"><span class="toc-section-number">4.3.3</span> Enumerations / Bitmasks</a></li>
+</ul></li>
+<li><a href="#documentation-1"><span class="toc-section-number">4.4</span> Documentation</a></li>
+</ul></li>
+<li><a href="#list-array"><span class="toc-section-number">5</span> List / Array</a>
+<ul>
+<li><a href="#single-message"><span class="toc-section-number">5.1</span> Single message</a></li>
+<li><a href="#multi-message"><span class="toc-section-number">5.2</span> Multi message</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>This document aims to describe how to design the vehicle bus interface for the reference products.</p>
+<h1 data-number="1" id="dbc-format"><span class="header-section-number">1</span> DBC format</h1>
+<p>Note that for DBC files Vector have limited the name length to 32 characters for messages, signals and enums, if the wanted name is too long try to shorten it in a way that is easy for a human to read.</p>
+<h1 data-number="2" id="version-handling"><span class="header-section-number">2</span> Version handling</h1>
+<p>The vehicle specification shall contain a message called <em>InterfaceVersion</em>. This message shall contain <em>MajorVersion</em> and <em>MinorVersion</em> as U8. <em>MajorVersion</em> shall be incremented on breaking changes and <em>MinorVersion</em> for all other changes. Recommended cycle time is 1000 ms so that it is hard to make a recording without it. The current version is defined using the default value in the DBC.</p>
+<h1 data-number="3" id="messages"><span class="header-section-number">3</span> Messages</h1>
+<p>Transmitter shall be set to the transmitting ECU.</p>
+<h2 data-number="3.1" id="attributes"><span class="header-section-number">3.1</span> Attributes</h2>
+<ul>
+<li><em>Send type</em>: cyclic, spontaneous, etc</li>
+<li><em>Cycle time</em>: for cyclic messages, defined by the internal data rate</li>
+</ul>
+<h2 data-number="3.2" id="naming-convention"><span class="header-section-number">3.2</span> Naming convention</h2>
+<p>Names are written in pascal case i.e. UpperCamelCase.</p>
+<h2 data-number="3.3" id="content"><span class="header-section-number">3.3</span> Content</h2>
+<p>As a lot of small messages creates overhead it is preferred that output that relates to the same feature/function be grouped together. <em>Signal groups</em> can be used to separate different signals from each other or clarify that some signals are associated within a message.</p>
+<h2 data-number="3.4" id="documentation"><span class="header-section-number">3.4</span> Documentation</h2>
+<p><em>Comment</em>: Should describe the content of the message</p>
+<h2 data-number="3.5" id="priority"><span class="header-section-number">3.5</span> Priority</h2>
+<p>Depending on the bus/vehicle interface (CAN, FlexRay, Ethernet) the priority of the output messages can be controlled. Messages can be divided in the following categories.</p>
+<h3 data-number="3.5.1" id="time-critical"><span class="header-section-number">3.5.1</span> Time critical</h3>
+<p>Typically actuator requests or data for a time critical feature. E.g. brake request from AEB or object detection for AEB (crossing cyclists).</p>
+<h3 data-number="3.5.2" id="important"><span class="header-section-number">3.5.2</span> Important</h3>
+<p>Convenience features and warnings. E.g. Headlight control or Lane Deviation Warning.</p>
+<h3 data-number="3.5.3" id="information"><span class="header-section-number">3.5.3</span> Information</h3>
+<p>Data that is displayed to the driver. E.g. Traffic signs.</p>
+<h3 data-number="3.5.4" id="diagnostics"><span class="header-section-number">3.5.4</span> Diagnostics</h3>
+<p>UDS, measurement data</p>
+<h2 data-number="3.6" id="can"><span class="header-section-number">3.6</span> CAN</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Priority</th>
+<th>ID range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Time Critical</td>
+<td>0 - 0x150</td>
+</tr>
+<tr class="even">
+<td>Important</td>
+<td>0x151 - 0x299</td>
+</tr>
+<tr class="odd">
+<td>Information</td>
+<td>0x300 - 0x499</td>
+</tr>
+<tr class="even">
+<td>Diagnostics</td>
+<td>0x500 -</td>
+</tr>
+</tbody>
+</table>
+<h1 data-number="4" id="signals"><span class="header-section-number">4</span> Signals</h1>
+<h2 data-number="4.1" id="naming-convention-1"><span class="header-section-number">4.1</span> Naming convention</h2>
+<p>Names are written in camelCase.</p>
+<h2 data-number="4.2" id="endianess"><span class="header-section-number">4.2</span> Endianess</h2>
+<p>The current microcontrollers are little endian/Intel based, therefore this byte order shall be used for signal encoding. Deviations are only allowed when a standard that is used requires otherwise, the deviations shall be noted and motivated in the <em>Comment</em> field.</p>
+<h2 data-number="4.3" id="encoding"><span class="header-section-number">4.3</span> Encoding</h2>
+<p>To optimize the bus usage the following principles shall be applied.</p>
+<h3 data-number="4.3.1" id="decimal-values"><span class="header-section-number">4.3.1</span> Decimal values</h3>
+<p>Shall be sent as scaled integers using the <em>Factor</em> option.</p>
+<h3 data-number="4.3.2" id="intervals"><span class="header-section-number">4.3.2</span> Intervals</h3>
+<p>If an equally positive and negative interval is needed a signed value can and should be used. E.g. yaw rate.</p>
+<p>If an unequal interval can be applied an unsigned integer with offset shall be used. E.g. speed.</p>
+<h3 data-number="4.3.3" id="enumerations-bitmasks"><span class="header-section-number">4.3.3</span> Enumerations / Bitmasks</h3>
+<p>Both enumerations and bitmask signals shall be defined using <em>value tables</em>. This is so that tools can visualize the data.</p>
+<h2 data-number="4.4" id="documentation-1"><span class="header-section-number">4.4</span> Documentation</h2>
+<p>The DBC/arxml format supports at least the following fields that are expected to be filled in.</p>
+<table>
+<colgroup>
+<col style="width: 31%"></col>
+<col style="width: 68%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Unit</em></td>
+<td>Self explanatory</td>
+</tr>
+<tr class="even">
+<td><em>Init value</em></td>
+<td>Default value that is applied at startup until a calculated value is provided</td>
+</tr>
+<tr class="odd">
+<td><em>Comment</em></td>
+<td>A short description of the signal if the name is not self explaining</td>
+</tr>
+</tbody>
+</table>
+<h1 data-number="5" id="list-array"><span class="header-section-number">5</span> List / Array</h1>
+<h2 data-number="5.1" id="single-message"><span class="header-section-number">5.1</span> Single message</h2>
+<p>Lists that are contained in one message shall have signal and group names ending with the list item index. E.g. ObjectX1, ObjectX2, …</p>
+<h2 data-number="5.2" id="multi-message"><span class="header-section-number">5.2</span> Multi message</h2>
+<p>Lists that need multiple messages to be transmitted shall be separated into header and content message, where the content message is repeated on the vehicle bus to produce the complete list. Common things for the list shall be contained in the header, e.g. timestamp.</p>
+<p>Each object in the list shall be packaged exactly the same, be structured in a signal group and contained in the content message. The signal and group names shall have names ending with an alphabetized index based on the index within the message. E.g. ObjectA, ObjectB, …</p>
+<p>The header shall contain the length of the object list and index synchronizing the <em>Header</em> and <em>Content</em>, the signal shall have a name ending with ListLength and ListIndex respectively. E.g. objectsListLength and objectsListIndex.</p>
+<p>If using the same message ID for all objects each message shall contain the message index so that the list/array can be built up in the receiving end, this signal shall have a name ending with Index. E.g. objectsIndex.</p>
+<p>If using different message IDs for objects then each message ID shall be associated with a message index. In this case the Header is assigned the lowest ID and then the following messages are added in list order. E.g. Header 0x220, Content0 0x221, Content1 0x222, …</p>
+<p>To synchronize the header and content messages a signal ending with ListIndex shall be present in both header and content message. E.g. Header: objectsHeaderListIndex, Content: objectsListIndex.</p>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVs3ZDBjZDM3M2E1YzdkYTZhYTEzYTMyOThjNmQzNGY0OV0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCg0KZnJhbWUgIkxpc3QgIzEiIGFzIExJU1QxIHsNCiAgIG9iamVjdCAiSGVhZGVyIiBhcyBIMSB7DQogICAgICBMaXN0SW5kZXggPSAxDQogICAgICBMaXN0TGVuZ3RoID0gNw0KICAgfQ0KDQogICBvYmplY3QgIkNvbnRlbnQiIGFzIExJU1QxX0QxIHsNCiAgICAgIExpc3RJbmRleCA9IDENCiAgICAgIEluZGV4ID0gMQ0KICAgICAgT2JqZWN0QSA9IE9iamVjdDENCiAgICAgIE9iamVjdEIgPSBPYmplY3QyDQogICAgICBPYmplY3RDID0gT2JqZWN0Mw0KICAgfQ0KDQogICBvYmplY3QgIkNvbnRlbnQiIGFzIExJU1QxX0QyIHsNCiAgICAgIExpc3RJbmRleCA9IDENCiAgICAgIEluZGV4ID0gMg0KICAgICAgT2JqZWN0QSA9IE9iamVjdDQNCiAgICAgIE9iamVjdEIgPSBPYmplY3Q1DQogICAgICBPYmplY3RDID0gT2JqZWN0Ng0KICAgfQ0KDQogICBvYmplY3QgIkNvbnRlbnQiIGFzIExJU1QxX0QzIHsNCiAgICAgIExpc3RJbmRleCA9IDENCiAgICAgIEluZGV4ID0gMw0KICAgICAgT2JqZWN0QSA9IE9iamVjdDcNCiAgIH0NCn0NCg0KZnJhbWUgIkxpc3QgIzIiIGFzIExJU1QyIHsNCiAgIG9iamVjdCAiSGVhZGVyIiBhcyBIMiB7DQogICAgICBMaXN0SW5kZXggPSAyDQogICAgICBMaXN0TGVuZ3RoID0gNA0KICAgfQ0KDQogICBvYmplY3QgIkNvbnRlbnQiIGFzIExJU1QyX0QxIHsNCiAgICAgIExpc3RJbmRleCA9IDINCiAgICAgIEluZGV4ID0gMQ0KICAgICAgT2JqZWN0QSA9IE9iamVjdDENCiAgICAgIE9iamVjdEIgPSBPYmplY3QyDQogICAgICBPYmplY3RDID0gT2JqZWN0Mw0KICAgfQ0KDQogICBvYmplY3QgIkNvbnRlbnQiIGFzIExJU1QyX0QyIHsNCiAgICAgIExpc3RJbmRleCA9IDINCiAgICAgIEluZGV4ID0gMg0KICAgICAgT2JqZWN0QSA9IE9iamVjdDQNCiAgIH0NCn0NCg0Kbm90ZSAiU3luY2hyb25pemVkIHZpYSBMaXN0SW5kZXgiIGFzIHN5bmMxDQpub3RlICJTeW5jaHJvbml6ZWQgdmlhIExpc3RJbmRleCIgYXMgc3luYzINCg0KSDEgLi4gc3luYzENCkxJU1QxX0QxIC4uIHN5bmMxDQpMSVNUMV9EMiAuLiBzeW5jMQ0KTElTVDFfRDMgLi4gc3luYzENCg0KTElTVDFfRDEgLT4gTElTVDFfRDINCkxJU1QxX0QyIC0+IExJU1QxX0QzDQoNCkgyIC4uIHN5bmMyDQpMSVNUMl9EMSAuLiBzeW5jMg0KTElTVDJfRDIgLi4gc3luYzINCg0KTElTVDJfRDEgLT4gTElTVDJfRDINCg0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIwLjExKFNhdCBNYXkgMzAgMTk6MTM6NDMgS1NUIDIwMjApCihHUEwgc291cmNlIGRpc3RyaWJ1dGlvbikKSmF2YSBSdW50aW1lOiBKYXZhKFRNKSBTRSBSdW50aW1lIEVudmlyb25tZW50CkpWTTogSmF2YSBIb3RTcG90KFRNKSA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IE1TOTQ5Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+" id="fig:" alt /><figcaption>Multi-Message List</figcaption>
+</figure>
+</body>
+</html>

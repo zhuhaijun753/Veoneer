@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Scheduling for VisionOnly composition</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <style type="text/css">a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+body {
+margin: auto;
+padding-right: 1em;
+padding-left: 1em;
+padding-top: 1em;
+color: black;
+font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+font-size: 100%;
+line-height: 140%;
+}
+pre {
+border: 1px dotted gray;
+padding: 0.5em;
+}
+code {
+font-family: "Courier New", monospace;
+color: #a33;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a {
+text-decoration: none;
+color: #001e46;
+}
+h1, h2, h3, h4, h5 {
+font-family: 'Barlow', sans-serif;
+font-weight: bold;
+color: #001e46;
+}
+h1 {
+border-bottom: 1px solid #0e2b8d;
+font-size: 130%;
+line-height: 140%;
+page-break-before: always;
+padding-top: 2em;
+}
+h2 {
+font-size: 110%;
+padding-top: 2em;
+}
+h3 {
+font-size: 95%;
+padding-top: 2em;
+}
+h4 {
+font-size: 90%;
+padding-top: 2em;
+}
+h5 {
+font-size: 90%;
+padding-top: 2em;
+}
+h1.title {
+font-size: 200%;
+font-weight: bold;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+text-align: center;
+border: none;
+page-break-before: auto;
+}
+dt code {
+font-weight: bold;
+}
+dd p {
+margin-top: 0;
+}
+#nav, #confidential, #footer, figure {
+font-family: 'Barlow', sans-serif;
+}
+#confidential {
+font-size: 85%;
+}
+header#documentheader {
+position: relative;
+margin: 0;
+padding: 0;
+margin-left: -1em;
+width: 100%;
+top: 1em;
+background: #ffffff;
+}
+div#alvheaderwrapper {
+padding: 0;
+margin: 0 1em;
+overflow: hidden;
+position: relative;
+}
+footer {
+font-size: 75%;
+border-top: 1px solid #0e2b8d;
+margin-top: 1em;
+}
+footer#pdffooter {
+display:none;
+}
+table {
+border-collapse: collapse;
+font-family: 'Barlow', sans-serif;
+}
+td, th {
+border: 1px solid black;
+margin: 0;
+padding: 4px;
+text-align: left;
+vertical-align: top;
+}
+th {
+color: black;
+font-family: 'Barlow', sans-serif;
+background-color: #c4e2df;
+}
+td.alvlogo {
+border: none;
+margin: 0;
+padding: 0px;
+}
+table.alvheader {
+margin: 0;
+padding: 0;
+width: 100%;
+border-collapse: collapse;
+}
+td.alvheader {
+border: 1px solid black;
+margin: 0;
+padding-left: 4px;
+padding-right: 4px;
+padding-top: 0px;
+padding-bottom: 2px;
+vertical-align: top;
+line-height: 120%;
+}
+.alvmeta {
+font-size: 75%;
+font-style: italic;
+}
+td.alvheadershade {
+border: 1px solid black;
+margin: 0;
+padding: 2px;
+background-color: #c4e2df;
+color: black;
+line-height: 120%;
+}
+pre.instruction {
+border: none;
+color: #00c;
+background-color: white;
+}
+.warning {
+border: 4px solid red;
+font-family: Verdana, sans-serif;
+padding-left: 1em;
+padding-right: 1em;
+margin-bottom: 1em;
+}
+.hidden {
+display: none;
+}
+th.left, td.left {
+text-align: left;
+}
+th.right, td.right {
+text-align: right;
+}
+
+table.memname td {
+border: none;
+}
+.memname {
+font-weight: bold;
+border: none;
+margin-bottom: -10px;
+margin-left: 0px;
+padding-left: 0px;
+padding-bottom: 0px;
+}
+.memdoc {
+margin-left: 40px;
+margin-bottom: 1em;
+}
+table.memname td.paramname, td.paramtype {
+padding-left: 0px;
+padding-right: 0px;
+}
+td.mdescRight {
+font-weight: normal;
+padding-top: 0px;
+margin-top: 0px;
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Scheduling for VisionOnly composition</h1>
+</header>
+<p>The VisionOnly composition consists of one Zenuity container which shall be scheduled in 40 Hz:</p>
+<pre><code> Time (ms)     |0-------|25------|=&gt;
+ Core x   =&gt;   |Z-------|Z-------|=&gt;</code></pre>
+<p>The VisionOnly container is a <em>QM</em> container.</p>
+</body>
+</html>

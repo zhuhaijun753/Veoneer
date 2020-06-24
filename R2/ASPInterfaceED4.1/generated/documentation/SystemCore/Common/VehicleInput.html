@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>VehicleInput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - SystemCore.Common</b>
+<br>
+<h1>Messages</h1>
+<h2 id="SystemCore.Common.AcceleratorPedal">AcceleratorPedal (SystemCore.Common.AcceleratorPedal)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Valid</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates that the information contained in this message can be used</td></tr>
+<tr><td>PressedAmount</td><td>U8</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>3 [2]</td><td>1</td><td>Percentage describing the state of the accelerator pedal</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>5 [4]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Common.BrakeSystem">BrakeSystem (SystemCore.Common.BrakeSystem)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Valid</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates that the information contained in this message can be used</td></tr>
+<tr><td>BrakePedalState</td><td><a href="#SystemCore.Common.BrakePedalState">SystemCore.Common.BrakePedalState</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>State of the brake pedal</td></tr>
+<tr><td>DecelerationRequest</td><td>U16</td><td>0 m/s²</td><td>25 m/s²</td><td>0.01</td><td>m/s²</td><td>4 [3]</td><td>1</td><td>Requested deceleration by driver, positive since it is deceleration and not acceleration</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8 [7]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Common.SteeringWheel">SteeringWheel (SystemCore.Common.SteeringWheel)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Valid</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates that the information contained in this message can be used</td></tr>
+<tr><td>Limited</td><td><a href="#SystemCore.Common.AngleControlLimitState">SystemCore.Common.AngleControlLimitState</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>If the function output on the steering is limited</td></tr>
+<tr><td>Torque</td><td>S32</td><td>-30 Nm</td><td>30 Nm</td><td>0.01</td><td>Nm</td><td>6 [3]</td><td>1</td><td>The steering wheel torque performed by the driver</td></tr>
+<tr><td>FunctionAppliedTorque</td><td>S32</td><td>-30 Nm</td><td>30 Nm</td><td>0.01</td><td>Nm</td><td>6 [3]</td><td>1</td><td>The steering wheel torque performed by the function</td></tr>
+<tr><td>TotalAppliedTorque</td><td>S32</td><td>-30 Nm</td><td>30 Nm</td><td>0.01</td><td>Nm</td><td>6 [3]</td><td>1</td><td>The total torque performed by electric power assisted steering, defined at the steering wheel.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>22 [13]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Common.FrontWheel">FrontWheel (SystemCore.Common.FrontWheel)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Valid</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates that the information contained in this message can be used</td></tr>
+<tr><td>Angle</td><td>S32</td><td>-1.5 rad</td><td>1.5 rad</td><td>0.0001</td><td>rad</td><td>6 [4]</td><td>1</td><td>The front wheel angle of the car</td></tr>
+<tr><td>AngleRate</td><td>S32</td><td>-1.5 rad/s</td><td>1.5 rad/s</td><td>0.0001</td><td>rad/s</td><td>6 [4]</td><td>1</td><td>The front wheel angle rate of the car</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>14 [10]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Common.SafePositionsFrontSeats">SafePositionsFrontSeats (SystemCore.Common.SafePositionsFrontSeats)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Left</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates that the person in the left front seat is in a safe position</td></tr>
+<tr><td>Right</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates that the person in the right front seat is in a safe position</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Common.VehicleInput">VehicleInput (SystemCore.Common.VehicleInput)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 1 (1)
+<br>
+Version: 3.1.0
+<br>
+Driver input signals e.g. pedal state, turn indicator, etc
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>AcceleratorPedal</td><td><a href="#SystemCore.Common.AcceleratorPedal">SystemCore.Common.AcceleratorPedal</a></td><td></td><td></td><td></td><td></td><td>7 [6]</td><td>1</td><td>Current accelerator pedal information</td></tr>
+<tr><td>BrakeSystem</td><td><a href="#SystemCore.Common.BrakeSystem">SystemCore.Common.BrakeSystem</a></td><td></td><td></td><td></td><td></td><td>10 [9]</td><td>1</td><td>Current brake system information</td></tr>
+<tr><td>SteeringWheel</td><td><a href="#SystemCore.Common.SteeringWheel">SystemCore.Common.SteeringWheel</a></td><td></td><td></td><td></td><td></td><td>24 [15]</td><td>1</td><td>Current steering wheel information</td></tr>
+<tr><td>FrontWheel</td><td><a href="#SystemCore.Common.FrontWheel">SystemCore.Common.FrontWheel</a></td><td></td><td></td><td></td><td></td><td>16 [12]</td><td>1</td><td>Current front wheel information</td></tr>
+<tr><td>TurnIndicator</td><td><a href="#SystemCore.Common.TurnIndicatorState">SystemCore.Common.TurnIndicatorState</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Current turn indicator information</td></tr>
+<tr><td>DriverDoorOpen</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates that the driver door is open</td></tr>
+<tr><td>SafePositionsFrontSeats</td><td><a href="#SystemCore.Common.SafePositionsFrontSeats">SystemCore.Common.SafePositionsFrontSeats</a></td><td></td><td></td><td></td><td></td><td>6</td><td>1</td><td>Indicates safety status of driver and passenger seating position</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>67 [52]</th><th>7</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="SystemCore.Common.AngleControlLimitState">AngleControlLimitState (SystemCore.Common.AngleControlLimitState)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NotLimited</td><td>SystemCore.Common.AngleControlLimitState.NotLimited</td><td>0</td></tr>
+<tr><td>TorqueLimitUpperReached</td><td>SystemCore.Common.AngleControlLimitState.TorqueLimitUpperReached</td><td>1</td></tr>
+<tr><td>TorqueLimitLowerReached</td><td>SystemCore.Common.AngleControlLimitState.TorqueLimitLowerReached</td><td>2</td></tr>
+<tr><td>RateLimitReached</td><td>SystemCore.Common.AngleControlLimitState.RateLimitReached</td><td>3</td></tr>
+</table>
+<h2 id="SystemCore.Common.BrakePedalState">BrakePedalState (SystemCore.Common.BrakePedalState)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Undefined</td><td>SystemCore.Common.BrakePedalState.Undefined</td><td>0</td></tr>
+<tr><td>NotPressed</td><td>SystemCore.Common.BrakePedalState.NotPressed</td><td>1</td></tr>
+<tr><td>Pressed</td><td>SystemCore.Common.BrakePedalState.Pressed</td><td>2</td></tr>
+</table>
+<h2 id="SystemCore.Common.TurnIndicatorState">TurnIndicatorState (SystemCore.Common.TurnIndicatorState)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Idle</td><td>SystemCore.Common.TurnIndicatorState.Idle</td><td>0</td></tr>
+<tr><td>Left</td><td>SystemCore.Common.TurnIndicatorState.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>SystemCore.Common.TurnIndicatorState.Right</td><td>2</td></tr>
+</table>
+</body>
+</html>

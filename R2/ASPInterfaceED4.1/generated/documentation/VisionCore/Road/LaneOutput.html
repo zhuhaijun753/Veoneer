@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>LaneOutput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - VisionCore.Road</b>
+<br>
+<h1>Messages</h1>
+<h2 id="VisionCore.Road.LaneEvent">LaneEvent (VisionCore.Road.LaneEvent)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Id</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Unique for the lane event. The same Id can be reused after one output cycle. 0 means None</td></tr>
+<tr><td>LaneTrackId</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Identifier for the Lane_Track to which the lane event is connected. Related to LaneTrack.id</td></tr>
+<tr><td>Distance</td><td>U16</td><td>0 m</td><td>100 m</td><td>0.1</td><td>m</td><td>4 [3]</td><td>1</td><td>Distance along the longitudinal axis to the lane event</td></tr>
+<tr><td>EventType</td><td><a href="#VisionCore.Road.LaneEventType">VisionCore.Road.LaneEventType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the type of event</td></tr>
+<tr><td>Side</td><td><a href="#VisionCore.Road.LaneEventSide">VisionCore.Road.LaneEventSide</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Side on which the lane event is detected</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>14 [13]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.Clothoid">Clothoid (VisionCore.Road.Clothoid)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LateralDistance</td><td>S16</td><td>-10 m</td><td>10 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Lateral distance to the inside of the lane marking [m] (AFAC)(default: 0)</td></tr>
+<tr><td>Heading</td><td>S16</td><td>-0.8192 atan(rad)</td><td>0.819175 atan(rad)</td><td>0.000025</td><td>atan(rad)</td><td>4</td><td>1</td><td>The heading coefficient of the clothoid model</td></tr>
+<tr><td>Curvature</td><td>S16</td><td>-0.08192 1/m</td><td>0.0819175 1/m</td><td>0.0000025</td><td>1/m</td><td>4</td><td>1</td><td>Horizontal curvature for the start of the first clothoid</td></tr>
+<tr><td>CurvatureRate</td><td>S16</td><td>-0.032768 1/m²</td><td>0.032767 1/m²</td><td>0.000001</td><td>1/m²</td><td>4</td><td>1</td><td>Horizontal curvature rate for the first clothoid</td></tr>
+<tr><td>TransitionDistance</td><td>U16</td><td>0 m</td><td>150 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Distance for which second clothoid starts</td></tr>
+<tr><td>CurvatureRateSecondClothoid</td><td>S16</td><td>-0.032768 1/m²</td><td>0.032767 1/m²</td><td>0.000001</td><td>1/m²</td><td>4</td><td>1</td><td>Horizontal curvature rate for the second clothoid</td></tr>
+<tr><td>SecondClothoidActive</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates if second clothoid is used</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>26 [24]</th><th>7</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.ClothoidVariance">ClothoidVariance (VisionCore.Road.ClothoidVariance)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LateralDistanceVariance</td><td>S16</td><td>-327.68 1/m²</td><td>327.67 1/m²</td><td>0.01</td><td>1/m²</td><td>4</td><td>1</td><td>Variance for lateral distance</td></tr>
+<tr><td>HeadingVariance</td><td>S16</td><td>-0.8192 atan(rad)²</td><td>0.819175 atan(rad)²</td><td>0.000025</td><td>atan(rad)²</td><td>4</td><td>1</td><td>Variance for heading</td></tr>
+<tr><td>CurvatureVariance</td><td>S16</td><td>-0.08192 1/m²</td><td>0.0819175 1/m²</td><td>0.0000025</td><td>1/m²</td><td>4</td><td>1</td><td>Variance for curvature</td></tr>
+<tr><td>CurvatureRateVariance</td><td>S16</td><td>-0.032768 1/m^4</td><td>0.032767 1/m^4</td><td>0.000001</td><td>1/m^4</td><td>4</td><td>1</td><td>Variance for curvature rate</td></tr>
+<tr><td>CurvatureRateSecondClothoidVariance</td><td>S16</td><td>-0.032768 1/m^4</td><td>0.032767 1/m^4</td><td>0.000001</td><td>1/m^4</td><td>4</td><td>1</td><td>Variance for second curvature rate</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>20</th><th>5</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.LaneTrack">LaneTrack (VisionCore.Road.LaneTrack)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Valid</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>True means that LaneTrack describes a valid lane marking</td></tr>
+<tr><td>Id</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>ID nr (default: 255 = SNA, propose change to 0)</td></tr>
+<tr><td>DetectionDistance</td><td>U16</td><td>0 m</td><td>150 m</td><td>0.1</td><td>m</td><td>4 [3]</td><td>1</td><td>Longitudinal distance for which the lane is detected</td></tr>
+<tr><td>MarkingType</td><td><a href="#VisionCore.Road.MarkingType">VisionCore.Road.MarkingType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Marking type for the lane marking closest to the Ego Vehicle</td></tr>
+<tr><td>MarkingLength</td><td>U8</td><td>0 m</td><td>12.75 m</td><td>0.05</td><td>m</td><td>3</td><td>1</td><td>Length of the lane marking, not applicable for continuous markings</td></tr>
+<tr><td>GapLength</td><td>U8</td><td>0 m</td><td>25.5 m</td><td>0.1</td><td>m</td><td>3</td><td>1</td><td>Length of the gap between lane markings, not applicable for continuous markings</td></tr>
+<tr><td>SecondMarkingType</td><td><a href="#VisionCore.Road.SecondMarkingType">VisionCore.Road.SecondMarkingType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Marking type for the second lane marking from the Ego Vehicle</td></tr>
+<tr><td>MarkingStructure</td><td><a href="#VisionCore.Road.MarkingStructure">VisionCore.Road.MarkingStructure</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes structure of the first detected lane marker</td></tr>
+<tr><td>TrackingStatus</td><td><a href="#VisionCore.Road.LaneTrackingStatus">VisionCore.Road.LaneTrackingStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes detection status</td></tr>
+<tr><td>MarkingWidth</td><td>U8</td><td>0 m</td><td>2.55 m</td><td>0.01</td><td>m</td><td>3</td><td>1</td><td>Width of first lane marking</td></tr>
+<tr><td>TotalMarkingWidth</td><td>U8</td><td>0 m</td><td>2.55 m</td><td>0.01</td><td>m</td><td>3</td><td>1</td><td>Width of all lane markings in the marking configuration, e.g. double markings</td></tr>
+<tr><td>Color</td><td><a href="#VisionCore.Road.LaneMarkingColor">VisionCore.Road.LaneMarkingColor</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the lane marking color</td></tr>
+<tr><td>ModelError</td><td>U8</td><td>0 m</td><td>2.55 m</td><td>0.01</td><td>m</td><td>3</td><td>1</td><td>Describes how well the measurements are adapted to the model</td></tr>
+<tr><td>MeasurementQuality</td><td>U8</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>3 [2]</td><td>1</td><td>Describes quality of the detection</td></tr>
+<tr><td>SelectionConfidence</td><td>U8</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>3 [2]</td><td>1</td><td>Describes confidence in the track selection</td></tr>
+<tr><td>DistanceFirstToSecondMarking</td><td>U8</td><td>0 m</td><td>2.55 m</td><td>0.01</td><td>m</td><td>4</td><td>2</td><td>Distance from first to second lane marking</td></tr>
+<tr><td>Clothoid</td><td><a href="#VisionCore.Road.Clothoid">VisionCore.Road.Clothoid</a></td><td></td><td></td><td></td><td></td><td>29 [27]</td><td>2</td><td>Describes lane marking clothoid</td></tr>
+<tr><td>IsSafe</td><td>boolean</td><td></td><td></td><td></td><td></td><td>3</td><td>2</td><td>True means that the track is safe to use</td></tr>
+<tr><td>UnsafeReason</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>4</td><td>2</td><td>Bitfield listing the reasons to why the track is considered to be unsafe. For bit definitions, see TrackUnsafeReasons.</td></tr>
+<tr><td>ClothoidVariance</td><td><a href="#VisionCore.Road.ClothoidVariance">VisionCore.Road.ClothoidVariance</a></td><td></td><td></td><td></td><td></td><td>23</td><td>2</td><td>Describes lane marking clothoid variance</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>103 [98]</th><th>25</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.TemporaryMarkings">TemporaryMarkings (VisionCore.Road.TemporaryMarkings)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Type</td><td><a href="#VisionCore.Road.TemporaryMarkingType">VisionCore.Road.TemporaryMarkingType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the type of temporary markings</td></tr>
+<tr><td>LongitudinalDistance</td><td>U16</td><td>0 m</td><td>150 m</td><td>0.1</td><td>m</td><td>4 [3]</td><td>1</td><td>Longitudinal distance to dynamic temporary markings</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>6 [5]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.EgoLane">EgoLane (VisionCore.Road.EgoLane)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Left</td><td><a href="#VisionCore.Road.LaneTrack">VisionCore.Road.LaneTrack</a></td><td></td><td></td><td></td><td></td><td>105 [100]</td><td>1</td><td>Left ego lane boundary</td></tr>
+<tr><td>Right</td><td><a href="#VisionCore.Road.LaneTrack">VisionCore.Road.LaneTrack</a></td><td></td><td></td><td></td><td></td><td>105 [100]</td><td>1</td><td>Right ego lane boundary</td></tr>
+<tr><td>ParallelDistance</td><td>U16</td><td>0 m</td><td>150 m</td><td>0.1</td><td>m</td><td>4 [3]</td><td>1</td><td>Longitudinal distance in which the left and right tracks are parallel</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>214 [203]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.LaneOutput">LaneOutput (VisionCore.Road.LaneOutput)</h2>
+Source: DATA_SOURCE_VISION (2)
+<br>
+Identifier: 201 (c9)
+<br>
+Version: 2.0.0
+<br>
+Output describing the lane markers ahead of the vehicle
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>EgoLane</td><td><a href="#VisionCore.Road.EgoLane">VisionCore.Road.EgoLane</a></td><td></td><td></td><td></td><td></td><td>217 [206]</td><td>1</td><td>The ego lane</td></tr>
+<tr><td>CoupledEgoLane</td><td><a href="#VisionCore.Road.EgoLane">VisionCore.Road.EgoLane</a></td><td></td><td></td><td></td><td></td><td>217 [206]</td><td>1</td><td>The coupled ego lane</td></tr>
+<tr><td>NeighborLeft</td><td><a href="#VisionCore.Road.LaneTrack">VisionCore.Road.LaneTrack</a></td><td></td><td></td><td></td><td></td><td>105 [100]</td><td>1</td><td>Left neighbor lane boundary</td></tr>
+<tr><td>NeighborRight</td><td><a href="#VisionCore.Road.LaneTrack">VisionCore.Road.LaneTrack</a></td><td></td><td></td><td></td><td></td><td>105 [100]</td><td>1</td><td>Right neighbor lane boundary</td></tr>
+<tr><td>Events</td><td><a href="#VisionCore.Road.LaneEvent">VisionCore.Road.LaneEvent[4]</a></td><td></td><td></td><td></td><td></td><td>64 [60]</td><td>1</td><td>Describes the current lane events</td></tr>
+<tr><td>TemporaryMarkings</td><td><a href="#VisionCore.Road.TemporaryMarkings">VisionCore.Road.TemporaryMarkings</a></td><td></td><td></td><td></td><td></td><td>8 [7]</td><td>1</td><td>Describes temporary markings</td></tr>
+<tr><td>SideSuggestion</td><td><a href="#VisionCore.Road.SideSuggestion">VisionCore.Road.SideSuggestion</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Recommendation of output data to be used by steering assist and similar functions</td></tr>
+<tr><td>LaneChange</td><td><a href="#VisionCore.Road.LaneChange">VisionCore.Road.LaneChange</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the direction of the lane change</td></tr>
+<tr><td>FrameDrop</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>True means algorithm has executed without new input data</td></tr>
+<tr><td>BlockageDuration</td><td>U16</td><td>0 s</td><td>1800 s</td><td>1</td><td>s</td><td>4 [3]</td><td>1</td><td>Time with detected blockage</td></tr>
+<tr><td>SelfAssessmentFailed</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>True means that the lane self assessment algorithm detected an error</td></tr>
+<tr><td>AttentionMarkers</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>True means that the selection mode attention markings has been detected</td></tr>
+<tr><td>OperationMode</td><td><a href="#VisionCore.Road.LaneOperationMode">VisionCore.Road.LaneOperationMode</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes the operation mode</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>732 [694]</th><th>13</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="VisionCore.Road.MarkingStructure">MarkingStructure (VisionCore.Road.MarkingStructure)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>PaintedMarking</td><td>VisionCore.Road.MarkingStructure.PaintedMarking</td><td>0</td></tr>
+<tr><td>BottsDots</td><td>VisionCore.Road.MarkingStructure.BottsDots</td><td>1</td></tr>
+</table>
+<h2 id="VisionCore.Road.MarkingType">MarkingType (VisionCore.Road.MarkingType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>VisionCore.Road.MarkingType.Unspecified</td><td>0</td></tr>
+<tr><td>Solid</td><td>VisionCore.Road.MarkingType.Solid</td><td>1</td></tr>
+<tr><td>Dashed</td><td>VisionCore.Road.MarkingType.Dashed</td><td>2</td></tr>
+<tr><td>SeparationMarking</td><td>VisionCore.Road.MarkingType.SeparationMarking</td><td>3</td></tr>
+</table>
+<h2 id="VisionCore.Road.SecondMarkingType">SecondMarkingType (VisionCore.Road.SecondMarkingType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoSecondMarking</td><td>VisionCore.Road.SecondMarkingType.NoSecondMarking</td><td>0</td></tr>
+<tr><td>SecondSolid</td><td>VisionCore.Road.SecondMarkingType.SecondSolid</td><td>1</td></tr>
+<tr><td>SecondDashed</td><td>VisionCore.Road.SecondMarkingType.SecondDashed</td><td>2</td></tr>
+<tr><td>SecondSeparationMarking</td><td>VisionCore.Road.SecondMarkingType.SecondSeparationMarking</td><td>3</td></tr>
+<tr><td>MultipleMarkings</td><td>VisionCore.Road.SecondMarkingType.MultipleMarkings</td><td>4</td></tr>
+</table>
+<h2 id="VisionCore.Road.LaneTrackingStatus">LaneTrackingStatus (VisionCore.Road.LaneTrackingStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoMarkingDetected</td><td>VisionCore.Road.LaneTrackingStatus.NoMarkingDetected</td><td>0</td></tr>
+<tr><td>TrackedDetectedMarking</td><td>VisionCore.Road.LaneTrackingStatus.TrackedDetectedMarking</td><td>1</td></tr>
+<tr><td>CloseRangePredictedMarking</td><td>VisionCore.Road.LaneTrackingStatus.CloseRangePredictedMarking</td><td>2</td></tr>
+<tr><td>FarRangePredictedMarking</td><td>VisionCore.Road.LaneTrackingStatus.FarRangePredictedMarking</td><td>3</td></tr>
+<tr><td>PredictedMarking</td><td>VisionCore.Road.LaneTrackingStatus.PredictedMarking</td><td>4</td></tr>
+</table>
+<h2 id="VisionCore.Road.SideSuggestion">SideSuggestion (VisionCore.Road.SideSuggestion)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.Road.SideSuggestion.None</td><td>0</td></tr>
+<tr><td>LeftSide</td><td>VisionCore.Road.SideSuggestion.LeftSide</td><td>1</td></tr>
+<tr><td>RightSide</td><td>VisionCore.Road.SideSuggestion.RightSide</td><td>2</td></tr>
+<tr><td>BothNonParallel</td><td>VisionCore.Road.SideSuggestion.BothNonParallel</td><td>3</td></tr>
+<tr><td>BothParallel</td><td>VisionCore.Road.SideSuggestion.BothParallel</td><td>4</td></tr>
+<tr><td>BothCoupled</td><td>VisionCore.Road.SideSuggestion.BothCoupled</td><td>5</td></tr>
+</table>
+<h2 id="VisionCore.Road.LaneChange">LaneChange (VisionCore.Road.LaneChange)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>No</td><td>VisionCore.Road.LaneChange.No</td><td>0</td></tr>
+<tr><td>Left</td><td>VisionCore.Road.LaneChange.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>VisionCore.Road.LaneChange.Right</td><td>2</td></tr>
+</table>
+<h2 id="VisionCore.Road.LaneMarkingColor">LaneMarkingColor (VisionCore.Road.LaneMarkingColor)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>White</td><td>VisionCore.Road.LaneMarkingColor.White</td><td>0</td></tr>
+<tr><td>Yellow</td><td>VisionCore.Road.LaneMarkingColor.Yellow</td><td>1</td></tr>
+<tr><td>Red</td><td>VisionCore.Road.LaneMarkingColor.Red</td><td>2</td></tr>
+<tr><td>Blue</td><td>VisionCore.Road.LaneMarkingColor.Blue</td><td>3</td></tr>
+<tr><td>Orange</td><td>VisionCore.Road.LaneMarkingColor.Orange</td><td>4</td></tr>
+<tr><td>Green</td><td>VisionCore.Road.LaneMarkingColor.Green</td><td>5</td></tr>
+<tr><td>Other</td><td>VisionCore.Road.LaneMarkingColor.Other</td><td>6</td></tr>
+</table>
+<h2 id="VisionCore.Road.LaneEventType">LaneEventType (VisionCore.Road.LaneEventType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoEvent</td><td>VisionCore.Road.LaneEventType.NoEvent</td><td>0</td></tr>
+<tr><td>OpeningFork</td><td>VisionCore.Road.LaneEventType.OpeningFork</td><td>1</td></tr>
+<tr><td>ClosingFork</td><td>VisionCore.Road.LaneEventType.ClosingFork</td><td>2</td></tr>
+<tr><td>MarkingTypeChangeDashedToSolid</td><td>VisionCore.Road.LaneEventType.MarkingTypeChangeDashedToSolid</td><td>3</td></tr>
+<tr><td>MarkingTypeChangeSolidToDashed</td><td>VisionCore.Road.LaneEventType.MarkingTypeChangeSolidToDashed</td><td>4</td></tr>
+<tr><td>MarkingTypeChangeStartOfDashed</td><td>VisionCore.Road.LaneEventType.MarkingTypeChangeStartOfDashed</td><td>5</td></tr>
+<tr><td>MarkingTypeChangeStartOfSolid</td><td>VisionCore.Road.LaneEventType.MarkingTypeChangeStartOfSolid</td><td>6</td></tr>
+</table>
+<h2 id="VisionCore.Road.TemporaryMarkingType">TemporaryMarkingType (VisionCore.Road.TemporaryMarkingType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoTemporaryMarkings</td><td>VisionCore.Road.TemporaryMarkingType.NoTemporaryMarkings</td><td>0</td></tr>
+<tr><td>AmbiguousMarkings</td><td>VisionCore.Road.TemporaryMarkingType.AmbiguousMarkings</td><td>1</td></tr>
+<tr><td>DynamicTemporaryMarkings</td><td>VisionCore.Road.TemporaryMarkingType.DynamicTemporaryMarkings</td><td>2</td></tr>
+</table>
+<h2 id="VisionCore.Road.LaneTrackUnsafeReason">LaneTrackUnsafeReason (VisionCore.Road.LaneTrackUnsafeReason)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>VisionCore.Road.LaneTrackUnsafeReason.Unspecified</td><td>0</td></tr>
+<tr><td>InvalidPosition</td><td>VisionCore.Road.LaneTrackUnsafeReason.InvalidPosition</td><td>1</td></tr>
+<tr><td>InvalidMarkingType</td><td>VisionCore.Road.LaneTrackUnsafeReason.InvalidMarkingType</td><td>2</td></tr>
+<tr><td>InvalidDetectionDistance</td><td>VisionCore.Road.LaneTrackUnsafeReason.InvalidDetectionDistance</td><td>3</td></tr>
+<tr><td>InvalidCalibration</td><td>VisionCore.Road.LaneTrackUnsafeReason.InvalidCalibration</td><td>4</td></tr>
+<tr><td>InvalidCnn</td><td>VisionCore.Road.LaneTrackUnsafeReason.InvalidCnn</td><td>5</td></tr>
+<tr><td>InvalidColor</td><td>VisionCore.Road.LaneTrackUnsafeReason.InvalidColor</td><td>6</td></tr>
+<tr><td>InvalidRoadProfile</td><td>VisionCore.Road.LaneTrackUnsafeReason.InvalidRoadProfile</td><td>7</td></tr>
+<tr><td>Other</td><td>VisionCore.Road.LaneTrackUnsafeReason.Other</td><td>8</td></tr>
+</table>
+<h2 id="VisionCore.Road.LaneEventSide">LaneEventSide (VisionCore.Road.LaneEventSide)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unspecified</td><td>VisionCore.Road.LaneEventSide.Unspecified</td><td>0</td></tr>
+<tr><td>Left</td><td>VisionCore.Road.LaneEventSide.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>VisionCore.Road.LaneEventSide.Right</td><td>2</td></tr>
+</table>
+<h2 id="VisionCore.Road.LaneOperationMode">LaneOperationMode (VisionCore.Road.LaneOperationMode)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Invalid</td><td>VisionCore.Road.LaneOperationMode.Invalid</td><td>0</td></tr>
+<tr><td>Mono</td><td>VisionCore.Road.LaneOperationMode.Mono</td><td>1</td></tr>
+<tr><td>Stereo</td><td>VisionCore.Road.LaneOperationMode.Stereo</td><td>2</td></tr>
+</table>
+</body>
+</html>

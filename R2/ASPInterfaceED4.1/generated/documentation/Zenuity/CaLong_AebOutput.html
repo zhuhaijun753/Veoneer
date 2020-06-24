@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>CaLong_AebOutput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - Zenuity.CaLong</b>
+<br>
+<h1>Messages</h1>
+<h2 id="Zenuity.CaLong.TimeToThreat">TimeToThreat (Zenuity.CaLong.TimeToThreat)</h2>
+Time until a threat is effective
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>BrakeThreat</td><td>U16</td><td>0 s</td><td>5 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>Time until the driver cannot avoid the threat by braking according to CollisionMitigationSystem predictions</td></tr>
+<tr><td>SteeringThreat</td><td>U16</td><td>0 s</td><td>5 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>Time until the driver cannot avoid the threat by steering according to CollisionMitigationSystem predictions</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8 [6]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="Zenuity.CaLong.AebRequest">AebRequest (Zenuity.CaLong.AebRequest)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>DecelerationEnabled</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request to activate AEB braking against forward object</td></tr>
+<tr><td>AvoidanceDeceleration</td><td>U8</td><td>0 m/s²</td><td>13 m/s²</td><td>0.1</td><td>m/s²</td><td>3</td><td>1</td><td>Avoidance deceleration requested longitudinally, along the X-axis if AFAC</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>5</th><th>2</th><th></th></tr>
+</table>
+<h2 id="Zenuity.CaLong.CollisionMitigationThreatInformation">CollisionMitigationThreatInformation (Zenuity.CaLong.CollisionMitigationThreatInformation)</h2>
+Threat related information from the CollisionMitigationByBrakingController
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>BeltActivationLevel</td><td><a href="#Zenuity.CaLong.BeltActivationLevel">Zenuity.CaLong.BeltActivationLevel</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>A request to activate the electric belts</td></tr>
+<tr><td>CollisionThreatLevel</td><td><a href="#Zenuity.CaLong.CollisionThreatLevel">Zenuity.CaLong.CollisionThreatLevel</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>The current collision threat level. Used by vehicle mode management to reduce electrical loads in the car and thus increase system voltage.</td></tr>
+<tr><td>DisplayPostEventMessage</td><td><a href="#Zenuity.CaLong.DisplayPostEvent">Zenuity.CaLong.DisplayPostEvent</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request to driver information system to display post event message</td></tr>
+<tr><td>TimeToBrake</td><td><a href="#Zenuity.CaLong.TimeToThreat">Zenuity.CaLong.TimeToThreat</a></td><td></td><td></td><td></td><td></td><td>10 [8]</td><td>1</td><td>Time until a threat causes a braking intervention</td></tr>
+<tr><td>RawRequest</td><td><a href="#Zenuity.CaLong.AebRequest">Zenuity.CaLong.AebRequest</a></td><td></td><td></td><td></td><td></td><td>7</td><td>1</td><td>Raw AEB request and the deceleration request for avoiding the primary target.</td></tr>
+<tr><td>ObjectId</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Id of primary target object for AEB braking. Note that a value of 0 indicates 'no object'.</td></tr>
+<tr><td>TimeToCollision</td><td>U16</td><td>0 s</td><td>100 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>Time to collision for primary target. Set to 100s if no value is available.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>30 [27]</th><th>7</th><th></th></tr>
+</table>
+<h2 id="Zenuity.CaLong.CollisionForwardWarningControl">CollisionForwardWarningControl (Zenuity.CaLong.CollisionForwardWarningControl)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>WarningRequest</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request to activate collision warning against forward object</td></tr>
+<tr><td>ObjectType</td><td><a href="#Zenuity.CaLong.CaLongObjectType">Zenuity.CaLong.CaLongObjectType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>The object type that is source of the request to activate collision warning against forward object</td></tr>
+<tr><td>BrakeGainEnabled</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request to indicate that the current brake pressure should be amplified</td></tr>
+<tr><td>BrakeGainRequest</td><td>U8</td><td>0</td><td>25.5</td><td>0.1</td><td></td><td>3</td><td>1</td><td>Factor to increase brake pressure by</td></tr>
+<tr><td>BrakeGainMaxDeceleration</td><td>U8</td><td>0 m/s²</td><td>25.5 m/s²</td><td>0.1</td><td>m/s²</td><td>3</td><td>1</td><td>Brake gain amplification should not cause the deceleration to be more negative than this value</td></tr>
+<tr><td>TimeToCollision</td><td>U16</td><td>0 s</td><td>100 s</td><td>0.01</td><td>s</td><td>4 [3]</td><td>1</td><td>Time to collision for primary target. Set to 100s if no value is available.</td></tr>
+<tr><td>ObjectId</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Id of selected object for collision warning. Note that a value of 0 indicates 'no object'.</td></tr>
+<tr><td>ObjectPosition</td><td><a href="#VisionCore.Common.Coord2_m_0_01">VisionCore.Common.Coord2_m_0_01</a></td><td></td><td></td><td></td><td></td><td>10</td><td>1</td><td>Position of selected object for collision warning, expressed in ARAC.</td></tr>
+<tr><td>BrakePulseRequest</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Brake pulse is a short activation of the brakes to get attention from the driver as part of a CW event. Notifies the driver of the collision warning via a haptic signal.</td></tr>
+<tr><td>WarningRequestRaw</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Unarbitrated request to activate collision warning against forward object</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>33 [32]</th><th>10</th><th></th></tr>
+</table>
+<h2 id="Zenuity.CaLong.CollisionMitigationBrakeRequest">CollisionMitigationBrakeRequest (Zenuity.CaLong.CollisionMitigationBrakeRequest)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 4 (4)
+<br>
+Version: 1.0.0
+<br>
+Collision Mitigation Systems (CMS) ASIL B output data from Zenuity SWCollisionMitigationByBrakingController decides the appropriate time to apply the brakes prior to a collision and regulates the amount of braking which is needed to avoid a collision
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>DecelerationEnabled</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Enable deceleration request</td></tr>
+<tr><td>DecelerationRequest</td><td>U8</td><td>0 m/s²</td><td>25.5 m/s²</td><td>0.1</td><td>m/s²</td><td>3</td><td>1</td><td>Deceleration requested</td></tr>
+<tr><td>StandStillRequest</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request to hold the vehicle stationary until driver presses the acceleration pedal</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>7</th><th>3</th><th></th></tr>
+</table>
+<h2 id="Zenuity.CaLong.CollisionMitigationSystem">CollisionMitigationSystem (Zenuity.CaLong.CollisionMitigationSystem)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 1 (1)
+<br>
+Version: 2.3.0
+<br>
+Collision Mitigation Systems (CMS) QM output data from Zenuity SW
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>ForwardWarningControl</td><td><a href="#Zenuity.CaLong.CollisionForwardWarningControl">Zenuity.CaLong.CollisionForwardWarningControl</a></td><td></td><td></td><td></td><td></td><td>35 [34]</td><td>1</td><td>Examples of driver alerts are audio, visual and haptic (brake pulse) warning</td></tr>
+<tr><td>ThreatInformation</td><td><a href="#Zenuity.CaLong.CollisionMitigationThreatInformation">Zenuity.CaLong.CollisionMitigationThreatInformation</a></td><td></td><td></td><td></td><td></td><td>32 [29]</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>67 [63]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="Zenuity.CaLong.VruAebOutput">VruAebOutput (Zenuity.CaLong.VruAebOutput)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 2 (2)
+<br>
+Version: 1.0.0
+<br>
+Collision Mitigation Systems (CMS) output signals from Zenuity SW for VRU objects
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>PrimaryTargetZone</td><td><a href="#Zenuity.CaLong.ObjectZone">Zenuity.CaLong.ObjectZone</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Zone which the VRU object is in</td></tr>
+<tr><td>AvoidanceDeceleration</td><td>U8</td><td>0 m/s²</td><td>13 m/s²</td><td>0.1</td><td>m/s²</td><td>3</td><td>1</td><td>Avoidance deceleration requested</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>5</th><th>2</th><th></th></tr>
+</table>
+<h2 id="Zenuity.CaLong.StaticDistanceWarningOutput">StaticDistanceWarningOutput (Zenuity.CaLong.StaticDistanceWarningOutput)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 3 (3)
+<br>
+Version: 1.0.0
+<br>
+Static Distance Warning output signals for Zenuity SW. The driver will be warned in case he or she maintains a too close and dangerous time gap to another object in front.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>WarningRequest</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request to activate static distance warning against forward object</td></tr>
+<tr><td>ObjectId</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Id of selected object for static distance warning</td></tr>
+<tr><td>TimeGap</td><td>U8</td><td>0 s</td><td>25.5 s</td><td>0.1</td><td>s</td><td>3</td><td>1</td><td>Time gap between host vehicle and object in front</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8</th><th>3</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="Zenuity.CaLong.BeltActivationLevel">BeltActivationLevel (Zenuity.CaLong.BeltActivationLevel)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoActivation</td><td>Zenuity.CaLong.BeltActivationLevel.NoActivation</td><td>0</td></tr>
+<tr><td>ActivationLow</td><td>Zenuity.CaLong.BeltActivationLevel.ActivationLow</td><td>1</td></tr>
+<tr><td>ActivationHigh</td><td>Zenuity.CaLong.BeltActivationLevel.ActivationHigh</td><td>2</td></tr>
+<tr><td>NotInUse</td><td>Zenuity.CaLong.BeltActivationLevel.NotInUse</td><td>3</td></tr>
+</table>
+<h2 id="Zenuity.CaLong.CollisionThreatLevel">CollisionThreatLevel (Zenuity.CaLong.CollisionThreatLevel)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>Zenuity.CaLong.CollisionThreatLevel.Unknown</td><td>0</td></tr>
+<tr><td>ThreatLow</td><td>Zenuity.CaLong.CollisionThreatLevel.ThreatLow</td><td>1</td></tr>
+<tr><td>ThreatMedium</td><td>Zenuity.CaLong.CollisionThreatLevel.ThreatMedium</td><td>2</td></tr>
+<tr><td>ThreatHigh</td><td>Zenuity.CaLong.CollisionThreatLevel.ThreatHigh</td><td>3</td></tr>
+</table>
+<h2 id="Zenuity.CaLong.CaLongObjectType">CaLongObjectType (Zenuity.CaLong.CaLongObjectType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>Zenuity.CaLong.CaLongObjectType.Unknown</td><td>0</td></tr>
+<tr><td>Car</td><td>Zenuity.CaLong.CaLongObjectType.Car</td><td>1</td></tr>
+<tr><td>Motorcycle</td><td>Zenuity.CaLong.CaLongObjectType.Motorcycle</td><td>2</td></tr>
+<tr><td>Truck</td><td>Zenuity.CaLong.CaLongObjectType.Truck</td><td>3</td></tr>
+<tr><td>Pedestrian</td><td>Zenuity.CaLong.CaLongObjectType.Pedestrian</td><td>4</td></tr>
+<tr><td>Bicycle</td><td>Zenuity.CaLong.CaLongObjectType.Bicycle</td><td>5</td></tr>
+<tr><td>GeneralObject</td><td>Zenuity.CaLong.CaLongObjectType.GeneralObject</td><td>6</td></tr>
+</table>
+<h2 id="Zenuity.CaLong.DisplayPostEvent">DisplayPostEvent (Zenuity.CaLong.DisplayPostEvent)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoMessage</td><td>Zenuity.CaLong.DisplayPostEvent.NoMessage</td><td>0</td></tr>
+<tr><td>InterventionLongitudinal</td><td>Zenuity.CaLong.DisplayPostEvent.InterventionLongitudinal</td><td>1</td></tr>
+<tr><td>InterventionLateral</td><td>Zenuity.CaLong.DisplayPostEvent.InterventionLateral</td><td>2</td></tr>
+<tr><td>InterventionLongitudinalAndInterventionLateral</td><td>Zenuity.CaLong.DisplayPostEvent.InterventionLongitudinalAndInterventionLateral</td><td>3</td></tr>
+<tr><td>BrakePulse</td><td>Zenuity.CaLong.DisplayPostEvent.BrakePulse</td><td>4</td></tr>
+<tr><td>CriteriaBrakeMessage</td><td>Zenuity.CaLong.DisplayPostEvent.CriteriaBrakeMessage</td><td>5</td></tr>
+</table>
+<h2 id="Zenuity.CaLong.ObjectZone">ObjectZone (Zenuity.CaLong.ObjectZone)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>Zenuity.CaLong.ObjectZone.None</td><td>0</td></tr>
+<tr><td>Notification</td><td>Zenuity.CaLong.ObjectZone.Notification</td><td>1</td></tr>
+<tr><td>Alert</td><td>Zenuity.CaLong.ObjectZone.Alert</td><td>2</td></tr>
+<tr><td>Prefill</td><td>Zenuity.CaLong.ObjectZone.Prefill</td><td>3</td></tr>
+<tr><td>Cib</td><td>Zenuity.CaLong.ObjectZone.Cib</td><td>4</td></tr>
+</table>
+</body>
+</html>

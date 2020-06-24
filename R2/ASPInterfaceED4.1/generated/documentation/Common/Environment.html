@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Environment Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - Common</b>
+<br>
+<h1>Messages</h1>
+<h1>Enums</h1>
+<h2 id="Common.TrafficStyle">TrafficStyle (Common.TrafficStyle)</h2>
+Max Encoded Size (bytes): 1Describes the traffic style / direction
+<br>
+<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>Common.TrafficStyle.Unknown</td><td>0</td></tr>
+<tr><td>RightHandTraffic</td><td>Common.TrafficStyle.RightHandTraffic</td><td>1</td></tr>
+<tr><td>LeftHandTraffic</td><td>Common.TrafficStyle.LeftHandTraffic</td><td>2</td></tr>
+</table>
+</body>
+</html>

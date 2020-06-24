@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Cruising Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - SystemCore.Crusing</b>
+<br>
+<h1>Messages</h1>
+<h2 id="SystemCore.Crusing.IndicatedSpeed">IndicatedSpeed (SystemCore.Crusing.IndicatedSpeed)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Speed</td><td>U8</td><td>0 See enum unit</td><td>250 See enum unit</td><td>1</td><td>See enum unit</td><td>3</td><td>1</td><td>Indicated speed seen by driver, needed for no lead vehicle cancel condition in ACC</td></tr>
+<tr><td>Unit</td><td><a href="#SystemCore.Crusing.SpeedUnit">SystemCore.Crusing.SpeedUnit</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>5</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Crusing.AccCommonInput">AccCommonInput (SystemCore.Crusing.AccCommonInput)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 30 (1e)
+<br>
+Version: 1.0.0
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>DriverOverride</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>DriveMode</td><td><a href="#SystemCore.Crusing.AccDriveMode">SystemCore.Crusing.AccDriveMode</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>RoadInclination</td><td>S32</td><td>-1 radians</td><td>1 radians</td><td>0.005</td><td>radians</td><td>6 [3]</td><td>1</td><td>Road inclination</td></tr>
+<tr><td>StandstillStatus</td><td><a href="#SystemCore.Crusing.StandstillStatus">SystemCore.Crusing.StandstillStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>IndicatedSpeed</td><td><a href="#SystemCore.Crusing.IndicatedSpeed">SystemCore.Crusing.IndicatedSpeed</a></td><td></td><td></td><td></td><td></td><td>7</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>19 [16]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Crusing.SetSpeedControllerInput">SetSpeedControllerInput (SystemCore.Crusing.SetSpeedControllerInput)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 31 (1f)
+<br>
+Version: 1.0.0
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>SetSpeed</td><td>U16</td><td>7 m/s</td><td>60 m/s</td><td>0.1</td><td>m/s</td><td>4 [3]</td><td>1</td><td>Set speed for set speed controller to follow</td></tr>
+<tr><td>SetSpeedChangedBy</td><td><a href="#SystemCore.Crusing.ChangedBy">SystemCore.Crusing.ChangedBy</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>6 [5]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Crusing.CruisingFeatureState">CruisingFeatureState (SystemCore.Crusing.CruisingFeatureState)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 32 (20)
+<br>
+Version: 1.0.0
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>CsaActive</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>If true: CSA will control against high curve speeds</td></tr>
+<tr><td>CcActive</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>If true: CC will control to reach setspeed</td></tr>
+<tr><td>AccState</td><td><a href="#SystemCore.Crusing.AccState">SystemCore.Crusing.AccState</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>State will affect ACC feature consiting of both distance(ACC) and setspeed(CC) controller</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>6</th><th>3</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Crusing.DistanceControllerInput">DistanceControllerInput (SystemCore.Crusing.DistanceControllerInput)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 33 (21)
+<br>
+Version: 1.0.0
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Timegap</td><td>U8</td><td>1</td><td>5</td><td>1</td><td></td><td>3 [2]</td><td>1</td><td>Which of 5 timegaps that is requested</td></tr>
+<tr><td>CurrentAccelerationRequestedToActuators</td><td>S16</td><td>-5 m/s²</td><td>5 m/s²</td><td>0.01</td><td>m/s²</td><td>4 [3]</td><td>1</td><td>Current acceleration requested to actuators, used for jerk limitation calculations within ACC</td></tr>
+<tr><td>UsedActuator</td><td><a href="#SystemCore.Crusing.UsedActuator">SystemCore.Crusing.UsedActuator</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>LaneChangeIndicatedByDriver</td><td><a href="#SystemCore.Crusing.LateralDirection">SystemCore.Crusing.LateralDirection</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>OvertakeBoostRequestedByDriver</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>HeavyRain</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Used to lower acceleration request range from controller, previous OEMs used windshield wiper speed higher than threshold</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>15 [13]</th><th>6</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="SystemCore.Crusing.SpeedUnit">SpeedUnit (SystemCore.Crusing.SpeedUnit)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Kph</td><td>SystemCore.Crusing.SpeedUnit.Kph</td><td>0</td></tr>
+<tr><td>Mph</td><td>SystemCore.Crusing.SpeedUnit.Mph</td><td>1</td></tr>
+</table>
+<h2 id="SystemCore.Crusing.AccDriveMode">AccDriveMode (SystemCore.Crusing.AccDriveMode)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Invalid</td><td>SystemCore.Crusing.AccDriveMode.Invalid</td><td>0</td></tr>
+<tr><td>Comfort</td><td>SystemCore.Crusing.AccDriveMode.Comfort</td><td>1</td></tr>
+<tr><td>Dynamic</td><td>SystemCore.Crusing.AccDriveMode.Dynamic</td><td>2</td></tr>
+<tr><td>Eco</td><td>SystemCore.Crusing.AccDriveMode.Eco</td><td>3</td></tr>
+</table>
+<h2 id="SystemCore.Crusing.AccState">AccState (SystemCore.Crusing.AccState)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Off</td><td>SystemCore.Crusing.AccState.Off</td><td>0</td></tr>
+<tr><td>Standby</td><td>SystemCore.Crusing.AccState.Standby</td><td>1</td></tr>
+<tr><td>Active</td><td>SystemCore.Crusing.AccState.Active</td><td>2</td></tr>
+<tr><td>Stop</td><td>SystemCore.Crusing.AccState.Stop</td><td>3</td></tr>
+<tr><td>BrakeOnly</td><td>SystemCore.Crusing.AccState.BrakeOnly</td><td>4</td></tr>
+</table>
+<h2 id="SystemCore.Crusing.StandstillStatus">StandstillStatus (SystemCore.Crusing.StandstillStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>StationaryNotHeld</td><td>SystemCore.Crusing.StandstillStatus.StationaryNotHeld</td><td>0</td></tr>
+<tr><td>StationaryHeld</td><td>SystemCore.Crusing.StandstillStatus.StationaryHeld</td><td>1</td></tr>
+<tr><td>Moving</td><td>SystemCore.Crusing.StandstillStatus.Moving</td><td>2</td></tr>
+</table>
+<h2 id="SystemCore.Crusing.UsedActuator">UsedActuator (SystemCore.Crusing.UsedActuator)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>SystemCore.Crusing.UsedActuator.None</td><td>0</td></tr>
+<tr><td>Engine</td><td>SystemCore.Crusing.UsedActuator.Engine</td><td>1</td></tr>
+<tr><td>Brake</td><td>SystemCore.Crusing.UsedActuator.Brake</td><td>2</td></tr>
+</table>
+<h2 id="SystemCore.Crusing.LateralDirection">LateralDirection (SystemCore.Crusing.LateralDirection)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>SystemCore.Crusing.LateralDirection.None</td><td>0</td></tr>
+<tr><td>Left</td><td>SystemCore.Crusing.LateralDirection.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>SystemCore.Crusing.LateralDirection.Right</td><td>2</td></tr>
+</table>
+<h2 id="SystemCore.Crusing.ChangedBy">ChangedBy (SystemCore.Crusing.ChangedBy)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>System</td><td>SystemCore.Crusing.ChangedBy.System</td><td>0</td></tr>
+<tr><td>Driver</td><td>SystemCore.Crusing.ChangedBy.Driver</td><td>1</td></tr>
+</table>
+</body>
+</html>

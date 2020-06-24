@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Active Safety Platform - Rest of Vehicle Interface Description</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <style type="text/css">a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+body {
+margin: auto;
+padding-right: 1em;
+padding-left: 1em;
+padding-top: 1em;
+color: black;
+font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+font-size: 100%;
+line-height: 140%;
+}
+pre {
+border: 1px dotted gray;
+padding: 0.5em;
+}
+code {
+font-family: "Courier New", monospace;
+color: #a33;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a {
+text-decoration: none;
+color: #001e46;
+}
+h1, h2, h3, h4, h5 {
+font-family: 'Barlow', sans-serif;
+font-weight: bold;
+color: #001e46;
+}
+h1 {
+border-bottom: 1px solid #0e2b8d;
+font-size: 130%;
+line-height: 140%;
+page-break-before: always;
+padding-top: 2em;
+}
+h2 {
+font-size: 110%;
+padding-top: 2em;
+}
+h3 {
+font-size: 95%;
+padding-top: 2em;
+}
+h4 {
+font-size: 90%;
+padding-top: 2em;
+}
+h5 {
+font-size: 90%;
+padding-top: 2em;
+}
+h1.title {
+font-size: 200%;
+font-weight: bold;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+text-align: center;
+border: none;
+page-break-before: auto;
+}
+dt code {
+font-weight: bold;
+}
+dd p {
+margin-top: 0;
+}
+#nav, #confidential, #footer, figure {
+font-family: 'Barlow', sans-serif;
+}
+#confidential {
+font-size: 85%;
+}
+header#documentheader {
+position: relative;
+margin: 0;
+padding: 0;
+margin-left: -1em;
+width: 100%;
+top: 1em;
+background: #ffffff;
+}
+div#alvheaderwrapper {
+padding: 0;
+margin: 0 1em;
+overflow: hidden;
+position: relative;
+}
+footer {
+font-size: 75%;
+border-top: 1px solid #0e2b8d;
+margin-top: 1em;
+}
+footer#pdffooter {
+display:none;
+}
+table {
+border-collapse: collapse;
+font-family: 'Barlow', sans-serif;
+}
+td, th {
+border: 1px solid black;
+margin: 0;
+padding: 4px;
+text-align: left;
+vertical-align: top;
+}
+th {
+color: black;
+font-family: 'Barlow', sans-serif;
+background-color: #c4e2df;
+}
+td.alvlogo {
+border: none;
+margin: 0;
+padding: 0px;
+}
+table.alvheader {
+margin: 0;
+padding: 0;
+width: 100%;
+border-collapse: collapse;
+}
+td.alvheader {
+border: 1px solid black;
+margin: 0;
+padding-left: 4px;
+padding-right: 4px;
+padding-top: 0px;
+padding-bottom: 2px;
+vertical-align: top;
+line-height: 120%;
+}
+.alvmeta {
+font-size: 75%;
+font-style: italic;
+}
+td.alvheadershade {
+border: 1px solid black;
+margin: 0;
+padding: 2px;
+background-color: #c4e2df;
+color: black;
+line-height: 120%;
+}
+pre.instruction {
+border: none;
+color: #00c;
+background-color: white;
+}
+.warning {
+border: 4px solid red;
+font-family: Verdana, sans-serif;
+padding-left: 1em;
+padding-right: 1em;
+margin-bottom: 1em;
+}
+.hidden {
+display: none;
+}
+th.left, td.left {
+text-align: left;
+}
+th.right, td.right {
+text-align: right;
+}
+
+table.memname td {
+border: none;
+}
+.memname {
+font-weight: bold;
+border: none;
+margin-bottom: -10px;
+margin-left: 0px;
+padding-left: 0px;
+padding-bottom: 0px;
+}
+.memdoc {
+margin-left: 40px;
+margin-bottom: 1em;
+}
+table.memname td.paramname, td.paramtype {
+padding-left: 0px;
+padding-right: 0px;
+}
+td.mdescRight {
+font-weight: normal;
+padding-top: 0px;
+margin-top: 0px;
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Active Safety Platform - Rest of Vehicle Interface Description</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#overview"><span class="toc-section-number">1</span> Overview</a></li>
+<li><a href="#front-looking-adas-camera-flac"><span class="toc-section-number">2</span> Front Looking ADAS Camera (FLAC)</a>
+<ul>
+<li><a href="#aeboutput"><span class="toc-section-number">2.1</span> AebOutput</a></li>
+<li><a href="#classified-detections"><span class="toc-section-number">2.2</span> Classified Detections</a>
+<ul>
+<li><a href="#header"><span class="toc-section-number">2.2.1</span> Header</a></li>
+<li><a href="#content"><span class="toc-section-number">2.2.2</span> Content</a></li>
+</ul></li>
+<li><a href="#flacstatus"><span class="toc-section-number">2.3</span> FlacStatus</a></li>
+<li><a href="#interfaceversion"><span class="toc-section-number">2.4</span> InterfaceVersion</a></li>
+<li><a href="#lane"><span class="toc-section-number">2.5</span> Lane</a></li>
+<li><a href="#lightcontrol"><span class="toc-section-number">2.6</span> LightControl</a></li>
+<li><a href="#lsa"><span class="toc-section-number">2.7</span> LSA</a></li>
+<li><a href="#measurements"><span class="toc-section-number">2.8</span> Measurements</a>
+<ul>
+<li><a href="#section"><span class="toc-section-number">2.8.1</span> 1</a></li>
+<li><a href="#section-1"><span class="toc-section-number">2.8.2</span> 2</a></li>
+<li><a href="#section-2"><span class="toc-section-number">2.8.3</span> 3</a></li>
+<li><a href="#section-3"><span class="toc-section-number">2.8.4</span> 4</a></li>
+</ul></li>
+<li><a href="#nm_adas"><span class="toc-section-number">2.9</span> NM_ADAS</a></li>
+<li><a href="#nm_vision"><span class="toc-section-number">2.10</span> NM_Vision</a></li>
+<li><a href="#objects"><span class="toc-section-number">2.11</span> Objects</a>
+<ul>
+<li><a href="#header-1"><span class="toc-section-number">2.11.1</span> Header</a></li>
+<li><a href="#content-1"><span class="toc-section-number">2.11.2</span> Content</a></li>
+</ul></li>
+<li><a href="#pixeltunnels"><span class="toc-section-number">2.12</span> PixelTunnels</a></li>
+<li><a href="#stereodetections"><span class="toc-section-number">2.13</span> StereoDetections</a>
+<ul>
+<li><a href="#header-2"><span class="toc-section-number">2.13.1</span> Header</a></li>
+<li><a href="#content-2"><span class="toc-section-number">2.13.2</span> Content</a></li>
+</ul></li>
+<li><a href="#timesync"><span class="toc-section-number">2.14</span> TimeSync</a></li>
+<li><a href="#tsr"><span class="toc-section-number">2.15</span> Tsr</a></li>
+<li><a href="#uds"><span class="toc-section-number">2.16</span> UDS</a>
+<ul>
+<li><a href="#rq"><span class="toc-section-number">2.16.1</span> RQ</a></li>
+<li><a href="#rq_func"><span class="toc-section-number">2.16.2</span> RQ_Func</a></li>
+<li><a href="#rs"><span class="toc-section-number">2.16.3</span> RS</a></li>
+</ul></li>
+<li><a href="#visionframeinformation"><span class="toc-section-number">2.17</span> VisionFrameInformation</a></li>
+</ul></li>
+<li><a href="#rest-of-vehicle-rov"><span class="toc-section-number">3</span> Rest of Vehicle (RoV)</a>
+<ul>
+<li><a href="#aebinput"><span class="toc-section-number">3.1</span> AebInput</a></li>
+<li><a href="#vehicle-data"><span class="toc-section-number">3.2</span> Vehicle Data</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>This document aims to describe the vehicle interface for the Active Safety Platform. The physical layer used for the interface is CAN-FD.</p>
+<h1 data-number="1" id="overview"><span class="header-section-number">1</span> Overview</h1>
+<p>Current calculated bus usage: X% based on 2 Mbit/s vehicle interface. 2 Mbit/s @ 64 bytes messages provides an average bit rate of 1.7 Mbit/s.</p>
+<h1 data-number="2" id="front-looking-adas-camera-flac"><span class="header-section-number">2</span> Front Looking ADAS Camera (FLAC)</h1>
+<p>End-2-End protection is performed using Autosar Profile 2, <a href="https://www.autosar.org/fileadmin/user_upload/standards/classic/4-3/AUTOSAR_SWS_E2ELibrary.pdf">Autosar E2E</a>.</p>
+<h2 data-number="2.1" id="aeboutput"><span class="header-section-number">2.1</span> AebOutput</h2>
+<p>This message contains the AEB intervention as well as FCW information.</p>
+<p><strong>Maximum bandwidth usage: 0.001 Mbit/s</strong></p>
+<ul>
+<li>brakeGainMaxDeceleration</li>
+<li>brakeGain</li>
+<li>brakeGainEnabledRequest</li>
+<li>forwardCollWarningObjectType</li>
+<li>forwardCollisionWarningRequest</li>
+<li>postEventMessageRequest</li>
+<li>collisionThreatLevel</li>
+<li>electricBeltRequest</li>
+<li>standStillRequest</li>
+<li>decelerationRequested</li>
+<li>enableDecelerationRequest</li>
+</ul>
+<h2 data-number="2.2" id="classified-detections"><span class="header-section-number">2.2</span> Classified Detections</h2>
+<p>This message contains Classified Detections based on grouped classificiations without tracking.</p>
+<p><strong>Maximum number of detections: 50</strong></p>
+<p><strong>Maximum bandwidth usage: 0.140 Mbit/s</strong></p>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVszZDUwY2I2MTQ1MTkzOGE3ZTkxMzZlZTVlOTRhZGZlZF0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCmZyYW1lICJMaXN0ICMxIiBhcyBMSVNUMSB7DQogICBvYmplY3QgIkNsYXNzaWZpY2F0aW9uRGV0ZWN0aW9uSGVhZGVyIiBhcyBDREgxIHsNCiAgICAgIExpc3RJbmRleCA9IDENCiAgICAgIExpc3RMZW5ndGggPSA2DQogICAgICBMYXRlbmN5ID0gMTIwDQogICB9DQoNCiAgIG9iamVjdCAiQ2xhc3NpZmljYXRpb25EZXRlY3Rpb25zIiBhcyBMSVNUMV9EMSB7DQogICAgICBMaXN0SW5kZXggPSAxDQogICAgICBJbmRleCA9IDENCiAgICAgIE9iamVjdEEgPSBPYmplY3QxDQogICAgICBPYmplY3RCID0gT2JqZWN0Mg0KICAgICAgT2JqZWN0QyA9IE9iamVjdDMNCiAgICAgIE9iamVjdEQgPSBPYmplY3Q0DQogICB9DQoNCiAgIG9iamVjdCAiQ2xhc3NpZmljYXRpb25EZXRlY3Rpb25zIiBhcyBMSVNUMV9EMiB7DQogICAgICBMaXN0SW5kZXggPSAxDQogICAgICBJbmRleCA9IDINCiAgICAgIE9iamVjdEEgPSBPYmplY3Q1DQogICAgICBPYmplY3RCID0gT2JqZWN0Ng0KICAgfQ0KfQ0KDQpub3RlICJTeW5jaHJvbml6ZWQgdmlhIExpc3RJbmRleCIgYXMgc3luYw0KDQpDREgxIC4uIHN5bmMNCkxJU1QxX0QxIC4uIHN5bmMNCkxJU1QxX0QyIC4uIHN5bmMNCg0KTElTVDFfRDEgLT4gTElTVDFfRDINCg0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIwLjExKFNhdCBNYXkgMzAgMTk6MTM6NDMgS1NUIDIwMjApCihHUEwgc291cmNlIGRpc3RyaWJ1dGlvbikKSmF2YSBSdW50aW1lOiBKYXZhKFRNKSBTRSBSdW50aW1lIEVudmlyb25tZW50CkpWTTogSmF2YSBIb3RTcG90KFRNKSA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IE1TOTQ5Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+" id="fig:" alt /><figcaption>Classified Detections</figcaption>
+</figure>
+<h3 data-number="2.2.1" id="header"><span class="header-section-number">2.2.1</span> Header</h3>
+<ul>
+<li>Crc (<em>cdhCrc</em>): According to Autosar Profile 2</li>
+<li>Counter (<em>cdhCounter</em>): According to Autosar Profile 2</li>
+<li>ListIndex (<em>cdhListIndex</em>): Used to synchronize with content messages</li>
+<li>FrameSyncNumber (<em>cdhFrameSyncNumber</em>): Used to synchronize with VisionFrameInformation</li>
+<li>ListLength (<em>cdhListLength</em>): The number of entries in the resulting array</li>
+<li>Latency (<em>cdhLatency</em>): Time from sensor data capture to output on vehicle interface</li>
+</ul>
+<p>Data ID to be defined.</p>
+<h3 data-number="2.2.2" id="content"><span class="header-section-number">2.2.2</span> Content</h3>
+<ul>
+<li>Crc (<em>cdCrc</em>): According to Autosar Profile 2</li>
+<li>Counter (<em>cdCounter</em>): According to Autosar Profile 2</li>
+<li>ListIndex (<em>cdListIndex</em>): Used to synchronize with header and other content messages</li>
+<li>Index (<em>cdIndex</em>): Describes where to place the data in the resulting array</li>
+<li>Object[A/B/C/D] (replace A on the end below)
+<ul>
+<li>LeftAclc
+<ul>
+<li>X (<em>cdLeftAclcXA</em>): X position for lower-left boundary of detection in ACLC</li>
+<li>Y (<em>cdLeftAclcYA</em>): Y position for lower-left boundary of detection in ACLC</li>
+<li>Z (<em>cdLeftAclcZA</em>): Z position for lower-left boundary of detection in ACLC</li>
+</ul></li>
+<li>RightAclc
+<ul>
+<li>X (<em>cdRightAclcXA</em>): X position for lower-right boundary of detection in ACLC</li>
+<li>Y (<em>cdRightAclcYA</em>): Y position for lower-right boundary of detection in ACLC</li>
+<li>Z (<em>cdRightAclcZA</em>): Z position for lower-right boundary of detection in ACLC</li>
+</ul></li>
+<li>Height (<em>cdHeightA</em>): Height of detection</li>
+<li>Continuation (<em>cdContinuationA</em>): Describes the direction the detection continues in, if any.</li>
+<li>Class (<em>cdClassA</em>): Describes the type of the detection</li>
+<li>Probability (<em>cdProbabilityA</em>): Existance probability of detection</li>
+<li>UsedDisparity (<em>cdUsedDisparityA</em>): Describes if Disparity was used to generate the distance to the detection</li>
+</ul></li>
+</ul>
+<p>Data ID to be defined.</p>
+<h2 data-number="2.3" id="flacstatus"><span class="header-section-number">2.3</span> FlacStatus</h2>
+<p>This message describes the current status of the Front Looking ADAS Camera (FLAC).</p>
+<ul>
+<li>Status (flacStatus): Describes the state of the unit</li>
+</ul>
+<h2 data-number="2.4" id="interfaceversion"><span class="header-section-number">2.4</span> InterfaceVersion</h2>
+<p>This message is used to inform the users which version of the interface protocol is used. The format of this message shall never change since this breaks backwards compatibility. Using the information in this message one can find the correct interface specification.</p>
+<p><strong>Maximum bandwidth usage: &lt;0.001 Mbit/s</strong></p>
+<ul>
+<li>MajorVersion (interfaceMajorVersion): Change in number indicates a breaking change</li>
+<li>MinorVersion (interfaceMinorVersion): Change in number indicates a version compatible change</li>
+</ul>
+<h2 data-number="2.5" id="lane"><span class="header-section-number">2.5</span> Lane</h2>
+<p>This message contains information about the lane markers.</p>
+<h2 data-number="2.6" id="lightcontrol"><span class="header-section-number">2.6</span> LightControl</h2>
+<p>This message contains information about the Light Control. It is connected to PixelTunnels.</p>
+<h2 data-number="2.7" id="lsa"><span class="header-section-number">2.7</span> LSA</h2>
+<p>This message contains information about the Lane Support Assist.</p>
+<h2 data-number="2.8" id="measurements"><span class="header-section-number">2.8</span> Measurements</h2>
+<p>This group of message contains measurement points.</p>
+<h3 data-number="2.8.1" id="section"><span class="header-section-number">2.8.1</span> 1</h3>
+<h3 data-number="2.8.2" id="section-1"><span class="header-section-number">2.8.2</span> 2</h3>
+<h3 data-number="2.8.3" id="section-2"><span class="header-section-number">2.8.3</span> 3</h3>
+<h3 data-number="2.8.4" id="section-3"><span class="header-section-number">2.8.4</span> 4</h3>
+<h2 data-number="2.9" id="nm_adas"><span class="header-section-number">2.9</span> NM_ADAS</h2>
+<h2 data-number="2.10" id="nm_vision"><span class="header-section-number">2.10</span> NM_Vision</h2>
+<h2 data-number="2.11" id="objects"><span class="header-section-number">2.11</span> Objects</h2>
+<p><strong>Maximum number of detections: 26</strong></p>
+<p><strong>Maximum bandwidth usage: 0.150 Mbit/s</strong></p>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVs3N2U3YjM0NThiYjU2ZmYxNWNhYzFlZWRiZGRhNThhNF0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCmZyYW1lICJMaXN0ICMxIiBhcyBMSVNUMSB7DQogICBvYmplY3QgIk9iamVjdHNIZWFkZXIiIGFzIE9IMSB7DQogICAgICBMaXN0SW5kZXggPSAxDQogICAgICBMaXN0TGVuZ3RoID0gMw0KICAgICAgTGF0ZW5jeSA9IDk1DQogICB9DQoNCiAgIG9iamVjdCAiT2JqZWN0cyIgYXMgTElTVDFfRDEgew0KICAgICAgTGlzdEluZGV4ID0gMQ0KICAgICAgSW5kZXggPSAxDQogICAgICBPYmplY3RBID0gT2JqZWN0MQ0KICAgICAgT2JqZWN0QiA9IE9iamVjdDINCiAgIH0NCg0KICAgb2JqZWN0ICJPYmplY3RzIiBhcyBMSVNUMV9EMiB7DQogICAgICBMaXN0SW5kZXggPSAxDQogICAgICBJbmRleCA9IDINCiAgICAgIE9iamVjdEEgPSBPYmplY3QzDQogICB9DQp9DQoNCm5vdGUgIlN5bmNocm9uaXplZCB2aWEgTGlzdEluZGV4IiBhcyBzeW5jDQoNCk9IMSAuLiBzeW5jDQpMSVNUMV9EMSAuLiBzeW5jDQpMSVNUMV9EMiAuLiBzeW5jDQoNCkxJU1QxX0QxIC0+IExJU1QxX0QyDQoNCkBlbmR1bWwNCgpQbGFudFVNTCB2ZXJzaW9uIDEuMjAyMC4xMShTYXQgTWF5IDMwIDE5OjEzOjQzIEtTVCAyMDIwKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogSmF2YShUTSkgU0UgUnVudGltZSBFbnZpcm9ubWVudApKVk06IEphdmEgSG90U3BvdChUTSkgNjQtQml0IFNlcnZlciBWTQpEZWZhdWx0IEVuY29kaW5nOiBNUzk0OQpMYW5ndWFnZTogZW4KQ291bnRyeTogVVMKLS0+PC9nPjwvc3ZnPg==" id="fig:" alt /><figcaption>Objects</figcaption>
+</figure>
+<h3 data-number="2.11.1" id="header-1"><span class="header-section-number">2.11.1</span> Header</h3>
+<h3 data-number="2.11.2" id="content-1"><span class="header-section-number">2.11.2</span> Content</h3>
+<h2 data-number="2.12" id="pixeltunnels"><span class="header-section-number">2.12</span> PixelTunnels</h2>
+<h2 data-number="2.13" id="stereodetections"><span class="header-section-number">2.13</span> StereoDetections</h2>
+<p><strong>Maximum number of detections: 80</strong></p>
+<p><strong>Maximum bandwidth usage: 0.32 Mbit/s</strong></p>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVsyY2Q5ZTAwYTkyYjA5ZmRjZGMxNGVmNzcyNzBkODg3MF0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCmZyYW1lICJMaXN0ICMxIiBhcyBMSVNUMSB7DQogICBvYmplY3QgIlN0ZXJlb0RldGVjdGlvbkhlYWRlciIgYXMgQ0RIMSB7DQogICAgICBMaXN0SW5kZXggPSAxDQogICAgICBMaXN0TGVuZ3RoID0gNQ0KICAgICAgTGF0ZW5jeSA9IDEyMA0KICAgfQ0KDQogICBvYmplY3QgIlN0ZXJlb0RldGVjdGlvbnMiIGFzIExJU1QxX0QxIHsNCiAgICAgIExpc3RJbmRleCA9IDENCiAgICAgIEluZGV4ID0gMQ0KICAgICAgT2JqZWN0QSA9IE9iamVjdDENCiAgICAgIE9iamVjdEIgPSBPYmplY3QyDQogICAgICBPYmplY3RDID0gT2JqZWN0Mw0KICAgfQ0KDQogICBvYmplY3QgIlN0ZXJlb0RldGVjdGlvbnMiIGFzIExJU1QxX0QyIHsNCiAgICAgIExpc3RJbmRleCA9IDENCiAgICAgIEluZGV4ID0gMg0KICAgICAgT2JqZWN0QSA9IE9iamVjdDQNCiAgICAgIE9iamVjdEIgPSBPYmplY3Q1DQogICB9DQp9DQoNCm5vdGUgIlN5bmNocm9uaXplZCB2aWEgTGlzdEluZGV4IiBhcyBzeW5jDQoNCkNESDEgLi4gc3luYw0KTElTVDFfRDEgLi4gc3luYw0KTElTVDFfRDIgLi4gc3luYw0KDQpMSVNUMV9EMSAtPiBMSVNUMV9EMg0KDQpAZW5kdW1sDQoKUGxhbnRVTUwgdmVyc2lvbiAxLjIwMjAuMTEoU2F0IE1heSAzMCAxOToxMzo0MyBLU1QgMjAyMCkKKEdQTCBzb3VyY2UgZGlzdHJpYnV0aW9uKQpKYXZhIFJ1bnRpbWU6IEphdmEoVE0pIFNFIFJ1bnRpbWUgRW52aXJvbm1lbnQKSlZNOiBKYXZhIEhvdFNwb3QoVE0pIDY0LUJpdCBTZXJ2ZXIgVk0KRGVmYXVsdCBFbmNvZGluZzogTVM5NDkKTGFuZ3VhZ2U6IGVuCkNvdW50cnk6IFVTCi0tPjwvZz48L3N2Zz4=" id="fig:" alt /><figcaption>Stereo Detections</figcaption>
+</figure>
+<h3 data-number="2.13.1" id="header-2"><span class="header-section-number">2.13.1</span> Header</h3>
+<ul>
+<li>Crc (<em>sdhCrc</em>): According to Autosar Profile 2</li>
+<li>Counter (<em>sdhCounter</em>): According to Autosar Profile 2</li>
+<li>ListIndex (<em>sdhListIndex</em>): Used to synchronize with content messages</li>
+<li>FrameSyncNumber (<em>sdhFrameSyncNumber</em>): Used to synchronize with VisionFrameInformation</li>
+<li>ListLength (<em>sdhListLength</em>): The number of entries in the resulting array</li>
+<li>Latency (<em>sdhLatency</em>): Time from sensor data capture to output on vehicle interface</li>
+</ul>
+<p>Data ID to be defined.</p>
+<h3 data-number="2.13.2" id="content-2"><span class="header-section-number">2.13.2</span> Content</h3>
+<ul>
+<li>Crc (<em>sdCrc</em>): According to Autosar Profile 2</li>
+<li>Counter (<em>sdCounter</em>): According to Autosar Profile 2</li>
+<li>ListIndex (<em>sdListIndex</em>): Used to synchronize with header and other content messages</li>
+<li>Index (<em>sdIndex</em>): Describes where to place the data in the resulting array</li>
+<li>Object[A/B/C] (replace A on the end below)
+<ul>
+<li>LeftAclc
+<ul>
+<li>X (<em>sdLeftAclcXA</em>): X position for lower-left boundary of detection in ACLC</li>
+<li>Y (<em>sdLeftAclcYA</em>): Y position for lower-left boundary of detection in ACLC</li>
+<li>Z (<em>sdLeftAclcZA</em>): Z position for lower-left boundary of detection in ACLC</li>
+</ul></li>
+<li>MiddleAclc: <em>Set to arithmetic mean value of left and right point if detection is not an L-Shape</em>
+<ul>
+<li>X (<em>sdMiddleAclcXA</em>): X position for lower-middle boundary of detection in ACLC</li>
+<li>Y (<em>sdMiddleAclcYA</em>): Y position for lower-middle boundary of detection in ACLC</li>
+<li>Z (<em>sdMiddleAclcZA</em>): Z position for lower-middle boundary of detection in ACLC</li>
+</ul></li>
+<li>RightAclc
+<ul>
+<li>X (<em>sdRightAclcXA</em>): X position for lower-right boundary of detection in ACLC</li>
+<li>Y (<em>sdRightAclcYA</em>): Y position for lower-right boundary of detection in ACLC</li>
+<li>Z (<em>sdRightAclcZA</em>): Z position for lower-right boundary of detection in ACLC</li>
+</ul></li>
+<li>DirectionValid (<em>sdDirectionValidA</em>): If set end points are valid. If not set end points shall be seen as the bounding box created from the points, i.e. when not set it describes the uncertainty.</li>
+<li>Height (<em>sdHeightA</em>): Height of detection</li>
+<li>IsLShape (<em>sdIsLShapeA</em>): Describes if all three points should be used to form an L-Shape or if only left and right point shall be used.</li>
+</ul></li>
+</ul>
+<p>Data ID to be defined.</p>
+<h2 data-number="2.14" id="timesync"><span class="header-section-number">2.14</span> TimeSync</h2>
+<h2 data-number="2.15" id="tsr"><span class="header-section-number">2.15</span> Tsr</h2>
+<h2 data-number="2.16" id="uds"><span class="header-section-number">2.16</span> UDS</h2>
+<h3 data-number="2.16.1" id="rq"><span class="header-section-number">2.16.1</span> RQ</h3>
+<h3 data-number="2.16.2" id="rq_func"><span class="header-section-number">2.16.2</span> RQ_Func</h3>
+<h3 data-number="2.16.3" id="rs"><span class="header-section-number">2.16.3</span> RS</h3>
+<h2 data-number="2.17" id="visionframeinformation"><span class="header-section-number">2.17</span> VisionFrameInformation</h2>
+<h1 data-number="3" id="rest-of-vehicle-rov"><span class="header-section-number">3</span> Rest of Vehicle (RoV)</h1>
+<h2 data-number="3.1" id="aebinput"><span class="header-section-number">3.1</span> AebInput</h2>
+<p>This message contains inputs needed by AEB.</p>
+<h2 data-number="3.2" id="vehicle-data"><span class="header-section-number">3.2</span> Vehicle Data</h2>
+<p>This message contains vehicle information.</p>
+</body>
+</html>

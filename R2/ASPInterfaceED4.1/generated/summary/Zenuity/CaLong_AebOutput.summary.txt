@@ -1,0 +1,5 @@
+Source.Identifier: Name
+1.4: Zenuity.CaLong.CollisionMitigationBrakeRequest
+1.1: Zenuity.CaLong.CollisionMitigationSystem
+1.2: Zenuity.CaLong.VruAebOutput
+1.3: Zenuity.CaLong.StaticDistanceWarningOutput

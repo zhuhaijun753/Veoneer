@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>StationaryTracks Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - RadarCore.Tracks</b>
+<br>
+<h1>Messages</h1>
+<h2 id="RadarCore.Tracks.StationaryTrackPosition">StationaryTrackPosition (RadarCore.Tracks.StationaryTrackPosition)</h2>
+Describes an object reference point in Autosar Rear Axis Coordinate system
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>X</td><td>S32</td><td>-200 m</td><td>200 m</td><td>0.01</td><td>m</td><td>6 [4]</td><td>1</td><td>Filtered X position</td></tr>
+<tr><td>Y</td><td>S32</td><td>-100 m</td><td>100 m</td><td>0.01</td><td>m</td><td>6 [4]</td><td>1</td><td>Filtered Y position</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>12 [8]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="RadarCore.Tracks.StationaryTrackMovement">StationaryTrackMovement (RadarCore.Tracks.StationaryTrackMovement)</h2>
+Describes object movement in Autosar Rear Axis Coordinate system
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>XVelocity</td><td>S32</td><td>-120 m/s</td><td>120 m/s</td><td>0.01</td><td>m/s</td><td>6 [4]</td><td>1</td><td>Filtered absolute longitudinal velocity</td></tr>
+<tr><td>YVelocity</td><td>S32</td><td>-120 m/s</td><td>120 m/s</td><td>0.01</td><td>m/s</td><td>6 [4]</td><td>1</td><td>Filtered absolute lateral velocity</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>12 [8]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="RadarCore.Tracks.StationaryTrack">StationaryTrack (RadarCore.Tracks.StationaryTrack)</h2>
+Tracked stationary objects based on radar measurements
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Id</td><td>U16</td><td>0</td><td>65535</td><td>1</td><td></td><td>4</td><td>1</td><td>A global ID, which is constant as long as the object is tracked. Note! A value of 0 indicates 'no object'</td></tr>
+<tr><td>Position</td><td><a href="#RadarCore.Tracks.StationaryTrackPosition">RadarCore.Tracks.StationaryTrackPosition</a></td><td></td><td></td><td></td><td></td><td>14 [10]</td><td>1</td><td>Reference point for object</td></tr>
+<tr><td>Movement</td><td><a href="#RadarCore.Tracks.StationaryTrackMovement">RadarCore.Tracks.StationaryTrackMovement</a></td><td></td><td></td><td></td><td></td><td>14 [10]</td><td>1</td><td>Movement estimation of object</td></tr>
+<tr><td>Lifetime</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Number of cycles the target has been alive. Unknown 0</td></tr>
+<tr><td>PredictionCounter</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>Number of cycles the target has been predicted</td></tr>
+<tr><td>PropertyBits</td><td>U8</td><td>0</td><td>7</td><td>1</td><td></td><td>3 [2]</td><td>1</td><td>Bitmask for property values described by StationaryTrackPropertyBits</td></tr>
+<tr><td>Quality</td><td><a href="#RadarCore.Tracks.StationaryTrackQuality">RadarCore.Tracks.StationaryTrackQuality</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Track quality</td></tr>
+<tr><td>Elevation</td><td><a href="#RadarCore.Tracks.StationaryTrackElevation">RadarCore.Tracks.StationaryTrackElevation</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Elevation Classification from Core Elevation Library</td></tr>
+<tr><td>ElevationConfidence</td><td><a href="#RadarCore.Tracks.StationaryTrackQuality">RadarCore.Tracks.StationaryTrackQuality</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Elevation Classification Confidence Level from Core Elevation Library</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>47 [38]</th><th>9</th><th></th></tr>
+</table>
+<h2 id="RadarCore.Tracks.StationaryTrackList">StationaryTrackList (RadarCore.Tracks.StationaryTrackList)</h2>
+Source: DATA_SOURCE_RADAR (4)
+<br>
+Identifier: 11 (b)
+<br>
+Version: 1.0.0
+<br>
+Output describing the stationary radar tracks
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Tracks</td><td><a href="#RadarCore.Tracks.StationaryTrack">RadarCore.Tracks.StationaryTrack[40]</a></td><td></td><td></td><td></td><td></td><td>1960 [1600]</td><td>1</td><td>List of stationary tracks</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>1960 [1600]</th><th>1</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="RadarCore.Tracks.StationaryTrackPropertyBits">StationaryTrackPropertyBits (RadarCore.Tracks.StationaryTrackPropertyBits)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Active</td><td>RadarCore.Tracks.StationaryTrackPropertyBits.Active</td><td>0</td></tr>
+<tr><td>Zombie</td><td>RadarCore.Tracks.StationaryTrackPropertyBits.Zombie</td><td>1</td></tr>
+<tr><td>SlowMoving</td><td>RadarCore.Tracks.StationaryTrackPropertyBits.SlowMoving</td><td>2</td></tr>
+</table>
+<h2 id="RadarCore.Tracks.StationaryTrackElevation">StationaryTrackElevation (RadarCore.Tracks.StationaryTrackElevation)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>RadarCore.Tracks.StationaryTrackElevation.Unknown</td><td>0</td></tr>
+<tr><td>NotReady</td><td>RadarCore.Tracks.StationaryTrackElevation.NotReady</td><td>1</td></tr>
+<tr><td>Overridable</td><td>RadarCore.Tracks.StationaryTrackElevation.Overridable</td><td>2</td></tr>
+<tr><td>Relevant</td><td>RadarCore.Tracks.StationaryTrackElevation.Relevant</td><td>3</td></tr>
+<tr><td>Underridable</td><td>RadarCore.Tracks.StationaryTrackElevation.Underridable</td><td>4</td></tr>
+<tr><td>NoDecision</td><td>RadarCore.Tracks.StationaryTrackElevation.NoDecision</td><td>5</td></tr>
+</table>
+<h2 id="RadarCore.Tracks.StationaryTrackQuality">StationaryTrackQuality (RadarCore.Tracks.StationaryTrackQuality)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>RadarCore.Tracks.StationaryTrackQuality.Unknown</td><td>0</td></tr>
+<tr><td>Low</td><td>RadarCore.Tracks.StationaryTrackQuality.Low</td><td>1</td></tr>
+<tr><td>Medium</td><td>RadarCore.Tracks.StationaryTrackQuality.Medium</td><td>2</td></tr>
+<tr><td>High</td><td>RadarCore.Tracks.StationaryTrackQuality.High</td><td>3</td></tr>
+</table>
+</body>
+</html>

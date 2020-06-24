@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>FunctionDebug Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - SystemCore.FunctionCalls</b>
+<br>
+<h1>Messages</h1>
+<h2 id="SystemCore.FunctionCalls.InputData">InputData (SystemCore.FunctionCalls.InputData)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>DataSource</td><td><a href="#DataSource">DataSource</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>DataIdentifier</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td></td></tr>
+<tr><td>FrameNumber</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td></td></tr>
+<tr><td>Timestamp</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td></td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>20</th><th>4</th><th></th></tr>
+</table>
+<h2 id="SystemCore.FunctionCalls.FunctionCallLink">FunctionCallLink (SystemCore.FunctionCalls.FunctionCallLink)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Identifier</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td>Identifier to link function call</td></tr>
+<tr><td>FunctionCallName</td><td>String[50]</td><td></td><td></td><td></td><td></td><td>52</td><td>1</td><td>Function call name, should be unique</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>58</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.FunctionCalls.FunctionCallLinks">FunctionCallLinks (SystemCore.FunctionCalls.FunctionCallLinks)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 9001 (2329)
+<br>
+Version: 1.0.0
+<br>
+List describing the link between identifier and function call
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>FunctionCallLinks</td><td><a href="#SystemCore.FunctionCalls.FunctionCallLink">SystemCore.FunctionCalls.FunctionCallLink[20]</a></td><td></td><td></td><td></td><td></td><td>1200</td><td>1</td><td>List of function calls e.g. AEB_run</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>1200</th><th>1</th><th></th></tr>
+</table>
+<h2 id="SystemCore.FunctionCalls.FunctionExecution">FunctionExecution (SystemCore.FunctionCalls.FunctionExecution)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 9002 (232a)
+<br>
+Version: 2.0.0
+<br>
+Describes the input data sent to the defined function call
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>FunctionCallIdentifier</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td>Identifier linked to FunctionCallLink</td></tr>
+<tr><td>InputData</td><td><a href="#SystemCore.FunctionCalls.InputData">SystemCore.FunctionCalls.InputData[30]</a></td><td></td><td></td><td></td><td></td><td>660</td><td>1</td><td>List of input datatypes and their reference frame number/timestamp. Used to understand which data was input when to reproduce the behavior in for example SiL.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>666</th><th>2</th><th></th></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Transport Protocols and Physical Interfaces</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <style type="text/css">a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+body {
+margin: auto;
+padding-right: 1em;
+padding-left: 1em;
+padding-top: 1em;
+color: black;
+font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+font-size: 100%;
+line-height: 140%;
+}
+pre {
+border: 1px dotted gray;
+padding: 0.5em;
+}
+code {
+font-family: "Courier New", monospace;
+color: #a33;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a {
+text-decoration: none;
+color: #001e46;
+}
+h1, h2, h3, h4, h5 {
+font-family: 'Barlow', sans-serif;
+font-weight: bold;
+color: #001e46;
+}
+h1 {
+border-bottom: 1px solid #0e2b8d;
+font-size: 130%;
+line-height: 140%;
+page-break-before: always;
+padding-top: 2em;
+}
+h2 {
+font-size: 110%;
+padding-top: 2em;
+}
+h3 {
+font-size: 95%;
+padding-top: 2em;
+}
+h4 {
+font-size: 90%;
+padding-top: 2em;
+}
+h5 {
+font-size: 90%;
+padding-top: 2em;
+}
+h1.title {
+font-size: 200%;
+font-weight: bold;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+text-align: center;
+border: none;
+page-break-before: auto;
+}
+dt code {
+font-weight: bold;
+}
+dd p {
+margin-top: 0;
+}
+#nav, #confidential, #footer, figure {
+font-family: 'Barlow', sans-serif;
+}
+#confidential {
+font-size: 85%;
+}
+header#documentheader {
+position: relative;
+margin: 0;
+padding: 0;
+margin-left: -1em;
+width: 100%;
+top: 1em;
+background: #ffffff;
+}
+div#alvheaderwrapper {
+padding: 0;
+margin: 0 1em;
+overflow: hidden;
+position: relative;
+}
+footer {
+font-size: 75%;
+border-top: 1px solid #0e2b8d;
+margin-top: 1em;
+}
+footer#pdffooter {
+display:none;
+}
+table {
+border-collapse: collapse;
+font-family: 'Barlow', sans-serif;
+}
+td, th {
+border: 1px solid black;
+margin: 0;
+padding: 4px;
+text-align: left;
+vertical-align: top;
+}
+th {
+color: black;
+font-family: 'Barlow', sans-serif;
+background-color: #c4e2df;
+}
+td.alvlogo {
+border: none;
+margin: 0;
+padding: 0px;
+}
+table.alvheader {
+margin: 0;
+padding: 0;
+width: 100%;
+border-collapse: collapse;
+}
+td.alvheader {
+border: 1px solid black;
+margin: 0;
+padding-left: 4px;
+padding-right: 4px;
+padding-top: 0px;
+padding-bottom: 2px;
+vertical-align: top;
+line-height: 120%;
+}
+.alvmeta {
+font-size: 75%;
+font-style: italic;
+}
+td.alvheadershade {
+border: 1px solid black;
+margin: 0;
+padding: 2px;
+background-color: #c4e2df;
+color: black;
+line-height: 120%;
+}
+pre.instruction {
+border: none;
+color: #00c;
+background-color: white;
+}
+.warning {
+border: 4px solid red;
+font-family: Verdana, sans-serif;
+padding-left: 1em;
+padding-right: 1em;
+margin-bottom: 1em;
+}
+.hidden {
+display: none;
+}
+th.left, td.left {
+text-align: left;
+}
+th.right, td.right {
+text-align: right;
+}
+
+table.memname td {
+border: none;
+}
+.memname {
+font-weight: bold;
+border: none;
+margin-bottom: -10px;
+margin-left: 0px;
+padding-left: 0px;
+padding-bottom: 0px;
+}
+.memdoc {
+margin-left: 40px;
+margin-bottom: 1em;
+}
+table.memname td.paramname, td.paramtype {
+padding-left: 0px;
+padding-right: 0px;
+}
+td.mdescRight {
+font-weight: normal;
+padding-top: 0px;
+margin-top: 0px;
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Transport Protocols and Physical Interfaces</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#data-transportation"><span class="toc-section-number">1</span> Data Transportation</a></li>
+<li><a href="#transport-layers"><span class="toc-section-number">2</span> Transport Layers</a>
+<ul>
+<li><a href="#ethernet-evaluation-interface"><span class="toc-section-number">2.1</span> Ethernet Evaluation Interface</a>
+<ul>
+<li><a href="#ethernet-frame"><span class="toc-section-number">2.1.1</span> Ethernet Frame</a></li>
+<li><a href="#ipv4"><span class="toc-section-number">2.1.2</span> IPv4</a></li>
+<li><a href="#udp"><span class="toc-section-number">2.1.3</span> UDP</a></li>
+<li><a href="#rtp"><span class="toc-section-number">2.1.4</span> RTP</a></li>
+<li><a href="#transmitters"><span class="toc-section-number">2.1.5</span> Transmitters</a></li>
+<li><a href="#adtfdat-files"><span class="toc-section-number">2.1.6</span> ADTF/Dat files</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<p>This document aims to describe the different transport protocols and physical interfaces used for debug data. Data format is described in detail in <code>data_interfaces</code>.</p>
+<h1 data-number="1" id="data-transportation"><span class="header-section-number">1</span> Data Transportation</h1>
+<p>The transport layer is responsible that the information is transferred correctly and safely.</p>
+<p>The endpoints of the transport layers shall also be implemented on ASIL level.</p>
+<p>Transport protocol properties: | Interface property | Data Type (minimum) | Rationale | | CRC Type | 1 bit (0: QM CRC, 1: ASIL CRC) | <em>Identifies the CRC used to verify the data</em> | | Checksum | U32 | <em>The result of the CRC calculated for the data block</em> | | Sequence Counter | U8 | <em>Verification that all packets are received and in order</em> | | First message | 1 bit | <em>Describes that the data buffer is the start of a new package</em> | | Data Size | U16 | <em>Describes the total length of the data package. Only necessary for the first message.</em> |</p>
+<p>CRC and data size needs to be adapted to the Functional Safety level of the data. See table below for specification. | FuSa Level | CRC | Max buffer size (bytes) | | QM | TBD | TBD | | ASIL | TBD | TBD |</p>
+<h1 data-number="2" id="transport-layers"><span class="header-section-number">2</span> Transport Layers</h1>
+<h2 data-number="2.1" id="ethernet-evaluation-interface"><span class="header-section-number">2.1</span> Ethernet Evaluation Interface</h2>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVtkOGNhODcxMWYwZWVhZmYyMjhhNjlhN2Y0NmQ2M2RiMF0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCmxlZnQgdG8gcmlnaHQgZGlyZWN0aW9uDQoNCnBhY2thZ2UgIlRyYW5zcG9ydCBMYXllciIgYXMgVEwgew0KICAgIFtFdGhlcm5ldEZyYW1lXSBhcyBFRg0KICAgIFtJUHY0XSBhcyBJUA0KICAgIFtVRFBdIGFzIFVEUA0KfQ0KDQpwYWNrYWdlICJEYXRhIiBhcyBEIHsNCiAgW1JUUCBIZWFkZXJdICAgYXMgUlRQDQogIFtTUFAgUGF5bG9hZF0gYXMgUFANCn0NCg0KRUYgLT4gSVANCklQIC0+IFVEUA0KDQpVRFAgLSAtPiBEDQpEIC0gLT4gUlRQDQpSVFAgLT4gUFANCg0KKCkgIlNvdXJjZSBNYWMiIGFzIFNNDQooKSAiRGVzdGluYXRpb24gTWFjIiBhcyBUTQ0KKCkgIlNvdXJjZSBJUCIgYXMgU0lQDQooKSAiRGVzdGluYXRpb24gSVAiIGFzIFRJUA0KKCkgIlNvdXJjZSBQb3J0IiBhcyBTUA0KKCkgIkRlc3RpbmF0aW9uIFBvcnQiIGFzIERQDQoNClNNIC4uPiBFRg0KVE0gLi4+IEVGDQoNClNJUCAuLj4gSVANClRJUCAuLj4gSVANCg0KU1AgLi4+IFVEUA0KRFAgLi4+IFVEUA0KDQpAZW5kdW1sDQoKUGxhbnRVTUwgdmVyc2lvbiAxLjIwMjAuMTEoU2F0IE1heSAzMCAxOToxMzo0MyBLU1QgMjAyMCkKKEdQTCBzb3VyY2UgZGlzdHJpYnV0aW9uKQpKYXZhIFJ1bnRpbWU6IEphdmEoVE0pIFNFIFJ1bnRpbWUgRW52aXJvbm1lbnQKSlZNOiBKYXZhIEhvdFNwb3QoVE0pIDY0LUJpdCBTZXJ2ZXIgVk0KRGVmYXVsdCBFbmNvZGluZzogTVM5NDkKTGFuZ3VhZ2U6IGVuCkNvdW50cnk6IFVTCi0tPjwvZz48L3N2Zz4=" id="fig:" alt /><figcaption>Data Packaging</figcaption>
+</figure>
+<h3 data-number="2.1.1" id="ethernet-frame"><span class="header-section-number">2.1.1</span> Ethernet Frame</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Destination MAC</td>
+<td style="text-align: left;">Mac of recipient</td>
+</tr>
+<tr class="even">
+<td>Source MAC</td>
+<td style="text-align: left;">MAC address of the transmitter (<a href="#transmitters">Transmitters</a>)</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="2.1.2" id="ipv4"><span class="header-section-number">2.1.2</span> IPv4</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source IP</td>
+<td style="text-align: left;">IP address of the transmitter (<a href="#transmitters">Transmitters</a>)</td>
+</tr>
+<tr class="even">
+<td>Destination IP</td>
+<td style="text-align: left;">Unicast to 192.168.2.1</td>
+</tr>
+</tbody>
+</table>
+<p>We should switch to Multicast to enable multiple receivers in the future.</p>
+<h3 data-number="2.1.3" id="udp"><span class="header-section-number">2.1.3</span> UDP</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Source Port</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="even">
+<td>Destination Port</td>
+<td style="text-align: left;">51316</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="2.1.4" id="rtp"><span class="header-section-number">2.1.4</span> RTP</h3>
+<p>An overview of RTP can be found on <a href="https://en.wikipedia.org/wiki/Real-time_Transport_Protocol">Wikipedia</a>.</p>
+<p>The RTP layer is used to fragment and reassemble large data packets. One RTP packet contains not more than a single data message. However longer data messages can stretch over multiple RTP packets.</p>
+<table>
+<colgroup>
+<col style="width: 40%"></col>
+<col style="width: 60%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Version</td>
+<td style="text-align: left;">2</td>
+</tr>
+<tr class="even">
+<td>Padding (P)</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td>Extension (X)</td>
+<td style="text-align: left;">Depends on if Header Extension is included</td>
+</tr>
+<tr class="even">
+<td>CSRC Count (CC)</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td>Marker (M)</td>
+<td style="text-align: left;">Used to signal first packet. 1 = first part of payload, 0 = additional payload</td>
+</tr>
+<tr class="even">
+<td>Payload Type (PT)</td>
+<td style="text-align: left;">101</td>
+</tr>
+<tr class="odd">
+<td>Sequence Number</td>
+<td style="text-align: left;">According to RTP specification</td>
+</tr>
+<tr class="even">
+<td>Timestamp</td>
+<td style="text-align: left;">Time in micro-seconds</td>
+</tr>
+<tr class="odd">
+<td>SSRC</td>
+<td style="text-align: left;">Transmitter identification (<a href="#transmitters">Transmitters</a>)</td>
+</tr>
+<tr class="even">
+<td>Header Extension(s)</td>
+<td style="text-align: left;">Header Extension Id 155 is used to add additional information</td>
+</tr>
+</tbody>
+</table>
+<h4 data-number="2.1.4.1" id="header-extensions"><span class="header-section-number">2.1.4.1</span> Header Extensions</h4>
+<h5 data-number="2.1.4.1.1" id="id-155"><span class="header-section-number">2.1.4.1.1</span> Id 155</h5>
+<p>This extension is included for the first RTP packet of a multi packet payload.</p>
+<table>
+<colgroup>
+<col style="width: 40%"></col>
+<col style="width: 60%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Standard part</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td>Extension Header Id</td>
+<td style="text-align: left;">155</td>
+</tr>
+<tr class="odd">
+<td>Extension Header Size</td>
+<td style="text-align: left;">1 (4 bytes)</td>
+</tr>
+<tr class="even">
+<td>Custom part</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td>Complete Payload Size</td>
+<td style="text-align: left;">U16 describing complete length of payload for all needed RTP packets</td>
+</tr>
+<tr class="even">
+<td>Unused</td>
+<td style="text-align: left;">U16</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="2.1.5" id="transmitters"><span class="header-section-number">2.1.5</span> Transmitters</h3>
+<table>
+<colgroup>
+<col style="width: 22%"></col>
+<col style="width: 22%"></col>
+<col style="width: 24%"></col>
+<col style="width: 30%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Transmitter</th>
+<th style="text-align: left;">IP Address</th>
+<th style="text-align: left;">MAC Address</th>
+<th style="text-align: left;">Identification</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Aurix</td>
+<td style="text-align: left;">192.168.2.31</td>
+<td style="text-align: left;">“Unique ID” for each Aurix based on Aurix serial number (from Infineon)</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td>VP</td>
+<td style="text-align: left;">192.168.2.X (TBD)</td>
+<td style="text-align: left;">(TBD)</td>
+<td style="text-align: left;">(TBD)</td>
+</tr>
+</tbody>
+</table>
+<h3 data-number="2.1.6" id="adtfdat-files"><span class="header-section-number">2.1.6</span> ADTF/Dat files</h3>
+<p>In ADTF/Dat files only the RTP layer and below is stored. Here is a list of the commonly used streams for debug data in SPP format.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Transmitter</th>
+<th style="text-align: left;">Filestream</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ASP/FLAC Aurix</td>
+<td style="text-align: left;">Debug SPP Aurix0</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Source.Identifier: Name
+1.9001: Zenuity.Debug.AebDiagnostics
+1.9002: Zenuity.Debug.CollisionWarningDiagnostics
+1.9003: Zenuity.Debug.EvasiveManoeuvreAssistDiagnostics
+1.9004: Zenuity.Debug.ThreatAssessmentDiagnostics
+1.9005: Zenuity.Debug.ASILThreatAssesmentDiagnostics
+1.9006: Zenuity.Debug.VruCollisionAvoidanceDiagnostics

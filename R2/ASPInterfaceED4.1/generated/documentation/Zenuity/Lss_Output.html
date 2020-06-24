@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Lss_Output Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - Zenuity.LaneSupportSystems</b>
+<br>
+<h1>Messages</h1>
+<h2 id="Zenuity.LaneSupportSystems.SideAvailable">SideAvailable (Zenuity.LaneSupportSystems.SideAvailable)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Left</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Available left side</td></tr>
+<tr><td>Right</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Available right side</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4</th><th>2</th><th></th></tr>
+</table>
+<h2 id="Zenuity.LaneSupportSystems.FeatureOutput">FeatureOutput (Zenuity.LaneSupportSystems.FeatureOutput)</h2>
+LSS feature output
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Status</td><td><a href="#Zenuity.LaneSupportSystems.Status">Zenuity.LaneSupportSystems.Status</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Information if feature is available</td></tr>
+<tr><td>Available</td><td><a href="#Zenuity.LaneSupportSystems.SideAvailable">Zenuity.LaneSupportSystems.SideAvailable</a></td><td></td><td></td><td></td><td></td><td>6</td><td>1</td><td>Feature side dependent availability</td></tr>
+<tr><td>WarningSide</td><td><a href="#Zenuity.LaneSupportSystems.Side">Zenuity.LaneSupportSystems.Side</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Trigger warning for the feature</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>10</th><th>3</th><th></th></tr>
+</table>
+<h2 id="Zenuity.LaneSupportSystems.LssOutput">LssOutput (Zenuity.LaneSupportSystems.LssOutput)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 20 (14)
+<br>
+Version: 1.0.0
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Ldw</td><td><a href="#Zenuity.LaneSupportSystems.FeatureOutput">Zenuity.LaneSupportSystems.FeatureOutput</a></td><td></td><td></td><td></td><td></td><td>12</td><td>1</td><td>Feature output for LDW function</td></tr>
+<tr><td>Lka</td><td><a href="#Zenuity.LaneSupportSystems.FeatureOutput">Zenuity.LaneSupportSystems.FeatureOutput</a></td><td></td><td></td><td></td><td></td><td>12</td><td>1</td><td>Feature output for LKA function</td></tr>
+<tr><td>ElkaRoadEdge</td><td><a href="#Zenuity.LaneSupportSystems.FeatureOutput">Zenuity.LaneSupportSystems.FeatureOutput</a></td><td></td><td></td><td></td><td></td><td>12</td><td>1</td><td>Feature output for eLKA Road Edge function</td></tr>
+<tr><td>ElkaFrontObjects</td><td><a href="#Zenuity.LaneSupportSystems.FeatureOutput">Zenuity.LaneSupportSystems.FeatureOutput</a></td><td></td><td></td><td></td><td></td><td>12</td><td>1</td><td>Feature output for eLKA Front Objects function (e.g. oncoming)</td></tr>
+<tr><td>ElkaRearObjects</td><td><a href="#Zenuity.LaneSupportSystems.FeatureOutput">Zenuity.LaneSupportSystems.FeatureOutput</a></td><td></td><td></td><td></td><td></td><td>12</td><td>1</td><td>Feature output for eLKA Rear Objects function (e.g. Blind Spot)</td></tr>
+<tr><td>RequestPostEventMessage</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Post event message request</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>62</th><th>6</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="Zenuity.LaneSupportSystems.Side">Side (Zenuity.LaneSupportSystems.Side)</h2>
+Max Encoded Size (bytes): 1LSS Side
+<br>
+<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>Zenuity.LaneSupportSystems.Side.None</td><td>0</td></tr>
+<tr><td>Left</td><td>Zenuity.LaneSupportSystems.Side.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>Zenuity.LaneSupportSystems.Side.Right</td><td>2</td></tr>
+<tr><td>LeftAndRight</td><td>Zenuity.LaneSupportSystems.Side.LeftAndRight</td><td>3</td></tr>
+</table>
+<h2 id="Zenuity.LaneSupportSystems.Status">Status (Zenuity.LaneSupportSystems.Status)</h2>
+Max Encoded Size (bytes): 1LSS feature status
+<br>
+<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Disabled</td><td>Zenuity.LaneSupportSystems.Status.Disabled</td><td>0</td></tr>
+<tr><td>Unavailable</td><td>Zenuity.LaneSupportSystems.Status.Unavailable</td><td>1</td></tr>
+<tr><td>Available</td><td>Zenuity.LaneSupportSystems.Status.Available</td><td>2</td></tr>
+</table>
+</body>
+</html>

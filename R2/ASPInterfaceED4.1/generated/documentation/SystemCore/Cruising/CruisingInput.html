@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>CruisingInput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - SystemCore.Cruising</b>
+<br>
+<h1>Messages</h1>
+<h2 id="SystemCore.Cruising.TrafficAssistInput">TrafficAssistInput (SystemCore.Cruising.TrafficAssistInput)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 777 (309)
+<br>
+Version: 1.0.0
+<br>
+Inputs to Traffic Assist
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Enable</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Platform ok to enable Traffic Assist.All criteria are met for Traffic Assistto go from Off to Standby.</td></tr>
+<tr><td>SteeringEnabled</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request steering support from Traffic Assist.</td></tr>
+<tr><td>DriverInTheLoopDetected</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Driver confirmed to be in control of vehicle during Traffic Assist steering support. Detection might be done by DMC, steering wheel sensor or any other suitable method. driver_in_the_loop_detected has to be true often enough to not cause Hands Off warnings or maneuver aborts.</td></tr>
+<tr><td>TrafficAssistIsSteering</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>TA steering confirmed by platform.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>8</th><th>4</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Cruising.LaneChangeAssistInput">LaneChangeAssistInput (SystemCore.Cruising.LaneChangeAssistInput)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 778 (30a)
+<br>
+Version: 1.0.0
+<br>
+Inputs to Lane Change Assist
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Enable</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Platform ok to enable Lane Change Assist.All criteria are met for Lane Change Assistto go from Off to Standby.</td></tr>
+<tr><td>LaneChangeRequestByDriver</td><td><a href="#SystemCore.Cruising.LateralDirection">SystemCore.Cruising.LateralDirection</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td></td></tr>
+<tr><td>LaneChangeAbortRequestByDriver</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Lane change aborted by driver specified in R79</td></tr>
+<tr><td>RearRadarDetectionRange</td><td>U8</td><td>0 m</td><td>255 m</td><td>1</td><td>m</td><td>3</td><td>1</td><td>The current radial detection range of the rear radars</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>9</th><th>4</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Cruising.RiskMitigationSupportInput">RiskMitigationSupportInput (SystemCore.Cruising.RiskMitigationSupportInput)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 779 (30b)
+<br>
+Version: 1.0.0
+<br>
+Inputs to Risk Mitigation Support
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>RmsStatus</td><td><a href="#SystemCore.Cruising.RmsStatus">SystemCore.Cruising.RmsStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Information if RMS is off, standby or requested intervention level</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>2</th><th>1</th><th></th></tr>
+</table>
+<h2 id="SystemCore.Cruising.DriverAlertControlInput">DriverAlertControlInput (SystemCore.Cruising.DriverAlertControlInput)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 780 (30c)
+<br>
+Version: 1.0.0
+<br>
+Inputs to Driver Alert Control
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>DacActivated</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates that Driver Alert Control is activated from HMI.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>2</th><th>1</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="SystemCore.Cruising.LateralDirection">LateralDirection (SystemCore.Cruising.LateralDirection)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>SystemCore.Cruising.LateralDirection.None</td><td>0</td></tr>
+<tr><td>Left</td><td>SystemCore.Cruising.LateralDirection.Left</td><td>1</td></tr>
+<tr><td>Right</td><td>SystemCore.Cruising.LateralDirection.Right</td><td>2</td></tr>
+</table>
+<h2 id="SystemCore.Cruising.RmsStatus">RmsStatus (SystemCore.Cruising.RmsStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Off</td><td>SystemCore.Cruising.RmsStatus.Off</td><td>0</td></tr>
+<tr><td>Standby</td><td>SystemCore.Cruising.RmsStatus.Standby</td><td>1</td></tr>
+<tr><td>Level1</td><td>SystemCore.Cruising.RmsStatus.Level1</td><td>2</td></tr>
+<tr><td>Level2</td><td>SystemCore.Cruising.RmsStatus.Level2</td><td>3</td></tr>
+<tr><td>Level3</td><td>SystemCore.Cruising.RmsStatus.Level3</td><td>4</td></tr>
+<tr><td>Level4</td><td>SystemCore.Cruising.RmsStatus.Level4</td><td>5</td></tr>
+<tr><td>Level5</td><td>SystemCore.Cruising.RmsStatus.Level5</td><td>6</td></tr>
+<tr><td>Level6</td><td>SystemCore.Cruising.RmsStatus.Level6</td><td>7</td></tr>
+<tr><td>Level7</td><td>SystemCore.Cruising.RmsStatus.Level7</td><td>8</td></tr>
+<tr><td>Level8</td><td>SystemCore.Cruising.RmsStatus.Level8</td><td>9</td></tr>
+</table>
+</body>
+</html>

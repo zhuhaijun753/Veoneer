@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>StcOutput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - ActuatorSupport.SteeringTorqueCommander</b>
+<br>
+<h1>Messages</h1>
+<h2 id="ActuatorSupport.SteeringTorqueCommander.StcOutput">StcOutput (ActuatorSupport.SteeringTorqueCommander.StcOutput)</h2>
+Source: DATA_SOURCE_ACTUATOR_SUPPORT (5)
+<br>
+Identifier: 11 (b)
+<br>
+Version: 1.0.0
+<br>
+Output from steering torque commander, converted pinion angle to steering torque
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>SteeringWheelTorqueRequest</td><td>S16</td><td>-20 Nm</td><td>20 Nm</td><td>0.01</td><td>Nm</td><td>4 [3]</td><td>1</td><td>Magnitude of Overlay Steering torque commanded to vehicle for lateral control</td></tr>
+<tr><td>SteeringWheelTorqueActive</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Flag indicating if the Overlay Steering Torque Control is Active and that the torque request can be used for actuation</td></tr>
+<tr><td>SteeringWheelControlLimited</td><td><a href="#ActuatorSupport.SteeringTorqueCommander.SteeringWheelTorqueLimited">ActuatorSupport.SteeringTorqueCommander.SteeringWheelTorqueLimited</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Signal indicating if Overlay Steering Torque command is limited by magnitude and/or rate</td></tr>
+<tr><td>SteeringWheelTorqueRatio</td><td>U16</td><td>0</td><td>1</td><td>0.005</td><td></td><td>4 [3]</td><td>1</td><td>Ratio of Overlay Steering torque to total torque observed by the vehicle steering system</td></tr>
+<tr><td>SteeringWheelTorqueControlState</td><td><a href="#ActuatorSupport.SteeringTorqueCommander.ControlState">ActuatorSupport.SteeringTorqueCommander.ControlState</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Signal indicating operating state of the Steering Torque Controller</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>14 [12]</th><th>5</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="ActuatorSupport.SteeringTorqueCommander.SteeringWheelTorqueLimited">SteeringWheelTorqueLimited (ActuatorSupport.SteeringTorqueCommander.SteeringWheelTorqueLimited)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NoLimit</td><td>ActuatorSupport.SteeringTorqueCommander.SteeringWheelTorqueLimited.NoLimit</td><td>0</td></tr>
+<tr><td>MagnitudeLimitActivated</td><td>ActuatorSupport.SteeringTorqueCommander.SteeringWheelTorqueLimited.MagnitudeLimitActivated</td><td>1</td></tr>
+<tr><td>RateLimitActivated</td><td>ActuatorSupport.SteeringTorqueCommander.SteeringWheelTorqueLimited.RateLimitActivated</td><td>2</td></tr>
+<tr><td>MagnitudeAndRateLimitActivated</td><td>ActuatorSupport.SteeringTorqueCommander.SteeringWheelTorqueLimited.MagnitudeAndRateLimitActivated</td><td>3</td></tr>
+</table>
+<h2 id="ActuatorSupport.SteeringTorqueCommander.ControlState">ControlState (ActuatorSupport.SteeringTorqueCommander.ControlState)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Disabled</td><td>ActuatorSupport.SteeringTorqueCommander.ControlState.Disabled</td><td>0</td></tr>
+<tr><td>Active</td><td>ActuatorSupport.SteeringTorqueCommander.ControlState.Active</td><td>1</td></tr>
+<tr><td>Inactive</td><td>ActuatorSupport.SteeringTorqueCommander.ControlState.Inactive</td><td>2</td></tr>
+<tr><td>Ramping</td><td>ActuatorSupport.SteeringTorqueCommander.ControlState.Ramping</td><td>3</td></tr>
+</table>
+</body>
+</html>

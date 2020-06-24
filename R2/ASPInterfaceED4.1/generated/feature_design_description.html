@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Feature Design Description</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <style type="text/css">a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+body {
+margin: auto;
+padding-right: 1em;
+padding-left: 1em;
+padding-top: 1em;
+color: black;
+font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+font-size: 100%;
+line-height: 140%;
+}
+pre {
+border: 1px dotted gray;
+padding: 0.5em;
+}
+code {
+font-family: "Courier New", monospace;
+color: #a33;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a {
+text-decoration: none;
+color: #001e46;
+}
+h1, h2, h3, h4, h5 {
+font-family: 'Barlow', sans-serif;
+font-weight: bold;
+color: #001e46;
+}
+h1 {
+border-bottom: 1px solid #0e2b8d;
+font-size: 130%;
+line-height: 140%;
+page-break-before: always;
+padding-top: 2em;
+}
+h2 {
+font-size: 110%;
+padding-top: 2em;
+}
+h3 {
+font-size: 95%;
+padding-top: 2em;
+}
+h4 {
+font-size: 90%;
+padding-top: 2em;
+}
+h5 {
+font-size: 90%;
+padding-top: 2em;
+}
+h1.title {
+font-size: 200%;
+font-weight: bold;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+text-align: center;
+border: none;
+page-break-before: auto;
+}
+dt code {
+font-weight: bold;
+}
+dd p {
+margin-top: 0;
+}
+#nav, #confidential, #footer, figure {
+font-family: 'Barlow', sans-serif;
+}
+#confidential {
+font-size: 85%;
+}
+header#documentheader {
+position: relative;
+margin: 0;
+padding: 0;
+margin-left: -1em;
+width: 100%;
+top: 1em;
+background: #ffffff;
+}
+div#alvheaderwrapper {
+padding: 0;
+margin: 0 1em;
+overflow: hidden;
+position: relative;
+}
+footer {
+font-size: 75%;
+border-top: 1px solid #0e2b8d;
+margin-top: 1em;
+}
+footer#pdffooter {
+display:none;
+}
+table {
+border-collapse: collapse;
+font-family: 'Barlow', sans-serif;
+}
+td, th {
+border: 1px solid black;
+margin: 0;
+padding: 4px;
+text-align: left;
+vertical-align: top;
+}
+th {
+color: black;
+font-family: 'Barlow', sans-serif;
+background-color: #c4e2df;
+}
+td.alvlogo {
+border: none;
+margin: 0;
+padding: 0px;
+}
+table.alvheader {
+margin: 0;
+padding: 0;
+width: 100%;
+border-collapse: collapse;
+}
+td.alvheader {
+border: 1px solid black;
+margin: 0;
+padding-left: 4px;
+padding-right: 4px;
+padding-top: 0px;
+padding-bottom: 2px;
+vertical-align: top;
+line-height: 120%;
+}
+.alvmeta {
+font-size: 75%;
+font-style: italic;
+}
+td.alvheadershade {
+border: 1px solid black;
+margin: 0;
+padding: 2px;
+background-color: #c4e2df;
+color: black;
+line-height: 120%;
+}
+pre.instruction {
+border: none;
+color: #00c;
+background-color: white;
+}
+.warning {
+border: 4px solid red;
+font-family: Verdana, sans-serif;
+padding-left: 1em;
+padding-right: 1em;
+margin-bottom: 1em;
+}
+.hidden {
+display: none;
+}
+th.left, td.left {
+text-align: left;
+}
+th.right, td.right {
+text-align: right;
+}
+
+table.memname td {
+border: none;
+}
+.memname {
+font-weight: bold;
+border: none;
+margin-bottom: -10px;
+margin-left: 0px;
+padding-left: 0px;
+padding-bottom: 0px;
+}
+.memdoc {
+margin-left: 40px;
+margin-bottom: 1em;
+}
+table.memname td.paramname, td.paramtype {
+padding-left: 0px;
+padding-right: 0px;
+}
+td.mdescRight {
+font-weight: normal;
+padding-top: 0px;
+margin-top: 0px;
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Feature Design Description</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#feature-design"><span class="toc-section-number">1</span> Feature Design</a>
+<ul>
+<li><a href="#what-is-application-core"><span class="toc-section-number">1.1</span> What is Application &amp; Core?</a></li>
+<li><a href="#feature-degradation-fault-handling"><span class="toc-section-number">1.2</span> Feature Degradation &amp; Fault Handling</a>
+<ul>
+<li><a href="#input"><span class="toc-section-number">1.2.1</span> Input</a></li>
+<li><a href="#output"><span class="toc-section-number">1.2.2</span> Output</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#api"><span class="toc-section-number">2</span> API</a>
+<ul>
+<li><a href="#inputoutputs-format"><span class="toc-section-number">2.1</span> Input/Outputs format</a>
+<ul>
+<li><a href="#header"><span class="toc-section-number">2.1.1</span> Header</a></li>
+</ul></li>
+<li><a href="#init-function"><span class="toc-section-number">2.2</span> Init function</a></li>
+<li><a href="#step-function"><span class="toc-section-number">2.3</span> Step function</a></li>
+<li><a href="#communication-between-feature-containers"><span class="toc-section-number">2.4</span> Communication between Feature Containers</a></li>
+<li><a href="#event-log"><span class="toc-section-number">2.5</span> Event Log</a></li>
+<li><a href="#debug-log"><span class="toc-section-number">2.6</span> Debug log</a>
+<ul>
+<li><a href="#format"><span class="toc-section-number">2.6.1</span> Format</a></li>
+</ul></li>
+<li><a href="#alarm"><span class="toc-section-number">2.7</span> Alarm</a></li>
+<li><a href="#persistent-storage"><span class="toc-section-number">2.8</span> Persistent Storage</a></li>
+</ul></li>
+<li><a href="#execution-environment"><span class="toc-section-number">3</span> Execution Environment</a>
+<ul>
+<li><a href="#partitioning"><span class="toc-section-number">3.1</span> Partitioning</a></li>
+<li><a href="#init"><span class="toc-section-number">3.2</span> Init</a></li>
+<li><a href="#step"><span class="toc-section-number">3.3</span> Step</a></li>
+<li><a href="#scheduling"><span class="toc-section-number">3.4</span> Scheduling</a>
+<ul>
+<li><a href="#pre-emption"><span class="toc-section-number">3.4.1</span> Pre-emption</a></li>
+<li><a href="#watchdog"><span class="toc-section-number">3.4.2</span> Watchdog</a></li>
+</ul></li>
+<li><a href="#wcet"><span class="toc-section-number">3.5</span> WCET</a></li>
+<li><a href="#memory-handling"><span class="toc-section-number">3.6</span> Memory handling</a>
+<ul>
+<li><a href="#stack"><span class="toc-section-number">3.6.1</span> Stack</a></li>
+<li><a href="#static-memory"><span class="toc-section-number">3.6.2</span> Static memory</a></li>
+<li><a href="#dynamic-memory"><span class="toc-section-number">3.6.3</span> Dynamic memory</a></li>
+</ul></li>
+<li><a href="#error-handling"><span class="toc-section-number">3.7</span> Error handling</a></li>
+</ul></li>
+<li><a href="#build-environment"><span class="toc-section-number">4</span> Build Environment</a>
+<ul>
+<li><a href="#compiler"><span class="toc-section-number">4.1</span> Compiler</a>
+<ul>
+<li><a href="#compiler-flags"><span class="toc-section-number">4.1.1</span> Compiler Flags</a></li>
+<li><a href="#linker-flags"><span class="toc-section-number">4.1.2</span> Linker flags</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#debugging"><span class="toc-section-number">5</span> Debugging</a>
+<ul>
+<li><a href="#playback"><span class="toc-section-number">5.1</span> Playback</a></li>
+<li><a href="#debug-log-1"><span class="toc-section-number">5.2</span> Debug log</a></li>
+<li><a href="#crashdump"><span class="toc-section-number">5.3</span> Crashdump</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>This document will describe the feature design used in ASP. It will include the high level architecure philosopy, direct API to Feature Container (how ASP interacts with a component), the service API provided (how a component interacts with the platform), the execution environment and debugging options.</p>
+<h1 data-number="1" id="feature-design"><span class="header-section-number">1</span> Feature Design</h1>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVthNDBjZjc5OWQ3MzUzNjhiYzA3Nzg0YjZkYmI3YmUzNF0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCmxlZnQgdG8gcmlnaHQgZGlyZWN0aW9uDQoNCmludGVyZmFjZSAiVmVoaWNsZSBCdXMiIGFzIHZlaF9idXNfaW4NCg0KaW50ZXJmYWNlICJWZWhpY2xlIEJ1cyIgYXMgdmVoX2J1c19vdXQNCg0KcmVjdGFuZ2xlICJFQ1UiIGFzIGVjdSB7DQogICByZWN0YW5nbGUgIklucHV0IERhdGEgSGFuZGxlciIgYXMgaWRoICN0dXJxdW9pc2UNCiAgIHJlY3RhbmdsZSAiU2Vuc29yIiBhcyBzZW5zb3IgI3BpbmsNCiAgIHJlY3RhbmdsZSAiRmVhdHVyZSBBcHBsaWNhdGlvbiBJbnB1dCIgYXMgZmFfaW4gI3R1cnF1b2lzZQ0KICAgcmVjdGFuZ2xlICJGZWF0dXJlIEFwcGxpY2F0aW9uIE91dHB1dCIgYXMgZmFfb3V0ICN0dXJxdW9pc2UNCiAgIHJlY3RhbmdsZSAiRmVhdHVyZSIgYXMgZmVhdCAjZ3JheQ0KICAgcmVjdGFuZ2xlICJPdXRwdXQgRGF0YSBIYW5kbGVyIiBhcyBvZGggI3R1cnF1b2lzZQ0KDQogICB2ZWhfYnVzX2luIC0gLSBpZGgNCiAgIGlkaCAtIC0gc2Vuc29yDQogICBpZGggLSAtIGZlYXQNCiAgIGlkaCAtIC0gZmFfaW4NCiAgIHNlbnNvciAtIC0gZmVhdA0KICAgZmFfaW4gLSAtIGZlYXQNCiAgIG5vdGUgb24gbGluaw0KICAgICAgKiBBYm9ydA0KICAgICAgKiBEZWdyYWRlDQogICAgICAqIFN1cHByZXNzDQogICBlbmQgbm90ZQ0KICAgZmFfaW4gLSAtIGZhX291dA0KICAgZmVhdCAtIC0gZmFfb3V0DQogICBub3RlIG9uIGxpbmsNCiAgICAgICogQWJvcnRpbmcNCiAgICAgICogRGVncmFkZWQNCiAgICAgICogU3RhdHVzDQogICAgICAqIFN1cHByZXNzZWQNCiAgIGVuZCBub3RlDQogICBmYV9vdXQgLSAtIG9kaA0KICAgb2RoIC0gLSB2ZWhfYnVzX291dA0KfQ0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIwLjExKFNhdCBNYXkgMzAgMTk6MTM6NDMgS1NUIDIwMjApCihHUEwgc291cmNlIGRpc3RyaWJ1dGlvbikKSmF2YSBSdW50aW1lOiBKYXZhKFRNKSBTRSBSdW50aW1lIEVudmlyb25tZW50CkpWTTogSmF2YSBIb3RTcG90KFRNKSA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IE1TOTQ5Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+" id="fig:" alt /><figcaption>Application and Core Separation</figcaption>
+</figure>
+<p>The figure above is a simplified overview on the architecure, each block is a component color coded by who is responsible for it in the product.</p>
+<ul>
+<li><span style="color:Turquoise">Application</span></li>
+<li><span style="color:Gray">Feature Core</span></li>
+<li><span style="color:DeepPink">Sensor Core</span></li>
+</ul>
+<p>The Input and Output Data Handlers are responsible for customer to core conversion.</p>
+<p>The following inputs are used to communicate the expectations from the Application to the Feature.</p>
+<ul>
+<li><em>Abort</em>: Abort ongoing request (actuator, warning, etc) directly and go to safe default output</li>
+<li><em>Degrade</em>: Go the the corresponding degraded state</li>
+<li><em>Suppress</em>: Suppress new requests but continue ongoing request (if any)</li>
+</ul>
+<p>In all cases the application is expected to handle the adaption and arbitration towards the vehicle.</p>
+<p><em>Example adaption</em>: Ramp up/down according to a certain model</p>
+<p><em>Example arbitration</em>: AEB request is selected as output over LKA request</p>
+<h2 data-number="1.1" id="what-is-application-core"><span class="header-section-number">1.1</span> What is Application &amp; Core?</h2>
+<p>Feature Core shall handle the common parts that are generally not affected by Customer requests, such as sensor input and vehicle motion.</p>
+<p>The application handles feature state which is highly influenced by OEM design, e.g. driver status (driver brake input, acceleration pedal, steering wheel input, alertness, etc), input data monitoring, output of warning using audio or visual alerts, …</p>
+<p>Since the feature is highly dependent on the application for performance levels a reference application should be developed for performance tests and use in the platform development. The best case is that the reference code is provided by the development team of the Feature Core for use in both the reference application and as a starting point for the application projects.</p>
+<h2 data-number="1.2" id="feature-degradation-fault-handling"><span class="header-section-number">1.2</span> Feature Degradation &amp; Fault Handling</h2>
+<p>The main degradation and fault handling is driven by the Application. Causes for faults or degradation could be for example blockage, thermal shutdown or unsafe execution.</p>
+<p>Since the system response is highly dependent on the OEM the arbitration should be performed in the customer application. However this does not mean the application can override degradation in the feature, it can only bring the system to a more degraded state.</p>
+<h3 data-number="1.2.1" id="input"><span class="header-section-number">1.2.1</span> Input</h3>
+<p>The feature is provided with the current sensor states; availability, blockage, etc.</p>
+<p>The feature is also provided with a Degrade input to tell it which state the application expects.</p>
+<h3 data-number="1.2.2" id="output"><span class="header-section-number">1.2.2</span> Output</h3>
+<p>The Feature provides its current state based on the quality of the inputs.</p>
+<p>Example 1: Depending on the region of blockage it can lead to degradation or not.</p>
+<p>Example 2: Unreliable lanes over time could lead to degraded LKA functionality.</p>
+<p>In addition to providing the state in the output interface, <a href="#alarm">alarms</a> can be triggered to store a persistent event for diagnostics. Each alarm has a recommended response from the owner of the alarm point, in the same way as for normal degradation the application can select to raise the alarm level, e.g. response default output could be overridden to restart ECU.</p>
+<h1 data-number="2" id="api"><span class="header-section-number">2</span> API</h1>
+<p>Note: The API:s described in this document should not be considered final. The final API will be described in a separate header file.</p>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVtmMTBjZjllOGUxMTZmOTM1ZTk5MGYxNWM1NzBiNGVjNl0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCmxlZnQgdG8gcmlnaHQgZGlyZWN0aW9uDQooKSAiVmVoaWNsZSBJbnB1dCIgYXMgVkkNCigpICJDYW1lcmEgSW5wdXQiIGFzIENJDQooKSAiUmFkYXIgSW5wdXQiIGFzIFJJDQooKSAiVmVoaWNsZSBPdXRwdXQiIGFzIFZPDQoNCigpICJFdGhlcm5ldCIgYXMgRQ0KKCkgIlVBUlQiIGFzIFUNCg0KcGFja2FnZSAiRmVhdHVyZSBTVy1DIiAgew0KICBbUmVhZCBJbnB1dCBEYXRhXSAgIGFzIElEDQogIFtGZWF0dXJlIENvbnRhaW5lcl0gYXMgRkMNCiAgW1dyaXRlIE91dHB1dCBEYXRhXSBhcyBPRA0KfQ0KDQpbRGVidWcgTG9nIEhhbmRsaW5nXSBhcyBETEgNCltFdmVudCBMb2cgSGFuZGxpbmddIGFzIEVMSA0KW0FsYXJtIEhhbmRsaW5nXSAgICAgYXMgQUgNCltDcmFzaCBMb2cgSGFuZGxpbmddIGFzIENMSA0KDQpkYXRhYmFzZSAiRXZlbnQgTG9nIiBhcyBFTA0KZGF0YWJhc2UgIkRlYnVnIExvZyIgYXMgREwNCmRhdGFiYXNlICJBbGFybXMiICAgIGFzIEENCmRhdGFiYXNlICJDcmFzaCBMb2ciIGFzIENMDQoNCklEIC0gLT4gRkMgOiBQcm92aWRlIGlucHV0IGRhdGENCkZDIC0gLT4gT0QgOiBSZWFkIG91dHB1dCBkYXRhDQoNCkZDIC4uPiBETCA6IERlYnVnX0xvZygpDQpGQyAuLj4gRUwgOiBMb2dfRXZlbnQoKQ0KRkMgLi4+IEEgIDogU2V0X0FsYXJtKCkNCg0KRUxIIC4uPiBFTCA6IFJlYWRfRXZlbnQoKQ0KRExIIC4uPiBETCA6IFJlYWRfRGVidWcoKQ0KQUggIC4uPiBBICA6IFJlYWRfQWxhcm0oKQ0KDQpDTEggLi4+IEVMIDogUmVhZF9FdmVudCgpDQpDTEggLi4+IEEgIDogUmVhZF9BbGFybSgpDQpDTEggLi4+IENMIDogV3JpdGVfQ3Jhc2hsb2coKQ0KDQoNCkVMSCAuPiBVDQpETEggLj4gRQ0KDQpWSSAtIC0+IElEDQpDSSAtIC0+IElEDQpSSSAtIC0+IElEDQoNCk9EIC0gLT4gVk8NCkBlbmR1bWwNCgpQbGFudFVNTCB2ZXJzaW9uIDEuMjAyMC4xMShTYXQgTWF5IDMwIDE5OjEzOjQzIEtTVCAyMDIwKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogSmF2YShUTSkgU0UgUnVudGltZSBFbnZpcm9ubWVudApKVk06IEphdmEgSG90U3BvdChUTSkgNjQtQml0IFNlcnZlciBWTQpEZWZhdWx0IEVuY29kaW5nOiBNUzk0OQpMYW5ndWFnZTogZW4KQ291bnRyeTogVVMKLS0+PC9nPjwvc3ZnPg==" id="fig:" alt /><figcaption>Direct vs Service API</figcaption>
+</figure>
+<p>The figure above describes the data flow through the Feature Container and the use of service API.</p>
+<h2 data-number="2.1" id="inputoutputs-format"><span class="header-section-number">2.1</span> Input/Outputs format</h2>
+<p>The format of the input and output of the init and step functions will all be using protocol buffers to support version handling. The encode and decode functions can be generated using tools provided in the Interfaces repository.</p>
+<p>The input data provided to the Feature is validated in the appropriate FuSa context using safety mechanisms (E2E, etc). So the Feature is not expected to be a part of any safety mechanisms.</p>
+<p>Input and output data are allocated by the platform so the feature is not expected to allocate memory for inputs or outputs. In addition the platform also ensures memory protection. For input this means the feature cannot write to this memory area. For outputs it means that the feature cannot write outside of this memory area.</p>
+<h3 data-number="2.1.1" id="header"><span class="header-section-number">2.1.1</span> Header</h3>
+<p>All protocol buffer streams shall be using the InterfaceHeader format as the top level structure, this will enable a common decoding format for all interfaces to be able to output common data without the need for the underlying format in the framework.</p>
+<h2 data-number="2.2" id="init-function"><span class="header-section-number">2.2</span> Init function</h2>
+<p>The init function will be called once for each feature container. The input arguments (static runtime configuration) will be populated using parameters stored in persistent storage, this enables tuning of the features and vehicle parameters.</p>
+<h2 data-number="2.3" id="step-function"><span class="header-section-number">2.3</span> Step function</h2>
+<p>The step function will be called once every execution cycle. The input will be populated with last received data with a timestamp for all data. The tunable parameters (dynamic runtime parameters) provided to the step function can be updated using UDS services pushed into the SW-C using a client-server interface. All input parameters are guaranteed to not change throughout the scope of the step function.</p>
+<p>To facilitate decoding of input signals only if new data has arrived, the timestamp will be located outside of the data.</p>
+<p>Input arguments are:</p>
+<ul>
+<li>uint32_t executionTime in 100 microseconds resolution <em>Rationale: Function needs to know the time it is executed</em></li>
+<li>uint32_t executionCycle <em>Rationale: Function needs to know the execution cycle/frame number to tag debug data</em></li>
+<li>SppContainer arg0..X <em>Rationale: Function needs input with timestamp</em></li>
+</ul>
+<p>The SppContainer structure contains the following information:</p>
+<ul>
+<li>source <em>Rationale: Source describing the SPP data type. Used to validate that the input data is provided on expected input argument since data is encoded</em></li>
+<li>identifier <em>Rationale: Identifier describing the SPP data type. Used to validate that the input data is provided on expected input argument since data is encoded</em></li>
+<li>timestamp in 100 microseconds resolution denoting the instance the time the data was captured/produced <em>Rationale: Function needs to know the origin time of the data</em></li>
+<li>size <em>Rationale: Function needs to know the size of the input data</em></li>
+<li>data <em>Rationale: Function needs input data</em></li>
+</ul>
+<p>The platform will populate <em>source</em>, <em>identifier</em>, <em>size</em> (with the allocated buffer size) and allocate <em>data</em>. The feature is expected to write to <em>data</em> and populate <em>size</em> and <em>timestamp</em>.</p>
+<p>Output signals from Feature container shall include a validity signal to trigger default values if output is unsafe…. (WdgM will also trigger default values).</p>
+<p>Each function call shall have the following parameters for input data:</p>
+<ul>
+<li><p>FUNCTION_CALL_INPUT_DATA_X_SOURCE, Value shall be set to the protocol buffers data source e.g. DATA_SOURCE_VISION <em>Rationale: Integrator needs to know which data to provide</em></p></li>
+<li><p>FUNCTION_CALL_INPUT_DATA_X_IDENTIFIER, Value shall be set to the protocol buffers data identifier requested <em>Rationale: Integrator needs to know which data to provide</em></p></li>
+<li><p>FUNCTION_CALL_INPUT_DATA_X_MAJOR_VERSION, Value shall be set to the protocol buffers major version that function expects <em>Rationale: Integrator needs to know if the input data is compatible</em></p></li>
+<li><p>FUNCTION_CALL_OUTPUT_DATA_X_IDENTIFIER, Value shall be set to the protocol buffers data identifier provided <em>Rationale: Integrator needs to know which data is provided</em></p></li>
+<li><p>FUNCTION_CALL_OUTPUT_DATA_X_SIZE, Value shall be set to the maximum size that may be provided, use define in generated code <em>Rationale: Integrator needs to know the buffer size that should be allocated</em></p></li>
+</ul>
+<p>Function call example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1"></a>Header file</span>
+<span id="cb1-2"><a href="#cb1-2"></a>====================== Header file ======================</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">extern</span> <span class="dt">const</span> DataSource Function_run_INPUT_DATA_lane_SOURCE;</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">extern</span> <span class="dt">const</span> <span class="dt">uint32_t</span> Function_run_INPUT_DATA_lane_IDENTIFIER;</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">extern</span> <span class="dt">const</span> Function_run_INPUT_DATA_lane_MAJOR_VERSION;</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="kw">extern</span> <span class="dt">const</span> Function_run_INPUT_DATA_objects_SOURCE;</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="kw">extern</span> <span class="dt">const</span> Function_run_INPUT_DATA_objects_IDENTIFIER;</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">extern</span> <span class="dt">const</span> Function_run_INPUT_DATA_objects_MAJOR_VERSION;</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="kw">extern</span> <span class="dt">const</span> Function_run_OUTPUT_DATA_aeb_IDENTIFIER;</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="kw">extern</span> <span class="dt">const</span> Function_run_OUTPUT_DATA_aeb_SIZE;</span>
+<span id="cb1-13"><a href="#cb1-13"></a></span>
+<span id="cb1-14"><a href="#cb1-14"></a>Function_run(<span class="dt">const</span> <span class="dt">uint32_t</span> executionTime,</span>
+<span id="cb1-15"><a href="#cb1-15"></a>             <span class="dt">const</span> <span class="dt">uint32_t</span> executionCycle,</span>
+<span id="cb1-16"><a href="#cb1-16"></a>             <span class="dt">const</span> SppContainer *<span class="dt">const</span> lane,</span>
+<span id="cb1-17"><a href="#cb1-17"></a>             <span class="dt">const</span> SppContainer *<span class="dt">const</span> objects,</span>
+<span id="cb1-18"><a href="#cb1-18"></a>             SppContainer *<span class="dt">const</span> aeb);</span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a>Function_unpacked_run(<span class="dt">const</span> <span class="dt">uint32_t</span> executionTime,</span>
+<span id="cb1-21"><a href="#cb1-21"></a>                      <span class="dt">const</span> <span class="dt">uint32_t</span> executionCycle,</span>
+<span id="cb1-22"><a href="#cb1-22"></a>                      <span class="dt">const</span> <span class="dt">uint32_t</span> laneTime,</span>
+<span id="cb1-23"><a href="#cb1-23"></a>                      <span class="dt">const</span> LaneOutput *<span class="dt">const</span> lane,</span>
+<span id="cb1-24"><a href="#cb1-24"></a>                      <span class="dt">const</span> <span class="dt">uint32_t</span> objectsTime,</span>
+<span id="cb1-25"><a href="#cb1-25"></a>                      <span class="dt">const</span> ObjectsOutput *<span class="dt">const</span> objects,</span>
+<span id="cb1-26"><a href="#cb1-26"></a>                      AebOutput *<span class="dt">const</span> aeb);</span>
+<span id="cb1-27"><a href="#cb1-27"></a></span>
+<span id="cb1-28"><a href="#cb1-28"></a></span>
+<span id="cb1-29"><a href="#cb1-29"></a>====================== Source file ======================</span>
+<span id="cb1-30"><a href="#cb1-30"></a></span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="dt">const</span> DataSource Function_run_INPUT_DATA_lane_SOURCE = VisionCore_Road_LaneOutput_source;</span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="dt">const</span> <span class="dt">uint32_t</span> Function_run_INPUT_DATA_lane_IDENTIFIER = VisionCore_Road_LaneOutput_identifier;</span>
+<span id="cb1-33"><a href="#cb1-33"></a><span class="dt">const</span> <span class="dt">uint8_t</span> Function_run_INPUT_DATA_lane_MAJOR_VERSION = VisionCore_Road_LaneOutput_majorVersion;</span>
+<span id="cb1-34"><a href="#cb1-34"></a></span>
+<span id="cb1-35"><a href="#cb1-35"></a><span class="dt">const</span> DataSource Function_run_INPUT_DATA_objects_SOURCE = VisionCore_TrafficParticipants_TrafficParticipantObjectsOutput_source;</span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="dt">const</span> <span class="dt">uint32_t</span> Function_run_INPUT_DATA_objects_IDENTIFIER = VisionCore_TrafficParticipants_TrafficParticipantObjectsOutput_identifier;</span>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="dt">const</span> <span class="dt">uint8_t</span> Function_run_INPUT_DATA_objects_MAJOR_VERSION = VisionCore_TrafficParticipants_TrafficParticipantObjectsOutput_majorVersion;</span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="dt">const</span> Function_run_OUTPUT_DATA_aeb_IDENTIFIER = Feature_AebOutput_identifier;</span>
+<span id="cb1-40"><a href="#cb1-40"></a><span class="dt">const</span> Function_run_OUTPUT_DATA_aeb_SIZE = SystemCore_InterfaceHeader_static_size + Feature_AebOutput_size;</span>
+<span id="cb1-41"><a href="#cb1-41"></a></span>
+<span id="cb1-42"><a href="#cb1-42"></a>Function_run(<span class="dt">const</span> <span class="dt">uint32_t</span> executionTime,</span>
+<span id="cb1-43"><a href="#cb1-43"></a>             <span class="dt">const</span> <span class="dt">uint32_t</span> executionCycle,</span>
+<span id="cb1-44"><a href="#cb1-44"></a>             <span class="dt">const</span> SppContainer *<span class="dt">const</span> lane,</span>
+<span id="cb1-45"><a href="#cb1-45"></a>             <span class="dt">const</span> SppContainer *<span class="dt">const</span> objects,</span>
+<span id="cb1-46"><a href="#cb1-46"></a>             SppContainer *<span class="dt">const</span> aeb)</span>
+<span id="cb1-47"><a href="#cb1-47"></a>{</span>
+<span id="cb1-48"><a href="#cb1-48"></a>    <span class="co">/* Decode input, input does not have interface header */</span></span>
+<span id="cb1-49"><a href="#cb1-49"></a>    VisionCore_Road_LaneOutput laneData;</span>
+<span id="cb1-50"><a href="#cb1-50"></a>    memset(&amp;laneData, <span class="dv">0</span>, <span class="kw">sizeof</span>(laneData));</span>
+<span id="cb1-51"><a href="#cb1-51"></a>    qpb_istream_t istream = qpb_istream_from_buffer(lane-&gt;data, lane-&gt;size);</span>
+<span id="cb1-52"><a href="#cb1-52"></a>    <span class="cf">if</span> (!decode_VisionCore_Road_LaneOutput(&amp;istream, &amp;laneData))</span>
+<span id="cb1-53"><a href="#cb1-53"></a>    {</span>
+<span id="cb1-54"><a href="#cb1-54"></a>        <span class="co">// Report error here</span></span>
+<span id="cb1-55"><a href="#cb1-55"></a>    }</span>
+<span id="cb1-56"><a href="#cb1-56"></a></span>
+<span id="cb1-57"><a href="#cb1-57"></a>    Feature_AebOutput aebOutput;</span>
+<span id="cb1-58"><a href="#cb1-58"></a>    memset(&amp;aebOutput, <span class="dv">0</span> , <span class="kw">sizeof</span>(aebOutput));</span>
+<span id="cb1-59"><a href="#cb1-59"></a>    <span class="co">/* Smart things go here populating aebOutput */</span></span>
+<span id="cb1-60"><a href="#cb1-60"></a></span>
+<span id="cb1-61"><a href="#cb1-61"></a>    <span class="co">/* Encode output */</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a>    qpb_ostream_t ostream = qpb_ostream_from_buffer(aeb-&gt;data, aeb-&gt;size);</span>
+<span id="cb1-63"><a href="#cb1-63"></a>    <span class="cf">if</span> (encode_Feature_AebOutput(&amp;ostream, &amp;aebOutput))</span>
+<span id="cb1-64"><a href="#cb1-64"></a>    {</span>
+<span id="cb1-65"><a href="#cb1-65"></a>        aeb-&gt;size = qpb_ostream_bytes_written(&amp;ostream);</span>
+<span id="cb1-66"><a href="#cb1-66"></a>        aeb-&gt;timestamp = currentTime;</span>
+<span id="cb1-67"><a href="#cb1-67"></a>    }</span>
+<span id="cb1-68"><a href="#cb1-68"></a>}</span></code></pre></div>
+<h2 data-number="2.4" id="communication-between-feature-containers"><span class="header-section-number">2.4</span> Communication between Feature Containers</h2>
+<p>No shared data is allowed between Feature Containers, all data shall be transferred by the platform via the System Products Protocol definition for the Feature Container interface. All connections between Feature Containers must be defined for each delivery, each output will be written to Autosar Rte after each step function execution.</p>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVswY2I5ODIxYTNjNjY1OTRhYWU4ZjFhMGQ3MmJkYWZlNV0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCmxlZnQgdG8gcmlnaHQgZGlyZWN0aW9uDQoNCnJlY3RhbmdsZSAiQXVyaXgiIHsNCiAgIHJlY3RhbmdsZSAiQ29yZSAxIiBhcyBjMSB7DQogICAgICByZWN0YW5nbGUgIlNXLUMgQ29tcG9zaXRpb24gMSIgYXMgc3djMSB7DQogICAgICAgICByZWN0YW5nbGUgIkZlYXR1cmUgQ29udGFpbmVyIDEiIGFzIGZjMQ0KICAgICAgICAgcmVjdGFuZ2xlICJGZWF0dXJlIENvbnRhaW5lciAyIiBhcyBmYzINCiAgICAgIH0NCiAgICAgIHJlY3RhbmdsZSAiU1ctQyBDb21wb3NpdGlvbiAzIiBhcyBzd2MzIHsNCiAgICAgICAgIHJlY3RhbmdsZSAiRmVhdHVyZSBDb250YWluZXIgMyIgYXMgZmMzDQogICAgICB9DQogICB9DQogICByZWN0YW5nbGUgIkNvcmUgMiIgYXMgYzIgew0KICAgICAgcmVjdGFuZ2xlICJTVy1DIENvbXBvc2l0aW9uIDIiIGFzIHN3YzIgew0KICAgICAgICAgcmVjdGFuZ2xlICJGZWF0dXJlIENvbnRhaW5lciA0IiBhcyBmYzQNCiAgICAgIH0NCiAgIH0NCg0KICAgYzEgLVtoaWRkZW5dLSBjMg0KICAgDQogICBzd2MxIC0gLT4gc3djMg0KICAgbm90ZSBvbiBsaW5rDQogICAgICBTUFAgSW50ZXJmYWNlIGZvcjoNCiAgICAgICogRmVhdHVyZSBDb250YWluZXIgMQ0KICAgZW5kIG5vdGUNCiAgIHN3YzEgLSAtPiBzd2MzDQogICBub3RlIG9uIGxpbmsNCiAgICAgIFNQUCBJbnRlcmZhY2UgZm9yOg0KICAgICAgKiBGZWF0dXJlIENvbnRhaW5lciAxDQogICAgICAqIEZlYXR1cmUgQ29udGFpbmVyIDINCiAgIGVuZCBub3RlDQogICBzd2MzIC0gLT4gc3djMg0KICAgbm90ZSBvbiBsaW5rDQogICAgICBTUFAgSW50ZXJmYWNlIGZvcjoNCiAgICAgICogRmVhdHVyZSBDb250YWluZXIgMw0KICAgZW5kIG5vdGUNCn0NCkBlbmR1bWwNCgpQbGFudFVNTCB2ZXJzaW9uIDEuMjAyMC4xMShTYXQgTWF5IDMwIDE5OjEzOjQzIEtTVCAyMDIwKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogSmF2YShUTSkgU0UgUnVudGltZSBFbnZpcm9ubWVudApKVk06IEphdmEgSG90U3BvdChUTSkgNjQtQml0IFNlcnZlciBWTQpEZWZhdWx0IEVuY29kaW5nOiBNUzk0OQpMYW5ndWFnZTogZW4KQ291bnRyeTogVVMKLS0+PC9nPjwvc3ZnPg==" id="fig:" alt /><figcaption>Inter Core Communication between Feature Containers</figcaption>
+</figure>
+<h2 data-number="2.5" id="event-log"><span class="header-section-number">2.5</span> Event Log</h2>
+<p>An event log will be provided as an aid for debugging. The logged events will be stored in a cyclic buffer and in the event of a crash the information will be stored into persistant storage. The API will include the items below.</p>
+<p>Arguments for caller:</p>
+<ul>
+<li>String in text segment <em>Rationale: only pointer is stored and shall be able to be read across cores</em></li>
+<li>Unique identifier for event <em>Rationale: String will not be stored in crashdump</em></li>
+<li>3 uint32_t arguments <em>Rationale: Additional info needed for the log</em></li>
+<li>Log level: DEBUG, INFO, WARNING, ERROR <em>Rationale: To avoid spamming the output default log level shall be WARNING or INFO</em></li>
+</ul>
+<p>Items added by platform:</p>
+<ul>
+<li>Timestamp using MCU timer tick <em>Rationale: timer tick can be read in single instruction, We can trigger a periodic log on each core to add StbM time syncronization.</em></li>
+<li>Task ID <em>Rationale: To aid debugging</em></li>
+</ul>
+<p>The event log will be saved in a core and ASIL level dependent area, i.e. Core 1 QM,Core 1 ASIL-B, Core 2 QM, …</p>
+<p>Interface suggestion:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a>Event_Log_1(LL_WARNING, <span class="st">&quot;MySimpleLog&quot;</span>, Id, Arg1);</span>
+<span id="cb2-2"><a href="#cb2-2"></a>Event_Log_2(LL_INFO,    <span class="st">&quot;MyLog2&quot;</span>,      Id, Arg1, Arg2);</span>
+<span id="cb2-3"><a href="#cb2-3"></a>Event_Log_3(LL_ERROR,   <span class="st">&quot;MyLog3&quot;</span>,      Id, Arg1, Arg2, Arg3);</span></code></pre></div>
+<h2 data-number="2.6" id="debug-log"><span class="header-section-number">2.6</span> Debug log</h2>
+<p>The debug log is used to output additional data for a bench unit, it will utilize debug interfaces not available in the production unit. This can be for example Ethernet or additional CAN interfaces.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1"></a><span class="dt">bool</span> DBGDATA_logBytes(<span class="dt">const</span> <span class="dt">uint8_t</span>   dataSource,</span>
+<span id="cb3-2"><a href="#cb3-2"></a>                      <span class="dt">const</span> <span class="dt">uint32_t</span>  dataIdentifier,</span>
+<span id="cb3-3"><a href="#cb3-3"></a>                      <span class="dt">const</span> <span class="dt">uint8_t</span> * <span class="dt">const</span> data,</span>
+<span id="cb3-4"><a href="#cb3-4"></a>                      <span class="dt">const</span> <span class="dt">uint16_t</span>  size);</span></code></pre></div>
+<h3 data-number="2.6.1" id="format"><span class="header-section-number">2.6.1</span> Format</h3>
+<p>The data sent on debug log shall also be in protocol buffer format including an InterfaceHeader.</p>
+<h2 data-number="2.7" id="alarm"><span class="header-section-number">2.7</span> Alarm</h2>
+<p>An alarm interface will be available to trigger alarms (connected to a DTC). The alarm ids are shared between ASP and Features and has to be allocated by ASP.</p>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVs3ZmYwYTc3MDVkNjA5MWE0NzdkNjFkNWFjOWYwNWExMF0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCg0KaW50ZXJmYWNlICJDQU4tRkQiIGFzIENBTg0KDQpwYWNrYWdlICJBVVRPU0FSIiB7DQogIFtEVENdIGFzIERUQw0KfQ0KDQpwYWNrYWdlICJBU1AgIiB7DQoNCiAgW0FsYXJtIFBvaW50XSBhcyBBUA0KICBbQWxhcm1dIGFzIEENCn0NCg0KaW50ZXJmYWNlICJGZWF0dXJlIENvbnRhaW5lciIgYXMgRkMNCg0KRFRDIC1kb3duLSBBDQpBICAgLWRvd24tIEFQDQoNCkRUQyAucmlnaHQuPiBDQU4NCg0KRkMgLnVwLj4gQVAgOiBTZXRfQWxhcm0NCg0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIwLjExKFNhdCBNYXkgMzAgMTk6MTM6NDMgS1NUIDIwMjApCihHUEwgc291cmNlIGRpc3RyaWJ1dGlvbikKSmF2YSBSdW50aW1lOiBKYXZhKFRNKSBTRSBSdW50aW1lIEVudmlyb25tZW50CkpWTTogSmF2YSBIb3RTcG90KFRNKSA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IE1TOTQ5Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+" id="fig:" alt /><figcaption>Alarm handling</figcaption>
+</figure>
+<p>Interface suggestion:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1"></a>Alarm_Set(FEATURE_ALARM_MISSING_INPUT);</span>
+<span id="cb4-2"><a href="#cb4-2"></a>Alarm_Clear(FEATURE_ALARM_MISSING_INPUT);</span>
+<span id="cb4-3"><a href="#cb4-3"></a>Alarm_Set(FEATURE_ALARM_FATAL); =&gt; Trigger DTC and report FATAL_ERROR event =&gt; Restart ECU</span></code></pre></div>
+<h2 data-number="2.8" id="persistent-storage"><span class="header-section-number">2.8</span> Persistent Storage</h2>
+<p>RAM variable connected to a NvM block in AUTOSAR, saved every X minutes.</p>
+<p>Questions:</p>
+<ul>
+<li>Configuration? Symbol needed in AUTOSAR configuration, shall a byte array of defined size or predifined struct be allocated for each component?</li>
+<li>Period for store</li>
+</ul>
+<h1 data-number="3" id="execution-environment"><span class="header-section-number">3</span> Execution Environment</h1>
+<p>Each Feature Container will be contained in a separate SW-C and executed from a main runnable. A Feature Container cannot span multiple cores.</p>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVs2YWI0YTdjYmRiZTNhMDJjNmUwNjliZjE2OWEzOWUxZF0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCmxlZnQgdG8gcmlnaHQgZGlyZWN0aW9uDQoNCnJlY3RhbmdsZSAiQXVyaXgiIHsNCiAgIHJlY3RhbmdsZSAiQ29yZSAxIiBhcyBjMSB7DQogICAgICByZWN0YW5nbGUgIlNXLUMgQ29tcG9zaXRpb24gMSIgYXMgc3djMQ0KICAgICAgcmVjdGFuZ2xlICJTVy1DIENvbXBvc2l0aW9uIDMiIGFzIHN3YzMNCiAgIH0NCiAgIHJlY3RhbmdsZSAiQ29yZSAyIiBhcyBjMiB7DQogICAgICByZWN0YW5nbGUgIlNXLUMgQ29tcG9zaXRpb24gMiIgYXMgc3djMg0KICAgfQ0KICAgcmVjdGFuZ2xlICJDb3JlIG4iIGFzIGNuIHsNCiAgICAgIHJlY3RhbmdsZSAiU1ctQyBDb21wb3NpdGlvbiBuIiBhcyBzd2NuDQogICAgICByZWN0YW5nbGUgIlNXLUMgQ29tcG9zaXRpb24gbiArIDEiIGFzIHN3Y24xDQogICB9DQoNCiAgIGMxIC1baGlkZGVuXS0gYzINCiAgIGMyIC1baGlkZGVuXS0gY24NCn0NCkBlbmR1bWwNCgpQbGFudFVNTCB2ZXJzaW9uIDEuMjAyMC4xMShTYXQgTWF5IDMwIDE5OjEzOjQzIEtTVCAyMDIwKQooR1BMIHNvdXJjZSBkaXN0cmlidXRpb24pCkphdmEgUnVudGltZTogSmF2YShUTSkgU0UgUnVudGltZSBFbnZpcm9ubWVudApKVk06IEphdmEgSG90U3BvdChUTSkgNjQtQml0IFNlcnZlciBWTQpEZWZhdWx0IEVuY29kaW5nOiBNUzk0OQpMYW5ndWFnZTogZW4KQ291bnRyeTogVVMKLS0+PC9nPjwvc3ZnPg==" id="fig:" alt /><figcaption>Core separation in Computational Platform</figcaption>
+</figure>
+<h2 data-number="3.1" id="partitioning"><span class="header-section-number">3.1</span> Partitioning</h2>
+<p>The SW-C executing the Feature Container will be running in a task with timing and memory protection.</p>
+<h2 data-number="3.2" id="init"><span class="header-section-number">3.2</span> Init</h2>
+<p>The init state of the main runnable is used to collect all parameters needed for the Feature Container. When all parameters have been collected the init function of the Feature Container is called and the state is set to RUN.</p>
+<h2 data-number="3.3" id="step"><span class="header-section-number">3.3</span> Step</h2>
+<p>The step function will be called when in the RUN state once every execution cycle.</p>
+<h2 data-number="3.4" id="scheduling"><span class="header-section-number">3.4</span> Scheduling</h2>
+<p>Allowed trigger periods for Feature Container step fuinctions are:</p>
+<ul>
+<li>5 ms, offset 0 ms</li>
+<li>10 ms, offset 0 ms</li>
+<li>20 ms, offset 5 ms</li>
+<li>40 ms, offset 15 ms</li>
+<li>80 ms, offset 35 ms</li>
+</ul>
+<p>Communication between frequencies will not be delayed by the platform, when a Feature Container step function call has been completed the output will be published to other components. This imply that the behaviour will be non deterministic if a component for example uses more CPU time when more object have been detected, the output will be delayed and other components may use older data instead.</p>
+<pre><code> Time (ms)     |--  0 --|--  5 --|-- 10 --|-- 15 --|-- 20 --|-- 25 --|-- 30 --|-- 35 --|-- 40 --|-- 45 --|-- 50 --|-- 55 --|-- 60 --|-- 65 --|-- 70 --|-- 75 --|
+ 5 ms trigger  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |  Step  |
+10 ms trigger  |  Step           |  Step           |  Step           |  Step           |  Step           |  Step           |  Step           |  Step           |
+20 ms trigger  =&gt;       |  Step                             |  Step                             |  Step                             |  Step                   =&gt;
+40 ms trigger  =&gt;                         |  Step                                                                                                             =&gt;
+80 ms trigger  =&gt;                                                             |  Step                                                                         =&gt;</code></pre>
+<p><em>Rationale: Harmonic frequencies will make a more deterministic system behaviour. Offsetting the frequencies will distribute the Rte accesses and CPU utilization.</em></p>
+<h3 data-number="3.4.1" id="pre-emption"><span class="header-section-number">3.4.1</span> Pre-emption</h3>
+<p>If time demanding runnables are needed in lower frequencies pre-emption will have to be allowed for these. However, if no higher frequency components are needed we can run without preemtion. Currently the only runnables planned for “Feature Cores” apart from the Feature Container is the EcuM and WdgM functions of AUTOSAR.</p>
+<h3 data-number="3.4.2" id="watchdog"><span class="header-section-number">3.4.2</span> Watchdog</h3>
+<p>The AUTOSAR WdgM module will be used to monitor the SW-C:s. The internal watchdog needs to be triggered every 50ms (configurable, but it’s the current configuration).</p>
+<h2 data-number="3.5" id="wcet"><span class="header-section-number">3.5</span> WCET</h2>
+<p>The WCET for each Feature Container has to be defined for each delivery.</p>
+<h2 data-number="3.6" id="memory-handling"><span class="header-section-number">3.6</span> Memory handling</h2>
+<h3 data-number="3.6.1" id="stack"><span class="header-section-number">3.6.1</span> Stack</h3>
+<p>Depending on the OS the underlying stack management will differ, RTA-OS uses a single stack approach with one shared stack for all tasks on a core whereas MICROSAR-OS statically allocates one stack per task.</p>
+<p>In either case we have to define the stack for each task and the Feature Container stack usage have to be defined for each delivery. The DSPR where the stack resides is quite limited in TC3xx series: 240 or 96 kB in total depending on core and MCU.</p>
+<h3 data-number="3.6.2" id="static-memory"><span class="header-section-number">3.6.2</span> Static memory</h3>
+<p>To be able to allocate component global variables and code to the correct sections, there needs to be a naming convention of the linker sections to be able to allocate the variables to the corresponding core and ASIL level. However the exact core allocation will be up to the integrator, therefor instead of the core it would be better to use the component name as the indicator for core allocation.</p>
+<p>Examples of pragmas that could be used to aid memory allocation:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1"></a><span class="pp">#pragma section code       FEATURE_AEB_ASILB_CODE</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="pp">#pragma section fardata    FEATURE_AEB_ASILB_VAR_INIT</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="pp">#pragma section farnoclear FEATURE_AEB_ASILB_VAR_NO_INIT</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="pp">#pragma section code       FEATURE_LKA_QM_CODE</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="pp">#pragma section farnoclear FEATURE_LKA_QM_VAR_NO_INIT</span></span></code></pre></div>
+<h3 data-number="3.6.3" id="dynamic-memory"><span class="header-section-number">3.6.3</span> Dynamic memory</h3>
+<p>No dynamic memory allocation is allowed.</p>
+<h2 data-number="3.7" id="error-handling"><span class="header-section-number">3.7</span> Error handling</h2>
+<p>Timing and memory protection errors will trigger a crashdump.</p>
+<h1 data-number="4" id="build-environment"><span class="header-section-number">4</span> Build Environment</h1>
+<h2 data-number="4.1" id="compiler"><span class="header-section-number">4.1</span> Compiler</h2>
+<p>Tasking compiler v6.3</p>
+<h3 data-number="4.1.1" id="compiler-flags"><span class="header-section-number">4.1.1</span> Compiler Flags</h3>
+<p>TBD.</p>
+<h3 data-number="4.1.2" id="linker-flags"><span class="header-section-number">4.1.2</span> Linker flags</h3>
+<p>TBD.</p>
+<h1 data-number="5" id="debugging"><span class="header-section-number">5</span> Debugging</h1>
+<h2 data-number="5.1" id="playback"><span class="header-section-number">5.1</span> Playback</h2>
+<p>TBD.</p>
+<h2 data-number="5.2" id="debug-log-1"><span class="header-section-number">5.2</span> Debug log</h2>
+<p>Apart from the data provided from the component using the service interface, all input and output data provided to the step functions will be logged on the debug interface.</p>
+<h2 data-number="5.3" id="crashdump"><span class="header-section-number">5.3</span> Crashdump</h2>
+<p>On the event of an irrecoverable error or on request a crashdump will be triggered. The crash dump will save the following data to persistent storage that can be read using UDS services.</p>
+<ul>
+<li>All Event logs</li>
+<li>Backtrace for caller</li>
+<li>Special debug registers, Instruction exception address, Data exception address, …</li>
+<li></li>
+<li></li>
+</ul>
+</body>
+</html>

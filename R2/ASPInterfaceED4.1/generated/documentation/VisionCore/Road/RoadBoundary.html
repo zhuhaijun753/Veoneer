@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>RoadBoundary Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - VisionCore.Road</b>
+<br>
+<h1>Messages</h1>
+<h2 id="VisionCore.Road.RoadBoundaryClothoid">RoadBoundaryClothoid (VisionCore.Road.RoadBoundaryClothoid)</h2>
+Cartesian coordinates in Autosar Front Axis Coordinate system projected on ground plane (AFAC-G)
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LateralDistance</td><td>S16</td><td>-50 m</td><td>50 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Lateral distance to the inside of the road boundary (default: 0)</td></tr>
+<tr><td>Heading</td><td>S16</td><td>-0.8192 atan(rad)</td><td>0.819175 atan(rad)</td><td>0.000025</td><td>atan(rad)</td><td>4</td><td>1</td><td>The heading coefficient of the clothoid model</td></tr>
+<tr><td>Curvature</td><td>S16</td><td>-0.08192 1/m</td><td>0.0819175 1/m</td><td>0.0000025</td><td>1/m</td><td>4</td><td>1</td><td>Horizontal curvature for the start of the first clothoid</td></tr>
+<tr><td>CurvatureRate</td><td>S16</td><td>-0.032768 1/m²</td><td>0.032767 1/m²</td><td>0.000001</td><td>1/m²</td><td>4</td><td>1</td><td>Horizontal curvature rate for the first clothoid</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>16 [15]</th><th>4</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.RoadBoundaryClothoidVariance">RoadBoundaryClothoidVariance (VisionCore.Road.RoadBoundaryClothoidVariance)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LateralDistanceVariance</td><td>S16</td><td>-327.68 1/m²</td><td>327.67 1/m²</td><td>0.01</td><td>1/m²</td><td>4</td><td>1</td><td>Variance for lateral distance</td></tr>
+<tr><td>HeadingVariance</td><td>S16</td><td>-0.8192 atan(rad)²</td><td>0.819175 atan(rad)²</td><td>0.000025</td><td>atan(rad)²</td><td>4</td><td>1</td><td>Variance for heading</td></tr>
+<tr><td>CurvatureVariance</td><td>S16</td><td>-0.08192 1/m²</td><td>0.0819175 1/m²</td><td>0.0000025</td><td>1/m²</td><td>4</td><td>1</td><td>Variance for curvature</td></tr>
+<tr><td>CurvatureRateVariance</td><td>S16</td><td>-0.032768 1/m^4</td><td>0.032767 1/m^4</td><td>0.000001</td><td>1/m^4</td><td>4</td><td>1</td><td>Variance for curvature rate</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>16</th><th>4</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.RoadBoundaryTrack">RoadBoundaryTrack (VisionCore.Road.RoadBoundaryTrack)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Valid</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>True means that RoadBoundaryTrack describes a valid road boundary</td></tr>
+<tr><td>Id</td><td>U8</td><td>0</td><td>255</td><td>1</td><td></td><td>3</td><td>1</td><td>ID nr (default: 255 = SNA, propose change to 0)</td></tr>
+<tr><td>DetectionDistance</td><td>U16</td><td>0 m</td><td>150 m</td><td>0.1</td><td>m</td><td>4 [3]</td><td>1</td><td>Longitudinal distance for which the Road Boundary is detected</td></tr>
+<tr><td>TrackingStatus</td><td><a href="#VisionCore.Road.RoadBoundaryTrackingStatus">VisionCore.Road.RoadBoundaryTrackingStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes detection status</td></tr>
+<tr><td>ModelError</td><td>U8</td><td>0 m</td><td>2.55 m</td><td>0.01</td><td>m</td><td>3</td><td>1</td><td>Describes how well the measurements are adapted to the model. Mean square deviation between measurements and model points.</td></tr>
+<tr><td>MeasurementQuality</td><td>U8</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>3 [2]</td><td>1</td><td>Describes quality of the detection</td></tr>
+<tr><td>Clothoid</td><td><a href="#VisionCore.Road.RoadBoundaryClothoid">VisionCore.Road.RoadBoundaryClothoid</a></td><td></td><td></td><td></td><td></td><td>18 [17]</td><td>1</td><td>Describes road boundary clothoid</td></tr>
+<tr><td>IsSafe</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>True means that the track is safe to use</td></tr>
+<tr><td>ClothoidVariance</td><td><a href="#VisionCore.Road.RoadBoundaryClothoidVariance">VisionCore.Road.RoadBoundaryClothoidVariance</a></td><td></td><td></td><td></td><td></td><td>18</td><td>1</td><td>Describes road boundary clothoid variance</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>55 [52]</th><th>9</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.RoadBoundary">RoadBoundary (VisionCore.Road.RoadBoundary)</h2>
+Source: DATA_SOURCE_VISION (2)
+<br>
+Identifier: 203 (cb)
+<br>
+Version: 1.0.0
+<br>
+Output describing the road boundaries ahead of the vehicle
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>LeftTraversableRoadBoundary</td><td><a href="#VisionCore.Road.RoadBoundaryTrack">VisionCore.Road.RoadBoundaryTrack</a></td><td></td><td></td><td></td><td></td><td>57 [54]</td><td>1</td><td>The left traversable road boundary</td></tr>
+<tr><td>RightTraversableRoadBoundary</td><td><a href="#VisionCore.Road.RoadBoundaryTrack">VisionCore.Road.RoadBoundaryTrack</a></td><td></td><td></td><td></td><td></td><td>57 [54]</td><td>1</td><td>The right traversable road boundary</td></tr>
+<tr><td>LeftNonTraversableRoadBoundary</td><td><a href="#VisionCore.Road.RoadBoundaryTrack">VisionCore.Road.RoadBoundaryTrack</a></td><td></td><td></td><td></td><td></td><td>57 [54]</td><td>1</td><td>The left nontraversable road boundary</td></tr>
+<tr><td>RightNonTraversableRoadBoundary</td><td><a href="#VisionCore.Road.RoadBoundaryTrack">VisionCore.Road.RoadBoundaryTrack</a></td><td></td><td></td><td></td><td></td><td>57 [54]</td><td>1</td><td>The right nontraversable road boundary</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>228 [216]</th><th>4</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="VisionCore.Road.RoadBoundaryTrackingStatus">RoadBoundaryTrackingStatus (VisionCore.Road.RoadBoundaryTrackingStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NotDetected</td><td>VisionCore.Road.RoadBoundaryTrackingStatus.NotDetected</td><td>0</td></tr>
+<tr><td>TrackedDetectedBoundary</td><td>VisionCore.Road.RoadBoundaryTrackingStatus.TrackedDetectedBoundary</td><td>1</td></tr>
+<tr><td>CloseRangePredictedBoundary</td><td>VisionCore.Road.RoadBoundaryTrackingStatus.CloseRangePredictedBoundary</td><td>2</td></tr>
+<tr><td>FarRangePredictedBoundary</td><td>VisionCore.Road.RoadBoundaryTrackingStatus.FarRangePredictedBoundary</td><td>3</td></tr>
+<tr><td>PredictedBoundary</td><td>VisionCore.Road.RoadBoundaryTrackingStatus.PredictedBoundary</td><td>4</td></tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,5 @@
+Source.Identifier: Name
+3.34: SystemCore.LongitudinalVehicleControl.FunctionStatusInfo
+3.35: SystemCore.LongitudinalVehicleControl.DriverInteraction
+3.36: SystemCore.LongitudinalVehicleControl.FeedbackInfo
+3.37: SystemCore.LongitudinalVehicleControl.FeatureEnabledLCP

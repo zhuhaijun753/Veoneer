@@ -1,0 +1,6 @@
+Source.Identifier: Name
+1.30: Zenuity.Crusing.CancelReasonAcc
+1.31: Zenuity.Crusing.AccelerationRequest
+1.32: Zenuity.Crusing.TargetsSelectedByAcc
+1.666: Zenuity.Crusing.TrafficAssistOutput
+1.667: Zenuity.Crusing.InformationToDriverFromTrafficAssist

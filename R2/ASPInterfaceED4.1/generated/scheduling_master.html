@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Scheduling for Master composition</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <style type="text/css">a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:underline;}
+a:active {text-decoration:underline;}
+body {
+margin: auto;
+padding-right: 1em;
+padding-left: 1em;
+padding-top: 1em;
+color: black;
+font-family: "ff-meta-serif-web-pro",Georgia,Cambria,"Times New Roman",Times,serif;
+font-size: 100%;
+line-height: 140%;
+}
+pre {
+border: 1px dotted gray;
+padding: 0.5em;
+}
+code {
+font-family: "Courier New", monospace;
+color: #a33;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a {
+text-decoration: none;
+color: #001e46;
+}
+h1, h2, h3, h4, h5 {
+font-family: 'Barlow', sans-serif;
+font-weight: bold;
+color: #001e46;
+}
+h1 {
+border-bottom: 1px solid #0e2b8d;
+font-size: 130%;
+line-height: 140%;
+page-break-before: always;
+padding-top: 2em;
+}
+h2 {
+font-size: 110%;
+padding-top: 2em;
+}
+h3 {
+font-size: 95%;
+padding-top: 2em;
+}
+h4 {
+font-size: 90%;
+padding-top: 2em;
+}
+h5 {
+font-size: 90%;
+padding-top: 2em;
+}
+h1.title {
+font-size: 200%;
+font-weight: bold;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+text-align: center;
+border: none;
+page-break-before: auto;
+}
+dt code {
+font-weight: bold;
+}
+dd p {
+margin-top: 0;
+}
+#nav, #confidential, #footer, figure {
+font-family: 'Barlow', sans-serif;
+}
+#confidential {
+font-size: 85%;
+}
+header#documentheader {
+position: relative;
+margin: 0;
+padding: 0;
+margin-left: -1em;
+width: 100%;
+top: 1em;
+background: #ffffff;
+}
+div#alvheaderwrapper {
+padding: 0;
+margin: 0 1em;
+overflow: hidden;
+position: relative;
+}
+footer {
+font-size: 75%;
+border-top: 1px solid #0e2b8d;
+margin-top: 1em;
+}
+footer#pdffooter {
+display:none;
+}
+table {
+border-collapse: collapse;
+font-family: 'Barlow', sans-serif;
+}
+td, th {
+border: 1px solid black;
+margin: 0;
+padding: 4px;
+text-align: left;
+vertical-align: top;
+}
+th {
+color: black;
+font-family: 'Barlow', sans-serif;
+background-color: #c4e2df;
+}
+td.alvlogo {
+border: none;
+margin: 0;
+padding: 0px;
+}
+table.alvheader {
+margin: 0;
+padding: 0;
+width: 100%;
+border-collapse: collapse;
+}
+td.alvheader {
+border: 1px solid black;
+margin: 0;
+padding-left: 4px;
+padding-right: 4px;
+padding-top: 0px;
+padding-bottom: 2px;
+vertical-align: top;
+line-height: 120%;
+}
+.alvmeta {
+font-size: 75%;
+font-style: italic;
+}
+td.alvheadershade {
+border: 1px solid black;
+margin: 0;
+padding: 2px;
+background-color: #c4e2df;
+color: black;
+line-height: 120%;
+}
+pre.instruction {
+border: none;
+color: #00c;
+background-color: white;
+}
+.warning {
+border: 4px solid red;
+font-family: Verdana, sans-serif;
+padding-left: 1em;
+padding-right: 1em;
+margin-bottom: 1em;
+}
+.hidden {
+display: none;
+}
+th.left, td.left {
+text-align: left;
+}
+th.right, td.right {
+text-align: right;
+}
+
+table.memname td {
+border: none;
+}
+.memname {
+font-weight: bold;
+border: none;
+margin-bottom: -10px;
+margin-left: 0px;
+padding-left: 0px;
+padding-bottom: 0px;
+}
+.memdoc {
+margin-left: 40px;
+margin-bottom: 1em;
+}
+table.memname td.paramname, td.paramtype {
+padding-left: 0px;
+padding-right: 0px;
+}
+td.mdescRight {
+font-weight: normal;
+padding-top: 0px;
+margin-top: 0px;
+}
+</style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Scheduling for Master composition</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#input"><span class="toc-section-number">1</span> Input</a>
+<ul>
+<li><a href="#radar"><span class="toc-section-number">1.1</span> Radar</a></li>
+<li><a href="#mcu-application"><span class="toc-section-number">1.2</span> MCU / Application</a></li>
+<li><a href="#visioncore"><span class="toc-section-number">1.3</span> VisionCore</a></li>
+</ul></li>
+<li><a href="#output"><span class="toc-section-number">2</span> Output</a></li>
+<li><a href="#architecture"><span class="toc-section-number">3</span> Architecture</a></li>
+</ul>
+</nav>
+<p>The Master composition consists of the Zenuity feature containers <code>A</code>. <code>B</code> and <code>C</code>.</p>
+<p><code>A</code> and <code>B</code> shall be scheduled in 40 Hz. <code>C</code> shall start when <code>B</code> has terminated, in the same <code>25 ms</code> slot.</p>
+<pre><code> Time (ms)     |0-------|25------|=&gt;
+ Core x   =&gt;   |A-------|A-------|=&gt;
+ Core y   =&gt;   |B----C- |B----C- |=&gt;</code></pre>
+<p>Container <code>A</code> and <code>B</code> are <em>QM</em> containers. Container <code>C</code> is an <em>ASIL B</em> container.</p>
+<p>The runtime constraint for <code>A</code> is 25 ms and the runtime constraint for <code>B</code> and <code>C</code> together is 25 ms. All containers shall be scheduled non-preemptive, i.e not be interrupted if the runtime constraints are complied.</p>
+<h1 data-number="1" id="input"><span class="header-section-number">1</span> Input</h1>
+<h2 data-number="1.1" id="radar"><span class="header-section-number">1.1</span> Radar</h2>
+<ul>
+<li>RadarCore.Tracks.ClusterTrackList, RadarCore/Tracks/ClusterTracks, 1.0</li>
+<li>RadarCore.Tracks.StationaryTrackList, RadarCore/Tracks/StationaryTracks, 1.0</li>
+</ul>
+<h2 data-number="1.2" id="mcu-application"><span class="header-section-number">1.2</span> MCU / Application</h2>
+<ul>
+<li>SystemCore.CollisionAvoidance.CollisionAvoidanceSettings, SystemCore/CollisionAvoidance/SettingsInput, 2.0</li>
+<li>SystemCore.Common.CountryInformation, SystemCore/Common/CountryInformation, 1.0</li>
+<li>SystemCore.Common.VehicleInput, SystemCore/Common/VehicleInput, 3.0</li>
+<li>SystemCore.Cruising.LaneChangeAssistInput, SystemCore/Cruising/CruisingInput, 1.0</li>
+<li>SystemCore.Cruising.RiskMitigationSupportInput, SystemCore/Cruising/CruisingInput, 1.0</li>
+<li>SystemCore.Cruising.TrafficAssistInput, SystemCore/Cruising/CruisingInput, 1.0</li>
+<li>SystemCore.Crusing.AccCommonInput, SystemCore/Cruising/Cruising, 1.0</li>
+<li>SystemCore.Crusing.CruisingFeatureState, SystemCore/Cruising/Cruising, 1.0</li>
+<li>SystemCore.Crusing.DistanceControllerInput, SystemCore/Cruising/Cruising, 1.0</li>
+<li>SystemCore.Crusing.SetSpeedControllerInput, SystemCore/Cruising/Cruising, 1.0</li>
+<li>SystemCore.RoadSignInformation.RoadSignInformationSettings, SystemCore/RoadSignInformation/SettingsInput, 1.0</li>
+</ul>
+<h2 data-number="1.3" id="visioncore"><span class="header-section-number">1.3</span> VisionCore</h2>
+<ul>
+<li>VisionCore.Common.EgoMotionOutput, VisionCore/Common/EgoMotion, 1.0</li>
+<li>VisionCore.Road.LaneOutput, VisionCore/Road/LaneOutput, 2.0</li>
+<li>VisionCore.Road.RoadBoundary, VisionCore/Road/RoadBoundary, 1.0</li>
+<li>VisionCore.Road.SceneClassification, VisionCore/Road/SceneClassification, 1.0</li>
+<li>VisionCore.TrafficInformation.ValidatedSignList, VisionCore/TrafficInformation/TrafficSignRecognition, 1.0</li>
+<li>VisionCore.TrafficParticipants.ObjectsOutput, VisionCore/TrafficParticipants/ObjectsOutput, 2.0</li>
+</ul>
+<h1 data-number="2" id="output"><span class="header-section-number">2</span> Output</h1>
+<ul>
+<li>Zenuity.CaLong.CollisionMitigationBrakeRequest, Zenuity/CaLong_AebOutput, 1.0</li>
+<li>Zenuity.CaLong.CollisionMitigationSystem, Zenuity/CaLong_AebOutput, 2.1</li>
+<li>Zenuity.CaLong.StaticDistanceWarningOutput, Zenuity/CaLong_AebOutput, 1.0</li>
+<li>Zenuity.Crusing.AccelerationRequest, Zenuity/Cruising, 1.0</li>
+<li>Zenuity.Crusing.InformationToDriverFromTrafficAssist, Zenuity/Cruising, 1.0</li>
+<li>Zenuity.Crusing.TargetsSelectedByAcc, Zenuity/Cruising, 1.0</li>
+<li>Zenuity.Crusing.TrafficAssistOutput, Zenuity/Cruising, 1.0</li>
+<li>Zenuity.LaneSupportSystems.LssOutput, Zenuity/Lss_Output, 1.0</li>
+<li>Zenuity.LateralControl.LateralControlOutput, Zenuity/LateralControl_Output, 1.0</li>
+<li>Zenuity.RSI.RsiOutput, Zenuity/RSI_Output, 1.0</li>
+</ul>
+<h1 data-number="3" id="architecture"><span class="header-section-number">3</span> Architecture</h1>
+<figure>
+<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBjb250ZW50U2NyaXB0VHlwZT0iYXBwbGljYXRpb24vZWNtYXNjcmlwdCIgY29udGVudFN0eWxlVHlwZT0idGV4dC9jc3MiIGhlaWdodD0iMjQ0cHgiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHN0eWxlPSJ3aWR0aDoyNzVweDtoZWlnaHQ6MjQ0cHg7YmFja2dyb3VuZDojMDAwMDAwOyIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMjc1IDI0NCIgd2lkdGg9IjI3NXB4IiB6b29tQW5kUGFuPSJtYWduaWZ5Ij48ZGVmcy8+PGc+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjE0MCIgeD0iNSIgeT0iMTkiPkRvdCBFeGVjdXRhYmxlOiBudWxsPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIxNzMiIHg9IjUiIHk9IjM4LjIyOTUiPk5vIGRvdCBleGVjdXRhYmxlIGZvdW5kPC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIyNTgiIHg9IjUiIHk9IjU3LjQ1OSI+Q2Fubm90IGZpbmQgR3JhcGh2aXouIFlvdSBzaG91bGQgdHJ5PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSIwIiB4PSI5IiB5PSI3Ni42ODg1Ii8+PHRleHQgZmlsbD0iIzMzRkYwMiIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZvbnQtd2VpZ2h0PSJib2xkIiBsZW5ndGhBZGp1c3Q9InNwYWNpbmdBbmRHbHlwaHMiIHRleHRMZW5ndGg9IjcxIiB4PSI1IiB5PSI5NS45MTgiPkBzdGFydHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iNTAiIHg9IjUiIHk9IjExNS4xNDc1Ij50ZXN0ZG90PC90ZXh0Pjx0ZXh0IGZpbGw9IiMzM0ZGMDIiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmb250LXdlaWdodD0iYm9sZCIgbGVuZ3RoQWRqdXN0PSJzcGFjaW5nQW5kR2x5cGhzIiB0ZXh0TGVuZ3RoPSI2NiIgeD0iNSIgeT0iMTM0LjM3NyI+QGVuZHVtbDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTUzLjYwNjQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMTUiIHg9IjkiIHk9IjE3Mi44MzU5Ij5vcjwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMTkyLjA2NTQiLz48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMjAxIiB4PSI1IiB5PSIyMTEuMjk0OSI+amF2YSAtamFyIHBsYW50dW1sLmphciAtdGVzdGRvdDwvdGV4dD48dGV4dCBmaWxsPSIjMzNGRjAyIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGxlbmd0aEFkanVzdD0ic3BhY2luZ0FuZEdseXBocyIgdGV4dExlbmd0aD0iMCIgeD0iOSIgeT0iMjMwLjUyNDQiLz48IS0tTUQ1PVs0YjA0ZTY2MTFjYzc4MTc5YWE2ZWM2NjI5Njk4Yjc5ZV0KQHN0YXJ0dW1sDQpza2lucGFyYW0gZnJhbWUgew0KICAgQmFja2dyb3VuZENvbG9yICNlY2VmZjcNCn0NCnNraW5wYXJhbSBmb2xkZXIgew0KICAgQmFja2dyb3VuZENvbG9yICNmYWVjZGINCn0NCg0Kc2tpbnBhcmFtIGFjdGl2aXR5IHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBCYXJDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHN0YXRlIHsNCiAgU3RhcnRDb2xvciBCbGFjaw0KICBFbmRDb2xvciBCbGFjaw0KICBBcnJvd0NvbG9yIEJsYWNrDQogIEJhY2tncm91bmRDb2xvciAjZmZkYWU4DQogIEJvcmRlckNvbG9yIEJsYWNrDQoNCn0NCg0Kc2tpbnBhcmFtIHNlcXVlbmNlIHsNCiAgIEFycm93Q29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEJvdW5kYXJ5Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIEJvdW5kYXJ5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbnRyb2xCb3JkZXJDb2xvciBCbGFjaw0KICAgQ29udHJvbEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogICBFbnRpdHlCb3JkZXJDb2xvciBCbGFjaw0KICAgRW50aXR5QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIERhdGFiYXNlQm9yZGVyQ29sb3IgQmxhY2sNCiAgIERhdGFiYXNlQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIENvbGxlY3Rpb25zQm9yZGVyQ29sb3IgQmxhY2sNCiAgIENvbGxlY3Rpb25zQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIFBhcnRpY2lwYW50Qm9yZGVyQ29sb3IgQmxhY2sNCiAgIFBhcnRpY2lwYW50QmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgIEFjdG9yQmFja2dyb3VuZENvbG9yICNmZmZmZmMNCiAgIEFjdG9yQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQm9yZGVyQ29sb3IgQmxhY2sNCiAgIExpZmVMaW5lQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCn0NCg0Kc2tpbnBhcmFtIG5vdGUgew0KICBCb3JkZXJDb2xvciBCbGFjaw0KICBCYWNrZ3JvdW5kQ29sb3IgI2ZmZWRjZA0KfQ0KDQpza2lucGFyYW0gaW50ZXJmYWNlIHsNCiAgYmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgYm9yZGVyQ29sb3IgQmxhY2sNCn0NCnNraW5wYXJhbSBjb21wb25lbnQgew0KICBTdHlsZSB1bWwyDQogIEJhY2tncm91bmRDb2xvciAjZTFmNGZmDQogIEJvcmRlckNvbG9yIEJsYWNrDQogIEFycm93Q29sb3IgQmxhY2sNCiAgQXJyb3dGb250Q29sb3IgQmxhY2sNCn0NCg0Kc2tpbnBhcmFtIGNsYXNzIHsNCiAgQmFja2dyb3VuZENvbG9yICNlMWY0ZmYNCiAgQm9yZGVyQ29sb3IgQmxhY2sNCiAgQXJyb3dDb2xvciBCbGFjaw0KICBBcnJvd0ZvbnRDb2xvciBCbGFjaw0KfQ0KDQpza2lucGFyYW0gbm9kZSB7DQogIGJvcmRlckNvbG9yIGJsYWNrDQogIGJhY2tncm91bmRDb2xvcjw8ZXhlY3V0aW9uIGVudmlyb25tZW50Pj4gI0UxRjRGRg0KICBiYWNrZ3JvdW5kQ29sb3I8PGRldmljZT4+ICNENUVCQzcNCn0NCg0Kc2tpbnBhcmFtIHJlY3RhbmdsZSB7DQogYm9yZGVyQ29sb3IgYmxhY2sNCiBiYWNrZ3JvdW5kQ29sb3I8PGFydGlmYWN0Pj4gI0UxRjRGRg0KfQ0KDQpoaWRlIGVtcHR5IG1lbWJlcnMNCmhpZGUgY2lyY2xlDQpoaWRlIGZvb3Rib3gNCg0Kc2tpbnBhcmFtIGNvbXBvbmVudFN0eWxlIHVtbDINCmxlZnQgdG8gcmlnaHQgZGlyZWN0aW9uDQoNCmludGVyZmFjZSAiSW5wdXRzIiBhcyBpbnB1dA0KaW50ZXJmYWNlICJPdXRwdXRzIiBhcyBvdXRwdXQNCg0KcmVjdGFuZ2xlICJGZWF0dXJlIFNXLUMiIGFzIHN3YyB7DQogICByZWN0YW5nbGUgIkNvbnRhaW5lciBBIiBhcyBhDQogICByZWN0YW5nbGUgIkNvbnRhaW5lciBCIiBhcyBiDQogICByZWN0YW5nbGUgIkNvbnRhaW5lciBDIiBhcyBjDQoNCiAgIGEgLT4gYg0KICAgbm90ZSBvbiBsaW5rDQogICAgICBaZW51aXR5Lk9wYXF1ZS5NYXN0ZXJBdG9CDQogICBlbmQgbm90ZQ0KDQogICBiIC0+IGMNCiAgIG5vdGUgb24gbGluaw0KICAgICAgWmVudWl0eS5PcGFxdWUuTWFzdGVyQnRvQw0KICAgZW5kIG5vdGUNCg0KICAgYyAtPiBiDQogICBub3RlIG9uIGxpbmsNCiAgICAgIFplbnVpdHkuT3BhcXVlLk1hc3RlckN0b0INCiAgIGVuZCBub3RlDQp9DQoNCmlucHV0IC1baGlkZGVuXS0gc3djDQpzd2MgLVtoaWRkZW5dLSBvdXRwdXQNCg0KaW5wdXQgLT4gYQ0Kbm90ZSBvbiBsaW5rDQogICAqIFZpc2lvbkNvcmUuQ29tbW9uLkVnb01vdGlvbk91dHB1dA0KICAgKiBSYWRhckNvcmUuVHJhY2tzLkNsdXN0ZXJUcmFja0xpc3QNCiAgICogUmFkYXJDb3JlLlRyYWNrcy5TdGF0aW9uYXJ5VHJhY2tMaXN0DQogICAqIFZpc2lvbkNvcmUuVHJhZmZpY0luZm9ybWF0aW9uLlZhbGlkYXRlZFNpZ25MaXN0DQogICAqIFZpc2lvbkNvcmUuVHJhZmZpY1BhcnRpY2lwYW50cy5PYmplY3RzT3V0cHV0DQogICAqIFZpc2lvbkNvcmUuUm9hZC5MYW5lT3V0cHV0DQogICAqIFZpc2lvbkNvcmUuUm9hZC5Sb2FkQm91bmRhcnkNCiAgICogU3lzdGVtQ29yZS5Db21tb24uQ291bnRyeUluZm9ybWF0aW9uDQplbmQgbm90ZQ0KDQppbnB1dCAtPiBiDQpub3RlIG9uIGxpbmsNCiAgICogU3lzdGVtQ29yZS5Db21tb24uVmVoaWNsZUlucHV0DQogICAqIFN5c3RlbUNvcmUuQ29sbGlzaW9uQXZvaWRhbmNlLkNvbGxpc2lvbkF2b2lkYW5jZVNldHRpbmdzDQogICAqIFN5c3RlbUNvcmUuUm9hZFNpZ25JbmZvcm1hdGlvbi5Sb2FkU2lnbkluZm9ybWF0aW9uU2V0dGluZ3MNCiAgICogVmlzaW9uQ29yZS5Sb2FkLlNjZW5lQ2xhc3NpZmljYXRpb24NCiAgICogU3lzdGVtQ29yZS5Db21tb24uQ291bnRyeUluZm9ybWF0aW9uDQogICAqIFN5c3RlbUNvcmUuQ3J1c2luZy5DcnVpc2luZ0ZlYXR1cmVTdGF0ZQ0KICAgKiBTeXN0ZW1Db3JlLkNydXNpbmcuQWNjQ29tbW9uSW5wdXQNCiAgICogU3lzdGVtQ29yZS5DcnVzaW5nLkRpc3RhbmNlQ29udHJvbGxlcklucHV0DQogICAqIFN5c3RlbUNvcmUuQ3J1c2luZy5TZXRTcGVlZENvbnRyb2xsZXJJbnB1dA0KICAgKiBTeXN0ZW1Db3JlLkNydWlzaW5nLlRyYWZmaWNBc3Npc3RJbnB1dA0KICAgKiBTeXN0ZW1Db3JlLkNydWlzaW5nLlJpc2tNaXRpZ2F0aW9uU3VwcG9ydElucHV0DQogICAqIFN5c3RlbUNvcmUuQ3J1aXNpbmcuTGFuZUNoYW5nZUFzc2lzdElucHV0DQplbmQgbm90ZQ0KDQppbnB1dCAtPiBjDQpub3RlIG9uIGxpbmsNCiAgICogVmlzaW9uQ29yZS5Db21tb24uRWdvTW90aW9uT3V0cHV0DQogICAqIFZpc2lvbkNvcmUuVHJhZmZpY1BhcnRpY2lwYW50cy5PYmplY3RzT3V0cHV0DQplbmQgbm90ZQ0KDQpiIC0+IG91dHB1dA0Kbm90ZSBvbiBsaW5rDQogICBaZW51aXR5LkNhTG9uZy5Db2xsaXNpb25NaXRpZ2F0aW9uU3lzdGVtDQogICBaZW51aXR5LkNhTG9uZy5TdGF0aWNEaXN0YW5jZVdhcm5pbmdPdXRwdXQNCiAgIFplbnVpdHkuTGFuZVN1cHBvcnRTeXN0ZW1zLkxzc091dHB1dA0KICAgWmVudWl0eS5MYXRlcmFsQ29udHJvbC5MYXRlcmFsQ29udHJvbE91dHB1dA0KICAgWmVudWl0eS5DcnVzaW5nLkFjY2VsZXJhdGlvblJlcXVlc3QNCiAgIFplbnVpdHkuQ3J1c2luZy5UcmFmZmljQXNzaXN0T3V0cHV0DQogICBaZW51aXR5LkNydXNpbmcuSW5mb3JtYXRpb25Ub0RyaXZlckZyb21UcmFmZmljQXNzaXN0DQogICBaZW51aXR5LkNydXNpbmcuVGFyZ2V0c1NlbGVjdGVkQnlBY2MNCiAgIFplbnVpdHkuUlNJLlJzaU91dHB1dA0KZW5kIG5vdGUNCg0KYyAtPiBvdXRwdXQNCm5vdGUgb24gbGluaw0KICAgWmVudWl0eS5DYUxvbmcuQ29sbGlzaW9uTWl0aWdhdGlvbkJyYWtlUmVxdWVzdA0KZW5kIG5vdGUNCg0KQGVuZHVtbA0KClBsYW50VU1MIHZlcnNpb24gMS4yMDIwLjExKFNhdCBNYXkgMzAgMTk6MTM6NDMgS1NUIDIwMjApCihHUEwgc291cmNlIGRpc3RyaWJ1dGlvbikKSmF2YSBSdW50aW1lOiBKYXZhKFRNKSBTRSBSdW50aW1lIEVudmlyb25tZW50CkpWTTogSmF2YSBIb3RTcG90KFRNKSA2NC1CaXQgU2VydmVyIFZNCkRlZmF1bHQgRW5jb2Rpbmc6IE1TOTQ5Ckxhbmd1YWdlOiBlbgpDb3VudHJ5OiBVUwotLT48L2c+PC9zdmc+" id="fig:" alt /><figcaption>Feature Containers</figcaption>
+</figure>
+</body>
+</html>

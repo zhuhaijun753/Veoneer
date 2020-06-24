@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>StcInput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - ActuatorSupport.SteeringTorqueCommander</b>
+<br>
+<h1>Messages</h1>
+<h2 id="ActuatorSupport.SteeringTorqueCommander.StcInput">StcInput (ActuatorSupport.SteeringTorqueCommander.StcInput)</h2>
+Source: DATA_SOURCE_ACTUATOR_SUPPORT (5)
+<br>
+Identifier: 10 (a)
+<br>
+Version: 1.0.0
+<br>
+Input to steering torque commander, converted pinion angle to steering torque
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>PinionAngleRequest</td><td>S16</td><td>-15 rad</td><td>15 rad</td><td>0.01</td><td>rad</td><td>4 [3]</td><td>1</td><td>Steering Angle command input to the STC</td></tr>
+<tr><td>PinionAngleFeedback</td><td>S16</td><td>-15 rad</td><td>15 rad</td><td>0.01</td><td>rad</td><td>4 [3]</td><td>1</td><td>Steering Angle feedback input measurement from the vehicle</td></tr>
+<tr><td>SteeringWheelTorqueFeedback</td><td>S16</td><td>-20 Nm</td><td>20 Nm</td><td>0.01</td><td>Nm</td><td>4 [3]</td><td>1</td><td>Steering Torque feedback input measurement from the vehicle</td></tr>
+<tr><td>LongitudinalSpeed</td><td>S16</td><td>-30 m/s</td><td>120 m/s</td><td>0.01</td><td>m/s</td><td>4</td><td>1</td><td>Vehicle Longitudinal speed input measurement from the vehicle</td></tr>
+<tr><td>SteeringControlEnabled</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Flag input indicating if Overlay Steering Torque control is requested by the vehicle</td></tr>
+<tr><td>DrivingMode</td><td><a href="#ActuatorSupport.SteeringTorqueCommander.DrivingMode">ActuatorSupport.SteeringTorqueCommander.DrivingMode</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Driving mode input from vehicle</td></tr>
+<tr><td>SystemFault</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Flag indicating if a system fault has been detected</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>22 [19]</th><th>7</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="ActuatorSupport.SteeringTorqueCommander.DrivingMode">DrivingMode (ActuatorSupport.SteeringTorqueCommander.DrivingMode)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>ActuatorSupport.SteeringTorqueCommander.DrivingMode.Unknown</td><td>0</td></tr>
+<tr><td>Standard</td><td>ActuatorSupport.SteeringTorqueCommander.DrivingMode.Standard</td><td>1</td></tr>
+<tr><td>Comfort</td><td>ActuatorSupport.SteeringTorqueCommander.DrivingMode.Comfort</td><td>2</td></tr>
+<tr><td>Sport</td><td>ActuatorSupport.SteeringTorqueCommander.DrivingMode.Sport</td><td>3</td></tr>
+</table>
+</body>
+</html>

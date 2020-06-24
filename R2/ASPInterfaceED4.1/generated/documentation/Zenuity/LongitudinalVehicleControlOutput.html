@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>LongitudinalVehicleControlOutput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - Zenuity.LongitudinalVehicleControl</b>
+<br>
+<h1>Messages</h1>
+<h2 id="Zenuity.LongitudinalVehicleControl.StopAndGoRequests">StopAndGoRequests (Zenuity.LongitudinalVehicleControl.StopAndGoRequests)</h2>
+Source: DATA_SOURCE_ZENUITY (1)
+<br>
+Identifier: 33 (21)
+<br>
+Version: 1.0.0
+<br>
+Requests signals for stop and go vehicle
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>DriverAwayReleaseRequestToBrake</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request for drive away, if true drive away is requested</td></tr>
+<tr><td>HoldRequestToBrake</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request to stand still, if true, stand still is requested</td></tr>
+<tr><td>ParkRequestFromVehMtnControl</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Request to park vehicle, if true, request is active</td></tr>
+<tr><td>BrakeAccelerationRequest</td><td>S16</td><td>-5.12 m/s²</td><td>5.11 m/s²</td><td>1</td><td>m/s²</td><td>4 [2]</td><td>1</td><td>Acceleration request to brake</td></tr>
+<tr><td>LatestActiveAccelerationRequest</td><td>S16</td><td>-5.12 m/s²</td><td>5.11 m/s²</td><td>1</td><td>m/s²</td><td>4 [2]</td><td>1</td><td>Informs which the intended acceleration of the actuators is at the moment, includes rate limitation, internal feedback</td></tr>
+<tr><td>ActutorActiveForLgtController</td><td><a href="#Zenuity.LongitudinalVehicleControl.ActuatorActiveForLgtController">Zenuity.LongitudinalVehicleControl.ActuatorActiveForLgtController</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Informs which actuator that’s primarily active for speed control, none, powertrain or brake, internal feedback</td></tr>
+<tr><td>PropulsionTorqueNegativeGradient</td><td>S32</td><td>-2.14748e+09 Nm/s²</td><td>2.14748e+09 Nm/s²</td><td>1</td><td>Nm/s²</td><td>6</td><td>1</td><td>None rate limited torque request to Powertrain</td></tr>
+<tr><td>PropulstionTorquePositiveGradient</td><td>S32</td><td>-2.14748e+09 Nm/s²</td><td>2.14748e+09 Nm/s²</td><td>1</td><td>Nm/s²</td><td>6</td><td>1</td><td>Negative rate limit to powertrain torque</td></tr>
+<tr><td>PropulsionTorqueRequest</td><td>S32</td><td>-2.14748e+09 Nm</td><td>2.14748e+09 Nm</td><td>1</td><td>Nm</td><td>6</td><td>1</td><td>Positive rate limit to powertrain torque</td></tr>
+<tr><td>LcpHealthStatus</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>FaultManagement event output from LCP for the HealthStatus reporting.  True if LCP Health Status is OK, otherwise false.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>36 [32]</th><th>10</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="Zenuity.LongitudinalVehicleControl.ActuatorActiveForLgtController">ActuatorActiveForLgtController (Zenuity.LongitudinalVehicleControl.ActuatorActiveForLgtController)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>ActuatorNotEnabledForControl</td><td>Zenuity.LongitudinalVehicleControl.ActuatorActiveForLgtController.ActuatorNotEnabledForControl</td><td>0</td></tr>
+<tr><td>PropulsionActuatorEnabledForControl</td><td>Zenuity.LongitudinalVehicleControl.ActuatorActiveForLgtController.PropulsionActuatorEnabledForControl</td><td>1</td></tr>
+<tr><td>BrakeActuatorEnabledForControl</td><td>Zenuity.LongitudinalVehicleControl.ActuatorActiveForLgtController.BrakeActuatorEnabledForControl</td><td>2</td></tr>
+</table>
+</body>
+</html>

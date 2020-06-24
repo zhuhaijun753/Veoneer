@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>LVCInput Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - SystemCore.LongitudinalVehicleControl</b>
+<br>
+<h1>Messages</h1>
+<h2 id="SystemCore.LongitudinalVehicleControl.FunctionStatusInfo">FunctionStatusInfo (SystemCore.LongitudinalVehicleControl.FunctionStatusInfo)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 34 (22)
+<br>
+Version: 1.0.0
+<br>
+Function status information
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>DriverCruiseControlRequest</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates if driver wants to resume ACC</td></tr>
+<tr><td>UsageMode</td><td><a href="#SystemCore.LongitudinalVehicleControl.UsageMode">SystemCore.LongitudinalVehicleControl.UsageMode</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Vehicle usage mode</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4</th><th>2</th><th></th></tr>
+</table>
+<h2 id="SystemCore.LongitudinalVehicleControl.DriverInteraction">DriverInteraction (SystemCore.LongitudinalVehicleControl.DriverInteraction)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 35 (23)
+<br>
+Version: 1.0.0
+<br>
+Driver Interaction
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>DriverPropulsionTorqueRequest</td><td>S16</td><td>-20000 Nm</td><td>20000 Nm</td><td>1</td><td>Nm</td><td>4</td><td>1</td><td>Torque request from driver via accelerator pedal.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4</th><th>1</th><th></th></tr>
+</table>
+<h2 id="SystemCore.LongitudinalVehicleControl.FeedbackInfo">FeedbackInfo (SystemCore.LongitudinalVehicleControl.FeedbackInfo)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 36 (24)
+<br>
+Version: 1.0.0
+<br>
+Feedback Info
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>AbsCtrlActv</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates if ABS is active</td></tr>
+<tr><td>BrakeActuatorActiveForComfort</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates if the brakes are braking as a result of a comfort functions request or not</td></tr>
+<tr><td>RequestedBrakeTorque</td><td><a href="#SystemCore.Common.BrakeSystem">SystemCore.Common.BrakeSystem</a></td><td></td><td></td><td></td><td></td><td>10 [9]</td><td>1</td><td>indicates what the corresponding torque is of the request that the brakes are acting on at the moment</td></tr>
+<tr><td>ActualBrakeTorque</td><td>U16</td><td>0 Nm</td><td>65535 Nm</td><td>1</td><td>Nm</td><td>4</td><td>1</td><td>Indicates what the actual brake torque is at the moment</td></tr>
+<tr><td>BrakePrefillActive</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates that brake pre fill is active or not</td></tr>
+<tr><td>ElectricParkBrakeStatus</td><td><a href="#SystemCore.LongitudinalVehicleControl.EpbStatus">SystemCore.LongitudinalVehicleControl.EpbStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>indicates the status of the electric parking brake</td></tr>
+<tr><td>DragTorque</td><td>S16</td><td>-20000 Nm</td><td>20000 Nm</td><td>1</td><td>Nm</td><td>4</td><td>1</td><td>indicates what torque would be acting on the wheels if no autonomous functions where active and neither brake nor accelerator pedal was pressed</td></tr>
+<tr><td>WheelPropulsionTorqueActual</td><td>S16</td><td>-20000 Nm</td><td>20000 Nm</td><td>1</td><td>Nm</td><td>4</td><td>1</td><td>Indicates the actual torque on the wheels from powertrain</td></tr>
+<tr><td>SsmHold</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indicates if vehicle is in hold state</td></tr>
+<tr><td>StandStillManagerStatus</td><td><a href="#SystemCore.LongitudinalVehicleControl.StandStillManagerStatus">SystemCore.LongitudinalVehicleControl.StandStillManagerStatus</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>describes standstill manager status</td></tr>
+<tr><td>VehicleMotionStatus</td><td><a href="#SystemCore.LongitudinalVehicleControl.MotionState">SystemCore.LongitudinalVehicleControl.MotionState</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>indicates if the vehicle is in motion or not and if it is, in which direction</td></tr>
+<tr><td>WarmBrakes</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Indication of warm brakes. Reduced brake capacity depending on brake system HW</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>38 [37]</th><th>12</th><th></th></tr>
+</table>
+<h2 id="SystemCore.LongitudinalVehicleControl.FeatureEnabledLCP">FeatureEnabledLCP (SystemCore.LongitudinalVehicleControl.FeatureEnabledLCP)</h2>
+Source: DATA_SOURCE_MCU (3)
+<br>
+Identifier: 37 (25)
+<br>
+Version: 1.0.0
+<br>
+Feature enabled status
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>FeatureEnabled</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Degradation input which disables the LCP feature. True if feature is ON, otherwise false</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>2</th><th>1</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="SystemCore.LongitudinalVehicleControl.UsageMode">UsageMode (SystemCore.LongitudinalVehicleControl.UsageMode)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Abandoned</td><td>SystemCore.LongitudinalVehicleControl.UsageMode.Abandoned</td><td>0</td></tr>
+<tr><td>Inactive</td><td>SystemCore.LongitudinalVehicleControl.UsageMode.Inactive</td><td>1</td></tr>
+<tr><td>Convenience</td><td>SystemCore.LongitudinalVehicleControl.UsageMode.Convenience</td><td>2</td></tr>
+<tr><td>Active</td><td>SystemCore.LongitudinalVehicleControl.UsageMode.Active</td><td>11</td></tr>
+<tr><td>Driving</td><td>SystemCore.LongitudinalVehicleControl.UsageMode.Driving</td><td>13</td></tr>
+</table>
+<h2 id="SystemCore.LongitudinalVehicleControl.EpbStatus">EpbStatus (SystemCore.LongitudinalVehicleControl.EpbStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>SystemCore.LongitudinalVehicleControl.EpbStatus.Unknown</td><td>0</td></tr>
+<tr><td>AllApplied</td><td>SystemCore.LongitudinalVehicleControl.EpbStatus.AllApplied</td><td>3</td></tr>
+<tr><td>AllInTransition</td><td>SystemCore.LongitudinalVehicleControl.EpbStatus.AllInTransition</td><td>5</td></tr>
+<tr><td>ParkingBrakeReleased</td><td>SystemCore.LongitudinalVehicleControl.EpbStatus.ParkingBrakeReleased</td><td>9</td></tr>
+</table>
+<h2 id="SystemCore.LongitudinalVehicleControl.StandStillManagerStatus">StandStillManagerStatus (SystemCore.LongitudinalVehicleControl.StandStillManagerStatus)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>NonActive</td><td>SystemCore.LongitudinalVehicleControl.StandStillManagerStatus.NonActive</td><td>0</td></tr>
+<tr><td>SoftStop</td><td>SystemCore.LongitudinalVehicleControl.StandStillManagerStatus.SoftStop</td><td>1</td></tr>
+<tr><td>DriverAwayRelease</td><td>SystemCore.LongitudinalVehicleControl.StandStillManagerStatus.DriverAwayRelease</td><td>2</td></tr>
+<tr><td>AcbHoldActive</td><td>SystemCore.LongitudinalVehicleControl.StandStillManagerStatus.AcbHoldActive</td><td>3</td></tr>
+<tr><td>AhHoldActive</td><td>SystemCore.LongitudinalVehicleControl.StandStillManagerStatus.AhHoldActive</td><td>4</td></tr>
+<tr><td>HsaHoldActive</td><td>SystemCore.LongitudinalVehicleControl.StandStillManagerStatus.HsaHoldActive</td><td>5</td></tr>
+</table>
+<h2 id="SystemCore.LongitudinalVehicleControl.MotionState">MotionState (SystemCore.LongitudinalVehicleControl.MotionState)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>SystemCore.LongitudinalVehicleControl.MotionState.Unknown</td><td>0</td></tr>
+<tr><td>StandstillQm</td><td>SystemCore.LongitudinalVehicleControl.MotionState.StandstillQm</td><td>1</td></tr>
+<tr><td>StandstillAsilB</td><td>SystemCore.LongitudinalVehicleControl.MotionState.StandstillAsilB</td><td>2</td></tr>
+<tr><td>StandstillAsilC</td><td>SystemCore.LongitudinalVehicleControl.MotionState.StandstillAsilC</td><td>3</td></tr>
+<tr><td>RollingForwardAsilB</td><td>SystemCore.LongitudinalVehicleControl.MotionState.RollingForwardAsilB</td><td>4</td></tr>
+<tr><td>RollingForwardAsilC</td><td>SystemCore.LongitudinalVehicleControl.MotionState.RollingForwardAsilC</td><td>5</td></tr>
+<tr><td>RollingBackAsilB</td><td>SystemCore.LongitudinalVehicleControl.MotionState.RollingBackAsilB</td><td>6</td></tr>
+<tr><td>RollingBackAsilC</td><td>SystemCore.LongitudinalVehicleControl.MotionState.RollingBackAsilC</td><td>7</td></tr>
+</table>
+</body>
+</html>

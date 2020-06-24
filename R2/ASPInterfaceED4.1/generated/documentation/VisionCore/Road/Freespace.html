@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Freespace Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - VisionCore.Road</b>
+<br>
+<h1>Messages</h1>
+<h2 id="VisionCore.Road.FreespaceSector">FreespaceSector (VisionCore.Road.FreespaceSector)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>BoundaryPosition</td><td><a href="#VisionCore.Common.Coord2_m_0_01">VisionCore.Common.Coord2_m_0_01</a></td><td></td><td></td><td></td><td></td><td>10</td><td>1</td><td>Position of the closest boundary in the sector</td></tr>
+<tr><td>Type</td><td><a href="#VisionCore.Road.FreespaceBoundaryType">VisionCore.Road.FreespaceBoundaryType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Type of limitation</td></tr>
+<tr><td>Confidence</td><td>U8</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>3 [2]</td><td>1</td><td>Detection confidence based on CNN classification</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>15 [14]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.Freespace">Freespace (VisionCore.Road.Freespace)</h2>
+Source: DATA_SOURCE_VISION (2)
+<br>
+Identifier: 206 (ce)
+<br>
+Version: 1.0.0
+<br>
+Output describing the Freespace sectors ahead of the vehicle. Coordinate system AFAC.
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Sectors</td><td><a href="#VisionCore.Road.FreespaceSector">VisionCore.Road.FreespaceSector[60]</a></td><td></td><td></td><td></td><td></td><td>1020 [960]</td><td>1</td><td>All freespace sectors, from negative to positive angle / right to left in Vertical FoV. ±30°.</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>1020 [960]</th><th>1</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="VisionCore.Road.FreespaceBoundaryType">FreespaceBoundaryType (VisionCore.Road.FreespaceBoundaryType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>None</td><td>VisionCore.Road.FreespaceBoundaryType.None</td><td>0</td></tr>
+<tr><td>RoadUser</td><td>VisionCore.Road.FreespaceBoundaryType.RoadUser</td><td>1</td></tr>
+<tr><td>Traversable</td><td>VisionCore.Road.FreespaceBoundaryType.Traversable</td><td>2</td></tr>
+<tr><td>NonTraversable</td><td>VisionCore.Road.FreespaceBoundaryType.NonTraversable</td><td>3</td></tr>
+<tr><td>Unknown</td><td>VisionCore.Road.FreespaceBoundaryType.Unknown</td><td>4</td></tr>
+</table>
+</body>
+</html>

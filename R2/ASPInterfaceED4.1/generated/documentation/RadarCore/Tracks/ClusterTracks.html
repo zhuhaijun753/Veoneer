@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>ClusterTracks Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - RadarCore.Tracks</b>
+<br>
+<h1>Messages</h1>
+<h2 id="RadarCore.Tracks.ClusterTrackPosition">ClusterTrackPosition (RadarCore.Tracks.ClusterTrackPosition)</h2>
+Describes an object reference point in Autosar Rear Axis Coordinate system
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>X</td><td>S32</td><td>-200 m</td><td>200 m</td><td>0.01</td><td>m</td><td>6 [4]</td><td>1</td><td>X position</td></tr>
+<tr><td>Y</td><td>S32</td><td>-100 m</td><td>100 m</td><td>0.01</td><td>m</td><td>6 [4]</td><td>1</td><td>Y position</td></tr>
+<tr><td>XStdDev</td><td>U16</td><td>0 m</td><td>5 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Standard deviation of X</td></tr>
+<tr><td>YStdDev</td><td>U16</td><td>0 m</td><td>5 m</td><td>0.01</td><td>m</td><td>4 [3]</td><td>1</td><td>Standard deviation of Y</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>20 [14]</th><th>4</th><th></th></tr>
+</table>
+<h2 id="RadarCore.Tracks.ClusterTrackModelBox">ClusterTrackModelBox (RadarCore.Tracks.ClusterTrackModelBox)</h2>
+Describes an object box in Autosar Rear Axis Coordinate system
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>X</td><td>S32</td><td>-200 m</td><td>200 m</td><td>0.01</td><td>m</td><td>6 [4]</td><td>1</td><td>X position, center of box</td></tr>
+<tr><td>Y</td><td>S32</td><td>-100 m</td><td>100 m</td><td>0.01</td><td>m</td><td>6 [4]</td><td>1</td><td>Y position, center of box</td></tr>
+<tr><td>Width</td><td>U16</td><td>0 m</td><td>51 m</td><td>0.1</td><td>m</td><td>4 [3]</td><td>1</td><td>Width of the object</td></tr>
+<tr><td>Length</td><td>U16</td><td>0 m</td><td>51 m</td><td>0.1</td><td>m</td><td>4 [3]</td><td>1</td><td>Length of the object</td></tr>
+<tr><td>Heading</td><td>S16</td><td>-3.15 rad</td><td>3.15 rad</td><td>0.0001</td><td>rad</td><td>4</td><td>1</td><td>Heading of object</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>24 [18]</th><th>5</th><th></th></tr>
+</table>
+<h2 id="RadarCore.Tracks.ClusterTrackMovement">ClusterTrackMovement (RadarCore.Tracks.ClusterTrackMovement)</h2>
+Describes object movement in Autosar Rear Axis Coordinate system
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>XVelocity</td><td>S32</td><td>-120 m/s</td><td>120 m/s</td><td>0.01</td><td>m/s</td><td>6 [4]</td><td>1</td><td>Absolute X velocity</td></tr>
+<tr><td>YVelocity</td><td>S32</td><td>-120 m/s</td><td>120 m/s</td><td>0.01</td><td>m/s</td><td>6 [4]</td><td>1</td><td>Absolute Y velocity</td></tr>
+<tr><td>XVelocityStdDev</td><td>U32</td><td>0 m/s</td><td>3 m/s</td><td>0.05</td><td>m/s</td><td>6 [2]</td><td>1</td><td>Standard deviation of X velocity</td></tr>
+<tr><td>YVelocityStdDev</td><td>U32</td><td>0 m/s</td><td>3 m/s</td><td>0.05</td><td>m/s</td><td>6 [2]</td><td>1</td><td>Standard deviation of Y velocity</td></tr>
+<tr><td>XAcceleration</td><td>S32</td><td>-30 m/s²</td><td>30 m/s²</td><td>0.01</td><td>m/s²</td><td>6 [3]</td><td>1</td><td>X acceleration</td></tr>
+<tr><td>YAcceleration</td><td>S32</td><td>-30 m/s²</td><td>30 m/s²</td><td>0.01</td><td>m/s²</td><td>6 [3]</td><td>1</td><td>Y acceleration</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>36 [18]</th><th>6</th><th></th></tr>
+</table>
+<h2 id="RadarCore.Tracks.ClusterTrack">ClusterTrack (RadarCore.Tracks.ClusterTrack)</h2>
+Tracked objects based on clustered radar measurements
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Id</td><td>U16</td><td>0</td><td>65535</td><td>1</td><td></td><td>4</td><td>1</td><td>A global ID, which is constant as long as the object is tracked. Note! A value of 0 indicates 'no object'</td></tr>
+<tr><td>ClosestPoint</td><td><a href="#RadarCore.Tracks.ClusterTrackPosition">RadarCore.Tracks.ClusterTrackPosition</a></td><td></td><td></td><td></td><td></td><td>22 [16]</td><td>1</td><td>Kalman filtered closest point</td></tr>
+<tr><td>BoxModel</td><td><a href="#RadarCore.Tracks.ClusterTrackModelBox">RadarCore.Tracks.ClusterTrackModelBox</a></td><td></td><td></td><td></td><td></td><td>26 [20]</td><td>1</td><td>Box model describing the object</td></tr>
+<tr><td>Movement</td><td><a href="#RadarCore.Tracks.ClusterTrackMovement">RadarCore.Tracks.ClusterTrackMovement</a></td><td></td><td></td><td></td><td></td><td>38 [20]</td><td>1</td><td>Movement estimation of object</td></tr>
+<tr><td>Lifetime</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td>Number of cycles the target has been alive. Unknown 0</td></tr>
+<tr><td>StationaryCounter</td><td>U16</td><td>0</td><td>65535</td><td>1</td><td></td><td>4</td><td>1</td><td>Counts the cycles during which the object is ground stationary (i.e. absolute velocity over ground = 0)</td></tr>
+<tr><td>ObservationHistory</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td>Observation history of tracked object in as 32 bit-field for the last 32 cycles; for each bit: 1 = associated, 0 = not associated; LSB = most recent cycle, MSB = oldest cycle</td></tr>
+<tr><td>MotionClass</td><td><a href="#RadarCore.Tracks.ClusterTrackMotionClass">RadarCore.Tracks.ClusterTrackMotionClass</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Tracked object motion classification</td></tr>
+<tr><td>Type</td><td><a href="#RadarCore.Tracks.ClusterTrackObjectType">RadarCore.Tracks.ClusterTrackObjectType</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Tracked object type classification</td></tr>
+<tr><td>Confidence</td><td>U8</td><td>0</td><td>100</td><td>1</td><td></td><td>3 [2]</td><td>1</td><td>Object confidence used in quality manager to provide "Objektgate" (i.e. object quality) tracked object confidence is calculated based on the normalized difference of closest detection to the track's calculated closest point, for range, angle and velocity</td></tr>
+<tr><td>ExistanceProbability</td><td>U8</td><td>0</td><td>100</td><td>1</td><td></td><td>3 [2]</td><td>1</td><td>Confidence tracked object existence. Currently set to the association rate [0..100] over the last 6 cycles</td></tr>
+<tr><td>ObjectClassConfidence</td><td>U8[9]</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>27 [18]</td><td>1</td><td>Confidence of tracked object type classification, index corresponds to ClusterTrackObjectType</td></tr>
+<tr><td>Elevation</td><td><a href="#RadarCore.Tracks.ClusterTrackElevation">RadarCore.Tracks.ClusterTrackElevation</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Elevation of the object</td></tr>
+<tr><td>ElevationConfidence</td><td><a href="#RadarCore.Tracks.ClusterTrackConfidence">RadarCore.Tracks.ClusterTrackConfidence</a></td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Confidence the elevation classification is correct</td></tr>
+<tr><td>QualityBits</td><td>U32</td><td>0</td><td>4.29497e+09</td><td>1</td><td></td><td>6</td><td>1</td><td>Bitmask for quality values described by ClusterTrackQualityBits</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>153 [112]</th><th>15</th><th></th></tr>
+</table>
+<h2 id="RadarCore.Tracks.ClusterTrackList">ClusterTrackList (RadarCore.Tracks.ClusterTrackList)</h2>
+Source: DATA_SOURCE_RADAR (4)
+<br>
+Identifier: 10 (a)
+<br>
+Version: 1.0.0
+<br>
+Output describing the clustered radar tracks
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Tracks</td><td><a href="#RadarCore.Tracks.ClusterTrack">RadarCore.Tracks.ClusterTrack[30]</a></td><td></td><td></td><td></td><td></td><td>4680 [3450]</td><td>1</td><td>List of cluster tracks</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>4680 [3450]</th><th>1</th><th></th></tr>
+</table>
+<h1>Enums</h1>
+<h2 id="RadarCore.Tracks.ClusterTrackQualityBits">ClusterTrackQualityBits (RadarCore.Tracks.ClusterTrackQualityBits)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Sliding</td><td>RadarCore.Tracks.ClusterTrackQualityBits.Sliding</td><td>0</td></tr>
+<tr><td>Fused</td><td>RadarCore.Tracks.ClusterTrackQualityBits.Fused</td><td>1</td></tr>
+<tr><td>ConfirmedByRspTracker</td><td>RadarCore.Tracks.ClusterTrackQualityBits.ConfirmedByRspTracker</td><td>2</td></tr>
+<tr><td>InsideFreespace</td><td>RadarCore.Tracks.ClusterTrackQualityBits.InsideFreespace</td><td>3</td></tr>
+<tr><td>OutsideStationaryCloud</td><td>RadarCore.Tracks.ClusterTrackQualityBits.OutsideStationaryCloud</td><td>4</td></tr>
+<tr><td>InsideRearBorder</td><td>RadarCore.Tracks.ClusterTrackQualityBits.InsideRearBorder</td><td>5</td></tr>
+<tr><td>AssociatedWithGoodDetection</td><td>RadarCore.Tracks.ClusterTrackQualityBits.AssociatedWithGoodDetection</td><td>6</td></tr>
+<tr><td>Ghost</td><td>RadarCore.Tracks.ClusterTrackQualityBits.Ghost</td><td>7</td></tr>
+<tr><td>MirrorGhost</td><td>RadarCore.Tracks.ClusterTrackQualityBits.MirrorGhost</td><td>8</td></tr>
+<tr><td>EgoMirrorGhost</td><td>RadarCore.Tracks.ClusterTrackQualityBits.EgoMirrorGhost</td><td>9</td></tr>
+<tr><td>GhostFromTrackGuardrail</td><td>RadarCore.Tracks.ClusterTrackQualityBits.GhostFromTrackGuardrail</td><td>10</td></tr>
+<tr><td>OutsideFreespaceGhost</td><td>RadarCore.Tracks.ClusterTrackQualityBits.OutsideFreespaceGhost</td><td>11</td></tr>
+<tr><td>RoofGhost</td><td>RadarCore.Tracks.ClusterTrackQualityBits.RoofGhost</td><td>12</td></tr>
+<tr><td>TunnelMirrorGhost</td><td>RadarCore.Tracks.ClusterTrackQualityBits.TunnelMirrorGhost</td><td>13</td></tr>
+<tr><td>CompanionGhost</td><td>RadarCore.Tracks.ClusterTrackQualityBits.CompanionGhost</td><td>14</td></tr>
+<tr><td>AngleJumpCoasting</td><td>RadarCore.Tracks.ClusterTrackQualityBits.AngleJumpCoasting</td><td>15</td></tr>
+<tr><td>Occluded</td><td>RadarCore.Tracks.ClusterTrackQualityBits.Occluded</td><td>16</td></tr>
+<tr><td>GoodQuality</td><td>RadarCore.Tracks.ClusterTrackQualityBits.GoodQuality</td><td>17</td></tr>
+</table>
+<h2 id="RadarCore.Tracks.ClusterTrackMotionClass">ClusterTrackMotionClass (RadarCore.Tracks.ClusterTrackMotionClass)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>RadarCore.Tracks.ClusterTrackMotionClass.Unknown</td><td>0</td></tr>
+<tr><td>Stationary</td><td>RadarCore.Tracks.ClusterTrackMotionClass.Stationary</td><td>1</td></tr>
+<tr><td>Moving</td><td>RadarCore.Tracks.ClusterTrackMotionClass.Moving</td><td>2</td></tr>
+<tr><td>Stopped</td><td>RadarCore.Tracks.ClusterTrackMotionClass.Stopped</td><td>3</td></tr>
+</table>
+<h2 id="RadarCore.Tracks.ClusterTrackObjectType">ClusterTrackObjectType (RadarCore.Tracks.ClusterTrackObjectType)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>RadarCore.Tracks.ClusterTrackObjectType.Unknown</td><td>0</td></tr>
+<tr><td>Car</td><td>RadarCore.Tracks.ClusterTrackObjectType.Car</td><td>1</td></tr>
+<tr><td>Bicycle</td><td>RadarCore.Tracks.ClusterTrackObjectType.Bicycle</td><td>2</td></tr>
+<tr><td>Pedestrian</td><td>RadarCore.Tracks.ClusterTrackObjectType.Pedestrian</td><td>3</td></tr>
+<tr><td>Motorcycle</td><td>RadarCore.Tracks.ClusterTrackObjectType.Motorcycle</td><td>4</td></tr>
+<tr><td>Truck</td><td>RadarCore.Tracks.ClusterTrackObjectType.Truck</td><td>5</td></tr>
+<tr><td>Animal</td><td>RadarCore.Tracks.ClusterTrackObjectType.Animal</td><td>6</td></tr>
+<tr><td>Group2Pedestrians</td><td>RadarCore.Tracks.ClusterTrackObjectType.Group2Pedestrians</td><td>7</td></tr>
+<tr><td>GroupMultiplePedestians</td><td>RadarCore.Tracks.ClusterTrackObjectType.GroupMultiplePedestians</td><td>8</td></tr>
+</table>
+<h2 id="RadarCore.Tracks.ClusterTrackConfidence">ClusterTrackConfidence (RadarCore.Tracks.ClusterTrackConfidence)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>RadarCore.Tracks.ClusterTrackConfidence.Unknown</td><td>0</td></tr>
+<tr><td>Low</td><td>RadarCore.Tracks.ClusterTrackConfidence.Low</td><td>1</td></tr>
+<tr><td>Medium</td><td>RadarCore.Tracks.ClusterTrackConfidence.Medium</td><td>2</td></tr>
+<tr><td>High</td><td>RadarCore.Tracks.ClusterTrackConfidence.High</td><td>3</td></tr>
+</table>
+<h2 id="RadarCore.Tracks.ClusterTrackElevation">ClusterTrackElevation (RadarCore.Tracks.ClusterTrackElevation)</h2>
+Max Encoded Size (bytes): 1<table class="enum-table">
+<tr><th>Name</th><th>Full name</th><th>Value</th></tr>
+<tr><td>Unknown</td><td>RadarCore.Tracks.ClusterTrackElevation.Unknown</td><td>0</td></tr>
+<tr><td>Overridable</td><td>RadarCore.Tracks.ClusterTrackElevation.Overridable</td><td>1</td></tr>
+<tr><td>Relevant</td><td>RadarCore.Tracks.ClusterTrackElevation.Relevant</td><td>2</td></tr>
+<tr><td>Underridable</td><td>RadarCore.Tracks.ClusterTrackElevation.Underridable</td><td>3</td></tr>
+</table>
+</body>
+</html>

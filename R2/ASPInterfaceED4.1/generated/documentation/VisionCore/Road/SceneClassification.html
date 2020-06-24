@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>SceneClassification Specification</title>
+   <style type="text/css">
+      body {
+         font-family: "lucida Sans Unicode", "Lucida Grande", "Segoe UI", vardana;
+      }
+
+      .property-table {
+         border-collapse: collapse;
+         text-align: left;
+      }
+
+      .property-table th,
+      .property-table td {
+         border: 1px solid black;
+         padding: 5px 10px;
+      }
+
+      .property-table tr:nth-child(odd) td {
+			background-color: #b5c5ea;
+		}
+
+		.property-table tr:nth-child(even) td {
+			background-color: #6f9aec;
+		}
+
+      .enum-table {
+         border-collapse: collapse;
+      }
+
+      .enum-table th,
+      .enum-table td {
+         padding: 1px 10px;
+         border: 1px solid black;
+      }
+
+      .enum-table tr:nth-child(odd) td {
+			background-color: #ebb4b4;
+		}
+
+		.enum-table tr:nth-child(even) td {
+			background-color: #dc7878;
+		}
+
+      a {
+         text-decoration: none;
+         color: black;
+      }
+   </style>
+</head>
+<body>
+Spp version 2.0.0.<br>
+
+<b>Package - VisionCore.Road</b>
+<br>
+<h1>Messages</h1>
+<h2 id="VisionCore.Road.RoadClassificationResult">RoadClassificationResult (VisionCore.Road.RoadClassificationResult)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>IsDetected</td><td>boolean</td><td></td><td></td><td></td><td></td><td>2</td><td>1</td><td>Describes if the scene includes the class or not</td></tr>
+<tr><td>Confidence</td><td>U8</td><td>0 %</td><td>100 %</td><td>1</td><td>%</td><td>3 [2]</td><td>1</td><td>Classification confidence for the current frame</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>5 [4]</th><th>2</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.RoadCover">RoadCover (VisionCore.Road.RoadCover)</h2>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>Snow</td><td><a href="#VisionCore.Road.RoadClassificationResult">VisionCore.Road.RoadClassificationResult</a></td><td></td><td></td><td></td><td></td><td>7 [6]</td><td>1</td><td>Snow covered road</td></tr>
+<tr><td>Gravel</td><td><a href="#VisionCore.Road.RoadClassificationResult">VisionCore.Road.RoadClassificationResult</a></td><td></td><td></td><td></td><td></td><td>7 [6]</td><td>1</td><td>Gravel road</td></tr>
+<tr><td>Wet</td><td><a href="#VisionCore.Road.RoadClassificationResult">VisionCore.Road.RoadClassificationResult</a></td><td></td><td></td><td></td><td></td><td>7 [6]</td><td>1</td><td>Wet road</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>21 [18]</th><th>3</th><th></th></tr>
+</table>
+<h2 id="VisionCore.Road.SceneClassification">SceneClassification (VisionCore.Road.SceneClassification)</h2>
+Source: DATA_SOURCE_VISION (2)
+<br>
+Identifier: 510 (1fe)
+<br>
+Version: 1.0.0
+<br>
+Output describing the scene ahead of the vehicle
+<br>
+<table class="property-table">
+<tr><th>Field</th><th>Type</th><th>Min</th><th>Max</th><th>Resolution</th><th>Unit</th><th>Max Encoded Size (bytes) incl. tag & type [min/max considered]</th><th>Tag & type size (bytes)</th><th>Description</th></tr>
+<tr><td>RoadCover</td><td><a href="#VisionCore.Road.RoadCover">VisionCore.Road.RoadCover</a></td><td></td><td></td><td></td><td></td><td>23 [20]</td><td>1</td><td>Road cover classification result</td></tr>
+<tr><td>Tunnel</td><td><a href="#VisionCore.Road.RoadClassificationResult">VisionCore.Road.RoadClassificationResult</a></td><td></td><td></td><td></td><td></td><td>7 [6]</td><td>1</td><td>Tunnel classification result</td></tr>
+<tr><td>Fog</td><td><a href="#VisionCore.Road.RoadClassificationResult">VisionCore.Road.RoadClassificationResult</a></td><td></td><td></td><td></td><td></td><td>7 [6]</td><td>1</td><td>Fog classification result</td></tr>
+<tr><th></th><th></th><th></th><th></th><th></th><th></th><th>37 [32]</th><th>3</th><th></th></tr>
+</table>
+</body>
+</html>
