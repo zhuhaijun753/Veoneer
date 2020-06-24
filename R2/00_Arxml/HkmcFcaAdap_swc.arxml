@@ -5,6 +5,303 @@
     <AR-PACKAGE>
       <SHORT-NAME>ASP_DataTypes</SHORT-NAME>
       <ELEMENTS>
+        <IMPLEMENTATION-DATA-TYPE UUID="13B8E276-9B73-42F0-A072-704D6ED71421">
+          <SHORT-NAME>As_BeltActivationLevel</SHORT-NAME>
+          <CATEGORY>TYPE_REFERENCE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/ASP_DataTypes/CompuMethods/As_BeltActivationLevel_CompuMethod</COMPU-METHOD-REF>
+                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/sint32</IMPLEMENTATION-DATA-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="DF8925CD-C6E3-495F-9D99-94C89AC91B33">
+          <SHORT-NAME>As_CaLongObjectType</SHORT-NAME>
+          <CATEGORY>TYPE_REFERENCE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/ASP_DataTypes/CompuMethods/As_CaLongObjectType_CompuMethod</COMPU-METHOD-REF>
+                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/sint32</IMPLEMENTATION-DATA-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="3B1B2429-755F-4165-B460-15A97E1A6445">
+          <SHORT-NAME>As_CollisionForwardWarningControl</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="08EC535F-EC6D-4CC5-A3E6-1DE0A129A0DF">
+              <SHORT-NAME>WarningRequest</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Request to activate collision warning against forward object</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="7DBCA703-13BB-43C7-80D0-6347B276D031">
+              <SHORT-NAME>ObjectType</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">The object type that is source of the request to activate collision warning against forward object</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_CaLongObjectType</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="DB852435-339B-44E7-BF18-280792C73261">
+              <SHORT-NAME>BrakeGainEnabled</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Request to indicate that the current brake pressure should be amplified</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="00D13C7B-A186-4704-8B28-11831CE61315">
+              <SHORT-NAME>BrakeGainRequest</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Factor to increase brake pressure by</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/float32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="3221363B-BAC9-4D73-AA0F-BEBC8E0D638C">
+              <SHORT-NAME>BrakeGainMaxDeceleration</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Brake gain amplification should not cause the deceleration to be more negative than this value</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/float32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="94F16AC8-1D53-4111-8A22-6562D243409E">
+              <SHORT-NAME>TimeToCollision</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Time to collision for primary target. Set to 100s if no value is available.</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/float32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="25302E82-8BD4-4047-B1A6-BE014161A3D8">
+              <SHORT-NAME>ObjectId</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Id of selected object for collision warning. Note that a value of 0 indicates 'no object'.</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="C1BF35FA-9B4D-4C84-BA46-47B719328F6E">
+              <SHORT-NAME>ObjectPosition</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Position of selected object for collision warning, expressed in ARAC.</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_Coord2F32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="939820C0-6A9E-4AB4-A5B5-98E4CB1B6D1B">
+          <SHORT-NAME>As_CollisionMitigationBrakeRequest</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS />
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="9DDEC13B-BAAA-4FE2-9705-C37B06B9CDCC">
+              <SHORT-NAME>DecelerationEnabled</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Enable deceleration request</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="79202E11-F28F-4E59-87C1-2951764911BE">
+              <SHORT-NAME>DecelerationRequest</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Deceleration requested</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/float32</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="7C0D1416-6AF8-497B-B17D-649353FB2D9F">
+              <SHORT-NAME>StandStillRequest</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Request to hold the vehicle stationary until driver presses the acceleration pedal</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/boolean</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="872B434E-0FEC-472F-B1A0-8E9103443C65">
+          <SHORT-NAME>As_CollisionMitigationSystem</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS />
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="7A2450F9-8D27-40B6-A059-135925C6A256">
+              <SHORT-NAME>ForwardWarningControl</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Examples of driver alerts are audio, visual and haptic (brake pulse) warning</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_CollisionForwardWarningControl</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="96D3D34E-912C-4B61-8518-9EF959D851FB">
+              <SHORT-NAME>ThreatInformation</SHORT-NAME>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_CollisionMitigationThreatInformation</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="AF4E992E-17CE-45AD-BA98-0668492114FD">
+          <SHORT-NAME>As_CollisionMitigationThreatInformation</SHORT-NAME>
+          <CATEGORY>STRUCTURE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS />
+          </SW-DATA-DEF-PROPS>
+          <SUB-ELEMENTS>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="E1F3DC7F-CCBC-4B27-9B5F-8D3747211012">
+              <SHORT-NAME>BeltActivationLevel</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">A request to activate the electric belts</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_BeltActivationLevel</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="4D88015E-6DE2-4611-905D-27A70B7714A5">
+              <SHORT-NAME>CollisionThreatLevel</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">The current collision threat level. Used by vehicle mode management to reduce electrical loads in the car and thus increase system voltage.</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_CollisionThreatLevel</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+            <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="6BF18E84-9002-439C-A8F1-907017314305">
+              <SHORT-NAME>DisplayPostEventMessage</SHORT-NAME>
+              <DESC>
+                <L-2 L="FOR-ALL">Request to driver information system to display post event message</L-2>
+              </DESC>
+              <CATEGORY>TYPE_REFERENCE</CATEGORY>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_DisplayPostEvent</IMPLEMENTATION-DATA-TYPE-REF>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+            </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+          </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="5925D5D1-029D-4F8A-BD45-A59742CD32ED">
+          <SHORT-NAME>As_CollisionThreatLevel</SHORT-NAME>
+          <CATEGORY>TYPE_REFERENCE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/ASP_DataTypes/CompuMethods/As_CollisionThreatLevel_CompuMethod</COMPU-METHOD-REF>
+                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/sint32</IMPLEMENTATION-DATA-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
+        </IMPLEMENTATION-DATA-TYPE>
         <IMPLEMENTATION-DATA-TYPE UUID="4B4042B7-302D-44FF-8D29-44AC58EB0322">
           <SHORT-NAME>As_Coord2F32</SHORT-NAME>
           <CATEGORY>STRUCTURE</CATEGORY>
@@ -39,6 +336,18 @@
               </SW-DATA-DEF-PROPS>
             </IMPLEMENTATION-DATA-TYPE-ELEMENT>
           </SUB-ELEMENTS>
+        </IMPLEMENTATION-DATA-TYPE>
+        <IMPLEMENTATION-DATA-TYPE UUID="754F727B-91BF-4536-B90B-898F4FA63969">
+          <SHORT-NAME>As_DisplayPostEvent</SHORT-NAME>
+          <CATEGORY>TYPE_REFERENCE</CATEGORY>
+          <SW-DATA-DEF-PROPS>
+            <SW-DATA-DEF-PROPS-VARIANTS>
+              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                <COMPU-METHOD-REF DEST="COMPU-METHOD">/ASP_DataTypes/CompuMethods/As_DisplayPostEvent_CompuMethod</COMPU-METHOD-REF>
+                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/sint32</IMPLEMENTATION-DATA-TYPE-REF>
+              </SW-DATA-DEF-PROPS-CONDITIONAL>
+            </SW-DATA-DEF-PROPS-VARIANTS>
+          </SW-DATA-DEF-PROPS>
         </IMPLEMENTATION-DATA-TYPE>
         <IMPLEMENTATION-DATA-TYPE UUID="C8682AED-552F-44D1-AEF1-A3EC8F7967AC">
           <SHORT-NAME>boolean</SHORT-NAME>
@@ -103,6 +412,185 @@ for float32.</L-2>
         <AR-PACKAGE>
           <SHORT-NAME>CompuMethods</SHORT-NAME>
           <ELEMENTS>
+            <COMPU-METHOD UUID="0481528F-2853-429F-B894-B7047C2E55CA">
+              <SHORT-NAME>As_BeltActivationLevel_CompuMethod</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_NoActivation</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_ActivationLow</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_ActivationHigh</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_NotInUse</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="7B5916AE-3E60-44CB-A873-0D630873A080">
+              <SHORT-NAME>As_CaLongObjectType_CompuMethod</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_Unknown</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_Car</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_Motorcycle</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_Truck</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_Pedestrian</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_Bicycle</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">6</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">6</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_GeneralObject</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="6112B3E3-AE22-41EE-B83B-2F73490D716A">
+              <SHORT-NAME>As_CollisionThreatLevel_CompuMethod</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_Unknown</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_ThreatLow</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_ThreatMedium</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_ThreatHigh</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
+            <COMPU-METHOD UUID="D645A16A-A0A4-455A-B4E3-D3FCE9ECCA4B">
+              <SHORT-NAME>As_DisplayPostEvent_CompuMethod</SHORT-NAME>
+              <CATEGORY>TEXTTABLE</CATEGORY>
+              <COMPU-INTERNAL-TO-PHYS>
+                <COMPU-SCALES>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_NoMessage</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_InterventionLongitudinal</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_InterventionLateral</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_InterventionLongitudinalAndInterventionLateral</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_BrakePulse</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                  <COMPU-SCALE>
+                    <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                    <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                    <COMPU-CONST>
+                      <VT>As_CriteriaBrakeMessage</VT>
+                    </COMPU-CONST>
+                  </COMPU-SCALE>
+                </COMPU-SCALES>
+              </COMPU-INTERNAL-TO-PHYS>
+            </COMPU-METHOD>
             <COMPU-METHOD UUID="1F89FDDF-79AA-495B-9F59-1CA1D4F0289A">
               <SHORT-NAME>boolean_CompuMethod</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
@@ -159,42 +647,95 @@ for float32.</L-2>
       </AR-PACKAGES>
     </AR-PACKAGE>
     <AR-PACKAGE>
+      <SHORT-NAME>ASP_PortInterfaces</SHORT-NAME>
+      <ELEMENTS>
+        <SENDER-RECEIVER-INTERFACE UUID="30F7F853-099F-43C9-8C2B-F43DC9EB10E1">
+          <SHORT-NAME>CollisionMitigationBrakeRequestInterface</SHORT-NAME>
+          <IS-SERVICE>false</IS-SERVICE>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="1C3FCECA-E3EF-4246-94C8-15E01173348B">
+              <SHORT-NAME>Element</SHORT-NAME>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+                    <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_CollisionMitigationBrakeRequest</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+          <INVALIDATION-POLICYS>
+            <INVALIDATION-POLICY>
+              <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/CollisionMitigationBrakeRequestInterface/Element</DATA-ELEMENT-REF>
+              <HANDLE-INVALID>DONT-INVALIDATE</HANDLE-INVALID>
+            </INVALIDATION-POLICY>
+          </INVALIDATION-POLICYS>
+        </SENDER-RECEIVER-INTERFACE>
+        <SENDER-RECEIVER-INTERFACE UUID="625A6E14-0436-4A69-A458-DEE1E2A59977">
+          <SHORT-NAME>CollisionMitigationSystemInterface</SHORT-NAME>
+          <IS-SERVICE>false</IS-SERVICE>
+          <DATA-ELEMENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="AC2B7880-E7AE-454D-A833-403B7471B604">
+              <SHORT-NAME>Element</SHORT-NAME>
+              <SW-DATA-DEF-PROPS>
+                <SW-DATA-DEF-PROPS-VARIANTS>
+                  <SW-DATA-DEF-PROPS-CONDITIONAL>
+                    <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+                    <SW-IMPL-POLICY>STANDARD</SW-IMPL-POLICY>
+                  </SW-DATA-DEF-PROPS-CONDITIONAL>
+                </SW-DATA-DEF-PROPS-VARIANTS>
+              </SW-DATA-DEF-PROPS>
+              <TYPE-TREF DEST="IMPLEMENTATION-DATA-TYPE">/ASP_DataTypes/As_CollisionMitigationSystem</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </DATA-ELEMENTS>
+          <INVALIDATION-POLICYS>
+            <INVALIDATION-POLICY>
+              <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/CollisionMitigationSystemInterface/Element</DATA-ELEMENT-REF>
+              <HANDLE-INVALID>DONT-INVALIDATE</HANDLE-INVALID>
+            </INVALIDATION-POLICY>
+          </INVALIDATION-POLICYS>
+        </SENDER-RECEIVER-INTERFACE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
       <SHORT-NAME>AUTOSAR_Platform</SHORT-NAME>
       <AR-PACKAGES>
         <AR-PACKAGE>
           <SHORT-NAME>BaseTypes</SHORT-NAME>
           <ELEMENTS>
-            <SW-BASE-TYPE UUID="64efdeae-7132-47aa-a552-267f40879a9a">
+            <SW-BASE-TYPE UUID="31bc6f1f-a1c3-4acc-81c8-02affe9a216b">
               <SHORT-NAME>boolean</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>BOOLEAN</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="3475ddb0-0f25-4e95-a8a2-f68ae496b1f8">
+            <SW-BASE-TYPE UUID="72d8ffba-3666-4875-9033-bbf9eaf9e128">
               <SHORT-NAME>float32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>IEEE754</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="73c1ca26-cd7d-4772-ada2-aa92bc2ecef0">
+            <SW-BASE-TYPE UUID="65c5ffe7-2a02-4341-8621-57b267783249">
               <SHORT-NAME>sint16</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>16</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="8a45fb39-c755-4a4b-893f-73cb15ceeb91">
+            <SW-BASE-TYPE UUID="ab98e8a1-4fb2-41c8-9e58-cb617a4c754c">
               <SHORT-NAME>sint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>2C</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="c96b216f-1d89-46a1-a584-05519dbbc0db">
+            <SW-BASE-TYPE UUID="1be85bfb-5b0b-4427-b8f2-226ef9f09bf9">
               <SHORT-NAME>uint32</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>32</BASE-TYPE-SIZE>
               <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
             </SW-BASE-TYPE>
-            <SW-BASE-TYPE UUID="78f0a397-d1c6-4310-ae99-e43a4c37244f">
+            <SW-BASE-TYPE UUID="1dee2a18-24af-40d0-810b-caf6644dcbe8">
               <SHORT-NAME>uint8</SHORT-NAME>
               <CATEGORY>FIXED_LENGTH</CATEGORY>
               <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
@@ -205,7 +746,7 @@ for float32.</L-2>
         <AR-PACKAGE>
           <SHORT-NAME>CompuMethods</SHORT-NAME>
           <ELEMENTS>
-            <COMPU-METHOD UUID="5970b4d2-557e-40b8-a7ab-780427b9e42e">
+            <COMPU-METHOD UUID="7d2256f8-78e4-4cf4-b7ab-0f7474b53762">
               <SHORT-NAME>boolean_CompuMethod</SHORT-NAME>
               <CATEGORY>TEXTTABLE</CATEGORY>
               <COMPU-INTERNAL-TO-PHYS>
@@ -234,7 +775,7 @@ for float32.</L-2>
         <AR-PACKAGE>
           <SHORT-NAME>DataConstrs</SHORT-NAME>
           <ELEMENTS>
-            <DATA-CONSTR UUID="02085e67-0fa1-4996-9df8-0851b79f6ab0">
+            <DATA-CONSTR UUID="db177f2d-1702-432c-8c8e-5fcee8501e01">
               <SHORT-NAME>boolean_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -245,7 +786,7 @@ for float32.</L-2>
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="f388c02a-93f3-466a-a6c0-d9e2150d11d2">
+            <DATA-CONSTR UUID="c160fe72-c246-4557-9a50-3fecf917322e">
               <SHORT-NAME>float32_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -256,7 +797,7 @@ for float32.</L-2>
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="1e8773d4-c2c2-41d9-b53f-17692082f572">
+            <DATA-CONSTR UUID="d7487361-a1cc-4d03-a595-556a17ada24f">
               <SHORT-NAME>sint16_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -267,7 +808,7 @@ for float32.</L-2>
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="1c69c646-7192-41d9-9d8c-115fcc691d96">
+            <DATA-CONSTR UUID="0f02031d-3de3-49e2-8f4d-534787ea9795">
               <SHORT-NAME>sint32_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -278,7 +819,7 @@ for float32.</L-2>
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="9ec57788-7ba4-4646-b189-66fe17413680">
+            <DATA-CONSTR UUID="b1541c4f-00c5-4ee0-bea0-fa7aab456354">
               <SHORT-NAME>uint32_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -289,7 +830,7 @@ for float32.</L-2>
                 </DATA-CONSTR-RULE>
               </DATA-CONSTR-RULES>
             </DATA-CONSTR>
-            <DATA-CONSTR UUID="c8a742f6-ab82-479e-8333-2b012a8c16e8">
+            <DATA-CONSTR UUID="3544d46e-66a3-4a13-a487-92f50e9a23c3">
               <SHORT-NAME>uint8_DataConstr</SHORT-NAME>
               <DATA-CONSTR-RULES>
                 <DATA-CONSTR-RULE>
@@ -305,7 +846,7 @@ for float32.</L-2>
         <AR-PACKAGE>
           <SHORT-NAME>ImplementationDataTypes</SHORT-NAME>
           <ELEMENTS>
-            <IMPLEMENTATION-DATA-TYPE UUID="22fc361a-dd09-476d-898a-dddbae693105">
+            <IMPLEMENTATION-DATA-TYPE UUID="7a0ad975-7589-4b29-ad8e-6d8a876f024c">
               <SHORT-NAME>boolean</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">boolean has the value space required to support the mathematical concept of 
@@ -324,7 +865,7 @@ binary-valued logic: {true, false}.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="767aa55a-811d-49b0-be99-b09121e8d959">
+            <IMPLEMENTATION-DATA-TYPE UUID="9c499066-c48d-47e7-9e3b-282269981860">
               <SHORT-NAME>float32</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">float32 corresponds to the IEEE single-precision 32-bit floating point type
@@ -363,7 +904,7 @@ for float32.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="ce4fb6e7-ebf7-4fa5-9497-37b6ebe521e4">
+            <IMPLEMENTATION-DATA-TYPE UUID="a4b8ce45-a6ab-4d4b-9bd8-447556405ec3">
               <SHORT-NAME>sint16</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">SInt16 represents integers with a minimum value of -32768 and a maximum value 
@@ -386,7 +927,7 @@ For example: -1, 0, -12678, +10000, 2500</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="85cc336c-5266-4bad-b89e-8f3f759d3076">
+            <IMPLEMENTATION-DATA-TYPE UUID="10319d46-a28e-43b0-a510-b041df63f5e9">
               <SHORT-NAME>sint32</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">sint32 represents integers with a minimum value of -2147483648 and a maximum 
@@ -409,7 +950,7 @@ For example: -1, 0, -12688778, +10000, 250098675.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="d64714ba-acb0-443e-b0ad-ab133475377c">
+            <IMPLEMENTATION-DATA-TYPE UUID="505a5811-0f8f-4b64-9576-0c215b2fe903">
               <SHORT-NAME>uint32</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">uint32 represents integers with a minimum value of 0 and a maximum value 
@@ -431,7 +972,7 @@ For example: 1, 0, 12234567, 104400.</L-2>
               </SW-DATA-DEF-PROPS>
               <TYPE-EMITTER>Platform_Type</TYPE-EMITTER>
             </IMPLEMENTATION-DATA-TYPE>
-            <IMPLEMENTATION-DATA-TYPE UUID="372df4e7-5708-44fc-bea8-e7b316eda802">
+            <IMPLEMENTATION-DATA-TYPE UUID="d7133812-e1aa-419f-9bd3-5e632aa2be54">
               <SHORT-NAME>uint8</SHORT-NAME>
               <DESC>
                 <L-2 L="FOR-ALL">uint8 represents integers with a minimum value of 0 and a maximum value of 255.
@@ -557,6 +1098,38 @@ For example: 1, 0, 126, +10.</L-2>
                       </PROVIDED-COM-SPECS>
                       <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/PortInterfaces/IF_HFA_OUTPUTS</PROVIDED-INTERFACE-TREF>
                     </P-PORT-PROTOTYPE>
+                    <R-PORT-PROTOTYPE UUID="9025F9E5-7915-4160-8A28-FFE21EC6825C">
+                      <SHORT-NAME>CollisionMitigationBrakeRequestInterface</SHORT-NAME>
+                      <REQUIRED-COM-SPECS>
+                        <NONQUEUED-RECEIVER-COM-SPEC>
+                          <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/CollisionMitigationBrakeRequestInterface/Element</DATA-ELEMENT-REF>
+                          <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                          <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                          <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                          <FILTER>
+                            <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                          </FILTER>
+                          <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                        </NONQUEUED-RECEIVER-COM-SPEC>
+                      </REQUIRED-COM-SPECS>
+                      <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ASP_PortInterfaces/CollisionMitigationBrakeRequestInterface</REQUIRED-INTERFACE-TREF>
+                    </R-PORT-PROTOTYPE>
+                    <R-PORT-PROTOTYPE UUID="B7482551-2C4C-41D0-B633-1E5AB155A1F0">
+                      <SHORT-NAME>CollisionMitigationSystemInterface</SHORT-NAME>
+                      <REQUIRED-COM-SPECS>
+                        <NONQUEUED-RECEIVER-COM-SPEC>
+                          <DATA-ELEMENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/CollisionMitigationSystemInterface/Element</DATA-ELEMENT-REF>
+                          <USES-END-TO-END-PROTECTION>false</USES-END-TO-END-PROTECTION>
+                          <ALIVE-TIMEOUT>0</ALIVE-TIMEOUT>
+                          <ENABLE-UPDATE>false</ENABLE-UPDATE>
+                          <FILTER>
+                            <DATA-FILTER-TYPE>ALWAYS</DATA-FILTER-TYPE>
+                          </FILTER>
+                          <HANDLE-NEVER-RECEIVED>false</HANDLE-NEVER-RECEIVED>
+                        </NONQUEUED-RECEIVER-COM-SPEC>
+                      </REQUIRED-COM-SPECS>
+                      <REQUIRED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ASP_PortInterfaces/CollisionMitigationSystemInterface</REQUIRED-INTERFACE-TREF>
+                    </R-PORT-PROTOTYPE>
                     <R-PORT-PROTOTYPE UUID="797E2D64-0A42-419F-9E07-4E9D52F9A60C">
                       <SHORT-NAME>P_ASP_CollisionMitigationBrakeRequest</SHORT-NAME>
                       <REQUIRED-COM-SPECS>
@@ -773,6 +1346,10 @@ For example: 1, 0, 126, +10.</L-2>
                                   <SHORT-LABEL>HkmcVehInput_HBA_NValueSet</SHORT-LABEL>
                                   <VALUE>0</VALUE>
                                 </NUMERICAL-VALUE-SPECIFICATION>
+                                <NUMERICAL-VALUE-SPECIFICATION>
+                                  <SHORT-LABEL>HkmcVehicleInput_AdasISLASetReq</SHORT-LABEL>
+                                  <VALUE>0</VALUE>
+                                </NUMERICAL-VALUE-SPECIFICATION>
                               </FIELDS>
                             </RECORD-VALUE-SPECIFICATION>
                           </INIT-VALUE>
@@ -785,6 +1362,10 @@ For example: 1, 0, 126, +10.</L-2>
                     <SWC-INTERNAL-BEHAVIOR UUID="45CEE8A8-10C5-4999-852B-1B5290A3DA39">
                       <SHORT-NAME>HkmcFcaAdap_InternalBehavior</SHORT-NAME>
                       <EVENTS>
+                        <INIT-EVENT UUID="3816D09E-2B0B-460C-A4CD-BFB0996ECCDE">
+                          <SHORT-NAME>HkmcFcaAdap_InitEvent</SHORT-NAME>
+                          <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/HkmcFcaAdap_InternalBehavior/HkmcFcaAdap_Init</START-ON-EVENT-REF>
+                        </INIT-EVENT>
                         <TIMING-EVENT UUID="319A77CF-F317-4996-BE8A-DB18575DBDA4">
                           <SHORT-NAME>HkmcFcaAdap_TE</SHORT-NAME>
                           <START-ON-EVENT-REF DEST="RUNNABLE-ENTITY">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/HkmcFcaAdap_InternalBehavior/HkmcFcaAdapStep</START-ON-EVENT-REF>
@@ -792,35 +1373,79 @@ For example: 1, 0, 126, +10.</L-2>
                         </TIMING-EVENT>
                       </EVENTS>
                       <RUNNABLES>
+                        <RUNNABLE-ENTITY UUID="6E3BC93D-D734-447F-9AE5-15B9210D841B">
+                          <SHORT-NAME>HkmcFcaAdap_Init</SHORT-NAME>
+                          <ADMIN-DATA>
+                            <SDGS>
+                              <SDG GID="edve:RunnableKind">
+                                <SD>InitRunnable</SD>
+                              </SDG>
+                            </SDGS>
+                          </ADMIN-DATA>
+                          <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
+                          <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
+                          <DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                            <VARIABLE-ACCESS>
+                              <SHORT-NAME>REC_CollisionMitigationBrakeRequestInterface_Element</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/CollisionMitigationBrakeRequestInterface</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/CollisionMitigationBrakeRequestInterface/Element</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS>
+                              <SHORT-NAME>REC_CollisionMitigationSystemInterface_Element</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/CollisionMitigationSystemInterface</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/CollisionMitigationSystemInterface/Element</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                            <VARIABLE-ACCESS>
+                              <SHORT-NAME>REC_P_HVIA_CLU_DE_HVIA_CLU</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/P_HVIA_CLU</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/PortInterfaces/IF_HVIA_CLU/DE_HVIA_CLU</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                          </DATA-RECEIVE-POINT-BY-ARGUMENTS>
+                          <DATA-SEND-POINTS>
+                            <VARIABLE-ACCESS>
+                              <SHORT-NAME>SEND_P_HFA_OUTPUTS_DE_HFA_OUTPUTS</SHORT-NAME>
+                              <ACCESSED-VARIABLE>
+                                <AUTOSAR-VARIABLE-IREF>
+                                  <PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/P_HFA_OUTPUTS</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/PortInterfaces/IF_HFA_OUTPUTS/DE_HFA_OUTPUTS</TARGET-DATA-PROTOTYPE-REF>
+                                </AUTOSAR-VARIABLE-IREF>
+                              </ACCESSED-VARIABLE>
+                            </VARIABLE-ACCESS>
+                          </DATA-SEND-POINTS>
+                          <SYMBOL>HkmcFcaAdap_Init</SYMBOL>
+                        </RUNNABLE-ENTITY>
                         <RUNNABLE-ENTITY UUID="2E07739D-DCD8-4881-9EAE-608658591F1C">
                           <SHORT-NAME>HkmcFcaAdapStep</SHORT-NAME>
                           <MINIMUM-START-INTERVAL>0</MINIMUM-START-INTERVAL>
                           <CAN-BE-INVOKED-CONCURRENTLY>false</CAN-BE-INVOKED-CONCURRENTLY>
                           <DATA-RECEIVE-POINT-BY-ARGUMENTS>
                             <VARIABLE-ACCESS>
-                              <SHORT-NAME>REC_P_ASP_CollisionMitigationBrakeRequest_DE_ASP_CollisionMitigationBrakeRequest</SHORT-NAME>
+                              <SHORT-NAME>REC_CollisionMitigationBrakeRequestInterface_Element</SHORT-NAME>
                               <ACCESSED-VARIABLE>
                                 <AUTOSAR-VARIABLE-IREF>
-                                  <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/P_ASP_CollisionMitigationBrakeRequest</PORT-PROTOTYPE-REF>
-                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/PortInterfaces/IF_ASP_CollisionMitigationBrakeRequest/DE_ASP_CollisionMitigationBrakeRequest</TARGET-DATA-PROTOTYPE-REF>
+                                  <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/CollisionMitigationBrakeRequestInterface</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/CollisionMitigationBrakeRequestInterface/Element</TARGET-DATA-PROTOTYPE-REF>
                                 </AUTOSAR-VARIABLE-IREF>
                               </ACCESSED-VARIABLE>
                             </VARIABLE-ACCESS>
                             <VARIABLE-ACCESS>
-                              <SHORT-NAME>REC_P_ASP_CollisionMitigationSystem_DE_ASP_CollisionMitigationSystem</SHORT-NAME>
+                              <SHORT-NAME>REC_CollisionMitigationSystemInterface_Element</SHORT-NAME>
                               <ACCESSED-VARIABLE>
                                 <AUTOSAR-VARIABLE-IREF>
-                                  <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/P_ASP_CollisionMitigationSystem</PORT-PROTOTYPE-REF>
-                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/PortInterfaces/IF_ASP_CollisionMitigationSystem/DE_ASP_CollisionMitigationSystem</TARGET-DATA-PROTOTYPE-REF>
-                                </AUTOSAR-VARIABLE-IREF>
-                              </ACCESSED-VARIABLE>
-                            </VARIABLE-ACCESS>
-                            <VARIABLE-ACCESS>
-                              <SHORT-NAME>REC_P_ASP_EgoMotionOutput_DE_ASP_EgoMotionOutput</SHORT-NAME>
-                              <ACCESSED-VARIABLE>
-                                <AUTOSAR-VARIABLE-IREF>
-                                  <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/P_ASP_EgoMotionOutput</PORT-PROTOTYPE-REF>
-                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/PortInterfaces/IF_ASP_EgoMotionOutput/DE_ASP_EgoMotionOutput</TARGET-DATA-PROTOTYPE-REF>
+                                  <PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/HkmcFcaAdap/CollisionMitigationSystemInterface</PORT-PROTOTYPE-REF>
+                                  <TARGET-DATA-PROTOTYPE-REF DEST="VARIABLE-DATA-PROTOTYPE">/ASP_PortInterfaces/CollisionMitigationSystemInterface/Element</TARGET-DATA-PROTOTYPE-REF>
                                 </AUTOSAR-VARIABLE-IREF>
                               </ACCESSED-VARIABLE>
                             </VARIABLE-ACCESS>
@@ -995,6 +1620,42 @@ For example: 1, 0, 126, +10.</L-2>
                         </COMPU-SCALES>
                       </COMPU-INTERNAL-TO-PHYS>
                     </COMPU-METHOD>
+                    <COMPU-METHOD UUID="8EB27338-AD55-4722-BC44-04FAC5247CA4">
+                      <SHORT-NAME>CM_FcaAdap_FullActvReq</SHORT-NAME>
+                      <CATEGORY>TEXTTABLE</CATEGORY>
+                      <COMPU-INTERNAL-TO-PHYS>
+                        <COMPU-SCALES>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx0_FullAR_No_Full_act</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx1_FullAR_Full_act</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx2_FullAR_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx3_FullAR_Error_Indicator</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                        </COMPU-SCALES>
+                      </COMPU-INTERNAL-TO-PHYS>
+                    </COMPU-METHOD>
                     <COMPU-METHOD UUID="B1C40A8C-9729-4871-AE6B-16D303778918">
                       <SHORT-NAME>CM_FcaAdap_ObjectType</SHORT-NAME>
                       <CATEGORY>TEXTTABLE</CATEGORY>
@@ -1113,6 +1774,34 @@ For example: 1, 0, 126, +10.</L-2>
                               <VT>Cx7_OnOffES_Invalid</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">8</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">8</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx8_OnOffES_FCA_St_Not_Appl</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">9</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">9</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx9_OnOffES_FCA_St_Sys_Off</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">16</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">16</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx10_OnOffES_FCA_St_Sys_On</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">17</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">17</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx11_OnOffES_FCA_St_Invalid</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
                         </COMPU-SCALES>
                       </COMPU-INTERNAL-TO-PHYS>
                     </COMPU-METHOD>
@@ -1168,21 +1857,21 @@ For example: 1, 0, 126, +10.</L-2>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx1_LongV_Off</VT>
+                              <VT>Cx1_LongV_Late</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx2_LongV_Warning</VT>
+                              <VT>Cx2_LongV_Normal</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx3_LongV_Assist</VT>
+                              <VT>Cx3_LongV_Early</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
@@ -1296,7 +1985,7 @@ For example: 1, 0, 126, +10.</L-2>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx1_SysFlrS_Temp_Unavailable_by_Camera</VT>
+                              <VT>Cx1_SysFlrS_Temp_Unavailable_by_Camera_Fusion</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
@@ -1339,6 +2028,27 @@ For example: 1, 0, 126, +10.</L-2>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">7</UPPER-LIMIT>
                             <COMPU-CONST>
                               <VT>Cx7_SysFlrS_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">8</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">8</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx8_SysFlrS_Temp_Unavailable_by_Camera_Fusion_ADAS</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">9</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">9</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx9_SysFlrS_Temp_Unavailable_by_Radar_Fusion</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">16</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">16</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx10_SysFlrS_Reserved</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                         </COMPU-SCALES>
@@ -1432,21 +2142,49 @@ For example: 1, 0, 126, +10.</L-2>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx1_WrngSS_Warning_Level_1</VT>
+                              <VT>Cx1_WrngSS_Warning_1</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx2_WrngSS_Warning_Level_2</VT>
+                              <VT>Cx2_WrngSS_Warning_2</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx3_WrngSS_Warning_Level_3</VT>
+                              <VT>Cx3_WrngSS_Warning_3</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx4_WrngSS_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx5_WrngSS_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">6</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">6</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx6_WrngSS_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">7</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">7</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx7_WrngSS_Error_Indicator</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                         </COMPU-SCALES>
@@ -1849,7 +2587,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="9C5BE710-36B9-45F4-A93E-5AEBB16F5FD0">
-                      <SHORT-NAME>BeltActivationLevel_T</SHORT-NAME>
+                      <SHORT-NAME>BeltActivationLevel</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -1863,7 +2601,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="7B3F5C04-E7D7-4B7E-9D7D-7E1DC7F54DA4">
-                      <SHORT-NAME>CollisionThreatLevel_T</SHORT-NAME>
+                      <SHORT-NAME>CollisionThreatLevel</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -1877,7 +2615,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="246D1D5C-6D9B-42CD-B4B3-FC2CCAC0C541">
-                      <SHORT-NAME>DisplayPostEventMessage_T</SHORT-NAME>
+                      <SHORT-NAME>DisplayPostEventMessage</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -1891,7 +2629,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="B11AEAE9-C94D-4A41-AEE7-C4293016EC8B">
-                      <SHORT-NAME>FcaAdap_CollisionThreatLevel_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_CollisionThreatLevel</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -1905,7 +2643,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="F52ED1B5-F694-4080-802C-D072C1FC7BEA">
-                      <SHORT-NAME>FcaAdap_DclReqVal_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_DclReqVal</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -1918,7 +2656,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="D70E2B53-0B21-47AF-9271-E450FFB8001F">
-                      <SHORT-NAME>FcaAdap_DecelerationRequest_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_DecelerationRequest</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -1931,20 +2669,21 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="226212EB-4939-4E21-87E1-07EEB0C1160E">
-                      <SHORT-NAME>FcaAdap_FullActvReq_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_FullActvReq</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
                           <SW-DATA-DEF-PROPS-CONDITIONAL>
                             <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataTypes/BaseTypes/uint8</BASE-TYPE-REF>
                             <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcFcaAdap/CompuMethods/CM_FcaAdap_FullActvReq</COMPU-METHOD-REF>
                           </SW-DATA-DEF-PROPS-CONDITIONAL>
                         </SW-DATA-DEF-PROPS-VARIANTS>
                       </SW-DATA-DEF-PROPS>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="B69A8FE7-6C20-4DB5-8C87-50D8A84DA6B3">
-                      <SHORT-NAME>FcaAdap_LongitudinalVelocity_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_LongitudinalVelocity</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -1957,7 +2696,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="12E5728F-EC39-4F58-BF70-54E7020FCA4B">
-                      <SHORT-NAME>FcaAdap_ObjectType_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_ObjectType</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -1971,7 +2710,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="05DE9176-A639-4576-A009-C576D5D5749E">
-                      <SHORT-NAME>FcaAdap_OnOffEquipSta_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_OnOffEquipSta</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -1985,7 +2724,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="2AFE62DB-5238-4D06-84E3-F12DD79CCA65">
-                      <SHORT-NAME>FcaAdap_PrefillActvReq_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_PrefillActvReq</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -1999,7 +2738,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="0CDB5447-6536-4A94-88B4-A235DA10E455">
-                      <SHORT-NAME>FcaAdap_RelVel_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_RelVel</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -2012,7 +2751,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="0EA87EB7-76F7-48B0-942A-CC6B2272D08E">
-                      <SHORT-NAME>FcaAdap_SnstvtyModRetVal_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_SnstvtyModRetVal</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -2026,7 +2765,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="D41403ED-0157-46AF-9D4D-C293630FB309">
-                      <SHORT-NAME>FcaAdap_StbltActvReq_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_StbltActvReq</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -2040,7 +2779,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="AE47A834-2F6F-42DF-88BF-55E0292DE9F7">
-                      <SHORT-NAME>FcaAdap_SysFlrSta_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_SysFlrSta</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -2054,7 +2793,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="C77C1FB3-5EDF-452F-AD86-DCBCF40200EF">
-                      <SHORT-NAME>FcaAdap_TimetoCllsn_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_TimetoCllsn</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -2067,7 +2806,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="879ED7B1-04CB-4043-9962-27D019912EDB">
-                      <SHORT-NAME>FcaAdap_VehStpReq_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_VehStpReq</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -2081,7 +2820,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="B7EDD884-8F4F-4DEC-B473-F3B3CE26EE74">
-                      <SHORT-NAME>FcaAdap_WarningRequest_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_WarningRequest</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -2094,7 +2833,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="07DF9F0E-8B27-4585-9A21-B1C0E83E6BFB">
-                      <SHORT-NAME>FcaAdap_WrngLvlSta_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_WrngLvlSta</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -2108,7 +2847,7 @@ For example: 1, 0, 126, +10.</L-2>
                       <TYPE-EMITTER>RTE</TYPE-EMITTER>
                     </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="7B849306-D23D-4C26-8CBB-C5B12A41FE71">
-                      <SHORT-NAME>FcaAdap_WrngSndSta_T</SHORT-NAME>
+                      <SHORT-NAME>FcaAdap_WrngSndSta</SHORT-NAME>
                       <CATEGORY>VALUE</CATEGORY>
                       <SW-DATA-DEF-PROPS>
                         <SW-DATA-DEF-PROPS-VARIANTS>
@@ -2275,7 +3014,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_WrngLvlSta_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_WrngLvlSta</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2286,7 +3025,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_WrngSndSta_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_WrngSndSta</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2297,7 +3036,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_PrefillActvReq_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_PrefillActvReq</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2308,7 +3047,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_DclReqVal_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_DclReqVal</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2319,7 +3058,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_FullActvReq_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_FullActvReq</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2330,7 +3069,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_StbltActvReq_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_StbltActvReq</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2341,7 +3080,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_VehStpReq_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_VehStpReq</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2352,7 +3091,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_OnOffEquipSta_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_OnOffEquipSta</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2363,7 +3102,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_SysFlrSta_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_SysFlrSta</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2374,7 +3113,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_RelVel_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_RelVel</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2385,7 +3124,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_TimetoCllsn_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_TimetoCllsn</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2396,7 +3135,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_SnstvtyModRetVal_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_SnstvtyModRetVal</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2407,7 +3146,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_LongitudinalVelocity_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_LongitudinalVelocity</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2418,7 +3157,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_ObjectType_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_ObjectType</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2429,7 +3168,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_WarningRequest_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_WarningRequest</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2440,7 +3179,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_CollisionThreatLevel_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_CollisionThreatLevel</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2451,7 +3190,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_DecelerationRequest_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/FcaAdap_DecelerationRequest</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2486,7 +3225,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/BeltActivationLevel_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/BeltActivationLevel</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2500,7 +3239,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/CollisionThreatLevel_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/CollisionThreatLevel</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2514,7 +3253,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/DisplayPostEventMessage_T</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcFcaAdap/DataTypes/DisplayPostEventMessage</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2720,6 +3459,70 @@ For example: 1, 0, 126, +10.</L-2>
                         </COMPU-SCALES>
                       </COMPU-INTERNAL-TO-PHYS>
                     </COMPU-METHOD>
+                    <COMPU-METHOD UUID="7C604371-2F88-4231-A626-B46C23692B9E">
+                      <SHORT-NAME>CM_HkmcVehicleInput_AdasISLASetReq</SHORT-NAME>
+                      <CATEGORY>TEXTTABLE</CATEGORY>
+                      <COMPU-INTERNAL-TO-PHYS>
+                        <COMPU-SCALES>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">0</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">0</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx0_AdasSetReq_Default</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx1_AdasSetReq_Off</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx2_AdasSetReq_ISLW</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx3_AdasSetReq_ISLA</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">4</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">4</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx4_AdasSetReq_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">5</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">5</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx5_AdasSetReq_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">6</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">6</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx6_AdasSetReq_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">7</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">7</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx7_AdasSetReq_Invalid</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                        </COMPU-SCALES>
+                      </COMPU-INTERNAL-TO-PHYS>
+                    </COMPU-METHOD>
                     <COMPU-METHOD UUID="E809C10B-39AC-47B6-A20E-2DB70482CF23">
                       <SHORT-NAME>CM_HkmcVehicleInput_Fca1stWrngSetReq</SHORT-NAME>
                       <CATEGORY>TEXTTABLE</CATEGORY>
@@ -2736,21 +3539,21 @@ For example: 1, 0, 126, +10.</L-2>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx1_Fca1stWSR_LDW_Mode</VT>
+                              <VT>Cx1_Fca1stWSR_Late</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx2_Fca1stWSR_LKA_Mode</VT>
+                              <VT>Cx2_Fca1stWSR_Normal</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx3_Fca1stWSR_Reserved</VT>
+                              <VT>Cx3_Fca1stWSR_Early</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
@@ -2779,6 +3582,34 @@ For example: 1, 0, 126, +10.</L-2>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">7</UPPER-LIMIT>
                             <COMPU-CONST>
                               <VT>Cx7_Fca1stWSR_Invalid</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">8</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">8</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx8_Fca1stWSR_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">9</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">9</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx9_Fca1stWSR_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">16</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">16</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx10_Fca1stWSR_Reserved</VT>
+                            </COMPU-CONST>
+                          </COMPU-SCALE>
+                          <COMPU-SCALE>
+                            <LOWER-LIMIT INTERVAL-TYPE="CLOSED">17</LOWER-LIMIT>
+                            <UPPER-LIMIT INTERVAL-TYPE="CLOSED">17</UPPER-LIMIT>
+                            <COMPU-CONST>
+                              <VT>Cx11_Fca1stWSR_Reserved</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                         </COMPU-SCALES>
@@ -2814,7 +3645,7 @@ For example: 1, 0, 126, +10.</L-2>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">3</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">3</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx3_LkaModSR_ACTIVE_LKA</VT>
+                              <VT>Cx3_LkaModSR_Reserved</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
@@ -2900,14 +3731,14 @@ For example: 1, 0, 126, +10.</L-2>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">1</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">1</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx1_NVS_HBA_Off</VT>
+                              <VT>Cx1_NVS_HBA_Function_Off</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
                             <LOWER-LIMIT INTERVAL-TYPE="CLOSED">2</LOWER-LIMIT>
                             <UPPER-LIMIT INTERVAL-TYPE="CLOSED">2</UPPER-LIMIT>
                             <COMPU-CONST>
-                              <VT>Cx2_NVS_HBA_On</VT>
+                              <VT>Cx2_NVS_HBA_Funtion_On</VT>
                             </COMPU-CONST>
                           </COMPU-SCALE>
                           <COMPU-SCALE>
@@ -2925,6 +3756,90 @@ For example: 1, 0, 126, +10.</L-2>
                 <AR-PACKAGE>
                   <SHORT-NAME>DataTypes</SHORT-NAME>
                   <ELEMENTS>
+                    <IMPLEMENTATION-DATA-TYPE UUID="C90823D0-374A-4D11-A3E6-8C209FE3A4FA">
+                      <SHORT-NAME>HkmcVehicleInput_AdasFCASetReq</SHORT-NAME>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehicleInput_AdasFCASetReq</COMPU-METHOD-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-EMITTER>RTE</TYPE-EMITTER>
+                    </IMPLEMENTATION-DATA-TYPE>
+                    <IMPLEMENTATION-DATA-TYPE UUID="70D1BAEC-4EDC-4512-9B93-5D700024F7AE">
+                      <SHORT-NAME>HkmcVehicleInput_AdasISLASetReq</SHORT-NAME>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehicleInput_AdasISLASetReq</COMPU-METHOD-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-EMITTER>RTE</TYPE-EMITTER>
+                    </IMPLEMENTATION-DATA-TYPE>
+                    <IMPLEMENTATION-DATA-TYPE UUID="79CD1F25-3697-4CC8-892E-4ADB38E9DD4E">
+                      <SHORT-NAME>HkmcVehicleInput_Fca1stWrngSetReq</SHORT-NAME>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehicleInput_Fca1stWrngSetReq</COMPU-METHOD-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-EMITTER>RTE</TYPE-EMITTER>
+                    </IMPLEMENTATION-DATA-TYPE>
+                    <IMPLEMENTATION-DATA-TYPE UUID="B078398C-EA5F-40E4-89F4-31668B6F2237">
+                      <SHORT-NAME>HkmcVehicleInput_LkaModSetReq</SHORT-NAME>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehicleInput_LkaModSetReq</COMPU-METHOD-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-EMITTER>RTE</TYPE-EMITTER>
+                    </IMPLEMENTATION-DATA-TYPE>
+                    <IMPLEMENTATION-DATA-TYPE UUID="216EDD8B-F23D-49E5-B5BE-60D29F6AECAF">
+                      <SHORT-NAME>HkmcVehicleInput_SpdUnitTyp</SHORT-NAME>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehicleInput_SpdUnitTyp</COMPU-METHOD-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-EMITTER>RTE</TYPE-EMITTER>
+                    </IMPLEMENTATION-DATA-TYPE>
+                    <IMPLEMENTATION-DATA-TYPE UUID="F2AD4458-BDA5-4F2F-B752-64E970C55263">
+                      <SHORT-NAME>HkmcVehInput_HBA_NValueSet</SHORT-NAME>
+                      <CATEGORY>VALUE</CATEGORY>
+                      <SW-DATA-DEF-PROPS>
+                        <SW-DATA-DEF-PROPS-VARIANTS>
+                          <SW-DATA-DEF-PROPS-CONDITIONAL>
+                            <BASE-TYPE-REF DEST="SW-BASE-TYPE">/DataType/uint8</BASE-TYPE-REF>
+                            <SW-CALIBRATION-ACCESS>READ-ONLY</SW-CALIBRATION-ACCESS>
+                            <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehInput_HBA_NValueSet</COMPU-METHOD-REF>
+                          </SW-DATA-DEF-PROPS-CONDITIONAL>
+                        </SW-DATA-DEF-PROPS-VARIANTS>
+                      </SW-DATA-DEF-PROPS>
+                      <TYPE-EMITTER>RTE</TYPE-EMITTER>
+                    </IMPLEMENTATION-DATA-TYPE>
                     <IMPLEMENTATION-DATA-TYPE UUID="7696E149-F035-4491-AA43-1327BB94CBBA">
                       <SHORT-NAME>HVIA_CLU_T</SHORT-NAME>
                       <CATEGORY>STRUCTURE</CATEGORY>
@@ -2942,8 +3857,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehicleInput_SpdUnitTyp</COMPU-METHOD-REF>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/DataTypes/HkmcVehicleInput_SpdUnitTyp</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2954,8 +3868,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehicleInput_Fca1stWrngSetReq</COMPU-METHOD-REF>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/DataTypes/HkmcVehicleInput_Fca1stWrngSetReq</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2966,8 +3879,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehicleInput_AdasFCASetReq</COMPU-METHOD-REF>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/DataTypes/HkmcVehicleInput_AdasFCASetReq</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2978,8 +3890,7 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehicleInput_LkaModSetReq</COMPU-METHOD-REF>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/DataTypes/HkmcVehicleInput_LkaModSetReq</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -2990,8 +3901,18 @@ For example: 1, 0, 126, +10.</L-2>
                           <SW-DATA-DEF-PROPS>
                             <SW-DATA-DEF-PROPS-VARIANTS>
                               <SW-DATA-DEF-PROPS-CONDITIONAL>
-                                <COMPU-METHOD-REF DEST="COMPU-METHOD">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/CompuMethods/CM_HkmcVehInput_HBA_NValueSet</COMPU-METHOD-REF>
-                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/AUTOSAR_Platform/ImplementationDataTypes/uint8</IMPLEMENTATION-DATA-TYPE-REF>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/DataTypes/HkmcVehInput_HBA_NValueSet</IMPLEMENTATION-DATA-TYPE-REF>
+                              </SW-DATA-DEF-PROPS-CONDITIONAL>
+                            </SW-DATA-DEF-PROPS-VARIANTS>
+                          </SW-DATA-DEF-PROPS>
+                        </IMPLEMENTATION-DATA-TYPE-ELEMENT>
+                        <IMPLEMENTATION-DATA-TYPE-ELEMENT UUID="3600EAC7-BAEB-40CE-AFBA-9BD6484DC54C">
+                          <SHORT-NAME>HkmcVehicleInput_AdasISLASetReq</SHORT-NAME>
+                          <CATEGORY>TYPE_REFERENCE</CATEGORY>
+                          <SW-DATA-DEF-PROPS>
+                            <SW-DATA-DEF-PROPS-VARIANTS>
+                              <SW-DATA-DEF-PROPS-CONDITIONAL>
+                                <IMPLEMENTATION-DATA-TYPE-REF DEST="IMPLEMENTATION-DATA-TYPE">/ComponentTypes/HkmcComponent/HkmcVehicleInputAdap/DataTypes/HkmcVehicleInput_AdasISLASetReq</IMPLEMENTATION-DATA-TYPE-REF>
                               </SW-DATA-DEF-PROPS-CONDITIONAL>
                             </SW-DATA-DEF-PROPS-VARIANTS>
                           </SW-DATA-DEF-PROPS>
@@ -3006,6 +3927,18 @@ For example: 1, 0, 126, +10.</L-2>
           </AR-PACKAGES>
         </AR-PACKAGE>
       </AR-PACKAGES>
+    </AR-PACKAGE>
+    <AR-PACKAGE>
+      <SHORT-NAME>DataType</SHORT-NAME>
+      <ELEMENTS>
+        <SW-BASE-TYPE UUID="428CCEF4-F5FB-4599-A786-8F727542F343">
+          <SHORT-NAME>uint8</SHORT-NAME>
+          <CATEGORY>FIXED_LENGTH</CATEGORY>
+          <BASE-TYPE-SIZE>8</BASE-TYPE-SIZE>
+          <BASE-TYPE-ENCODING>NONE</BASE-TYPE-ENCODING>
+          <NATIVE-DECLARATION>uint8</NATIVE-DECLARATION>
+        </SW-BASE-TYPE>
+      </ELEMENTS>
     </AR-PACKAGE>
     <AR-PACKAGE>
       <SHORT-NAME>DataTypes</SHORT-NAME>
